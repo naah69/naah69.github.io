@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SonarQube on </title>
+    <link>https://www.naah69.com/tags/sonarqube/</link>
+    <description>Recent content in SonarQube on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 08 Dec 2019 19:22:05 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/sonarqube/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SonarQube7.7安装阿里JAVA规范插件P3C</title>
+      <link>https://www.naah69.com/post/2019-12-08-sonar-p3c/</link>
+      <pubDate>Sun, 08 Dec 2019 19:22:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-sonar-p3c/</guid>
+      <description>1 环境准备 这里特别说明！ 由于SonarQube各版本之间插件无法统通用，而官方并没有支持 所以本篇文章只保证SonarQube7.7-comm</description>
+    </item>
+    
+    <item>
+      <title>docker构建SonarQube进行代码质量检查</title>
+      <link>https://www.naah69.com/post/2019-12-08-sonarqube/</link>
+      <pubDate>Sun, 08 Dec 2019 19:18:54 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-sonarqube/</guid>
+      <description>1 环境准备 1.1 docker环境准备 docker或k8s或rancher 1.2 宿主机创建所需的持久化目录（不持久化可跳过） postgresql数据库</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>环境配置系列 on </title>
+    <link>https://www.naah69.com/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97/</link>
+    <description>Recent content in 环境配置系列 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 22 Dec 2019 14:52:00 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BlueOcean实战多分支pipeline构建(Jenkins)</title>
+      <link>https://www.naah69.com/post/2019-12-22-jenkins-pipeline/</link>
+      <pubDate>Sun, 22 Dec 2019 14:52:00 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-22-jenkins-pipeline/</guid>
+      <description>最近，将公司的CI/CD从jenkins传统配置更改成了jenkins最新的声明式流水线(Declarative Pipeline)，这样就可</description>
+    </item>
+    
+    <item>
+      <title>Jenkinsfile的高亮、提示和校验</title>
+      <link>https://www.naah69.com/post/2019-12-23-jenkinsflie-plugin/</link>
+      <pubDate>Sun, 22 Dec 2019 14:36:00 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-23-jenkinsflie-plugin/</guid>
+      <description>原本我以为强大的IDEA什么插件都有，然而这个，真没有！ 但是在VsCode里找到了jenkinsfile高亮、提示和校验插件 1 高亮、代码提示</description>
+    </item>
+    
+    <item>
+      <title>SonarQube7.7安装阿里JAVA规范插件P3C</title>
+      <link>https://www.naah69.com/post/2019-12-08-sonar-p3c/</link>
+      <pubDate>Sun, 08 Dec 2019 19:22:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-sonar-p3c/</guid>
+      <description>1 环境准备 这里特别说明！ 由于SonarQube各版本之间插件无法统通用，而官方并没有支持 所以本篇文章只保证SonarQube7.7-comm</description>
+    </item>
+    
+    <item>
+      <title>docker构建SonarQube进行代码质量检查</title>
+      <link>https://www.naah69.com/post/2019-12-08-sonarqube/</link>
+      <pubDate>Sun, 08 Dec 2019 19:18:54 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-sonarqube/</guid>
+      <description>1 环境准备 1.1 docker环境准备 docker或k8s或rancher 1.2 宿主机创建所需的持久化目录（不持久化可跳过） postgresql数据库</description>
+    </item>
+    
+    <item>
+      <title>Rancher2配置Webhook(修复官方bug)</title>
+      <link>https://www.naah69.com/post/2019-12-08-rancher2-webhoook/</link>
+      <pubDate>Sun, 08 Dec 2019 19:01:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-rancher2-webhoook/</guid>
+      <description>起因 由于我们团队的开发环境是使用jenkins+Harbor+rancher2进行部署ci/cd的，所以需要进行webhook调用 但是在通过</description>
+    </item>
+    
+    <item>
+      <title>CentOS7配置GPU开发环境教程</title>
+      <link>https://www.naah69.com/post/2019-12-08-centos7-gpu-env/</link>
+      <pubDate>Sun, 08 Dec 2019 17:29:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-centos7-gpu-env/</guid>
+      <description>本文环境 CentOS7 1 nvidia显卡驱动 通过ELRepo源的nvidia-detect命令来自动化安装驱动，省时省力，告别传统手工操作，一步一个坑 1.1</description>
+    </item>
+    
+    <item>
+      <title>jenkins钉钉机器人通知(201912最新版本)</title>
+      <link>https://www.naah69.com/post/2019-12-08-jenkins-dingding-notify-new-version/</link>
+      <pubDate>Sun, 08 Dec 2019 17:23:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-jenkins-dingding-notify-new-version/</guid>
+      <description>1 安装jenkins插件 Manage Jenkins Manage Plugins 安装Dingding[钉钉] Plugin 重启jenkins 2 创建钉钉机器人 只有群主和群管理员才能创建机器人 进入群设置,</description>
+    </item>
+    
+    <item>
+      <title>ONNX-TensorRT6安装教程(python)</title>
+      <link>https://www.naah69.com/post/2019-12-01-onnx-tensorrt/</link>
+      <pubDate>Sun, 01 Dec 2019 18:24:13 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-onnx-tensorrt/</guid>
+      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 必备环境 Protobuf &amp;gt;= 3.8.x 1 apt-get install libprotobuf-dev protobuf-compiler TensorRT 6.0 上篇文章tensorrt6安装教程 cuda和cu</description>
+    </item>
+    
+    <item>
+      <title>TensorRT6安装教程(python)</title>
+      <link>https://www.naah69.com/post/2019-12-01-tensorrt/</link>
+      <pubDate>Sun, 01 Dec 2019 18:10:30 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-tensorrt/</guid>
+      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 conda 不进行赘述 1.2 tensorrt安装包 根据你的机器的cuda和cudnn版本下</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu18.04配置GPU开发环境教程</title>
+      <link>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</link>
+      <pubDate>Sun, 01 Dec 2019 13:23:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</guid>
+      <description>本文环境 ubuntu 18.04 1 nvidia显卡驱动 1 sudo apt-get install nvidia-driver-435 2 cuda 2.1 下载cuda CUDA官网 选择配置，但是Installer Type必须选择runfile,根</description>
+    </item>
+    
+    <item>
+      <title>k8s怎么使用GPU？这篇文章告诉你怎么做！</title>
+      <link>https://www.naah69.com/post/2019-06-22-docker-k8s-gpu/</link>
+      <pubDate>Sat, 22 Jun 2019 20:44:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-22-docker-k8s-gpu/</guid>
+      <description>我是不会告诉你为啥要用docker,nvidia-docker,k8s的！百度和google一堆，自己找找！这里只教你怎么部署坑最少！ 1 所需</description>
+    </item>
+    
+    <item>
+      <title>最完善的docker安装和配置教程</title>
+      <link>https://www.naah69.com/post/2019-06-21-docker/</link>
+      <pubDate>Fri, 21 Jun 2019 20:44:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-21-docker/</guid>
+      <description>1 所需环境 可能大部分人喜欢用ubuntu来进行，但是我喜欢用centos，所以本文就用centos7 谁让我是作者，就是这么任性！ 2 安装和配置</description>
+    </item>
+    
+  </channel>
+</rss>

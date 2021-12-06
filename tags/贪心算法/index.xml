@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>贪心算法 on </title>
+    <link>https://www.naah69.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 贪心算法 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 09 Sep 2017 11:33:44 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法基础之贪心算法</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:33:44 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</guid>
+      <description>贪心算法 贪心算法（又称贪婪算法）是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，他所做出的是在某种意</description>
+    </item>
+    
+  </channel>
+</rss>

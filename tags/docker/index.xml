@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on </title>
+    <link>https://www.naah69.com/tags/docker/</link>
+    <description>Recent content in docker on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 23 Jun 2019 14:12:25 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>这样做,能让我的Docker镜像更轻巧</title>
+      <link>https://www.naah69.com/post/2019-06-23-alpine-glib-docker/</link>
+      <pubDate>Sun, 23 Jun 2019 14:12:25 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-23-alpine-glib-docker/</guid>
+      <description>1 打造最小docker基础镜像 1.1 使用alpine-glib作为基础镜像 Alpine 操作系统是一个面向安全的轻型 Linux 发行版。采用了 musl libc 和 busybox 以减小系统的体积</description>
+    </item>
+    
+    <item>
+      <title>k8s怎么使用GPU？这篇文章告诉你怎么做！</title>
+      <link>https://www.naah69.com/post/2019-06-22-docker-k8s-gpu/</link>
+      <pubDate>Sat, 22 Jun 2019 20:44:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-22-docker-k8s-gpu/</guid>
+      <description>我是不会告诉你为啥要用docker,nvidia-docker,k8s的！百度和google一堆，自己找找！这里只教你怎么部署坑最少！ 1 所需</description>
+    </item>
+    
+    <item>
+      <title>最完善的docker安装和配置教程</title>
+      <link>https://www.naah69.com/post/2019-06-21-docker/</link>
+      <pubDate>Fri, 21 Jun 2019 20:44:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-21-docker/</guid>
+      <description>1 所需环境 可能大部分人喜欢用ubuntu来进行，但是我喜欢用centos，所以本文就用centos7 谁让我是作者，就是这么任性！ 2 安装和配置</description>
+    </item>
+    
+  </channel>
+</rss>

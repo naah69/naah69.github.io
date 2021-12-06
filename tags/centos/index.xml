@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CentOS on </title>
+    <link>https://www.naah69.com/tags/centos/</link>
+    <description>Recent content in CentOS on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 08 Dec 2019 17:29:04 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CentOS7配置GPU开发环境教程</title>
+      <link>https://www.naah69.com/post/2019-12-08-centos7-gpu-env/</link>
+      <pubDate>Sun, 08 Dec 2019 17:29:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-centos7-gpu-env/</guid>
+      <description>本文环境 CentOS7 1 nvidia显卡驱动 通过ELRepo源的nvidia-detect命令来自动化安装驱动，省时省力，告别传统手工操作，一步一个坑 1.1</description>
+    </item>
+    
+  </channel>
+</rss>

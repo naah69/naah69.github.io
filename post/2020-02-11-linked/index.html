@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>深度学习数学基础(六)之链式法则 | 纳兰小筑</title>
+    <meta name="description" content="Naah,那焱,纳兰,一只正在通往机器学习的可爱的程序猿,热爱生活,拥抱变化,喜欢有关草木植物的任何事物,偶尔喜欢读读书写写诗" />
+    <meta name="keywords" content="链式法则,数学,深度学习,神经网络" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="/img/favicon.ico">
+    <link rel="canonical" href="https://www.naah69.com/post/2020-02-11-linked/">
+    <meta name="google-site-verification" content="RvhbpALX9GqGk5KVFhjMl2VqnksKeAoApN3upkrcDxM" />
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.naah69.com/css/hux-blog.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"
+      integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.js"
+        integrity="sha256-Gr6WcN18NVkLDr/zaAKoBQWpBSRw6LuPvNz2pwOe7Ng=" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI=" crossorigin="anonymous"
+        onload='renderMathInElement(document.body,{
+                delimiters:[{left:"$$", right: "$$", display: true,throwOnError:false},{left: "$", right: "$", display: false}],strict:false
+});'>
+
+</script>
+
+
+
+
+
+
+
+    
+<style>
+    article img{cursor: zoom-in;}
+     
+    header.intro-header {
+        background-image: url('https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/20211204162656.png')
+    }
+     
+    #floatting_dir {
+        position: fixed;
+        display: none;
+        width: auto;
+        height: auto;
+        font-size: 13px;
+    }
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+    @media screen and (max-width: 500px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    @media screen and (max-width: 768px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    .katex-display>.katex{
+        white-space:normal;
+    }
+
+    .katex .base, .katex .strut{
+        margin-top: 0.5em;
+    }
+
+    pre {
+        border:0px;
+        margin: 0px;
+    }
+
+
+</style>
+
+
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://www.naah69.com/">Naah-Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse" style="max-height: 1000px;" >
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://www.naah69.com/">HOME</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/essay"  target="_blank" >essay</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/foundation"  target="_blank" >foundation</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/java"  target="_blank" >java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/math"  target="_blank" >math</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/others"  target="_blank" >others</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+
+                    <li>
+                        <a href="https://www.naah69.com/about">About Me</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/search/article">Search
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            
+            $navbar.className = " ";
+            
+            setTimeout(function () {
+                
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a href="https://www.naah69.com/%20categories/math" target="_blank" ><i class="fa fa-folder-o"></i>&nbsp;MATH</a>
+                        
+                        
+                        <a class="tag" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;深度学习
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;神经网络
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;数学基础
+                        </a>
+                        
+
+                    </div>
+
+                    <h1>深度学习数学基础(六)之链式法则</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Naah on Thursday, Feb 13,2020 15:06:33
+                        
+                        <span id="/post/2020-02-11-linked/" class="meta_data_item" data-flag-title="">
+    <span class="post-meta-item-icon">
+      <span class="octicon octicon-eye"></span>
+    </span>
+    &nbsp;
+    <i class="fa fa-eye"></i>
+    <span class="old-visitors-count" style="display: none;"></span>
+    <span id="busuanzi_container_page_pv">
+  <span id="busuanzi_value_page_pv"></span>
+
+</span>
+</span>
+
+
+
+                        
+                    </span><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container" id="container_div">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+
+                
+
+                
+
+                
+                
+                <div id="floatting_dir" style="margin: 10px;border: 1px solid gray;z-index:99999;">
+                    <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                        <strong id="dir_btn_open" style="color: black;font-size: large;">目录</strong>
+                        <strong id="dir_btn_close" style="color: black;font-size: large;float: right">x</strong>
+                    </header>
+                    <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
+                        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#21-单变量函数链式法则">2.1 单变量函数链式法则</a></li>
+    <li><a href="#22-多变量函数链式法则">2.2 多变量函数链式法则</a></li>
+  </ul>
+</nav>
+                    </div>
+                </div>
+                
+                
+                
+
+                <p>$$\begin{cases} z=f(x_{ 1 },x_{ 2 },&hellip;,x_{ n })\\=w_{ 1 }x_{ 1 }+w_{ 2 }x_{ 2 }+&hellip;+w_{ n }x_{ n }+b \\ y=a(z) \end{cases}$$</p>
+<p>本篇内容含有大量公式，如果展示不佳，请跳转至<a href="https://www.naah69.com/post/2020-02-11-linked/">原文</a></p>
+<p>上次讲了导数和偏导数的基础，那么这些还不足以使用起来，今天就来讲讲<code>误差反向传播</code>中用来解决复杂函数求导的链式法则。</p>
+<h1 id="1-复合函数">1 复合函数</h1>
+<p>已知函数$y=f(u)$,当$u$表示为$u=g(x)$时,y作为x的函数就可以表示为$y=f(g(x))$这样的嵌套结构，这种嵌套结构的函数，就称为$f(u)$、$g(x)$的复合函数</p>
+<blockquote>
+<p>示例1：函数$z={(2-y)}^{2}$是函数$u=2-y$和函数$z=u^2$的复合函数。
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbvu3td2ezj30zy09smz7.jpg" alt=""></p>
+<p>示例2：对于多个输入$x_1,x_2,&hellip;,x_n$，将$a(x)$作为激活函数，求神经单元的输出$y$的过程
+$$y=a(w_1x_1+w_2x_2+&hellip;+w_nx_n+b)$$
+$w_1,w_2,&hellip;,w_n$为各输入对应的权重，$b$为神经单元的偏置，这个输出函数是如下的$x_1,x_2,&hellip;,x_n$的一次函数$f$和激活函数$a$的复合函数
+$$\begin{cases} z=f(x_{ 1 },x_{ 2 },&hellip;,x_{ n })\\=w_{ 1 }x_{ 1 }+w_{ 2 }x_{ 2 }+&hellip;+w_{ n }x_{ n }+b \\ y=a(z) \end{cases}$$
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbvubgzm7dj30zw05eq3n.jpg" alt=""></p>
+</blockquote>
+<h1 id="2-链式法则">2 链式法则</h1>
+<h2 id="21-单变量函数链式法则">2.1 单变量函数链式法则</h2>
+<p>已知单变量函数$y=f(u)$，当$u$表示为单变量函数$u=g(x)$时，复合函数$f(g(x))$的导函数可以如下简单地求出来。
+$$\frac { dy }{ dx } =\frac { dy }{ du } \frac { du }{ dx } $$</p>
+<p>上面这个公式称为单变量函数的<code>复合函数求导公式</code>，也称为<code>链式法则</code>。
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbvugapd5wj30ww08qjso.jpg" alt=""></p>
+<p>公式的右边，如果将$dx$、$dy$、$du$都看作一个单独的字母，那么公式的左边可以看作将右边进行简单的约分的结果，这个看法总是成立的。通过将导数用$dx$、$dy$等表示，我们可以这样记忆链式法则：<code>复合函数的导数可以像分数一样使用约分。</code>，但是这个约分的法则不适用于$dx$、$dy$的平方等情形。</p>
+<blockquote>
+<p>示例：当$y$为$u$的函数，$u$为$v$的函数，$v$为$x$的函数时
+$$\frac { dy }{ dx } =\frac { dy }{ du } \frac { du }{ dv } \frac { dv }{ dx } $$
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbvuosrf2cj30z407o765.jpg" alt=""></p>
+</blockquote>
+<p>下面我们来试试对<code>sigmoid</code>与<code>wx+b</code>的复合函数进行求导吧</p>
+<blockquote>
+<p>示例：对$x$的函数 $y=\frac { 1 }{ 1+{ e }^{ -(wx+b) } }$（$w$、$b$为常数）求导
+我们设以下函数
+$$y=\frac { 1 }{ 1+{ e }^{ -x } }，u=wx+b $$
+由于第一个式子为Sigmoid函数，根据在上篇文章中讲的sigmoid函数的导数如下所示
+$$\frac { \partial y }{ \partial u } =y(1-y)$$
+第二个式子$wx+b$,它的导数则是
+$$\frac { \partial u }{ \partial x } =w$$
+那么上面的式子的导数则是
+$$\frac { \partial y }{ \partial x } =\frac { \partial y }{ \partial u } \frac { \partial u }{ \partial x } =y(1-y)w=\frac { 1 }{ 1+{ e }^{ -(wx+b) } } \left( 1-\frac { 1 }{ 1+{ e }^{ -(wx+b) } }  \right) $$</p>
+</blockquote>
+<h2 id="22-多变量函数链式法则">2.2 多变量函数链式法则</h2>
+<p>在多变量函数的情况下，链式法则的思想也同样适用。只要像处理分数一样对导数的式子进行变形就行了，但是事情并没有想的那么简单，因为必须要对相关的全部变量应用链式法则。</p>
+<p>让我们来看看两个变量的情形。变量$z$为$u$、$v$的函数，如果$u$、$v$分别为$x$、$y$的函数，则$z$为$x$、$y$的函数，此时下方的<code>多变量函数的链式法则</code>成立。
+$$\frac { \partial z }{ \partial x } =\frac { \partial z }{ \partial u } \frac { \partial u }{ \partial x } +\frac { \partial z }{ \partial v } \frac { \partial v }{ \partial x } $$
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbvuwva16bj30wi09mwgq.jpg" alt=""></p>
+<p>变量$z$为$u$、$v$的函数，$u$、$v$分别为$x$、$y$的函数，$z$关于$x$求导时，先对$u$、$v$求导，然后与$z$的相应导数相乘，最后将乘积加起来。</p>
+<p>z关于y求导时，也是如此。下方式子依旧成立。
+$$\frac { \partial z }{ \partial y } =\frac { \partial z }{ \partial u } \frac { \partial u }{ \partial y } +\frac { \partial z }{ \partial v } \frac { \partial v }{ \partial y } $$
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbvv2a7pi2j30wg0a8q5a.jpg" alt=""></p>
+<blockquote>
+<p>示例1：当 $C=u^2+v^2$，$u=ax+by$，$v=px+qy$ (a、b、p、q为常数)时，关于$x$、$y$的导数如下所示。
+$$\frac { \partial C }{ \partial x } =\frac { \partial C }{ \partial u } \frac { \partial u }{ \partial x } +\frac { \partial C }{ \partial v } \frac { \partial v }{ \partial x } =2u\cdot a+2v\cdot p=2a(ax+by)+2p(px+qy)$$
+$$\frac { \partial C }{ \partial y } =\frac { \partial C }{ \partial u } \frac { \partial u }{ \partial y } +\frac { \partial C }{ \partial v } \frac { \partial v }{ \partial y } =2u\cdot b+2v\cdot q=2b(ax+by)+2p(px+qy)$$
+上式在三个以上的变量的情况下也同样成立</p>
+<p>示例2：当 $C=u^2+v^2+w^2$，$u=a_1x+b_1y+c_1z$，$v=a_2x+b_2y+c_2z$，$w=a_3x+b_3y+c_3z$（$a_i$、$b_i$、$c_i$为常数，i=1，2，3）时，求关于x的偏导数
+$$\frac { \partial C }{ \partial x } =\frac { \partial C }{ \partial u } \frac { \partial u }{ \partial x } +\frac { \partial C }{ \partial v } \frac { \partial v }{ \partial x } +\frac { \partial C }{ \partial w } \frac { \partial w }{ \partial x } \\ =2u\cdot { a }_{ 1 }+2v\cdot { a }_{ 2 }+2w\cdot { a }_{ 3 }\\ =2{ a }_{ 1 }({ a }_{ 1 }x+b_{ 1 }y+{ c }_{ 1 }z)+2{ a }_{ 2 }({ a }_{ 2 }x+b_{ 2 }y+{ c }_{ 2 }z)+2{ a }_{ 3 }({ a }_{ 3 }x+b_{ 3 }y+{ c }_{ 3 }z)$$
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbvwp1p8bzj30w40ca0w1.jpg" alt=""></p>
+</blockquote>
+
+                
+                <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
+                
+                
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2020-02-10-derivative/" data-toggle="tooltip" data-placement="top" title="深度学习数学基础(五)之导数基础">&larr; 上一篇</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+
+
+
+
+<div id="SOHUCS" sid='2020-02-13-15:06:33-深度学习数学基础(六)之链式法则'></div>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com
+/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com/js/changyan.labs.https.js?appid=cytako4HR"></script>
+
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytako4HR';
+        var conf = 'prod_b9da8b3167eed0ab02bb9913a13e0435';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            var head = document.getElementsByTagName('head')[0]||document.head||document.documentElement;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.charset = 'utf-8';
+            script.id = 'changyan_mobile_js';
+            script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf;
+            head.appendChild(script);
+        } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+</script>
+
+
+
+            </div>
+            
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    <section class="visible-md visible-lg">
+        <hr>
+        <h5><a href="https://www.naah69.com/about" target="_blank">博主信息</a></h5>
+        <div class="short-about">
+            
+            <img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9gy1fw0npk3155j20u0140aca.jpg"/>
+            
+
+            <h3 style="margin-bottom: 20px;">
+                
+                那焱(纳兰)
+                
+                &nbsp;
+                
+                Naah
+                
+            </h3>
+
+            
+            <p>架构师</p>
+            
+
+            
+            <p>热爱生活,拥抱变化</p>
+            
+
+            
+            <ul class="list-inline">
+                
+                
+                <li>
+                    <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <a target="_blank" href="https://weibo.com/naah">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+
+                    <a href="javascript:wx()">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a target="_blank" href="https://github.com/naah69">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </section>
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5><a href="/tags/"   target="_blank" >标签展示</a></h5>
+        <div class="tags">
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80" title="算法基础"  target="_blank" >
+            算法基础(16)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="数据结构"  target="_blank" >
+            数据结构(14)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
+            环境配置系列(12)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
+            排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ci/cd" title="ci/cd"  target="_blank" >
+            ci/cd(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E5%9B%BE" title="图"  target="_blank" >
+            图(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
+            数学基础(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习"  target="_blank" >
+            深度学习(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络"  target="_blank" >
+            神经网络(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8" title="算法应用"  target="_blank" >
+            算法应用(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94" title="随笔"  target="_blank" >
+            随笔(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/go" title="go"  target="_blank" >
+            go(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/software" title="software"  target="_blank" >
+            software(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/hugo" title="hugo"  target="_blank" >
+            hugo(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/mark" title="mark"  target="_blank" >
+            mark(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91" title="二叉树"  target="_blank" >
+            二叉树(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E8%AE%B0%E5%BD%95" title="记录"  target="_blank" >
+            记录(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/docker" title="docker"  target="_blank" >
+            docker(3)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ecug" title="ecug"  target="_blank" >
+            ecug(3)
+            </a>
+
+            
+
+            <a href="/tags/"  target="_blank" >
+            全部标签
+            </a>
+
+        </div>
+    </section>
+    
+
+    
+    <hr>
+    <h5>友情链接</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.liaoxuefeng.com/">廖雪峰的官方网站</a></li>
+        
+        <li><a target="_blank" href="http://www.dayanzai.me/">大眼仔旭下载站</a></li>
+        
+        <li><a target="_blank" href="http://www.carrotchou.blog/">胡萝卜周下载站</a></li>
+        
+        <li><a target="_blank" href="http://xclient.info/">Xclient Mac下载站</a></li>
+        
+    </ul>
+
+    
+    <hr>
+    <h5>工具网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.algolia.com/">Algolia</a></li>
+        
+        <li><a target="_blank" href="https://changyan.kuaizhan.com/">畅言</a></li>
+        
+        <li><a target="_blank" href="http://tool.chinaz.com/">站长工具</a></li>
+        
+        <li><a target="_blank" href="https://tool.lu/">程序猿在线工具箱</a></li>
+        
+        <li><a target="_blank" href="https://www.bejson.com/">配置文件工具箱</a></li>
+        
+        <li><a target="_blank" href="http://www.jq22.com/textDifference">文本对比</a></li>
+        
+        <li><a target="_blank" href="https://cloudconvert.com/formats">在线文件格式转换</a></li>
+        
+    </ul>
+    
+    <hr>
+    <h5>收藏网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+        
+        <li><a target="_blank" href="https://www.nowcoder.com/">牛客网</a></li>
+        
+        <li><a target="_blank" href="http://www.acmcoder.com/">赛码网</a></li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://weibo.com/naah">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    <script>
+                        function wx() {
+                            layer.open({
+                                type: 1,
+                                title: false,
+                                closeBtn: 1,
+                                area: ['500px', '500px'],
+                                skin: 'layui-layer-nobg', 
+                                shadeClose: true,
+                                content: '<img src="https:\/\/naah-blog.oss-cn-hangzhou.aliyuncs.com\/img\/ed1d2fb9gy1fw0ntoycqcj20rr0rs3zo.jpg" width="500px" height="500px">'
+                            });
+                        }
+                    </script>
+                    <li>
+                        <a href="javascript:wx()">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/naah69">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy;   2020 <a href="http://www.beian.miit.gov.cn" target="_blank">浙ICP备19040622号</a>
+                    <br>
+                    
+                    <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+<script src="https://www.naah69.com/js/hux-blog.min.js"></script>
+
+<script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
+
+
+<script>
+
+
+    var _baId = '5d8997bbef4253c1fdbcba1a8fb66019';
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?"+ _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+
+<!-- async load function -->
+function async(u, c) {
+    var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+        o.addEventListener('load', function (e) {
+            c(null, e);
+        }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+}
+
+<!--fastClick.js -->
+async("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav) FastClick.attach($nav);
+})
+
+</script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155998534-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155998534-1');
+</script>
+
+
+
+
+</body>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+    <script src="https://www.naah69.com/js/article.js"></script>
+
+
+</html>

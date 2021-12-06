@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jenkins on </title>
+    <link>https://www.naah69.com/tags/jenkins/</link>
+    <description>Recent content in Jenkins on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 22 Dec 2019 14:52:00 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/jenkins/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BlueOcean实战多分支pipeline构建(Jenkins)</title>
+      <link>https://www.naah69.com/post/2019-12-22-jenkins-pipeline/</link>
+      <pubDate>Sun, 22 Dec 2019 14:52:00 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-22-jenkins-pipeline/</guid>
+      <description>最近，将公司的CI/CD从jenkins传统配置更改成了jenkins最新的声明式流水线(Declarative Pipeline)，这样就可</description>
+    </item>
+    
+    <item>
+      <title>Jenkinsfile的高亮、提示和校验</title>
+      <link>https://www.naah69.com/post/2019-12-23-jenkinsflie-plugin/</link>
+      <pubDate>Sun, 22 Dec 2019 14:36:00 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-23-jenkinsflie-plugin/</guid>
+      <description>原本我以为强大的IDEA什么插件都有，然而这个，真没有！ 但是在VsCode里找到了jenkinsfile高亮、提示和校验插件 1 高亮、代码提示</description>
+    </item>
+    
+    <item>
+      <title>jenkins钉钉机器人通知(201912最新版本)</title>
+      <link>https://www.naah69.com/post/2019-12-08-jenkins-dingding-notify-new-version/</link>
+      <pubDate>Sun, 08 Dec 2019 17:23:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-jenkins-dingding-notify-new-version/</guid>
+      <description>1 安装jenkins插件 Manage Jenkins Manage Plugins 安装Dingding[钉钉] Plugin 重启jenkins 2 创建钉钉机器人 只有群主和群管理员才能创建机器人 进入群设置,</description>
+    </item>
+    
+  </channel>
+</rss>

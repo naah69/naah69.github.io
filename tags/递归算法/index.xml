@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>递归算法 on </title>
+    <link>https://www.naah69.com/tags/%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 递归算法 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 09 Sep 2017 11:24:55 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法基础之递归算法</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:24:55 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/</guid>
+      <description>递归算法 递归算法是把问题转化为规模缩小了的同类问题的子问题。然后 递归调用函数（或过程）来表示问题的解。 一个过程(或函数)直接或间接调用自己本</description>
+    </item>
+    
+  </channel>
+</rss>

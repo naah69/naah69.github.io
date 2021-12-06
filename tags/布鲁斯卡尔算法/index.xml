@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>布鲁斯卡尔算法 on </title>
+    <link>https://www.naah69.com/tags/%E5%B8%83%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 布鲁斯卡尔算法 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 17 Aug 2017 11:31:07 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E5%B8%83%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据结构图Graph之最小生成树问题克鲁斯卡尔算法</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98%E5%85%8B%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 17 Aug 2017 11:31:07 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98%E5%85%8B%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E7%AE%97%E6%B3%95/</guid>
+      <description>算法准备 a. Edge度对象数组（从小到大） b. 查询数组parent c. find方法（查找数组中该顶点能到达的最后位置） 算法思路 a. 遍历edge数组 b.</description>
+    </item>
+    
+  </channel>
+</rss>

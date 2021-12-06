@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>深度学习数学基础(五)之导数基础 | 纳兰小筑</title>
+    <meta name="description" content="Naah,那焱,纳兰,一只正在通往机器学习的可爱的程序猿,热爱生活,拥抱变化,喜欢有关草木植物的任何事物,偶尔喜欢读读书写写诗" />
+    <meta name="keywords" content="导数,偏导数,微分,数学,深度学习,神经网络" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="/img/favicon.ico">
+    <link rel="canonical" href="https://www.naah69.com/post/2020-02-10-derivative/">
+    <meta name="google-site-verification" content="RvhbpALX9GqGk5KVFhjMl2VqnksKeAoApN3upkrcDxM" />
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.naah69.com/css/hux-blog.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"
+      integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.js"
+        integrity="sha256-Gr6WcN18NVkLDr/zaAKoBQWpBSRw6LuPvNz2pwOe7Ng=" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI=" crossorigin="anonymous"
+        onload='renderMathInElement(document.body,{
+                delimiters:[{left:"$$", right: "$$", display: true,throwOnError:false},{left: "$", right: "$", display: false}],strict:false
+});'>
+
+</script>
+
+
+
+
+
+
+
+    
+<style>
+    article img{cursor: zoom-in;}
+     
+    header.intro-header {
+        background-image: url('https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/20211204162656.png')
+    }
+     
+    #floatting_dir {
+        position: fixed;
+        display: none;
+        width: auto;
+        height: auto;
+        font-size: 13px;
+    }
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+    @media screen and (max-width: 500px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    @media screen and (max-width: 768px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    .katex-display>.katex{
+        white-space:normal;
+    }
+
+    .katex .base, .katex .strut{
+        margin-top: 0.5em;
+    }
+
+    pre {
+        border:0px;
+        margin: 0px;
+    }
+
+
+</style>
+
+
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://www.naah69.com/">Naah-Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse" style="max-height: 1000px;" >
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://www.naah69.com/">HOME</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/essay"  target="_blank" >essay</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/foundation"  target="_blank" >foundation</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/java"  target="_blank" >java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/math"  target="_blank" >math</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/others"  target="_blank" >others</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+
+                    <li>
+                        <a href="https://www.naah69.com/about">About Me</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/search/article">Search
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            
+            $navbar.className = " ";
+            
+            setTimeout(function () {
+                
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a href="https://www.naah69.com/%20categories/math" target="_blank" ><i class="fa fa-folder-o"></i>&nbsp;MATH</a>
+                        
+                        
+                        <a class="tag" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;深度学习
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;神经网络
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;数学基础
+                        </a>
+                        
+
+                    </div>
+
+                    <h1>深度学习数学基础(五)之导数基础</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Naah on Monday, Feb 10,2020 11:29:17
+                        
+                        <span id="/post/2020-02-10-derivative/" class="meta_data_item" data-flag-title="">
+    <span class="post-meta-item-icon">
+      <span class="octicon octicon-eye"></span>
+    </span>
+    &nbsp;
+    <i class="fa fa-eye"></i>
+    <span class="old-visitors-count" style="display: none;"></span>
+    <span id="busuanzi_container_page_pv">
+  <span id="busuanzi_value_page_pv"></span>
+
+</span>
+</span>
+
+
+
+                        
+                    </span><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container" id="container_div">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+
+                
+
+                
+
+                
+                
+                <div id="floatting_dir" style="margin: 10px;border: 1px solid gray;z-index:99999;">
+                    <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                        <strong id="dir_btn_open" style="color: black;font-size: large;">目录</strong>
+                        <strong id="dir_btn_close" style="color: black;font-size: large;float: right">x</strong>
+                    </header>
+                    <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
+                        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#11-导数的定义">1.1 导数的定义</a></li>
+    <li><a href="#12-常用导数公式">1.2 常用导数公式</a></li>
+    <li><a href="#13-导数符号">1.3 导数符号</a></li>
+    <li><a href="#14-导数的线性性质">1.4 导数的线性性质</a>
+      <ul>
+        <li><a href="#141-导数的加减法">1.4.1 导数的加减法</a></li>
+        <li><a href="#142-导数的常数倍">1.4.2 导数的常数倍</a></li>
+      </ul>
+    </li>
+    <li><a href="#15-分数函数导数">1.5 分数函数导数</a>
+      <ul>
+        <li><a href="#151-sigmoid函数的导数">1.5.1 sigmoid函数的导数</a></li>
+      </ul>
+    </li>
+    <li><a href="#15-最小值的条件">1.5 最小值的条件</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#21-偏导数的定义">2.1 偏导数的定义</a></li>
+    <li><a href="#22-多变量函数的最小值条件">2.2 多变量函数的最小值条件</a></li>
+    <li><a href="#23-拉格朗日乘数法">2.3 拉格朗日乘数法</a></li>
+  </ul>
+</nav>
+                    </div>
+                </div>
+                
+                
+                
+
+                <p>本篇内容含有大量公式，如果展示不佳，请跳转至<a href="https://www.naah69.com/post/2020-02-10-derivative/">原文</a></p>
+<p>之前我们提过，说神经网络会很牛逼的自己学习，那这个自己学习是什么原理呢？如果用数学上的非人话就是<code>对权重和偏置进行最优化，使输出符合学习数据</code>，人话说就是不断的求导调整参数，让算法找到学习数据的规律。而对于这里的<code>最优化</code>，<code>求导</code>是不可缺少的一部分。</p>
+<h1 id="1-导数基础">1 导数基础</h1>
+<h2 id="11-导数的定义">1.1 导数的定义</h2>
+<p>导数就是函数图像在某一点处的斜率，比如下图，作出函数$f\left( x \right)$的图像，$f^{'}\left(x\right)$表示图像切线的斜率。因此光滑图像的函数是<code>可导的</code>。
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbr5sha4fvj31gm0jmacu.jpg" alt=""></p>
+<p>函数$f\left( x \right)$的<code>导函数</code>$f^{'}\left(x\right)$定义如下
+$$f^{ ' }\left( x \right) =\lim _{ \Delta x\rightarrow 0 }{ \frac { f\left( x+\Delta x \right) -f\left( x \right)  }{ \Delta x }  } $$</p>
+<blockquote>
+<p>注：$\Delta$读作 delta，对应拉丁字母 D。此外，带有 （prime）符号的函数或变量
+表示导函数。</p>
+</blockquote>
+<p>$\lim _{ \Delta x\rightarrow 0 }{ (\Delta x的式子) } $是指当$\Delta x$无线接近0时，$(\Delta x的式子)$接近的值,这个lim就是<code>极限</code></p>
+<blockquote>
+<p>示例 1：当$f(x)=3x$，它的$f`(x)$是多少?
+$$f'(x)=\lim _{ \Delta x\rightarrow 0 }{ \frac { 3(x+\Delta x)-3x }{ \Delta x }  } =\lim _{ \Delta x\rightarrow 0 }{ \frac { 3\Delta x }{ \Delta x }  } =\lim _{ \Delta x\rightarrow 0 }{ 3 } =3$$</p>
+<p>示例 2：当$f(x)=x^2$，它的$f`(x)$是多少?
+$$f'(x)=\lim _{ \Delta x\rightarrow 0 }{ \frac { { (x+\Delta x) }^{ 2 }-x^{ 2 } }{ \Delta x }  } =\lim _{ \Delta x\rightarrow 0 }{ \frac { 2x\Delta x+{ (\Delta x) }^{ 2 } }{ \Delta x }  } =\lim _{ \Delta x\rightarrow 0 }{ (2x+\Delta x) } =2x$$</p>
+</blockquote>
+<p>如上示例，已知函数$f(x)$，求导函数$f'(x)$，称为对函数$f(x)$<code>求导</code>，当$f'(x)$存在时，称函数<code>可导</code></p>
+<h2 id="12-常用导数公式">1.2 常用导数公式</h2>
+<p>在神经网络中，我们会经常用到导数，下面就简单列举几个常用的导数公式。
+$$( c )'=0，c代表常数$$
+$$(x)'=1$$
+$$(x^2)'=2x$$
+$$(e^x)'=e^x$$
+$$({e}^{-x})'=-{e}^{-x}$$</p>
+<h2 id="13-导数符号">1.3 导数符号</h2>
+<p>在本文的<strong>1.1</strong>中的公式中，函数$f\left( x \right)$的导函数用$f^{'}\left(x\right)$表示，但是也存在不同的表示方式，比如下面使用分数表示的方法
+$$f^{ ' }\left( x \right) =\frac { dy }{ dx } $$</p>
+<p>这种表示方式是十分方便的，因为复杂的函数可以像分数一样计算导数</p>
+<blockquote>
+<p>示例1：$( c )'=0$，可以记为$\frac { dc }{ dx } =0$（c为常数）</p>
+<p>示例2：$( x )'=1$，可以记为$\frac { dx }{ dx } =1$</p>
+</blockquote>
+<h2 id="14-导数的线性性质">1.4 导数的线性性质</h2>
+<p>我们在计算中免不了使用加减乘除，在这里我们先介绍导数的<code>线性性</code>，其实就是导数的加减法和常数倍，而这个导数的线性性就是我们后面会说到的<code>误差反向传播算法</code>背后的主角</p>
+<h3 id="141-导数的加减法">1.4.1 导数的加减法</h3>
+<p><code>和的导数等于导数的和</code>
+$${f(x)+g(x)}’=f'(x)+g'(x)$$</p>
+<p><code>差的导数等于导数的差</code>
+$${f(x)-g(x)}’=f'(x)-g'(x)$$</p>
+<h3 id="142-导数的常数倍">1.4.2 导数的常数倍</h3>
+<p><code>常数倍的导数为导数的常数倍</code>
+$${cf(x)}'=cf'(x)$$</p>
+<blockquote>
+<p>示例：$C={(2-y)}^{2}$,（y为变量）时，求$C'$
+$$C'=(4-4y+y^2)'\\=(4)'-4(y)'+({y}^{2})'\\=0-4+2y=2y-4$$</p>
+</blockquote>
+<h2 id="15-分数函数导数">1.5 分数函数导数</h2>
+<p>当函数是分数形式时，求导时可以使用下面的分数函数的求导公式。$f(x)$不能取0
+$$\left\{ \frac { 1 }{ f(x) }  \right\}'=-\frac { f'(x) }{ { \left\{ f(x) \right\}  }^{ 2 } }$$</p>
+<h3 id="151-sigmoid函数的导数">1.5.1 sigmoid函数的导数</h3>
+<p>sigmoid函数$\sigma (x)$是神经网络中最著名的激活函数之一，我们之前有讲过，它的定义如下：
+$$\sigma (x)=\frac { 1 }{ 1+{ e }^{ -x } }$$</p>
+<p>在后面的<code>梯度下降算法</code>中，需要对这个函数求导，求导时我们使用下面的公式会更方便一些，通过这个式子及时不对sigmoid函数求导，也能通过$\sigma (x)$的值得到sigmoid函数的导函数值
+$$\sigma &lsquo;(x)=\sigma(x)(1-\sigma(x))$$</p>
+<h2 id="15-最小值的条件">1.5 最小值的条件</h2>
+<p>上面我们说过由于导函数$f&rsquo;(x)$表示切线的斜率，那么我们就可以得到在后面最优化中需要用到的一条极其重要的原理，该原理如下所示
+$$当函数f(x)在x=a处取得最小值时，f'(a)=0$$</p>
+<blockquote>
+<p>证明：导函数$f'(a)$表示切线斜率，所以根据下图可以清楚地看出$f'(a)=0$。
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbrb21a5sgj31ay0b8jsz.jpg" alt=""></p>
+</blockquote>
+<p>在使用时要一定要记住下面的条件
+$$f'(a)=0是函数f(x)在x=a处取最小值的必要条件$$</p>
+<p>从下面的函数$y=f(x)$的图像可以清楚地看出这一点。
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbrb9ms6lej31k20cugoa.jpg" alt=""></p>
+<p>所以我们就看到以下<code>必要不充分</code>的条件：
+$$f(x)最小\Rightarrow f'(a)=0\\ f(x)最小\nLeftarrow f'(a)=0$$</p>
+<p>就是因为这个性质，导致我们后面在使用梯度下降算法时，遭遇到了很大的困难</p>
+<blockquote>
+<p>示例：求$f(x)=3x^4-4x^3-12x^2+32$的最小值</p>
+<p>首先我们求出该函数的导函数$f'(x)=12x^3-12x^2-24x=12x(x+1)(x-2)$
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbrcpifpulj30eo0f074c.jpg" alt="">
+下面是该函数的增减表，我们发现在$x=-1、0、2$的时候，该函数的导函数为0，但是$x=-1、0$时却不是最小值，所以验证了我们上方所说的性质
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbrcqnwg8fj31r60jy3yp.jpg" alt=""></p>
+</blockquote>
+<h1 id="2-偏导数基础">2 偏导数基础</h1>
+<p>上面我们所说的导数都是基于一元的函数，那么多元的函数怎么办呢？其实多元函数也可以进行求导，只不过我们必须指明要对哪个一个变量进行求导，而关于某个特定的变量的导数就叫<code>偏导数</code>。</p>
+<h2 id="21-偏导数的定义">2.1 偏导数的定义</h2>
+<p>多元函数进行求偏导时，除了指定的变量外其他的变量都作为常数来求导，比如有个二元函数$z=f(x,y)$，我们对它的变量x进行求导，以此求得的导数称为<code>关于x的偏导数</code>，用下方的符号来进行表示
+$$\frac { \partial z }{ \partial x } =\frac { \partial f(x,y) }{ \partial x } =\lim _{ \Delta x\rightarrow 0 }{ \frac { f(x+\Delta x,y)-f(x,y) }{ \Delta x }  } $$</p>
+<p>关于y的偏导数，也差不多
+$$\frac { \partial z }{ \partial y } =\frac { \partial f(x,y) }{ \partial y } =\lim _{ \Delta x\rightarrow 0 }{ \frac { f(x,y+\Delta y)-f(x,y) }{ \Delta y }  } $$</p>
+<blockquote>
+<p>示例：当$z=wx+b$时，$\frac { \partial z }{ \partial x } =w,\frac { \partial z }{ \partial w } =x,\frac { \partial z }{ \partial b } =1$</p>
+</blockquote>
+<h2 id="22-多变量函数的最小值条件">2.2 多变量函数的最小值条件</h2>
+<p>之前我们说过，光滑的单变量函数$y=f(x)$在点$x$处取得最小值的必要条件是导函数在该点取值0，这个性质在多元函数同样适用，例如对两个变量的函数，可以如下所示。
+$$函数z=f(x)取得最小值的必要条件是\frac { \partial f }{ \partial x } =0,\frac { \partial f }{ \partial y }=0$$</p>
+<p>上面的性质很容易扩展到$n$个变量的情形，只要满足所有偏导数都为0，此外，从下图可以清楚地看出上述的条件是成立的。因为从$x$方向以及$y$方向来看，函数$z=f(x,y)$取得最小值的点就像葡萄酒杯的底部。
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbrew37c1yj31ia0ci75u.jpg" alt=""></p>
+<p>但是要记住的是上面的条件跟单变量函数的最小值条件一样，即使满足上述条件，也不能满足在该点取得最小值。</p>
+<h2 id="23-拉格朗日乘数法">2.3 拉格朗日乘数法</h2>
+<p>在实际的最小值问题中，有时会对变量附加约束条件，例如下面这个问题</p>
+<blockquote>
+<p>示例：当$x^2+y^2=1$时，求$x+y$的最小值</p>
+<p>这种情况下我们使用<code>拉格朗日乘数法</code>，首先引入参数$\lambda $,创建下面的函数$L$
+$$L=f(x,y)-\lambda g(x,y)=(x+y)-\lambda(x^2+y^2-1)$$
+$$\frac { \partial L }{ \partial x } =1-2\lambda x=0$$
+$$\frac { \partial L }{ \partial y } =1-2\lambda y=0$$
+根据这些式子以及约束条件$x^2+y^2=1$，可得x=y=$\lambda=\pm \frac { 1 }{ \sqrt { 2 }  } $</p>
+<p>因此，当$x=y=-\frac { 1 }{ \sqrt { 2 }}$时，$x+y$取最小值$-\sqrt { 2 }$</p>
+<p>在用于求性能良好的神经网络的正则化技术中，经常会使用该方法。</p>
+</blockquote>
+
+                
+                <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
+                
+                
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2020-02-09-linear-algebra/" data-toggle="tooltip" data-placement="top" title="深度学习数学基础(四)之线性代数基础">&larr; 上一篇</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/2020-02-11-linked/" data-toggle="tooltip" data-placement="top" title="深度学习数学基础(六)之链式法则">下一篇 &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+
+
+
+<div id="SOHUCS" sid='2020-02-10-11:29:17-深度学习数学基础(五)之导数基础'></div>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com
+/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com/js/changyan.labs.https.js?appid=cytako4HR"></script>
+
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytako4HR';
+        var conf = 'prod_b9da8b3167eed0ab02bb9913a13e0435';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            var head = document.getElementsByTagName('head')[0]||document.head||document.documentElement;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.charset = 'utf-8';
+            script.id = 'changyan_mobile_js';
+            script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf;
+            head.appendChild(script);
+        } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+</script>
+
+
+
+            </div>
+            
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    <section class="visible-md visible-lg">
+        <hr>
+        <h5><a href="https://www.naah69.com/about" target="_blank">博主信息</a></h5>
+        <div class="short-about">
+            
+            <img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9gy1fw0npk3155j20u0140aca.jpg"/>
+            
+
+            <h3 style="margin-bottom: 20px;">
+                
+                那焱(纳兰)
+                
+                &nbsp;
+                
+                Naah
+                
+            </h3>
+
+            
+            <p>架构师</p>
+            
+
+            
+            <p>热爱生活,拥抱变化</p>
+            
+
+            
+            <ul class="list-inline">
+                
+                
+                <li>
+                    <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <a target="_blank" href="https://weibo.com/naah">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+
+                    <a href="javascript:wx()">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a target="_blank" href="https://github.com/naah69">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </section>
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5><a href="/tags/"   target="_blank" >标签展示</a></h5>
+        <div class="tags">
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80" title="算法基础"  target="_blank" >
+            算法基础(16)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="数据结构"  target="_blank" >
+            数据结构(14)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
+            环境配置系列(12)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
+            排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ci/cd" title="ci/cd"  target="_blank" >
+            ci/cd(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E5%9B%BE" title="图"  target="_blank" >
+            图(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
+            数学基础(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习"  target="_blank" >
+            深度学习(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络"  target="_blank" >
+            神经网络(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8" title="算法应用"  target="_blank" >
+            算法应用(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94" title="随笔"  target="_blank" >
+            随笔(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/go" title="go"  target="_blank" >
+            go(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/software" title="software"  target="_blank" >
+            software(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/hugo" title="hugo"  target="_blank" >
+            hugo(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/mark" title="mark"  target="_blank" >
+            mark(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91" title="二叉树"  target="_blank" >
+            二叉树(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E8%AE%B0%E5%BD%95" title="记录"  target="_blank" >
+            记录(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/docker" title="docker"  target="_blank" >
+            docker(3)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ecug" title="ecug"  target="_blank" >
+            ecug(3)
+            </a>
+
+            
+
+            <a href="/tags/"  target="_blank" >
+            全部标签
+            </a>
+
+        </div>
+    </section>
+    
+
+    
+    <hr>
+    <h5>友情链接</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.liaoxuefeng.com/">廖雪峰的官方网站</a></li>
+        
+        <li><a target="_blank" href="http://www.dayanzai.me/">大眼仔旭下载站</a></li>
+        
+        <li><a target="_blank" href="http://www.carrotchou.blog/">胡萝卜周下载站</a></li>
+        
+        <li><a target="_blank" href="http://xclient.info/">Xclient Mac下载站</a></li>
+        
+    </ul>
+
+    
+    <hr>
+    <h5>工具网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.algolia.com/">Algolia</a></li>
+        
+        <li><a target="_blank" href="https://changyan.kuaizhan.com/">畅言</a></li>
+        
+        <li><a target="_blank" href="http://tool.chinaz.com/">站长工具</a></li>
+        
+        <li><a target="_blank" href="https://tool.lu/">程序猿在线工具箱</a></li>
+        
+        <li><a target="_blank" href="https://www.bejson.com/">配置文件工具箱</a></li>
+        
+        <li><a target="_blank" href="http://www.jq22.com/textDifference">文本对比</a></li>
+        
+        <li><a target="_blank" href="https://cloudconvert.com/formats">在线文件格式转换</a></li>
+        
+    </ul>
+    
+    <hr>
+    <h5>收藏网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+        
+        <li><a target="_blank" href="https://www.nowcoder.com/">牛客网</a></li>
+        
+        <li><a target="_blank" href="http://www.acmcoder.com/">赛码网</a></li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://weibo.com/naah">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    <script>
+                        function wx() {
+                            layer.open({
+                                type: 1,
+                                title: false,
+                                closeBtn: 1,
+                                area: ['500px', '500px'],
+                                skin: 'layui-layer-nobg', 
+                                shadeClose: true,
+                                content: '<img src="https:\/\/naah-blog.oss-cn-hangzhou.aliyuncs.com\/img\/ed1d2fb9gy1fw0ntoycqcj20rr0rs3zo.jpg" width="500px" height="500px">'
+                            });
+                        }
+                    </script>
+                    <li>
+                        <a href="javascript:wx()">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/naah69">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy;   2020 <a href="http://www.beian.miit.gov.cn" target="_blank">浙ICP备19040622号</a>
+                    <br>
+                    
+                    <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+<script src="https://www.naah69.com/js/hux-blog.min.js"></script>
+
+<script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
+
+
+<script>
+
+
+    var _baId = '5d8997bbef4253c1fdbcba1a8fb66019';
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?"+ _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+
+<!-- async load function -->
+function async(u, c) {
+    var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+        o.addEventListener('load', function (e) {
+            c(null, e);
+        }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+}
+
+<!--fastClick.js -->
+async("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav) FastClick.attach($nav);
+})
+
+</script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155998534-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155998534-1');
+</script>
+
+
+
+
+</body>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+    <script src="https://www.naah69.com/js/article.js"></script>
+
+
+</html>

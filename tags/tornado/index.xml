@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tornado on </title>
+    <link>https://www.naah69.com/tags/tornado/</link>
+    <description>Recent content in Tornado on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 28 Jun 2019 21:17:24 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/tornado/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>快速构建高性能web框架Tornado的基础结构</title>
+      <link>https://www.naah69.com/post/2019-06-28-tornado/</link>
+      <pubDate>Fri, 28 Jun 2019 21:17:24 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-28-tornado/</guid>
+      <description>1 介绍 大部分python开发都知道Flask,Djongo,Tornado. 而我在进行python端的web开发时,会根据所实现的功能进行技</description>
+    </item>
+    
+  </channel>
+</rss>

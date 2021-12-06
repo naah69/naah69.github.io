@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>选择算法 on </title>
+    <link>https://www.naah69.com/tags/%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 选择算法 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 09 Sep 2017 09:16:48 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法基础之排序算法五之堆排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%BA%94%E4%B9%8B%E5%A0%86%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:16:48 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%BA%94%E4%B9%8B%E5%A0%86%E6%8E%92%E5%BA%8F/</guid>
+      <description>选择排序算法 选择排序（Selection sort）是一种简单直观的排序算法。 它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法四之简单选择排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%9B%9B%E4%B9%8B%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:09:45 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%9B%9B%E4%B9%8B%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</guid>
+      <description>选择排序算法 选择排序（Selection sort）是一种简单直观的排序算法。 它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个</description>
+    </item>
+    
+  </channel>
+</rss>

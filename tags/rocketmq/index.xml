@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RocketMQ on </title>
+    <link>https://www.naah69.com/tags/rocketmq/</link>
+    <description>Recent content in RocketMQ on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 11 Oct 2018 11:43:47 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/rocketmq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用rocketmq-starter发送事务消息</title>
+      <link>https://www.naah69.com/post/2018-10-11-rocketmq-starter-transcation/</link>
+      <pubDate>Thu, 11 Oct 2018 11:43:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-10-11-rocketmq-starter-transcation/</guid>
+      <description>1 RocketMQ分布式事务机制 1.1 概念介绍 事务消息：MQ 提供类似 X/Open XA 的分布事务功能，通过 MQ 事务消息能达到分布式事务的最终一致。 半消息：暂不能</description>
+    </item>
+    
+    <item>
+      <title>踩坑之spring-boot-starter-rocketmq的使用</title>
+      <link>https://www.naah69.com/post/2018-09-11-rocketmq-demo/</link>
+      <pubDate>Tue, 11 Sep 2018 21:03:24 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-09-11-rocketmq-demo/</guid>
+      <description>官网GitHub地址 ,这个文档超级坑，特别是里面的辣鸡Demo,全是错 本文Demo源码 1 Maven依赖 文档中的Maven依赖,引用后无法下载</description>
+    </item>
+    
+  </channel>
+</rss>

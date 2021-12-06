@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>微服务拆分及技术选型(2019总结版) | 纳兰小筑</title>
+    <meta name="description" content="手把手教你如何拆分微服务，以及如何对微服务进行技术选型" />
+    <meta name="keywords" content="微服务,服务网格,微服务技术选型" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="/img/favicon.ico">
+    <link rel="canonical" href="https://www.naah69.com/post/2020-01-04-microservice-servicemesh-thinkabout/">
+    <meta name="google-site-verification" content="RvhbpALX9GqGk5KVFhjMl2VqnksKeAoApN3upkrcDxM" />
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.naah69.com/css/hux-blog.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"
+      integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.js"
+        integrity="sha256-Gr6WcN18NVkLDr/zaAKoBQWpBSRw6LuPvNz2pwOe7Ng=" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI=" crossorigin="anonymous"
+        onload='renderMathInElement(document.body,{
+                delimiters:[{left:"$$", right: "$$", display: true,throwOnError:false},{left: "$", right: "$", display: false}],strict:false
+});'>
+
+</script>
+
+
+
+
+
+
+
+    
+<style>
+    article img{cursor: zoom-in;}
+     
+    header.intro-header {
+        background-image: url('https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/20211204162656.png')
+    }
+     
+    #floatting_dir {
+        position: fixed;
+        display: none;
+        width: auto;
+        height: auto;
+        font-size: 13px;
+    }
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+    @media screen and (max-width: 500px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    @media screen and (max-width: 768px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    .katex-display>.katex{
+        white-space:normal;
+    }
+
+    .katex .base, .katex .strut{
+        margin-top: 0.5em;
+    }
+
+    pre {
+        border:0px;
+        margin: 0px;
+    }
+
+
+</style>
+
+
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://www.naah69.com/">Naah-Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse" style="max-height: 1000px;" >
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://www.naah69.com/">HOME</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/essay"  target="_blank" >essay</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/foundation"  target="_blank" >foundation</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/java"  target="_blank" >java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/math"  target="_blank" >math</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/others"  target="_blank" >others</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+
+                    <li>
+                        <a href="https://www.naah69.com/about">About Me</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/search/article">Search
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            
+            $navbar.className = " ";
+            
+            setTimeout(function () {
+                
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a href="https://www.naah69.com/%20categories/others" target="_blank" ><i class="fa fa-folder-o"></i>&nbsp;Others</a>
+                        
+                        
+                        <a class="tag" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1" title="微服务" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;微服务
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E6%9C%8D%E5%8A%A1%E7%BD%91%E6%A0%BC" title="服务网格" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;服务网格
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86" title="微服务拆分" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;微服务拆分
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B" title="技术选型" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;技术选型
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E5%A4%A7%E4%BC%9A%E5%88%86%E4%BA%AB" title="大会分享" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;大会分享
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E7%9B%B8%E5%85%B3%E6%80%9D%E8%80%83" title="相关思考" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;相关思考
+                        </a>
+                        
+                        <a class="tag" href="/tags/ecug" title="ECUG" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;ECUG
+                        </a>
+                        
+
+                    </div>
+
+                    <h1>微服务拆分及技术选型(2019总结版)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Naah on Saturday, Jan 04,2020 21:45:39
+                        
+                        <span id="/post/2020-01-04-microservice-servicemesh-thinkabout/" class="meta_data_item" data-flag-title="">
+    <span class="post-meta-item-icon">
+      <span class="octicon octicon-eye"></span>
+    </span>
+    &nbsp;
+    <i class="fa fa-eye"></i>
+    <span class="old-visitors-count" style="display: none;"></span>
+    <span id="busuanzi_container_page_pv">
+  <span id="busuanzi_value_page_pv"></span>
+
+</span>
+</span>
+
+
+
+                        
+                    </span><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container" id="container_div">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+
+                
+
+                
+
+                
+                
+                <div id="floatting_dir" style="margin: 10px;border: 1px solid gray;z-index:99999;">
+                    <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                        <strong id="dir_btn_open" style="color: black;font-size: large;">目录</strong>
+                        <strong id="dir_btn_close" style="color: black;font-size: large;float: right">x</strong>
+                    </header>
+                    <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
+                        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#21-场景分析">2.1 场景分析</a></li>
+    <li><a href="#22-业务建模">2.2 业务建模</a></li>
+    <li><a href="#23-架构设计">2.3 架构设计</a></li>
+    <li><a href="#24-康威定律摘自网络">2.4 康威定律（摘自网络）</a>
+      <ul>
+        <li><a href="#241-第一定律">2.4.1 第一定律</a></li>
+        <li><a href="#242-第二定律">2.4.2 第二定律</a></li>
+        <li><a href="#243-第三定律">2.4.3 第三定律</a></li>
+        <li><a href="#244-第四定律">2.4.4 第四定律</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#31-要不要使用服务网格架构">3.1 要不要使用服务网格架构</a></li>
+    <li><a href="#32-架构推荐">3.2 架构推荐</a>
+      <ul>
+        <li><a href="#321-服务注册与发现">3.2.1 服务注册与发现</a></li>
+        <li><a href="#322-服务调用">3.2.2 服务调用</a></li>
+        <li><a href="#323-配置中心">3.2.3 配置中心</a></li>
+        <li><a href="#324-限流熔断">3.2.4 限流熔断</a></li>
+        <li><a href="#325-链路追踪">3.2.5 链路追踪</a></li>
+        <li><a href="#326-监控告警">3.2.6 监控告警</a></li>
+        <li><a href="#327-日志中心">3.2.7 日志中心</a></li>
+        <li><a href="#328-服务网关">3.2.8 服务网关</a></li>
+        <li><a href="#329-服务编排">3.2.9 服务编排</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                    </div>
+                </div>
+                
+                
+                
+
+                <p>最近参加了<code>ECUG</code>大会，其中有两个分享是有关微服务的，一个是CODING的<code>微服务拆分</code>，一个是网易的<code>服务网格实践</code>，那我对这些也有些思考，今天我们来聊一聊到底要不要选择<code>serviceMesh</code>架构的，正确的来说是关于<code>服务网格</code>的架构，但是这种架构也可以说是<code>微服务</code>架构的一种变体。时间是40分钟，虽然时间不长，但是还是感觉受益匪浅。下面我将对我的认知和今天学到的东西进行叙述，欢迎大家来评论讨论，也可以加我的微信进行讨论。</p>
+<h1 id="1-为什么要拆服务">1 为什么要拆服务？</h1>
+<p>这个问题，其实你去百度和谷歌搜索，一定会有一箩筐的问题，但是我感觉废话太多，下面说下我对这个问题的看法。</p>
+<blockquote>
+<p>单体的痛点</p>
+</blockquote>
+<ol>
+<li>编译、启动、扩容时间长</li>
+<li>开发冲突</li>
+<li>耦合性高</li>
+<li>代码冗余复杂</li>
+<li>资源利用率低</li>
+<li>业务模块复用率低</li>
+<li>等等</li>
+</ol>
+<blockquote>
+<p>微服务的优点是什么？（微服务让我们更好的应用设计模式！）</p>
+</blockquote>
+<ol>
+<li>低耦合、高内聚(单一职责)</li>
+<li>业务边界清晰、复用性高(迪米特原则)</li>
+<li>面向接口的编程，不依赖细节，（依赖倒转原则）</li>
+<li>易开发、易维护、易发布（scrum小步快跑）</li>
+<li>动态伸缩，资源利用率更高（节省成本）</li>
+<li>针对业务使用不同的技术（最优方案）</li>
+</ol>
+<blockquote>
+<p>微服务的缺点呢？</p>
+</blockquote>
+<ol>
+<li>运维成本高(感谢容器拯救我们，但是大量服务还是费神费力)</li>
+<li>分布式导致应用复杂性提高(出现很多让你想不到bug)</li>
+<li>跟踪费力(感谢链路追踪解决这个问题)</li>
+<li>排查费力(感谢日志分析平台)</li>
+<li>需要开发拥有一定实力</li>
+</ol>
+<p>以上就是我现在想到的一些想法，如有不足，欢迎补充</p>
+<h1 id="2-关于服务粒度与业务边界">2 关于服务粒度与业务边界</h1>
+<p>吴海黎今天说他们之前在拆一个北京的电商项目时，由于没有经验，也就是没有<code>微服务拆分的内功</code>（下面会讲，先卖个关子），对微服务进行了盲目的拆分，根据数据库表结构进行拆分，基本上一张表一个微服务，导致少量程序猿维护大量的细粒度微服务，这种情况虽然不多见，但是这个问题确实是很多在开发者在拆服务时候会遇到的一个问题。微服务的拆分不光要根据业务边界进行拆分，同时也跟公司的组织架构有关系。</p>
+<blockquote>
+<p>那么如何进行服务拆分?</p>
+</blockquote>
+<p>如果在一个没有对服务拆分经验的团队来说，那么最好的方案就是<code>根据模块拆分</code>，这样可以保证60%的情况下不会出现一些太大的问题，比如电商行业的话就是用户、商品、订单、库存等</p>
+<p>如果恰好你的团队有对服务拆分有经验的童鞋，那就好办太多了，高呼一句DDD万岁！DDD本质上是一种面向对象的思维（真正的），习惯了对数据CURD和MVC模型的童鞋是很难转变过来的。因为DDD实在是太抽象了，很多时候我们都是云里雾里，我现在也只是略微清晰，需要慢慢的去消化，进步。现在开始进行第一步</p>
+<h2 id="21-场景分析">2.1 场景分析</h2>
+<ol>
+<li>解读用户视角,用例分析,用户旅程分析</li>
+<li>探索业务领域的场景,业务场景分析</li>
+<li>产出<code>场景</code>、<code>用例</code>、<code>子域依赖关系</code></li>
+<li>参与者:<code>产品经理</code>、<code>需求分析人员</code>、<code>架构师</code>、<code>开发组长</code>和<code>测试组长</code>。</li>
+</ol>
+<h2 id="22-业务建模">2.2 业务建模</h2>
+<ol>
+<li>对业务和问题域分析</li>
+<li>建立领域模型</li>
+<li>向上微服务边界划分设计</li>
+<li>向下聚合指导实体对象设计</li>
+<li>产出<code>类图</code>、<code>顺序图</code>、<code>状态图</code>等静动态分析结果</li>
+<li>参与者:<code>领域专家</code>,<code>产品经理</code>、<code>需求分析人员</code>、<code>架构师</code>、<code>开发组长</code>和<code>测试组长</code>。</li>
+</ol>
+<p>推荐使用<code>事件风暴</code>，不懂就去百度它，这是一种非常高效的建模方式，并且很有意思。这种方法是一种<code>事件优先</code>的思想，把发生的事情作为设计的首要考虑目标。也就是说是一种<code>事件驱动</code>的方式，那么怎么做呢？</p>
+<ol>
+<li>捕捉<code>领域事件</code>,重现事件发生顺序，用橙色标签表示，比如用户信息已查询</li>
+<li>找到事件的来源，用蓝色标签表示，比如查找用户信息</li>
+<li>找出领域事件属性，用黄色标签表示，多来源可以多颜色，比如输入输出</li>
+<li>寻找业务<code>领域聚合</code>实体，用绿色标签，比如事件触发者</li>
+</ol>
+<h2 id="23-架构设计">2.3 架构设计</h2>
+<p>下面就说下DDD中的分层架构，这块我也只是了解皮毛，并没有使用这种4层架构进行服务开发过，工作中还是使用MVC这种<code>贫血模型</code>更多一些,这里可能也是我的一个欠缺点，后期也会补一补。。</p>
+<ol>
+<li>表示层（你就理解为Controller层好了，对外提供接口，网络传输边界）</li>
+<li>应用层（观察者模式，领域对象协调任务，用户用例操作，这步分布式调用）</li>
+<li>领域层（实体，值，聚合对象，业务逻辑实现）</li>
+<li>基础层（接口管理，数据库持久化）</li>
+</ol>
+<p>看看这种架构，再看看MVC的架构，这种DDD的架构是严格按照面向对象的思想去实现的，我们使用MVC模式其实本质上就是扛着面向对象的大旗干着耍流氓的事。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1galuo8g7omj30v10jvt9t.jpg" alt=""></p>
+<p>之前说过微服务的架构不光跟业务边界有关系，还跟公司的组织架构有关系。这句话是什么意思呢?让我们先来了解下<code>康威定律</code></p>
+<h2 id="24-康威定律摘自网络">2.4 康威定律（摘自网络）</h2>
+<p>通俗的来讲：产品必然是其（人员）组织沟通结构的缩影。比如下方是国际大厂的组织架构</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1galvcyg4fjj30m80lognw.jpg" alt=""></p>
+<p>康威定律可谓软件架构设计中的第一定律，起初只是在杂志上的发表，后经过《人月神话》这本软件界圣经的引用，并命名为康威定律（Conway’s law），因此得以推广。只通过简单的描述可能无法理解康威定律的精髓所在，原文中康威定律可总结为四个定律：</p>
+<ol>
+<li>第一定律 组织沟通方式会通过系统设计表达出来。</li>
+<li>第二定律 时间再多一件事情也不可能做的完美，但总有时间做完一件事情。</li>
+<li>第三定律 线型系统和线型组织架构间有潜在的异质同态特性。</li>
+<li>第四定律 大的系统组织总是比小系统更倾向于分解。</li>
+</ol>
+<h3 id="241-第一定律">2.4.1 第一定律</h3>
+<blockquote>
+<p>组织沟通方式决定系统设计。</p>
+</blockquote>
+<p>这条定律重点是讲组织架构和沟通对系统设计的影响。组织的沟通和系统的设计之间紧密相连，特别是复杂系统，解决好人与人的沟通才能有一个更好的系统设计。</p>
+<p>《人月神话》中总结出了随着人员的增加沟通成本呈指数增长的规律：<code>沟通成本 = n(n-1)/2</code></p>
+<p>这也是为什么互联网公司都追求小团队的原因之一。沟通的问题会带来系统设计的问题，进而影响整个系统的开发效率和最终产品结果。</p>
+<h3 id="242-第二定律">2.4.2 第二定律</h3>
+<blockquote>
+<p>时间再多一件事情也不可能做的完美，但总有时间做完一件事情。</p>
+</blockquote>
+<p>人手永远是不够的，事情永远是做不完的，但可以一件一件来。这不就是软件行业中“敏捷开发”模式所解决的问题吗。面对这样的状况，敏捷开发可以做到不断迭代、持续交付、快速验证和反馈，并持续改进。</p>
+<p>再牛的开发也会写出bug，再全面的测试覆盖率也无法测出所有的问题。解决方案不是消灭这些问题，是容忍一些问题的存在，然后通过适当的设计（冗余、监控、高可用设计）当问题发生时能够快速解决。</p>
+<p>几个开发人员的小公司，去追求微服务、去追求中台架构，这是追求完美吗？不是，是找死。</p>
+<p>好的架构不是买来的，也不是设计出来的，而是根据业务落地生根长期演化来的。</p>
+<h3 id="243-第三定律">2.4.3 第三定律</h3>
+<blockquote>
+<p>线型系统和线型组织架构间有潜在的异质同态特性。</p>
+</blockquote>
+<p>这一定律是第一定律的具体应用。想象一下如果公司的组织架构是这样的：</p>
+<p>团队是分布式，每个团队都包含产品、研发、测试、运维等角色。而此时系统是单块的，项目沟通和协调的成本是巨大的，弄不好还会打起来。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1galvkwshu2j30at08x0st.jpg" alt=""></p>
+<p>如果将单块的系统拆分成微服务，每个团队负责自己的部分，对外提供对应的接口即可，互不干扰。系统效率将得到提升。这与软件设计中的高内聚、低耦合是相通的。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1galvlejfecj30bk06nt8r.jpg" alt=""></p>
+<p>直白的说就是想要什么的系统就搭建什么样的团队，有什么样的团队就搭建什么样的系统。需要前后端分离的系统就搭建前后端分离的团队，反之，拥有前后端分离的团队，可以设计前后端分离的系统。当然，如果能统筹管理，拥有重组团队或设计系统架构的权利，那就再好不过了。通常情况下让两者形成1：1的映射关系，更加高效。</p>
+<h3 id="244-第四定律">2.4.4 第四定律</h3>
+<blockquote>
+<p>大的系统组织总是比小系统更倾向于分解。</p>
+</blockquote>
+<p>“话说天下大势，分久必合，合久必分。”系统越复杂，越需要增加人手，人手越多，沟通成本也呈指数增长。分而治之便是大多数公司选择的解决方案。分不同的层级，分不同的小团队，让团队内部完成自治理，然后统一对外沟通。</p>
+<p>说到这，你是不是想起来秦始皇的中央集权郡县制？</p>
+<h1 id="3-技术选型">3 技术选型</h1>
+<p>话说这两天的大会上，CODING和网易都在分享服务网格在他们那里落地的实践。这个点怎么说呢？</p>
+<p>之前我是调研过一阵子这种架构，概念很棒，将服务治理等技术从代码中剥离出来，使得我们的业务代码更干净，无侵入，更专注于业务逻辑。</p>
+<p>但是目前开源社区主推的两种技术貌似都不是很成熟，它们分别是<code>Istio</code> 和 <code>Linkerd</code>。最有意思的是CODING选的是<code>Linkerd</code>，网易选的是<code>Istio</code>。那么我怎么看这个点呢，我从各个维度来给你讲讲。</p>
+<h2 id="31-要不要使用服务网格架构">3.1 要不要使用服务网格架构</h2>
+<p>首先我们要讨论为啥要使用服务网格。是不是真的有多语言业务痛点。如果你的业务都是Java生态的，那先别凑热闹，<code>SpringCloud</code>+<code>Dubbo</code>已经很香了。该有的都有了，你要的还给你更新，包括国内的形式，<code>SpringCLoud</code>跟<code>Alibaba</code>的py交易，已经是让java的微服务开发方便的不能再方便了。那真正需要考虑服务网格这种架构的是那些有异构服务业务的公司。</p>
+<p>比如AI行业，因为AI的服务化99%都是<code>Python</code>写的，我对python的服务治理真的是煞费苦心，所以我其实挺希望<code>sidecar</code>可以快速崛起，但是现在还是太弱，虽然最近有一个小太阳<code>graalVM</code>在不断的升起，但是把python完美运行在jvm上可能还是需要个几年吧。</p>
+<p>比如云行业，在google的<code>golang（够浪）</code>风靡全球，火爆2018的情况下，很多公司使用goolang去做一些跟网络相关的应用，毕竟golang的io模型是真的香，用golang去开发个网关啥的，在2018可能是随处可见的事。而且这个浪货能真正实现编译native应用，脱离虚拟机环境各种浪。</p>
+<p>那么针对这种异构服务的情况，以往我们的做法是什么，通过<code>http</code>、<code>thrift</code>、<code>grpc</code>等方式解决服务调用的问题。但是在服务治理这，确实是让人脑仁疼，java的服务治理是spring都给集成好了，而其他语言，python、golang、nodejs的命运就是自己公司封装一套<code>ioc</code>框架来加载各种服务治理的插件，更有甚者直接生撸各种代码。但是服务网格的出现让异构服务眼前一亮，弄个<code>sidecar</code>把这些糟心的东西（<code>控制面板</code>和<code>数据面板</code>）都帮我弄好，这太方便了，老子终于也有java那种帝王般的待遇了。</p>
+<p>但是，目前开源社区的服务网格产品都还不是很成熟，特别是<code>Istio</code>，底层使用<code>iptables</code>进行网络管理，尤其是架构中用来观察数据的<code>Mixer</code>简直就是性能杀手，让你的吞吐量一落千丈，我问网易的冯常健这个问题，他说他们线上直接把这个关了，用以前的链路追踪来代替它的观测性，不然根本不够它吃性能的。再加上经常出幺蛾子的<code>Policy</code>，如果不是大厂，没有专门的架构团队或者中间件团队来优化的话，还是死了这条心吧。再来说说<code>Linkerd</code>，它的性能可比<code>Istio</code>好上不少，但是在生态完整性上还是偏弱，没有<code>Istio</code>那么成熟，但对比我们传统应用也是有一定的延迟。最主要的是两者的易用性没那么高，并且目前来说还属于初创阶段，相当于5年前的k8s吧，玩一玩可以，如果不是大厂，没有精力去优化，那么还是等等吧。</p>
+<p>之前网络上有很多拿<code>istio</code>、<code>linkerd</code>、<code>zuul</code>、<code>gateway</code>、<code>nginx</code>做路由转发性能测试，结果是gateway被吊打,这里要澄清下,别拿<code>ab</code>做测试了，gateway底层使用<code>reactor netty</code>，不支持HTTP1.0，什么年代了还用http1.0，这种也叫基准测试？你拿http1.1试试，吊打你们不?</p>
+<p>再告诉你们一个点，<code>springcloud sidecar</code>其实挺香的。而且现在dubbo在多语言适配上走的越来越远了。所以使用这种sidecar进行服务网格实践也是一种不错的选择。</p>
+<blockquote>
+<p>结论:</p>
+<p>服务网格架构可以用，但是不要拘泥于形式，拘泥于框架</p>
+<p>对于<code>istio</code>和<code>linkerd</code>，我的建议是：</p>
+<p>大厂有精力维护优化，可以去搞。</p>
+<p>小作坊的话，安心吃瓜，让大厂先去踩坑吧。</p>
+</blockquote>
+<h2 id="32-架构推荐">3.2 架构推荐</h2>
+<p>下面我将把我对微服务架构这块的相关选型经验进行输出（下文不会提高istio和linkerd）</p>
+<p>我对各种组件的选型，本着下面的这个思想:</p>
+<blockquote>
+<p>求稳，就走别人走过的路。用一些开源的，相对标准的技术，而不是一味的求新求小众。有时可能小众组件仅突出一个点，但是给你带来的却是毁灭级的无便携和不可维护。</p>
+</blockquote>
+<h3 id="321-服务注册与发现">3.2.1 服务注册与发现</h3>
+<ol>
+<li>zoookeeper</li>
+<li>eureka</li>
+<li>consul</li>
+<li>etcd</li>
+<li>coreDNS</li>
+<li>nacos</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">zookeeper</th>
+<th style="text-align:center">eureka</th>
+<th style="text-align:center">consul</th>
+<th style="text-align:center">etcd</th>
+<th style="text-align:center">coreDNS</th>
+<th style="text-align:center">nacos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CAP</td>
+<td style="text-align:center">CP</td>
+<td style="text-align:center">AP</td>
+<td style="text-align:center">CP</td>
+<td style="text-align:center">CP</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">CP/AP</td>
+</tr>
+<tr>
+<td style="text-align:center">一致性算法</td>
+<td style="text-align:center">paxos</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Raft</td>
+<td style="text-align:center">Raft</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Raft</td>
+</tr>
+<tr>
+<td style="text-align:center">kv存储服务</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">监听</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">健康检查</td>
+<td style="text-align:center">TCP/心跳</td>
+<td style="text-align:center">心跳</td>
+<td style="text-align:center">TCP/HTTP/gRpc</td>
+<td style="text-align:center">心跳</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">TCP/HTTP/心跳</td>
+</tr>
+<tr>
+<td style="text-align:center">雪崩保护</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">有</td>
+</tr>
+<tr>
+<td style="text-align:center">自动注销</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">访问协议</td>
+<td style="text-align:center">TCP</td>
+<td style="text-align:center">HTTP</td>
+<td style="text-align:center">HTTP/DNS</td>
+<td style="text-align:center">HTTP/gRpc</td>
+<td style="text-align:center">DNS</td>
+<td style="text-align:center">HTTP/DNS</td>
+</tr>
+<tr>
+<td style="text-align:center">多数据中心</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">跨注册中心同步</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">推荐</td>
+<td style="text-align:center">不推荐</td>
+<td style="text-align:center">不推荐</td>
+<td style="text-align:center">推荐</td>
+<td style="text-align:center">不推荐</td>
+<td style="text-align:center">不推荐</td>
+<td style="text-align:center">推荐</td>
+</tr>
+<tr>
+<td style="text-align:center">原因</td>
+<td style="text-align:center">功能少，不够灵活</td>
+<td style="text-align:center">停止维护，不一致</td>
+<td style="text-align:center">推荐，社区活跃</td>
+<td style="text-align:center">不推荐，不适合</td>
+<td style="text-align:center">不推荐,除非k8s那套</td>
+<td style="text-align:center">功能强大,社区活跃</td>
+</tr>
+</tbody>
+</table>
+<p>注册中心要解决问题是下面这几点：</p>
+<ol>
+<li>解耦</li>
+<li>服务动态伸缩</li>
+<li>服务注册</li>
+<li>服务发现</li>
+<li>服务监控状态</li>
+</ol>
+<p>所以我们在选型的时候要考虑下面这几点：</p>
+<ol>
+<li>规模性，大规模选ap，小规模选cp</li>
+<li>成熟度，功能是否能满足</li>
+<li>维护成本，社区是否活跃，出现问题是否可以快速解决</li>
+<li>性能，使用时是否有性能问题</li>
+<li>稳定性，是否稳定，怎么选主，网络不稳时怎么办</li>
+</ol>
+<h3 id="322-服务调用">3.2.2 服务调用</h3>
+<ol>
+<li>HTTP</li>
+<li>Thrift</li>
+<li>gRPC</li>
+<li>dubbo</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Thrift</th>
+<th style="text-align:center">gRPC</th>
+<th style="text-align:center">Dubbo</th>
+<th style="text-align:center">HTTP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">协议</td>
+<td style="text-align:center">tcp</td>
+<td style="text-align:center">http2</td>
+<td style="text-align:center">tcp/http</td>
+<td style="text-align:center">http</td>
+</tr>
+<tr>
+<td style="text-align:center">编码</td>
+<td style="text-align:center">binary</td>
+<td style="text-align:center">protobuff（最优）</td>
+<td style="text-align:center">heisson/protobuff/http</td>
+<td style="text-align:center">http</td>
+</tr>
+<tr>
+<td style="text-align:center">使用量</td>
+<td style="text-align:center">多</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">多</td>
+<td style="text-align:center">多</td>
+</tr>
+<tr>
+<td style="text-align:center">安全控制</td>
+<td style="text-align:center">复杂</td>
+<td style="text-align:center">容易</td>
+<td style="text-align:center">复杂</td>
+<td style="text-align:center">容易</td>
+</tr>
+<tr>
+<td style="text-align:center">性能</td>
+<td style="text-align:center">中</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">低</td>
+</tr>
+<tr>
+<td style="text-align:center">成熟度</td>
+<td style="text-align:center">成熟</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">成熟</td>
+<td style="text-align:center">成熟</td>
+</tr>
+<tr>
+<td style="text-align:center">多语言</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">部分支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">社区活跃</td>
+<td style="text-align:center">不活跃</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">活跃</td>
+<td style="text-align:center">活跃</td>
+</tr>
+<tr>
+<td style="text-align:center">服务体系</td>
+<td style="text-align:center">不完整</td>
+<td style="text-align:center">不完整</td>
+<td style="text-align:center">完整</td>
+<td style="text-align:center">完整</td>
+</tr>
+<tr>
+<td style="text-align:center">场景</td>
+<td style="text-align:center">长连接</td>
+<td style="text-align:center">长连接</td>
+<td style="text-align:center">长连接</td>
+<td style="text-align:center">短连接</td>
+</tr>
+<tr>
+<td style="text-align:center">推荐</td>
+<td style="text-align:center">不推荐</td>
+<td style="text-align:center">不推荐</td>
+<td style="text-align:center">推荐</td>
+<td style="text-align:center">推荐</td>
+</tr>
+<tr>
+<td style="text-align:center">原因</td>
+<td style="text-align:center">吃cpu</td>
+<td style="text-align:center">没有亮点，需要IDL</td>
+<td style="text-align:center">社区活跃陆续完善</td>
+<td style="text-align:center">实用度高</td>
+</tr>
+</tbody>
+</table>
+<p>在对服务调用进行选型时我们主要考虑以下几点：</p>
+<ol>
+<li>长连接还是短连接</li>
+<li>rpc是否规范</li>
+<li>代码侵入是否严重</li>
+<li>性能好不好</li>
+<li>是否支持多语言</li>
+</ol>
+<h3 id="323-配置中心">3.2.3 配置中心</h3>
+<ol>
+<li>springcloud-conf</li>
+<li>apollo</li>
+<li>disconf</li>
+<li>nacos</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">springcloud-config</th>
+<th style="text-align:center">apollo</th>
+<th style="text-align:center">disconf</th>
+<th style="text-align:center">nacos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">静态配置</td>
+<td style="text-align:center">基于file</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">动态推送</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">多环境</td>
+<td style="text-align:center">基于git</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">多集群</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">多语言</td>
+<td style="text-align:center">java</td>
+<td style="text-align:center">go/c++/python/php/java/.net/http</td>
+<td style="text-align:center">java</td>
+<td style="text-align:center">java/python/nodejs/http</td>
+</tr>
+<tr>
+<td style="text-align:center">统一管理</td>
+<td style="text-align:center">基于git</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">本地缓存</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">生效时间</td>
+<td style="text-align:center">手动</td>
+<td style="text-align:center">实时</td>
+<td style="text-align:center">实时</td>
+<td style="text-align:center">实时</td>
+</tr>
+<tr>
+<td style="text-align:center">自动推送</td>
+<td style="text-align:center">手动</td>
+<td style="text-align:center">自动</td>
+<td style="text-align:center">自动</td>
+<td style="text-align:center">自动</td>
+</tr>
+<tr>
+<td style="text-align:center">定时拉取</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">依赖事件</td>
+<td style="text-align:center">待支持</td>
+</tr>
+<tr>
+<td style="text-align:center">用户权限</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">待支持</td>
+</tr>
+<tr>
+<td style="text-align:center">授权审核</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">待支持</td>
+</tr>
+<tr>
+<td style="text-align:center">版本管理</td>
+<td style="text-align:center">基于git</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">版本回滚</td>
+<td style="text-align:center">基于git</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">规则检查</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">待支持</td>
+</tr>
+<tr>
+<td style="text-align:center">灰度发布</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">待支持</td>
+</tr>
+<tr>
+<td style="text-align:center">告警通知</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">依赖</td>
+<td style="text-align:center">eureka</td>
+<td style="text-align:center">eureka</td>
+<td style="text-align:center">zookeeper</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">社区</td>
+<td style="text-align:center">不活跃</td>
+<td style="text-align:center">活跃</td>
+<td style="text-align:center">停止</td>
+<td style="text-align:center">活跃</td>
+</tr>
+<tr>
+<td style="text-align:center">推荐</td>
+<td style="text-align:center">不推荐</td>
+<td style="text-align:center">推荐</td>
+<td style="text-align:center">不推荐</td>
+<td style="text-align:center">推荐</td>
+</tr>
+<tr>
+<td style="text-align:center">原因</td>
+<td style="text-align:center">没界面，及其难用</td>
+<td style="text-align:center">功能强大，社区活跃</td>
+<td style="text-align:center">停止维护</td>
+<td style="text-align:center">前景好，社区活跃</td>
+</tr>
+</tbody>
+</table>
+<p>配置中心要解决问题是下面这几点：</p>
+<ol>
+<li>动态修改线上配置，基于开关开发</li>
+<li>环境隔离</li>
+<li>配置治理</li>
+<li>驱动devops</li>
+</ol>
+<h3 id="324-限流熔断">3.2.4 限流熔断</h3>
+<ol>
+<li>sentinel</li>
+<li>hystrix</li>
+<li>resilience4j</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">sentinel</th>
+<th style="text-align:center">hystrix</th>
+<th style="text-align:center">resilience4j</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">隔离策略</td>
+<td style="text-align:center">信号量</td>
+<td style="text-align:center">线程池/信号量</td>
+<td style="text-align:center">信号量</td>
+</tr>
+<tr>
+<td style="text-align:center">熔断降级策略</td>
+<td style="text-align:center">响应时间、异常比例、异常数</td>
+<td style="text-align:center">异常比率</td>
+<td style="text-align:center">异常比率、响应时间</td>
+</tr>
+<tr>
+<td style="text-align:center">实时统计</td>
+<td style="text-align:center">滑窗（leapArray）</td>
+<td style="text-align:center">滑窗（RxJava）</td>
+<td style="text-align:center">Ring Bit Buffer</td>
+</tr>
+<tr>
+<td style="text-align:center">动态规则</td>
+<td style="text-align:center">多数据源</td>
+<td style="text-align:center">多数据源</td>
+<td style="text-align:center">有限支持</td>
+</tr>
+<tr>
+<td style="text-align:center">扩展性</td>
+<td style="text-align:center">多个扩展点</td>
+<td style="text-align:center">插件形式</td>
+<td style="text-align:center">接口形式</td>
+</tr>
+<tr>
+<td style="text-align:center">注解支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">限流</td>
+<td style="text-align:center">基于QPS、调用关系</td>
+<td style="text-align:center">有限支持</td>
+<td style="text-align:center">rate limiter</td>
+</tr>
+<tr>
+<td style="text-align:center">流量整形</td>
+<td style="text-align:center">预热、匀速器、预热排队模式</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">rate limiter</td>
+</tr>
+<tr>
+<td style="text-align:center">自适应保护</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">不支持</td>
+</tr>
+<tr>
+<td style="text-align:center">控制台</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">不支持</td>
+</tr>
+<tr>
+<td style="text-align:center">社区</td>
+<td style="text-align:center">活跃</td>
+<td style="text-align:center">停止</td>
+<td style="text-align:center">一般</td>
+</tr>
+<tr>
+<td style="text-align:center">推荐</td>
+<td style="text-align:center">推荐</td>
+<td style="text-align:center">不推荐</td>
+<td style="text-align:center">推荐</td>
+</tr>
+<tr>
+<td style="text-align:center">原因</td>
+<td style="text-align:center">功能强大，社区活跃</td>
+<td style="text-align:center">停止维护</td>
+<td style="text-align:center">轻量级</td>
+</tr>
+</tbody>
+</table>
+<p>限流熔断要解决问题是下面这几点：</p>
+<ol>
+<li>服务高可用</li>
+<li>单点故障导致链路瘫痪的情况</li>
+<li>高并发时优先保证部分请求</li>
+</ol>
+<h3 id="325-链路追踪">3.2.5 链路追踪</h3>
+<p>听说es官方也出了一款开源的apm，不过还没调研</p>
+<ol>
+<li>zipkin</li>
+<li>pinpoint</li>
+<li>skywalking</li>
+<li>cat</li>
+<li>jaeger</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">zipkine</th>
+<th style="text-align:center">pinpoint</th>
+<th style="text-align:center">skywalking</th>
+<th style="text-align:center">cat</th>
+<th style="text-align:center">jaeger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">接入方式</td>
+<td style="text-align:center">拦截侵入</td>
+<td style="text-align:center">探针</td>
+<td style="text-align:center">探针</td>
+<td style="text-align:center">埋点侵入</td>
+<td style="text-align:center">拦截侵入</td>
+</tr>
+<tr>
+<td style="text-align:center">agent到collector</td>
+<td style="text-align:center">http、MQ</td>
+<td style="text-align:center">thrift</td>
+<td style="text-align:center">gRPC</td>
+<td style="text-align:center">http、tcp</td>
+<td style="text-align:center">udp、http</td>
+</tr>
+<tr>
+<td style="text-align:center">opentrace</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">粒度</td>
+<td style="text-align:center">接口级</td>
+<td style="text-align:center">方法级</td>
+<td style="text-align:center">方法级</td>
+<td style="text-align:center">代码级</td>
+<td style="text-align:center">代码级</td>
+</tr>
+<tr>
+<td style="text-align:center">全局调用统计</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">traceId查询</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">报警</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+</tr>
+<tr>
+<td style="text-align:center">jvm监控</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+</tr>
+<tr>
+<td style="text-align:center">ui丰富</td>
+<td style="text-align:center">低</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">中</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">中</td>
+</tr>
+<tr>
+<td style="text-align:center">数据存储</td>
+<td style="text-align:center">es、mysql、cassandra、内存</td>
+<td style="text-align:center">hbase</td>
+<td style="text-align:center">es、h2、tidb、shading-sphere</td>
+<td style="text-align:center">mysql、hdfs</td>
+<td style="text-align:center">es、kafka、cassandra、内存</td>
+</tr>
+<tr>
+<td style="text-align:center">扩展性</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">低</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">高</td>
+</tr>
+<tr>
+<td style="text-align:center">多语言</td>
+<td style="text-align:center">java、c#、go、php</td>
+<td style="text-align:center">java、php</td>
+<td style="text-align:center">java、c#、php、nodejs、python、go</td>
+<td style="text-align:center">Java、c、c++、python、nodejs、go</td>
+<td style="text-align:center">java、c#、go、php、python、nodejs、c++、ruby、rust</td>
+</tr>
+<tr>
+<td style="text-align:center">性能损耗</td>
+<td style="text-align:center">中</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">低</td>
+<td style="text-align:center">中</td>
+<td style="text-align:center">中</td>
+</tr>
+<tr>
+<td style="text-align:center">社区</td>
+<td style="text-align:center">活跃</td>
+<td style="text-align:center">活跃</td>
+<td style="text-align:center">活跃</td>
+<td style="text-align:center">活跃</td>
+<td style="text-align:center">活跃</td>
+</tr>
+<tr>
+<td style="text-align:center">推荐</td>
+<td style="text-align:center">不推荐</td>
+<td style="text-align:center">不推荐</td>
+<td style="text-align:center">推荐</td>
+<td style="text-align:center">不推荐</td>
+<td style="text-align:center">不推荐</td>
+</tr>
+<tr>
+<td style="text-align:center">原因</td>
+<td style="text-align:center">代码侵入</td>
+<td style="text-align:center">性能影响大</td>
+<td style="text-align:center">强大，性能好</td>
+<td style="text-align:center">代码侵入</td>
+<td style="text-align:center">代码侵入但语言广</td>
+</tr>
+</tbody>
+</table>
+<p>链路追踪要解决问题是下面这几点：</p>
+<ol>
+<li>分布式调用链分析难</li>
+<li>性能优化无从下手</li>
+</ol>
+<h3 id="326-监控告警">3.2.6 监控告警</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">prometheus+Grafana</th>
+<th style="text-align:center">open-falcon</th>
+<th style="text-align:center">zabbix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">响应时间</td>
+<td style="text-align:center">快</td>
+<td style="text-align:center">快</td>
+<td style="text-align:center">快</td>
+</tr>
+<tr>
+<td style="text-align:center">图表</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">自动发现</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">agent</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">agentless</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">snmp</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">外部脚本</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">插件</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">插件创建</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">简单</td>
+<td style="text-align:center">简单</td>
+</tr>
+<tr>
+<td style="text-align:center">告警</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">告警收敛</td>
+<td style="text-align:center">灵活</td>
+<td style="text-align:center">简单</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">通知次数</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">存储</td>
+<td style="text-align:center">自己</td>
+<td style="text-align:center">mysql</td>
+<td style="text-align:center">sql</td>
+</tr>
+<tr>
+<td style="text-align:center">报表</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">采集范围</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">故障域</td>
+<td style="text-align:center">单组件</td>
+<td style="text-align:center">单组件</td>
+<td style="text-align:center">集成</td>
+</tr>
+<tr>
+<td style="text-align:center">HA</td>
+<td style="text-align:center">HA</td>
+<td style="text-align:center">单点</td>
+<td style="text-align:center">单点</td>
+</tr>
+<tr>
+<td style="text-align:center">配置</td>
+<td style="text-align:center">树形</td>
+<td style="text-align:center">模板</td>
+<td style="text-align:center">模板</td>
+</tr>
+</tbody>
+</table>
+<p>这一块了解不是很清楚，估计运维可能理解更深一些，不过推荐使用<code>prometheus</code>+<code>Grafana</code>，因为后期一些业务监控可以直接写进prometheus（时序数据库），然后使用grafana进行可视化</p>
+<h3 id="327-日志中心">3.2.7 日志中心</h3>
+<p>市面上基本只有两种<code>splunk</code>和<code>elk</code></p>
+<p>可能互联网公司中elk更多一些</p>
+<h3 id="328-服务网关">3.2.8 服务网关</h3>
+<p>因为我们要在网关上做一些比如<code>路由</code>、<code>权鉴</code>、<code>过滤</code>、<code>限流</code>、<code>熔断</code>等操作。</p>
+<p>所以我们会选择一些方便编程的网关，所以可能<code>nginx</code>系列不会在这里使用，而会在外层使用</p>
+<p>这一块基本上就是<code>zuul</code>、<code>spring cloud gateway</code>，那么基于性能考虑，基本上就是gateway了</p>
+<blockquote>
+<p>别再跟我说gateway性能没有zuul好了，请带着智商跟我说话！</p>
+</blockquote>
+<h3 id="329-服务编排">3.2.9 服务编排</h3>
+<ol>
+<li>docker-swarm</li>
+<li>k8s</li>
+</ol>
+<p>这里就不多说了，选择k8s这种主流的准没错。但是由于k8s没有可视化界面。</p>
+<p>我们采用了<code>Rancher2</code>，底层使用k8s来进行一些服务编排。</p>
+
+                
+                <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
+                
+                
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2019-12-22-jenkins-pipeline/" data-toggle="tooltip" data-placement="top" title="BlueOcean实战多分支pipeline构建(Jenkins)">&larr; 上一篇</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/2020-01-06-chaos-mesh/" data-toggle="tooltip" data-placement="top" title="有关混沌工程的学习">下一篇 &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+
+
+
+<div id="SOHUCS" sid='2020-01-04-21:45:39-微服务拆分及技术选型(2019总结版)'></div>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com
+/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com/js/changyan.labs.https.js?appid=cytako4HR"></script>
+
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytako4HR';
+        var conf = 'prod_b9da8b3167eed0ab02bb9913a13e0435';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            var head = document.getElementsByTagName('head')[0]||document.head||document.documentElement;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.charset = 'utf-8';
+            script.id = 'changyan_mobile_js';
+            script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf;
+            head.appendChild(script);
+        } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+</script>
+
+
+
+            </div>
+            
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    <section class="visible-md visible-lg">
+        <hr>
+        <h5><a href="https://www.naah69.com/about" target="_blank">博主信息</a></h5>
+        <div class="short-about">
+            
+            <img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9gy1fw0npk3155j20u0140aca.jpg"/>
+            
+
+            <h3 style="margin-bottom: 20px;">
+                
+                那焱(纳兰)
+                
+                &nbsp;
+                
+                Naah
+                
+            </h3>
+
+            
+            <p>架构师</p>
+            
+
+            
+            <p>热爱生活,拥抱变化</p>
+            
+
+            
+            <ul class="list-inline">
+                
+                
+                <li>
+                    <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <a target="_blank" href="https://weibo.com/naah">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+
+                    <a href="javascript:wx()">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a target="_blank" href="https://github.com/naah69">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </section>
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5><a href="/tags/"   target="_blank" >标签展示</a></h5>
+        <div class="tags">
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80" title="算法基础"  target="_blank" >
+            算法基础(16)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="数据结构"  target="_blank" >
+            数据结构(14)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
+            环境配置系列(12)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
+            排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ci/cd" title="ci/cd"  target="_blank" >
+            ci/cd(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E5%9B%BE" title="图"  target="_blank" >
+            图(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
+            数学基础(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习"  target="_blank" >
+            深度学习(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络"  target="_blank" >
+            神经网络(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8" title="算法应用"  target="_blank" >
+            算法应用(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94" title="随笔"  target="_blank" >
+            随笔(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/go" title="go"  target="_blank" >
+            go(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/software" title="software"  target="_blank" >
+            software(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/hugo" title="hugo"  target="_blank" >
+            hugo(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/mark" title="mark"  target="_blank" >
+            mark(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91" title="二叉树"  target="_blank" >
+            二叉树(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E8%AE%B0%E5%BD%95" title="记录"  target="_blank" >
+            记录(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/docker" title="docker"  target="_blank" >
+            docker(3)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ecug" title="ecug"  target="_blank" >
+            ecug(3)
+            </a>
+
+            
+
+            <a href="/tags/"  target="_blank" >
+            全部标签
+            </a>
+
+        </div>
+    </section>
+    
+
+    
+    <hr>
+    <h5>友情链接</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.liaoxuefeng.com/">廖雪峰的官方网站</a></li>
+        
+        <li><a target="_blank" href="http://www.dayanzai.me/">大眼仔旭下载站</a></li>
+        
+        <li><a target="_blank" href="http://www.carrotchou.blog/">胡萝卜周下载站</a></li>
+        
+        <li><a target="_blank" href="http://xclient.info/">Xclient Mac下载站</a></li>
+        
+    </ul>
+
+    
+    <hr>
+    <h5>工具网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.algolia.com/">Algolia</a></li>
+        
+        <li><a target="_blank" href="https://changyan.kuaizhan.com/">畅言</a></li>
+        
+        <li><a target="_blank" href="http://tool.chinaz.com/">站长工具</a></li>
+        
+        <li><a target="_blank" href="https://tool.lu/">程序猿在线工具箱</a></li>
+        
+        <li><a target="_blank" href="https://www.bejson.com/">配置文件工具箱</a></li>
+        
+        <li><a target="_blank" href="http://www.jq22.com/textDifference">文本对比</a></li>
+        
+        <li><a target="_blank" href="https://cloudconvert.com/formats">在线文件格式转换</a></li>
+        
+    </ul>
+    
+    <hr>
+    <h5>收藏网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+        
+        <li><a target="_blank" href="https://www.nowcoder.com/">牛客网</a></li>
+        
+        <li><a target="_blank" href="http://www.acmcoder.com/">赛码网</a></li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://weibo.com/naah">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    <script>
+                        function wx() {
+                            layer.open({
+                                type: 1,
+                                title: false,
+                                closeBtn: 1,
+                                area: ['500px', '500px'],
+                                skin: 'layui-layer-nobg', 
+                                shadeClose: true,
+                                content: '<img src="https:\/\/naah-blog.oss-cn-hangzhou.aliyuncs.com\/img\/ed1d2fb9gy1fw0ntoycqcj20rr0rs3zo.jpg" width="500px" height="500px">'
+                            });
+                        }
+                    </script>
+                    <li>
+                        <a href="javascript:wx()">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/naah69">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy;   2020 <a href="http://www.beian.miit.gov.cn" target="_blank">浙ICP备19040622号</a>
+                    <br>
+                    
+                    <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+<script src="https://www.naah69.com/js/hux-blog.min.js"></script>
+
+<script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
+
+
+<script>
+
+
+    var _baId = '5d8997bbef4253c1fdbcba1a8fb66019';
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?"+ _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+
+<!-- async load function -->
+function async(u, c) {
+    var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+        o.addEventListener('load', function (e) {
+            c(null, e);
+        }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+}
+
+<!--fastClick.js -->
+async("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav) FastClick.attach($nav);
+})
+
+</script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155998534-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155998534-1');
+</script>
+
+
+
+
+</body>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+    <script src="https://www.naah69.com/js/article.js"></script>
+
+
+</html>

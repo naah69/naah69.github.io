@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on </title>
+    <link>https://www.naah69.com/categories/python/</link>
+    <description>Recent content in Python on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 01 Dec 2019 18:24:13 +0800</lastBuildDate><atom:link href="https://www.naah69.com/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ONNX-TensorRT6安装教程(python)</title>
+      <link>https://www.naah69.com/post/2019-12-01-onnx-tensorrt/</link>
+      <pubDate>Sun, 01 Dec 2019 18:24:13 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-onnx-tensorrt/</guid>
+      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 必备环境 Protobuf &amp;gt;= 3.8.x 1 apt-get install libprotobuf-dev protobuf-compiler TensorRT 6.0 上篇文章tensorrt6安装教程 cuda和cu</description>
+    </item>
+    
+    <item>
+      <title>TensorRT6安装教程(python)</title>
+      <link>https://www.naah69.com/post/2019-12-01-tensorrt/</link>
+      <pubDate>Sun, 01 Dec 2019 18:10:30 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-tensorrt/</guid>
+      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 conda 不进行赘述 1.2 tensorrt安装包 根据你的机器的cuda和cudnn版本下</description>
+    </item>
+    
+    <item>
+      <title>机器学习系列03-决策树算法</title>
+      <link>https://www.naah69.com/post/2019-10-06-mlch03-tree/</link>
+      <pubDate>Sat, 05 Oct 2019 15:06:16 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-10-06-mlch03-tree/</guid>
+      <description>1 概述 决策树本质上是数据结构中的树，不过有一些区别是，树的根节点和中间节点都是判断，而树的边都条件，而所有叶子节点都是一些结果。其实本质上就</description>
+    </item>
+    
+    <item>
+      <title>机器学习系列02-k近邻分类算法</title>
+      <link>https://www.naah69.com/post/2019-10-06-mlch02-knn/</link>
+      <pubDate>Sat, 05 Oct 2019 11:10:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-10-06-mlch02-knn/</guid>
+      <description>1 概述 k-近邻算法采用测量不同特征值之间的距离的方法进行分类 2 优缺点 优点：精度高，对异常值不敏感，无数据输入假定 缺点：计算复杂度该，空间复杂</description>
+    </item>
+    
+    <item>
+      <title>机器学习系列01-机器学习相关基础概念</title>
+      <link>https://www.naah69.com/post/2019-10-04-mlch01/</link>
+      <pubDate>Fri, 04 Oct 2019 20:15:29 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-10-04-mlch01/</guid>
+      <description>机器学习给人的感觉就是非常的高大上，因为机器学习的一些名词总是让人云里雾里，今天我们主要来通俗易懂的讲一下机器学习的概念。 1 数据 数据大家应该</description>
+    </item>
+    
+    <item>
+      <title>快速构建高性能web框架Tornado的基础结构</title>
+      <link>https://www.naah69.com/post/2019-06-28-tornado/</link>
+      <pubDate>Fri, 28 Jun 2019 21:17:24 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-28-tornado/</guid>
+      <description>1 介绍 大部分python开发都知道Flask,Djongo,Tornado. 而我在进行python端的web开发时,会根据所实现的功能进行技</description>
+    </item>
+    
+  </channel>
+</rss>

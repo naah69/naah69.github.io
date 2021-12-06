@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>科学上网 on </title>
+    <link>https://www.naah69.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</link>
+    <description>Recent content in 科学上网 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 13 Apr 2017 09:45:45 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>shadowsocks自动下载配置版(win版)</title>
+      <link>https://www.naah69.com/post/2017-04-13-shadowsocks%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E9%85%8D%E7%BD%AE%E7%89%88win%E7%89%88/</link>
+      <pubDate>Thu, 13 Apr 2017 09:45:45 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-04-13-shadowsocks%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E9%85%8D%E7%BD%AE%E7%89%88win%E7%89%88/</guid>
+      <description>什么是 ShadowSocks （影梭） ShadowSocks 是由@clowwindy所开发的一个开源 Socks5 代理。 如其官网所言 ，它是 “A secure socks5 proxy, designed to protect your Internet traffic” （一个安全的 Socks5 代理）</description>
+    </item>
+    
+  </channel>
+</rss>

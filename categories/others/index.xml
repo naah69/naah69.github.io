@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Others on </title>
+    <link>https://www.naah69.com/categories/others/</link>
+    <description>Recent content in Others on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 09 Jan 2020 21:14:07 +0800</lastBuildDate><atom:link href="https://www.naah69.com/categories/others/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于Scrum&#43;XP&#43;DevOps的学习</title>
+      <link>https://www.naah69.com/post/2020-01-09-scrum-xp-devops/</link>
+      <pubDate>Thu, 09 Jan 2020 21:14:07 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-09-scrum-xp-devops/</guid>
+      <description>最近听了ECUG大会上孙敬云老师的分享感觉受益匪浅，毕竟大学课本上只讲到瀑布模型就没有下文了，工作以后一直贯彻的都是Scrum路线，一直也没</description>
+    </item>
+    
+    <item>
+      <title>有关云计算的未来：云计算3.0的思考</title>
+      <link>https://www.naah69.com/post/2020-01-07-xu-cloud-feature/</link>
+      <pubDate>Tue, 07 Jan 2020 14:46:06 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-07-xu-cloud-feature/</guid>
+      <description>老许是七牛CEO许世伟，我们这里就叫他老许好了。他在大会上分享了一些关于对未来行业的看法，我会在这里写下我汲取老许的观点后的一些思考。 1 云+</description>
+    </item>
+    
+    <item>
+      <title>有关混沌工程的学习</title>
+      <link>https://www.naah69.com/post/2020-01-06-chaos-mesh/</link>
+      <pubDate>Mon, 06 Jan 2020 16:02:27 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-06-chaos-mesh/</guid>
+      <description>最近参加了ECUG大会，其中有一个分享是pingCAP的CEO大佬刘奇分析的他们开源的在k8s平台上使用的混沌工程插件Chaos Mesh，我</description>
+    </item>
+    
+    <item>
+      <title>微服务拆分及技术选型(2019总结版)</title>
+      <link>https://www.naah69.com/post/2020-01-04-microservice-servicemesh-thinkabout/</link>
+      <pubDate>Sat, 04 Jan 2020 21:45:39 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-04-microservice-servicemesh-thinkabout/</guid>
+      <description>最近参加了ECUG大会，其中有两个分享是有关微服务的，一个是CODING的微服务拆分，一个是网易的服务网格实践，那我对这些也有些思考，今天我</description>
+    </item>
+    
+    <item>
+      <title>BlueOcean实战多分支pipeline构建(Jenkins)</title>
+      <link>https://www.naah69.com/post/2019-12-22-jenkins-pipeline/</link>
+      <pubDate>Sun, 22 Dec 2019 14:52:00 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-22-jenkins-pipeline/</guid>
+      <description>最近，将公司的CI/CD从jenkins传统配置更改成了jenkins最新的声明式流水线(Declarative Pipeline)，这样就可</description>
+    </item>
+    
+    <item>
+      <title>Jenkinsfile的高亮、提示和校验</title>
+      <link>https://www.naah69.com/post/2019-12-23-jenkinsflie-plugin/</link>
+      <pubDate>Sun, 22 Dec 2019 14:36:00 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-23-jenkinsflie-plugin/</guid>
+      <description>原本我以为强大的IDEA什么插件都有，然而这个，真没有！ 但是在VsCode里找到了jenkinsfile高亮、提示和校验插件 1 高亮、代码提示</description>
+    </item>
+    
+    <item>
+      <title>SonarQube7.7安装阿里JAVA规范插件P3C</title>
+      <link>https://www.naah69.com/post/2019-12-08-sonar-p3c/</link>
+      <pubDate>Sun, 08 Dec 2019 19:22:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-sonar-p3c/</guid>
+      <description>1 环境准备 这里特别说明！ 由于SonarQube各版本之间插件无法统通用，而官方并没有支持 所以本篇文章只保证SonarQube7.7-comm</description>
+    </item>
+    
+    <item>
+      <title>docker构建SonarQube进行代码质量检查</title>
+      <link>https://www.naah69.com/post/2019-12-08-sonarqube/</link>
+      <pubDate>Sun, 08 Dec 2019 19:18:54 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-sonarqube/</guid>
+      <description>1 环境准备 1.1 docker环境准备 docker或k8s或rancher 1.2 宿主机创建所需的持久化目录（不持久化可跳过） postgresql数据库</description>
+    </item>
+    
+    <item>
+      <title>Rancher2配置Webhook(修复官方bug)</title>
+      <link>https://www.naah69.com/post/2019-12-08-rancher2-webhoook/</link>
+      <pubDate>Sun, 08 Dec 2019 19:01:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-rancher2-webhoook/</guid>
+      <description>起因 由于我们团队的开发环境是使用jenkins+Harbor+rancher2进行部署ci/cd的，所以需要进行webhook调用 但是在通过</description>
+    </item>
+    
+    <item>
+      <title>CentOS7配置GPU开发环境教程</title>
+      <link>https://www.naah69.com/post/2019-12-08-centos7-gpu-env/</link>
+      <pubDate>Sun, 08 Dec 2019 17:29:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-centos7-gpu-env/</guid>
+      <description>本文环境 CentOS7 1 nvidia显卡驱动 通过ELRepo源的nvidia-detect命令来自动化安装驱动，省时省力，告别传统手工操作，一步一个坑 1.1</description>
+    </item>
+    
+    <item>
+      <title>jenkins钉钉机器人通知(201912最新版本)</title>
+      <link>https://www.naah69.com/post/2019-12-08-jenkins-dingding-notify-new-version/</link>
+      <pubDate>Sun, 08 Dec 2019 17:23:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-jenkins-dingding-notify-new-version/</guid>
+      <description>1 安装jenkins插件 Manage Jenkins Manage Plugins 安装Dingding[钉钉] Plugin 重启jenkins 2 创建钉钉机器人 只有群主和群管理员才能创建机器人 进入群设置,</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu18.04配置GPU开发环境教程</title>
+      <link>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</link>
+      <pubDate>Sun, 01 Dec 2019 13:23:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</guid>
+      <description>本文环境 ubuntu 18.04 1 nvidia显卡驱动 1 sudo apt-get install nvidia-driver-435 2 cuda 2.1 下载cuda CUDA官网 选择配置，但是Installer Type必须选择runfile,根</description>
+    </item>
+    
+    <item>
+      <title>这样做,能让我的Docker镜像更轻巧</title>
+      <link>https://www.naah69.com/post/2019-06-23-alpine-glib-docker/</link>
+      <pubDate>Sun, 23 Jun 2019 14:12:25 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-23-alpine-glib-docker/</guid>
+      <description>1 打造最小docker基础镜像 1.1 使用alpine-glib作为基础镜像 Alpine 操作系统是一个面向安全的轻型 Linux 发行版。采用了 musl libc 和 busybox 以减小系统的体积</description>
+    </item>
+    
+    <item>
+      <title>Golang踩坑记录</title>
+      <link>https://www.naah69.com/post/2019-06-23-go-trap/</link>
+      <pubDate>Sun, 23 Jun 2019 13:42:08 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-23-go-trap/</guid>
+      <description>1 国内如何快速go get github的包 在命令行输入go get ...前输入以下命令 1 2 3 4 #配置你自己的http代理 export http_proxy=http://127.0.0.1:1087 go get ... 2 golang版本ji</description>
+    </item>
+    
+    <item>
+      <title>k8s怎么使用GPU？这篇文章告诉你怎么做！</title>
+      <link>https://www.naah69.com/post/2019-06-22-docker-k8s-gpu/</link>
+      <pubDate>Sat, 22 Jun 2019 20:44:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-22-docker-k8s-gpu/</guid>
+      <description>我是不会告诉你为啥要用docker,nvidia-docker,k8s的！百度和google一堆，自己找找！这里只教你怎么部署坑最少！ 1 所需</description>
+    </item>
+    
+    <item>
+      <title>Hugo-Algolia-Chinese-Builder更新啦</title>
+      <link>https://www.naah69.com/post/2019-06-22-hugo-algolia-chinese-builder-2/</link>
+      <pubDate>Sat, 22 Jun 2019 20:28:03 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-22-hugo-algolia-chinese-builder-2/</guid>
+      <description>1 Go版本 GitHub地址 1.1 新版本特点 完全使用go进行分词，摒弃node.js分词 加入sego分词，使用双分词优化质量，同时优化分词速度 加入</description>
+    </item>
+    
+    <item>
+      <title>最完善的docker安装和配置教程</title>
+      <link>https://www.naah69.com/post/2019-06-21-docker/</link>
+      <pubDate>Fri, 21 Jun 2019 20:44:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-21-docker/</guid>
+      <description>1 所需环境 可能大部分人喜欢用ubuntu来进行，但是我喜欢用centos，所以本文就用centos7 谁让我是作者，就是这么任性！ 2 安装和配置</description>
+    </item>
+    
+    <item>
+      <title>教你go语言如何压缩打包</title>
+      <link>https://www.naah69.com/post/2018-10-01-go-compress-packaging/</link>
+      <pubDate>Mon, 01 Oct 2018 19:42:19 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-10-01-go-compress-packaging/</guid>
+      <description>1 压缩前后对比图 只有一句hello world！竟然打包后达到了2.1M 2 详细过程 2.1 参数打包 2.1.1 使用带有参数的go build 进行打包 1 go build -ldflags &amp;#34;-s -w&amp;#34; hello.go -ldflags &amp;lsquo;[pattern=]arg list&amp;rsquo;</description>
+    </item>
+    
+    <item>
+      <title>应用于Hugo的Algolia中文分词器</title>
+      <link>https://www.naah69.com/post/2018-10-01-algolia-chinese/</link>
+      <pubDate>Mon, 01 Oct 2018 18:49:57 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-10-01-algolia-chinese/</guid>
+      <description>因为使用Hugo进行搭建博客，由于静态化博客使用的是Algolia提供的索引服务。 而node.js中的插件hugo-algolia只能提供英</description>
+    </item>
+    
+    <item>
+      <title>使用Hugo生成静态化文件搭建网站</title>
+      <link>https://www.naah69.com/post/2018-09-02-hugo-demo/</link>
+      <pubDate>Sun, 02 Sep 2018 22:18:40 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-09-02-hugo-demo/</guid>
+      <description>转载至Hugo中文文档 快速开始 安装Hugo 1.二进制安装（推荐：简单、快速） 到Hugo Releases下载对应的操作系统版本的Hugo二进制</description>
+    </item>
+    
+    <item>
+      <title>Art White主题发布啦！</title>
+      <link>https://www.naah69.com/post/2018-09-02-hugo-theme-artwhite/</link>
+      <pubDate>Sun, 02 Sep 2018 22:18:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-09-02-hugo-theme-artwhite/</guid>
+      <description>Art White Theme for Hugo English Doc Art White是Hugo的一款博客主题. 这是 示例网站 . 它基于 Clean White主题进行开发. 1 新功能 畅言评论 Algolia英语分词(需</description>
+    </item>
+    
+    <item>
+      <title>汉王英译汉词典批量导入工具</title>
+      <link>https://www.naah69.com/post/2017-09-13-%E6%B1%89%E7%8E%8B%E8%8B%B1%E8%AF%91%E6%B1%89%E8%AF%8D%E5%85%B8%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 13 Sep 2017 10:57:57 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-13-%E6%B1%89%E7%8E%8B%E8%8B%B1%E8%AF%91%E6%B1%89%E8%AF%8D%E5%85%B8%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5%E5%B7%A5%E5%85%B7/</guid>
+      <description>前几天在马云家买了一款扫描翻译笔——汉王A200 Plus 店家提供了很多很多很多词典，但是汉王的精（la）美（ji）词典导入工具一次只能导入一个词典</description>
+    </item>
+    
+    <item>
+      <title>Surface工具箱</title>
+      <link>https://www.naah69.com/post/2017-06-16-surface%E5%B7%A5%E5%85%B7%E7%AE%B1/</link>
+      <pubDate>Fri, 16 Jun 2017 01:44:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-06-16-surface%E5%B7%A5%E5%85%B7%E7%AE%B1/</guid>
+      <description>链接：https://pan.baidu.com/s/1i4Rnn3B 密码：nsmb 安装密码naah 安装完成后SurfaceNaah为主程序</description>
+    </item>
+    
+    <item>
+      <title>shadowsocks自动下载配置版(win版)</title>
+      <link>https://www.naah69.com/post/2017-04-13-shadowsocks%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E9%85%8D%E7%BD%AE%E7%89%88win%E7%89%88/</link>
+      <pubDate>Thu, 13 Apr 2017 09:45:45 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-04-13-shadowsocks%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E9%85%8D%E7%BD%AE%E7%89%88win%E7%89%88/</guid>
+      <description>什么是 ShadowSocks （影梭） ShadowSocks 是由@clowwindy所开发的一个开源 Socks5 代理。 如其官网所言 ，它是 “A secure socks5 proxy, designed to protect your Internet traffic” （一个安全的 Socks5 代理）</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>exe4j on </title>
+    <link>https://www.naah69.com/tags/exe4j/</link>
+    <description>Recent content in exe4j on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 08 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://www.naah69.com/tags/exe4j/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>java程序转为EXE，无需安装JAVA环境运行程序</title>
+      <link>https://www.naah69.com/post/2017-08-08-java2exebyexe4j/</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-08-java2exebyexe4j/</guid>
+      <description>昨日在Google查资料的时候，需要使用ss，但是经常改ss配置好麻烦（穷逼使用免费的ss配置要经常改），毕竟我这么懒，于是着手开始写代码。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>栈 on </title>
+    <link>https://www.naah69.com/tags/%E6%A0%88/</link>
+    <description>Recent content in 栈 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 08 Aug 2017 12:59:05 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E6%A0%88/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据结构Stack之中缀表达式转后缀表达式运算应用</title>
+      <link>https://www.naah69.com/post/2017-08-08-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84stack%E4%B9%8B%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%90%E7%AE%97%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Tue, 08 Aug 2017 12:59:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-08-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84stack%E4%B9%8B%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%90%E7%AE%97%E5%BA%94%E7%94%A8/</guid>
+      <description>通过学习java中的Stack栈，写一个一个简单的中缀表达式转换为后缀表达式并计算的应用 由于时间问题，没有写字符分割函数。暂时用空格进行分割</description>
+    </item>
+    
+  </channel>
+</rss>

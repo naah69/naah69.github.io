@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>踩坑 on </title>
+    <link>https://www.naah69.com/tags/%E8%B8%A9%E5%9D%91/</link>
+    <description>Recent content in 踩坑 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 23 Jun 2019 13:42:08 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E8%B8%A9%E5%9D%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang踩坑记录</title>
+      <link>https://www.naah69.com/post/2019-06-23-go-trap/</link>
+      <pubDate>Sun, 23 Jun 2019 13:42:08 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-23-go-trap/</guid>
+      <description>1 国内如何快速go get github的包 在命令行输入go get ...前输入以下命令 1 2 3 4 #配置你自己的http代理 export http_proxy=http://127.0.0.1:1087 go get ... 2 golang版本ji</description>
+    </item>
+    
+    <item>
+      <title>踩坑之Java执行Linux命令死锁阻塞挂起</title>
+      <link>https://www.naah69.com/post/2018-10-17-process-dead-lock/</link>
+      <pubDate>Wed, 17 Oct 2018 13:20:24 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-10-17-process-dead-lock/</guid>
+      <description>1 问题背景 最近在做一个需求需要调用linux下的某个脚本来对ai的模型进行训练，很简单的需求，我像往常一样写下如下的代码片段： 1 2 Process process = Runtime.getRuntime().exec(cmd); process.waitFor();</description>
+    </item>
+    
+    <item>
+      <title>踩坑之spring-boot-starter-rocketmq的使用</title>
+      <link>https://www.naah69.com/post/2018-09-11-rocketmq-demo/</link>
+      <pubDate>Tue, 11 Sep 2018 21:03:24 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-09-11-rocketmq-demo/</guid>
+      <description>官网GitHub地址 ,这个文档超级坑，特别是里面的辣鸡Demo,全是错 本文Demo源码 1 Maven依赖 文档中的Maven依赖,引用后无法下载</description>
+    </item>
+    
+  </channel>
+</rss>

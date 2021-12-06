@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jieba on </title>
+    <link>https://www.naah69.com/tags/jieba/</link>
+    <description>Recent content in Jieba on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 22 Jun 2019 20:28:03 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/jieba/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo-Algolia-Chinese-Builder更新啦</title>
+      <link>https://www.naah69.com/post/2019-06-22-hugo-algolia-chinese-builder-2/</link>
+      <pubDate>Sat, 22 Jun 2019 20:28:03 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-22-hugo-algolia-chinese-builder-2/</guid>
+      <description>1 Go版本 GitHub地址 1.1 新版本特点 完全使用go进行分词，摒弃node.js分词 加入sego分词，使用双分词优化质量，同时优化分词速度 加入</description>
+    </item>
+    
+    <item>
+      <title>应用于Hugo的Algolia中文分词器</title>
+      <link>https://www.naah69.com/post/2018-10-01-algolia-chinese/</link>
+      <pubDate>Mon, 01 Oct 2018 18:49:57 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-10-01-algolia-chinese/</guid>
+      <description>因为使用Hugo进行搭建博客，由于静态化博客使用的是Algolia提供的索引服务。 而node.js中的插件hugo-algolia只能提供英</description>
+    </item>
+    
+  </channel>
+</rss>

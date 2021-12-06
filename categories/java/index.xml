@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JAVA on </title>
+    <link>https://www.naah69.com/categories/java/</link>
+    <description>Recent content in JAVA on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 28 Jul 2019 10:41:51 +0800</lastBuildDate><atom:link href="https://www.naah69.com/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>最简单的spring-boot-starter-redisson发布啦！</title>
+      <link>https://www.naah69.com/post/2019-07-28-spring-boot-starter-redisson/</link>
+      <pubDate>Sun, 28 Jul 2019 10:41:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-07-28-spring-boot-starter-redisson/</guid>
+      <description>spring-boot-starter-redisson 前言 最近忽然发现springboot2的spring-boot-starter-data-redis底层默认使用了lettuce作为连接池</description>
+    </item>
+    
+    <item>
+      <title>Hugo-Algolia-Chinese-Builder更新啦</title>
+      <link>https://www.naah69.com/post/2019-06-22-hugo-algolia-chinese-builder-2/</link>
+      <pubDate>Sat, 22 Jun 2019 20:28:03 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-22-hugo-algolia-chinese-builder-2/</guid>
+      <description>1 Go版本 GitHub地址 1.1 新版本特点 完全使用go进行分词，摒弃node.js分词 加入sego分词，使用双分词优化质量，同时优化分词速度 加入</description>
+    </item>
+    
+    <item>
+      <title>欢迎各位品尝SpringCloud-Starter-Drift-Client</title>
+      <link>https://www.naah69.com/post/2018-12-01-springcloud-starter-drift-client/</link>
+      <pubDate>Sat, 01 Dec 2018 15:31:06 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-12-01-springcloud-starter-drift-client/</guid>
+      <description>1 介绍 1.1 Thrift 在介绍spring-cloud-starter-drift之前，我们应该先了解什么是Thrift。 Thrift是一款跨语言的RPC</description>
+    </item>
+    
+    <item>
+      <title>踩坑之Java执行Linux命令死锁阻塞挂起</title>
+      <link>https://www.naah69.com/post/2018-10-17-process-dead-lock/</link>
+      <pubDate>Wed, 17 Oct 2018 13:20:24 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-10-17-process-dead-lock/</guid>
+      <description>1 问题背景 最近在做一个需求需要调用linux下的某个脚本来对ai的模型进行训练，很简单的需求，我像往常一样写下如下的代码片段： 1 2 Process process = Runtime.getRuntime().exec(cmd); process.waitFor();</description>
+    </item>
+    
+    <item>
+      <title>使用rocketmq-starter发送事务消息</title>
+      <link>https://www.naah69.com/post/2018-10-11-rocketmq-starter-transcation/</link>
+      <pubDate>Thu, 11 Oct 2018 11:43:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-10-11-rocketmq-starter-transcation/</guid>
+      <description>1 RocketMQ分布式事务机制 1.1 概念介绍 事务消息：MQ 提供类似 X/Open XA 的分布事务功能，通过 MQ 事务消息能达到分布式事务的最终一致。 半消息：暂不能</description>
+    </item>
+    
+    <item>
+      <title>应用于Hugo的Algolia中文分词器</title>
+      <link>https://www.naah69.com/post/2018-10-01-algolia-chinese/</link>
+      <pubDate>Mon, 01 Oct 2018 18:49:57 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-10-01-algolia-chinese/</guid>
+      <description>因为使用Hugo进行搭建博客，由于静态化博客使用的是Algolia提供的索引服务。 而node.js中的插件hugo-algolia只能提供英</description>
+    </item>
+    
+    <item>
+      <title>踩坑之spring-boot-starter-rocketmq的使用</title>
+      <link>https://www.naah69.com/post/2018-09-11-rocketmq-demo/</link>
+      <pubDate>Tue, 11 Sep 2018 21:03:24 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-09-11-rocketmq-demo/</guid>
+      <description>官网GitHub地址 ,这个文档超级坑，特别是里面的辣鸡Demo,全是错 本文Demo源码 1 Maven依赖 文档中的Maven依赖,引用后无法下载</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Gateway转发WebSocket</title>
+      <link>https://www.naah69.com/post/2018-05-31-springcloud-gateway-websocket/</link>
+      <pubDate>Thu, 31 May 2018 22:11:46 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-05-31-springcloud-gateway-websocket/</guid>
+      <description>在经过了两天的刻苦钻研，在经过了google,stackoverflow,github轮番查找无果，而官方文档又毫无记录的情况下。 终于，一个</description>
+    </item>
+    
+    <item>
+      <title>java程序转为EXE，无需安装JAVA环境运行程序</title>
+      <link>https://www.naah69.com/post/2017-08-08-java2exebyexe4j/</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-08-java2exebyexe4j/</guid>
+      <description>昨日在Google查资料的时候，需要使用ss，但是经常改ss配置好麻烦（穷逼使用免费的ss配置要经常改），毕竟我这么懒，于是着手开始写代码。</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC H5 js摄像头拍照 ajax上传返回url路径</title>
+      <link>https://www.naah69.com/post/2017-05-12-springmvc-h5-js%E6%91%84%E5%83%8F%E5%A4%B4%E6%8B%8D%E7%85%A7-ajax%E4%B8%8A%E4%BC%A0%E8%BF%94%E5%9B%9Eurl%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Fri, 12 May 2017 10:00:14 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-05-12-springmvc-h5-js%E6%91%84%E5%83%8F%E5%A4%B4%E6%8B%8D%E7%85%A7-ajax%E4%B8%8A%E4%BC%A0%E8%BF%94%E5%9B%9Eurl%E8%B7%AF%E5%BE%84/</guid>
+      <description>前几日项目中遇到的问题，对于这个问题网上的资料都不算完整，不过大概思路有很多，今天这里我就实现一下： 1 前端标签 canvas用于显示照片，vi</description>
+    </item>
+    
+    <item>
+      <title>springMVC ueditor傻瓜配置系列之不成功你砍我！</title>
+      <link>https://www.naah69.com/post/2017-05-11-springmvc-ueditor%E5%82%BB%E7%93%9C%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%8D%E6%88%90%E5%8A%9F%E4%BD%A0%E7%A0%8D%E6%88%91/</link>
+      <pubDate>Thu, 11 May 2017 09:31:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-05-11-springmvc-ueditor%E5%82%BB%E7%93%9C%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%8D%E6%88%90%E5%8A%9F%E4%BD%A0%E7%A0%8D%E6%88%91/</guid>
+      <description>前几日在项目中要使用到编辑器，于是度娘看了几款前端编辑器， 最后&amp;hellip;选择了百度开发的ueditor编辑器，这可能是我最后悔的决定！</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC表单提交错误400排查思路及解决方案</title>
+      <link>https://www.naah69.com/post/2017-05-11-springmvc%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF400%E6%8E%92%E6%9F%A5%E6%80%9D%E8%B7%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Thu, 11 May 2017 09:20:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-05-11-springmvc%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF400%E6%8E%92%E6%9F%A5%E6%80%9D%E8%B7%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>前几天在做某一项目时提交表单发现400错误， 如下图所示： 然而根据描述根本无法发现错误所在，于是我对20多个表单项逐一排查，发现！根本就是大海</description>
+    </item>
+    
+  </channel>
+</rss>

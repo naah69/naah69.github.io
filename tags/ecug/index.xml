@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ECUG on </title>
+    <link>https://www.naah69.com/tags/ecug/</link>
+    <description>Recent content in ECUG on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 09 Jan 2020 21:14:07 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/ecug/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于Scrum&#43;XP&#43;DevOps的学习</title>
+      <link>https://www.naah69.com/post/2020-01-09-scrum-xp-devops/</link>
+      <pubDate>Thu, 09 Jan 2020 21:14:07 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-09-scrum-xp-devops/</guid>
+      <description>最近听了ECUG大会上孙敬云老师的分享感觉受益匪浅，毕竟大学课本上只讲到瀑布模型就没有下文了，工作以后一直贯彻的都是Scrum路线，一直也没</description>
+    </item>
+    
+    <item>
+      <title>有关云计算的未来：云计算3.0的思考</title>
+      <link>https://www.naah69.com/post/2020-01-07-xu-cloud-feature/</link>
+      <pubDate>Tue, 07 Jan 2020 14:46:06 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-07-xu-cloud-feature/</guid>
+      <description>老许是七牛CEO许世伟，我们这里就叫他老许好了。他在大会上分享了一些关于对未来行业的看法，我会在这里写下我汲取老许的观点后的一些思考。 1 云+</description>
+    </item>
+    
+    <item>
+      <title>微服务拆分及技术选型(2019总结版)</title>
+      <link>https://www.naah69.com/post/2020-01-04-microservice-servicemesh-thinkabout/</link>
+      <pubDate>Sat, 04 Jan 2020 21:45:39 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-04-microservice-servicemesh-thinkabout/</guid>
+      <description>最近参加了ECUG大会，其中有两个分享是有关微服务的，一个是CODING的微服务拆分，一个是网易的服务网格实践，那我对这些也有些思考，今天我</description>
+    </item>
+    
+  </channel>
+</rss>

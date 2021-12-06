@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TensorRT on </title>
+    <link>https://www.naah69.com/tags/tensorrt/</link>
+    <description>Recent content in TensorRT on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 01 Dec 2019 18:24:13 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/tensorrt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ONNX-TensorRT6安装教程(python)</title>
+      <link>https://www.naah69.com/post/2019-12-01-onnx-tensorrt/</link>
+      <pubDate>Sun, 01 Dec 2019 18:24:13 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-onnx-tensorrt/</guid>
+      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 必备环境 Protobuf &amp;gt;= 3.8.x 1 apt-get install libprotobuf-dev protobuf-compiler TensorRT 6.0 上篇文章tensorrt6安装教程 cuda和cu</description>
+    </item>
+    
+    <item>
+      <title>TensorRT6安装教程(python)</title>
+      <link>https://www.naah69.com/post/2019-12-01-tensorrt/</link>
+      <pubDate>Sun, 01 Dec 2019 18:10:30 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-tensorrt/</guid>
+      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 conda 不进行赘述 1.2 tensorrt安装包 根据你的机器的cuda和cudnn版本下</description>
+    </item>
+    
+  </channel>
+</rss>

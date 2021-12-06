@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>总结 on </title>
+    <link>https://www.naah69.com/tags/%E6%80%BB%E7%BB%93/</link>
+    <description>Recent content in 总结 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 17 Aug 2017 11:58:48 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据结构之思维导图</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/</link>
+      <pubDate>Thu, 17 Aug 2017 11:58:48 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/</guid>
+      <description>通过这些天对数据结构的学习，使用思维导图进行了总结</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ajax on </title>
+    <link>https://www.naah69.com/tags/ajax/</link>
+    <description>Recent content in ajax on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 12 May 2017 10:00:14 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/ajax/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringMVC H5 js摄像头拍照 ajax上传返回url路径</title>
+      <link>https://www.naah69.com/post/2017-05-12-springmvc-h5-js%E6%91%84%E5%83%8F%E5%A4%B4%E6%8B%8D%E7%85%A7-ajax%E4%B8%8A%E4%BC%A0%E8%BF%94%E5%9B%9Eurl%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Fri, 12 May 2017 10:00:14 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-05-12-springmvc-h5-js%E6%91%84%E5%83%8F%E5%A4%B4%E6%8B%8D%E7%85%A7-ajax%E4%B8%8A%E4%BC%A0%E8%BF%94%E5%9B%9Eurl%E8%B7%AF%E5%BE%84/</guid>
+      <description>前几日项目中遇到的问题，对于这个问题网上的资料都不算完整，不过大概思路有很多，今天这里我就实现一下： 1 前端标签 canvas用于显示照片，vi</description>
+    </item>
+    
+  </channel>
+</rss>

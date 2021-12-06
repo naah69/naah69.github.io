@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>深度优先算法 on </title>
+    <link>https://www.naah69.com/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 深度优先算法 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 17 Aug 2017 11:10:40 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据结构图Graph之深度优先遍历</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Thu, 17 Aug 2017 11:10:40 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</guid>
+      <description>深度优先遍历，也称为深度优先搜索。简称DFS 它从图中的某个顶点V出发，访问该顶点，然后从v的未被访问的邻接点（出度的点）出发，深度优先遍历图</description>
+    </item>
+    
+  </channel>
+</rss>

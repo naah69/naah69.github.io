@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>深度学习数学基础(一)之神经元构造 | 纳兰小筑</title>
+    <meta name="description" content="Naah,那焱,纳兰,一只正在通往机器学习的可爱的程序猿,热爱生活,拥抱变化,喜欢有关草木植物的任何事物,偶尔喜欢读读书写写诗" />
+    <meta name="keywords" content="神经元,数学,深度学习,神经网络" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="/img/favicon.ico">
+    <link rel="canonical" href="https://www.naah69.com/post/2020-02-06-neurous/">
+    <meta name="google-site-verification" content="RvhbpALX9GqGk5KVFhjMl2VqnksKeAoApN3upkrcDxM" />
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.naah69.com/css/hux-blog.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"
+      integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.js"
+        integrity="sha256-Gr6WcN18NVkLDr/zaAKoBQWpBSRw6LuPvNz2pwOe7Ng=" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI=" crossorigin="anonymous"
+        onload='renderMathInElement(document.body,{
+                delimiters:[{left:"$$", right: "$$", display: true,throwOnError:false},{left: "$", right: "$", display: false}],strict:false
+});'>
+
+</script>
+
+
+
+
+
+
+
+    
+<style>
+    article img{cursor: zoom-in;}
+     
+    header.intro-header {
+        background-image: url('https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/20211204162656.png')
+    }
+     
+    #floatting_dir {
+        position: fixed;
+        display: none;
+        width: auto;
+        height: auto;
+        font-size: 13px;
+    }
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+    @media screen and (max-width: 500px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    @media screen and (max-width: 768px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    .katex-display>.katex{
+        white-space:normal;
+    }
+
+    .katex .base, .katex .strut{
+        margin-top: 0.5em;
+    }
+
+    pre {
+        border:0px;
+        margin: 0px;
+    }
+
+
+</style>
+
+
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://www.naah69.com/">Naah-Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse" style="max-height: 1000px;" >
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://www.naah69.com/">HOME</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/essay"  target="_blank" >essay</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/foundation"  target="_blank" >foundation</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/java"  target="_blank" >java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/math"  target="_blank" >math</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/others"  target="_blank" >others</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+
+                    <li>
+                        <a href="https://www.naah69.com/about">About Me</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/search/article">Search
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            
+            $navbar.className = " ";
+            
+            setTimeout(function () {
+                
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a href="https://www.naah69.com/%20categories/math" target="_blank" ><i class="fa fa-folder-o"></i>&nbsp;MATH</a>
+                        
+                        
+                        <a class="tag" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;深度学习
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;神经网络
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;数学基础
+                        </a>
+                        
+
+                    </div>
+
+                    <h1>深度学习数学基础(一)之神经元构造</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Naah on Thursday, Feb 06,2020 10:46:49
+                        
+                        <span id="/post/2020-02-06-neurous/" class="meta_data_item" data-flag-title="">
+    <span class="post-meta-item-icon">
+      <span class="octicon octicon-eye"></span>
+    </span>
+    &nbsp;
+    <i class="fa fa-eye"></i>
+    <span class="old-visitors-count" style="display: none;"></span>
+    <span id="busuanzi_container_page_pv">
+  <span id="busuanzi_value_page_pv"></span>
+
+</span>
+</span>
+
+
+
+                        
+                    </span><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container" id="container_div">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+
+                
+
+                
+
+                
+                
+                <div id="floatting_dir" style="margin: 10px;border: 1px solid gray;z-index:99999;">
+                    <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                        <strong id="dir_btn_open" style="color: black;font-size: large;">目录</strong>
+                        <strong id="dir_btn_close" style="color: black;font-size: large;float: right">x</strong>
+                    </header>
+                    <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
+                        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#11-神经元的概念">1.1 神经元的概念</a></li>
+    <li><a href="#12-神经元的工作">1.2 神经元的工作</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#21-输入">2.1 输入</a></li>
+    <li><a href="#22-输出">2.2 输出</a></li>
+    <li><a href="#23-权重">2.3 权重</a></li>
+    <li><a href="#24-点火条件">2.4 点火条件</a></li>
+    <li><a href="#25-点火条件图形表示阶跃函数">2.5 点火条件图形表示（阶跃函数）</a></li>
+    <li><a href="#26-激活函数">2.6 激活函数</a>
+      <ul>
+        <li><a href="#sigmoid函数">sigmoid函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#27-偏置">2.7 偏置</a></li>
+  </ul>
+</nav>
+                    </div>
+                </div>
+                
+                
+                
+
+                <p>本篇内容含有大量公式，如果展示不佳，请跳转至<a href="https://www.naah69.com/post/2020-02-06-neurous/">原文</a></p>
+<p>过年期间，我抽时间把深度学习的神经网络的数学基础学习了一下，简单的看了看神经网络的基础，在这里我通过写这个系列的博文来沉淀我所学到的知识。</p>
+<h1 id="1-生物学上的神经元">1 生物学上的神经元</h1>
+<h2 id="11-神经元的概念">1.1 神经元的概念</h2>
+<p>神经网络的这个想法，是受到生物学上的神经元的启发所创建出来的。在生物学上，神经元是以下方的流程来作出反应的。</p>
+<ol>
+<li>神经元形成网络</li>
+<li>从其他多个神经元传递过来的信号，如果他们的和不超过某个固定大小的值（阈值），则神经元不做出任何反应</li>
+<li>如果他们的和超过某个固定大小的值（阈值），则神经元做出反应（称为<code>点火</code>），向另外的神经元传递固定强度的信号</li>
+<li>在2和3中，从多个神经元传递过来的信号中，每个信号对应的<code>权重</code>是不同的。</li>
+</ol>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmhwvtheij30xy0aijtw.jpg" alt=""></p>
+<h2 id="12-神经元的工作">1.2 神经元的工作</h2>
+<p>阈值：神经元固有的边界敏感值值</p>
+<p>点火：神经元参数的和超过阈值，神经元对此作出反应</p>
+<blockquote>
+<p>对于生命来说，神经元会忽略微笑的输入信号，这是十分重要的。</p>
+<p>反之，如果神经元对于任何微小的信号都变得兴奋，那么这个神经系统将“情绪不稳定”</p>
+<p>（想想网络上说的玻璃心是不是就是这个意思呢）</p>
+</blockquote>
+<h1 id="2-神经元的简单数学表示">2 神经元的简单数学表示</h1>
+<p>上面我们说到神经元是通过将输入的信号的和是否超过阈值来判断是否点火，那么如果点火之后呢，点火的输出又是什么呢？</p>
+<p>其实，神经元的点火输出也是信号，有意思的是，无论神经元接受到多大的刺激或很多很多神经元传来的信号，这个神经元也只输出固定大小的信号，比如点火后的输出是0或1。简单整理如下：</p>
+<ol>
+<li>来自其他多个神经元的信号之和成为神经元的输入</li>
+<li>如果输入超过神经元固有的阈值，则点火</li>
+<li>神经元的点火输出可以用数字信号0和1来表示，及时有多个输出端，值也是同一个。</li>
+</ol>
+<p>下面让我们用数学来简单的表示<code>1-1</code>中的流程吧：</p>
+<h2 id="21-输入">2.1 输入</h2>
+<p>我们这里将神经元的阈值设置为0，大于阈值则点火，输入则分为$\le 0$和$&gt;0$，也可以成为”有“、“无”两种输入信号。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmk36kxspj305k01i3yb.jpg" alt=""></p>
+<h2 id="22-输出">2.2 输出</h2>
+<p>我们这里将神经元的点火设置为<code>0</code>和<code>1</code>两种信号。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmk7dai2nj30ae03owec.jpg" alt=""></p>
+<p>则</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmkaolpplj312e0b2acy.jpg" alt=""></p>
+<h2 id="23-权重">2.3 权重</h2>
+<p>从上面我们知道。神经元点火与否是根据输入信号的和来判断的，但是这个求和的方式不是简单的求和，而是不同的输入的重要性不同，这个重要性系数就是我们的<code>权重</code>，比如打网球的时候，我们的视觉神经信号的是比听觉神经信号更重要的，那么视觉神经元和听觉神经元的权重就不同。</p>
+<p>假设我们有三个神经元${x}_{1}$、${x}_{2}$、${x}_{3}$,则神经元的输入信号的和为：
+$${w}_{1}{x}_{1}+{w}_{2}{x}_{2}+{w}_{3}{x}_{3}$$</p>
+<p>其中${w}_{1}$、${w}_{2}$、${w}_{3}$分别是输入信号${x}_{1}$、${x}_{2}$、${x}_{3}$对应的权重。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmkyk9wdaj30y609qwgn.jpg" alt=""></p>
+<h2 id="24-点火条件">2.4 点火条件</h2>
+<p>根据上述，神经元在信号之和超过阈值时，点火，那么我们根据${w}_{1}{x}_{1}+{w}_{2}{x}_{2}+{w}_{3}{x}_{3}$推出，点火条件如下：</p>
+<blockquote>
+<p>这里的 $\theta$ 代表<code>阈值</code></p>
+</blockquote>
+<p>$$无输出信号（y=0）：{w}_{1}{x}_{1}+{w}_{2}{x}_{2}+{w}_{3}{x}_{3}&lt;\theta\\有输出信号（y=1）：{w}_{1}{x}_{1}+{w}_{2}{x}_{2}+{w}_{3}{x}_{3}\ge \theta $$</p>
+<p>例 1　来自两个神经元 1、2 的输入信号分别为变量$x_1$ 、$x_2$ ，权重为$w_1$ 、$w_2$，神经元的阈值为$\theta$ 。当$w_1=5$ ，$w_2=3$ ，$\theta=4$ 时，考察信号之和${w}_{1}{x}_{1}+{w}_{2}{x}_{2}$的值与表示点火与否的输出信号$y$的值。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmlbdvfilj31420kgdgb.jpg" alt=""></p>
+<h2 id="25-点火条件图形表示阶跃函数">2.5 点火条件图形表示（阶跃函数）</h2>
+<p>下面我们将上方的点火条件函数进行图形化，以神经元的输入信号的和为横轴，神经元的输出信号y为纵轴，如下图所示：当信号之和小于$\theta$时，y取0，反之取1</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmliojacuj30xk0am754.jpg" alt=""></p>
+<p>如果用函数来表示这个图像，那么就需要用到下方的<code>单位阶跃函数</code>
+$$u(z)=\left\{ \begin{matrix} 0\quad (z&lt;0) \\ 1\quad (z\ge 0) \end{matrix} \right\} $$</p>
+<p>阶跃函数图形如下：</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmmbrdkgnj30oq09ajrj.jpg" alt=""></p>
+<p>利用阶跃函数，我们将我们的<code>神经元输入</code>和<code>阈值</code>带入，可以推出我们的<code>点火函数</code>：
+$$y=u(w_1x_1+w_2x_2+w_3x_3-\theta )$$</p>
+<p>那么阶跃函数中的自变量z，我们就可以求出来了。这个z，我们又称作<code>加权输入</code>
+$$z=w_1x_1+w_2x_2+w_3x_3-\theta $$</p>
+<h2 id="26-激活函数">2.6 激活函数</h2>
+<p>下面的图是神经元的简化图
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmmmafz3uj30vc07e407.jpg" alt=""></p>
+<p>因为在上面说道在生物界，y的值为1或0，那么除去生物这个限制，我们就需要对我们的点火函数进行修改,这里我们把u变成a,这里的a通常是建模者定义的函数，成为<code>激活函数</code>。
+$$y=a(w_1x_1+w_2x_2+w_3x_3-\theta )$$</p>
+<p>在上面这个函数中，y可以取到任何值。如果通俗一点的话，可以理解为这个y值是神经元的<strong>兴奋度</strong>、<strong>反应度</strong>、<strong>活性度</strong></p>
+<p>下面对比下两种神经元的差异：</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmmzpx2uuj313q0fmmxr.jpg" alt=""></p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmn1aiiezj315g0o8429.jpg" alt=""></p>
+<h3 id="sigmoid函数">sigmoid函数</h3>
+<p>激活函数的代表性例子就是Sigmoid函数$\sigma (z)$,下面是它的定义：</p>
+<p>$$\sigma (z)=\frac { 1 }{  1+{ e }^{ -z }} (z\approx2.718281&hellip; )$$</p>
+<p>这个函数的作用是将输入值转换到（0，1）区间，也就是说sigmoid函数的输出值是大于0且小于1的任意值。该函数最重要的特性是<code>连续</code>、<code>光滑</code>，也就代表着<code>可导</code>。有了这种性质就使得sigmoid函数会很容易处理</p>
+<p>阶跃函数的输出值为0和1可代表点火与否，而sigmoid函数的输出值却在（0，1）区间，那么我们就要换个思路了，不能用其输出值代表点火与否，但是可用它的输出值代表神经元的兴奋度，越接近1越兴奋。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmnbof5npj314m0c6goe.jpg" alt=""></p>
+<p>我们将主要使用sigmoid来作为标准的激活函数使用，如果使用数学上<code>单调递增</code>的<code>可导</code>函数来代替sigmoid作为激活函数，那么也是可以的.</p>
+<h2 id="27-偏置">2.7 偏置</h2>
+<p>我们再来看下我们的激活函数：
+$$y=a(w_1x_1+w_2x_2+w_3x_3-\theta )$$</p>
+<p>这里的$\theta$我们称为阈值，在生物学上是神经元特性的值，通俗的讲$\theta$表示为神经元的感受能力，如果$\theta$较大，我们的神经元会不容易兴奋（就是迟钝），如果$\theta$较小，则神经元会很容易兴奋（特别敏感）</p>
+<p>上面的式子中$\theta$有负号，这帮搞数学的觉着负号不好看，认为减法容易算错，非要把负号干掉，所以就把$-\theta$替换为了$b$，于是就有了下面这两个式子：</p>
+<blockquote>
+<p>下面这两个式子是神经网络的出发点，非常重要</p>
+</blockquote>
+<p>$$z=w_1x_1+w_2x_2+w_3x_3+b $$
+$$y=a(z)=a(w_1x_1+w_2x_2+w_3x_3+b )$$</p>
+<p>变成了这个样子，式子好看了，也不容易错了，于是这个$b$就叫做<code>偏置</code></p>
+<p>生物学上的$w_1$、$w_2$、$w_3$和阈值$\theta$($-b$)都不是负数，因为负数不会在自然现象中出现，但是我们将神经元一般化后，是允许出现负数的。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmo2y2ri9j316y0dygmt.jpg" alt=""></p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmo3xafgcj312s0g674l.jpg" alt=""></p>
+<p>上面我们用一个例子来验证我们所学到的知识。相信很多人的算法就像上方表格中的加权输入z一样，其实对于计算机来说有一种更加容易的计算方式，那就是<code>线性代数</code>中的<code>内积</code>。</p>
+<p>我们将变量$x_1$、$x_2$、$x_3$作为<code>变量向量</code>，将权重$w_1$、$w_2$、$w_3$和偏执$b$作为一个<code>参数向量</code>，通过计算两个向量的内积来计算z,这时我们发现变量向量的长度是3，而权重和偏执的向量是4，所以我们需要使用1作为b的系数加入到变量向量中。
+$$\left[ x_1 ,x_2,x_3,1\right]\\<em>\\\left[ w_1 ,w_2,w_3,b\right]\\=w_1</em>x_1+w_2<em>x_2+w_3</em>x_3+1*b$$</p>
+<p>这不就是我们上方使用的算法吗，这种向量的内积的计算方式虽然对人不太友好，但是计算机却更加擅长这种计算，在我们真正撸代码的时候会用到这种方法。</p>
+
+                
+                <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
+                
+                
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2020-01-09-scrum-xp-devops/" data-toggle="tooltip" data-placement="top" title="关于Scrum&#43;XP&#43;DevOps的学习">&larr; 上一篇</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/2020-02-06-neural-network-structure/" data-toggle="tooltip" data-placement="top" title="深度学习数学基础(二)之神经网络构造">下一篇 &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+
+
+
+<div id="SOHUCS" sid='2020-02-06-10:46:49-深度学习数学基础(一)之神经元构造'></div>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com
+/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com/js/changyan.labs.https.js?appid=cytako4HR"></script>
+
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytako4HR';
+        var conf = 'prod_b9da8b3167eed0ab02bb9913a13e0435';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            var head = document.getElementsByTagName('head')[0]||document.head||document.documentElement;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.charset = 'utf-8';
+            script.id = 'changyan_mobile_js';
+            script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf;
+            head.appendChild(script);
+        } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+</script>
+
+
+
+            </div>
+            
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    <section class="visible-md visible-lg">
+        <hr>
+        <h5><a href="https://www.naah69.com/about" target="_blank">博主信息</a></h5>
+        <div class="short-about">
+            
+            <img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9gy1fw0npk3155j20u0140aca.jpg"/>
+            
+
+            <h3 style="margin-bottom: 20px;">
+                
+                那焱(纳兰)
+                
+                &nbsp;
+                
+                Naah
+                
+            </h3>
+
+            
+            <p>架构师</p>
+            
+
+            
+            <p>热爱生活,拥抱变化</p>
+            
+
+            
+            <ul class="list-inline">
+                
+                
+                <li>
+                    <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <a target="_blank" href="https://weibo.com/naah">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+
+                    <a href="javascript:wx()">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a target="_blank" href="https://github.com/naah69">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </section>
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5><a href="/tags/"   target="_blank" >标签展示</a></h5>
+        <div class="tags">
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80" title="算法基础"  target="_blank" >
+            算法基础(16)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="数据结构"  target="_blank" >
+            数据结构(14)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
+            环境配置系列(12)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
+            排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ci/cd" title="ci/cd"  target="_blank" >
+            ci/cd(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E5%9B%BE" title="图"  target="_blank" >
+            图(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
+            数学基础(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习"  target="_blank" >
+            深度学习(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络"  target="_blank" >
+            神经网络(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8" title="算法应用"  target="_blank" >
+            算法应用(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94" title="随笔"  target="_blank" >
+            随笔(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/go" title="go"  target="_blank" >
+            go(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/software" title="software"  target="_blank" >
+            software(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/hugo" title="hugo"  target="_blank" >
+            hugo(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/mark" title="mark"  target="_blank" >
+            mark(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91" title="二叉树"  target="_blank" >
+            二叉树(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E8%AE%B0%E5%BD%95" title="记录"  target="_blank" >
+            记录(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/docker" title="docker"  target="_blank" >
+            docker(3)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ecug" title="ecug"  target="_blank" >
+            ecug(3)
+            </a>
+
+            
+
+            <a href="/tags/"  target="_blank" >
+            全部标签
+            </a>
+
+        </div>
+    </section>
+    
+
+    
+    <hr>
+    <h5>友情链接</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.liaoxuefeng.com/">廖雪峰的官方网站</a></li>
+        
+        <li><a target="_blank" href="http://www.dayanzai.me/">大眼仔旭下载站</a></li>
+        
+        <li><a target="_blank" href="http://www.carrotchou.blog/">胡萝卜周下载站</a></li>
+        
+        <li><a target="_blank" href="http://xclient.info/">Xclient Mac下载站</a></li>
+        
+    </ul>
+
+    
+    <hr>
+    <h5>工具网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.algolia.com/">Algolia</a></li>
+        
+        <li><a target="_blank" href="https://changyan.kuaizhan.com/">畅言</a></li>
+        
+        <li><a target="_blank" href="http://tool.chinaz.com/">站长工具</a></li>
+        
+        <li><a target="_blank" href="https://tool.lu/">程序猿在线工具箱</a></li>
+        
+        <li><a target="_blank" href="https://www.bejson.com/">配置文件工具箱</a></li>
+        
+        <li><a target="_blank" href="http://www.jq22.com/textDifference">文本对比</a></li>
+        
+        <li><a target="_blank" href="https://cloudconvert.com/formats">在线文件格式转换</a></li>
+        
+    </ul>
+    
+    <hr>
+    <h5>收藏网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+        
+        <li><a target="_blank" href="https://www.nowcoder.com/">牛客网</a></li>
+        
+        <li><a target="_blank" href="http://www.acmcoder.com/">赛码网</a></li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://weibo.com/naah">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    <script>
+                        function wx() {
+                            layer.open({
+                                type: 1,
+                                title: false,
+                                closeBtn: 1,
+                                area: ['500px', '500px'],
+                                skin: 'layui-layer-nobg', 
+                                shadeClose: true,
+                                content: '<img src="https:\/\/naah-blog.oss-cn-hangzhou.aliyuncs.com\/img\/ed1d2fb9gy1fw0ntoycqcj20rr0rs3zo.jpg" width="500px" height="500px">'
+                            });
+                        }
+                    </script>
+                    <li>
+                        <a href="javascript:wx()">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/naah69">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy;   2020 <a href="http://www.beian.miit.gov.cn" target="_blank">浙ICP备19040622号</a>
+                    <br>
+                    
+                    <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+<script src="https://www.naah69.com/js/hux-blog.min.js"></script>
+
+<script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
+
+
+<script>
+
+
+    var _baId = '5d8997bbef4253c1fdbcba1a8fb66019';
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?"+ _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+
+<!-- async load function -->
+function async(u, c) {
+    var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+        o.addEventListener('load', function (e) {
+            c(null, e);
+        }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+}
+
+<!--fastClick.js -->
+async("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav) FastClick.attach($nav);
+})
+
+</script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155998534-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155998534-1');
+</script>
+
+
+
+
+</body>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+    <script src="https://www.naah69.com/js/article.js"></script>
+
+
+</html>

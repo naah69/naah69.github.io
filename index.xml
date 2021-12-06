@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>https://www.naah69.com/</link>
+    <description>Recent content on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 13 Feb 2020 15:06:33 +0800</lastBuildDate><atom:link href="https://www.naah69.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>深度学习数学基础(六)之链式法则</title>
+      <link>https://www.naah69.com/post/2020-02-11-linked/</link>
+      <pubDate>Thu, 13 Feb 2020 15:06:33 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-02-11-linked/</guid>
+      <description>$$\begin{cases} z=f(x_{ 1 },x_{ 2 },&amp;hellip;,x_{ n })\\=w_{ 1 }x_{ 1 }+w_{ 2 }x_{ 2 }+&amp;hellip;+w_{ n }x_{ n }+b \\ y=a(z) \end{cases}$$ 本篇内容含有大量公式，如果展示不佳，请跳转至原文 上次讲了导数和偏导数的基础，那么这些还不足以使</description>
+    </item>
+    
+    <item>
+      <title>深度学习数学基础(五)之导数基础</title>
+      <link>https://www.naah69.com/post/2020-02-10-derivative/</link>
+      <pubDate>Mon, 10 Feb 2020 11:29:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-02-10-derivative/</guid>
+      <description>本篇内容含有大量公式，如果展示不佳，请跳转至原文 之前我们提过，说神经网络会很牛逼的自己学习，那这个自己学习是什么原理呢？如果用数学上的非人话</description>
+    </item>
+    
+    <item>
+      <title>深度学习数学基础(四)之线性代数基础</title>
+      <link>https://www.naah69.com/post/2020-02-09-linear-algebra/</link>
+      <pubDate>Sun, 09 Feb 2020 18:20:23 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-02-09-linear-algebra/</guid>
+      <description>本篇内容含有大量公式，如果展示不佳，请跳转至原文 1 向量基础 向量就是具有大小和方向的量。 1.1 有向线段与向量 有两个点$A、B$，我们考虑从$A$指</description>
+    </item>
+    
+    <item>
+      <title>深度学习数学基础(三)之简单数学</title>
+      <link>https://www.naah69.com/post/2020-02-08-math-basic/</link>
+      <pubDate>Sat, 08 Feb 2020 14:13:58 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-02-08-math-basic/</guid>
+      <description>本篇内容含有大量公式，如果展示不佳，请跳转至原文 从本文开始，之后的三四篇我们都将沐浴在数学的海洋里，拼命地扑腾，这个系列我会尽力以通俗易懂的</description>
+    </item>
+    
+    <item>
+      <title>深度学习数学基础(二)之神经网络构造</title>
+      <link>https://www.naah69.com/post/2020-02-06-neural-network-structure/</link>
+      <pubDate>Thu, 06 Feb 2020 19:40:19 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-02-06-neural-network-structure/</guid>
+      <description>本篇内容含有大量公式，如果展示不佳，请跳转至原文 书接上文，继续说说神经网络的结构。首先我们要回顾上一篇文章深度学习数学基础(一)之神经元构造</description>
+    </item>
+    
+    <item>
+      <title>深度学习数学基础(一)之神经元构造</title>
+      <link>https://www.naah69.com/post/2020-02-06-neurous/</link>
+      <pubDate>Thu, 06 Feb 2020 10:46:49 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-02-06-neurous/</guid>
+      <description>本篇内容含有大量公式，如果展示不佳，请跳转至原文 过年期间，我抽时间把深度学习的神经网络的数学基础学习了一下，简单的看了看神经网络的基础，在这</description>
+    </item>
+    
+    <item>
+      <title>关于Scrum&#43;XP&#43;DevOps的学习</title>
+      <link>https://www.naah69.com/post/2020-01-09-scrum-xp-devops/</link>
+      <pubDate>Thu, 09 Jan 2020 21:14:07 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-09-scrum-xp-devops/</guid>
+      <description>最近听了ECUG大会上孙敬云老师的分享感觉受益匪浅，毕竟大学课本上只讲到瀑布模型就没有下文了，工作以后一直贯彻的都是Scrum路线，一直也没</description>
+    </item>
+    
+    <item>
+      <title>有关云计算的未来：云计算3.0的思考</title>
+      <link>https://www.naah69.com/post/2020-01-07-xu-cloud-feature/</link>
+      <pubDate>Tue, 07 Jan 2020 14:46:06 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-07-xu-cloud-feature/</guid>
+      <description>老许是七牛CEO许世伟，我们这里就叫他老许好了。他在大会上分享了一些关于对未来行业的看法，我会在这里写下我汲取老许的观点后的一些思考。 1 云+</description>
+    </item>
+    
+    <item>
+      <title>有关混沌工程的学习</title>
+      <link>https://www.naah69.com/post/2020-01-06-chaos-mesh/</link>
+      <pubDate>Mon, 06 Jan 2020 16:02:27 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-06-chaos-mesh/</guid>
+      <description>最近参加了ECUG大会，其中有一个分享是pingCAP的CEO大佬刘奇分析的他们开源的在k8s平台上使用的混沌工程插件Chaos Mesh，我</description>
+    </item>
+    
+    <item>
+      <title>微服务拆分及技术选型(2019总结版)</title>
+      <link>https://www.naah69.com/post/2020-01-04-microservice-servicemesh-thinkabout/</link>
+      <pubDate>Sat, 04 Jan 2020 21:45:39 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-04-microservice-servicemesh-thinkabout/</guid>
+      <description>最近参加了ECUG大会，其中有两个分享是有关微服务的，一个是CODING的微服务拆分，一个是网易的服务网格实践，那我对这些也有些思考，今天我</description>
+    </item>
+    
+    <item>
+      <title>BlueOcean实战多分支pipeline构建(Jenkins)</title>
+      <link>https://www.naah69.com/post/2019-12-22-jenkins-pipeline/</link>
+      <pubDate>Sun, 22 Dec 2019 14:52:00 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-22-jenkins-pipeline/</guid>
+      <description>最近，将公司的CI/CD从jenkins传统配置更改成了jenkins最新的声明式流水线(Declarative Pipeline)，这样就可</description>
+    </item>
+    
+    <item>
+      <title>Jenkinsfile的高亮、提示和校验</title>
+      <link>https://www.naah69.com/post/2019-12-23-jenkinsflie-plugin/</link>
+      <pubDate>Sun, 22 Dec 2019 14:36:00 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-23-jenkinsflie-plugin/</guid>
+      <description>原本我以为强大的IDEA什么插件都有，然而这个，真没有！ 但是在VsCode里找到了jenkinsfile高亮、提示和校验插件 1 高亮、代码提示</description>
+    </item>
+    
+    <item>
+      <title>SonarQube7.7安装阿里JAVA规范插件P3C</title>
+      <link>https://www.naah69.com/post/2019-12-08-sonar-p3c/</link>
+      <pubDate>Sun, 08 Dec 2019 19:22:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-sonar-p3c/</guid>
+      <description>1 环境准备 这里特别说明！ 由于SonarQube各版本之间插件无法统通用，而官方并没有支持 所以本篇文章只保证SonarQube7.7-comm</description>
+    </item>
+    
+    <item>
+      <title>docker构建SonarQube进行代码质量检查</title>
+      <link>https://www.naah69.com/post/2019-12-08-sonarqube/</link>
+      <pubDate>Sun, 08 Dec 2019 19:18:54 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-sonarqube/</guid>
+      <description>1 环境准备 1.1 docker环境准备 docker或k8s或rancher 1.2 宿主机创建所需的持久化目录（不持久化可跳过） postgresql数据库</description>
+    </item>
+    
+    <item>
+      <title>Rancher2配置Webhook(修复官方bug)</title>
+      <link>https://www.naah69.com/post/2019-12-08-rancher2-webhoook/</link>
+      <pubDate>Sun, 08 Dec 2019 19:01:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-rancher2-webhoook/</guid>
+      <description>起因 由于我们团队的开发环境是使用jenkins+Harbor+rancher2进行部署ci/cd的，所以需要进行webhook调用 但是在通过</description>
+    </item>
+    
+    <item>
+      <title>CentOS7配置GPU开发环境教程</title>
+      <link>https://www.naah69.com/post/2019-12-08-centos7-gpu-env/</link>
+      <pubDate>Sun, 08 Dec 2019 17:29:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-centos7-gpu-env/</guid>
+      <description>本文环境 CentOS7 1 nvidia显卡驱动 通过ELRepo源的nvidia-detect命令来自动化安装驱动，省时省力，告别传统手工操作，一步一个坑 1.1</description>
+    </item>
+    
+    <item>
+      <title>jenkins钉钉机器人通知(201912最新版本)</title>
+      <link>https://www.naah69.com/post/2019-12-08-jenkins-dingding-notify-new-version/</link>
+      <pubDate>Sun, 08 Dec 2019 17:23:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-jenkins-dingding-notify-new-version/</guid>
+      <description>1 安装jenkins插件 Manage Jenkins Manage Plugins 安装Dingding[钉钉] Plugin 重启jenkins 2 创建钉钉机器人 只有群主和群管理员才能创建机器人 进入群设置,</description>
+    </item>
+    
+    <item>
+      <title>ONNX-TensorRT6安装教程(python)</title>
+      <link>https://www.naah69.com/post/2019-12-01-onnx-tensorrt/</link>
+      <pubDate>Sun, 01 Dec 2019 18:24:13 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-onnx-tensorrt/</guid>
+      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 必备环境 Protobuf &amp;gt;= 3.8.x 1 apt-get install libprotobuf-dev protobuf-compiler TensorRT 6.0 上篇文章tensorrt6安装教程 cuda和cu</description>
+    </item>
+    
+    <item>
+      <title>TensorRT6安装教程(python)</title>
+      <link>https://www.naah69.com/post/2019-12-01-tensorrt/</link>
+      <pubDate>Sun, 01 Dec 2019 18:10:30 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-tensorrt/</guid>
+      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 conda 不进行赘述 1.2 tensorrt安装包 根据你的机器的cuda和cudnn版本下</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu18.04配置GPU开发环境教程</title>
+      <link>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</link>
+      <pubDate>Sun, 01 Dec 2019 13:23:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</guid>
+      <description>本文环境 ubuntu 18.04 1 nvidia显卡驱动 1 sudo apt-get install nvidia-driver-435 2 cuda 2.1 下载cuda CUDA官网 选择配置，但是Installer Type必须选择runfile,根</description>
+    </item>
+    
+    <item>
+      <title>机器学习系列03-决策树算法</title>
+      <link>https://www.naah69.com/post/2019-10-06-mlch03-tree/</link>
+      <pubDate>Sat, 05 Oct 2019 15:06:16 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-10-06-mlch03-tree/</guid>
+      <description>1 概述 决策树本质上是数据结构中的树，不过有一些区别是，树的根节点和中间节点都是判断，而树的边都条件，而所有叶子节点都是一些结果。其实本质上就</description>
+    </item>
+    
+    <item>
+      <title>机器学习系列02-k近邻分类算法</title>
+      <link>https://www.naah69.com/post/2019-10-06-mlch02-knn/</link>
+      <pubDate>Sat, 05 Oct 2019 11:10:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-10-06-mlch02-knn/</guid>
+      <description>1 概述 k-近邻算法采用测量不同特征值之间的距离的方法进行分类 2 优缺点 优点：精度高，对异常值不敏感，无数据输入假定 缺点：计算复杂度该，空间复杂</description>
+    </item>
+    
+    <item>
+      <title>机器学习系列01-机器学习相关基础概念</title>
+      <link>https://www.naah69.com/post/2019-10-04-mlch01/</link>
+      <pubDate>Fri, 04 Oct 2019 20:15:29 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-10-04-mlch01/</guid>
+      <description>机器学习给人的感觉就是非常的高大上，因为机器学习的一些名词总是让人云里雾里，今天我们主要来通俗易懂的讲一下机器学习的概念。 1 数据 数据大家应该</description>
+    </item>
+    
+    <item>
+      <title>最简单的spring-boot-starter-redisson发布啦！</title>
+      <link>https://www.naah69.com/post/2019-07-28-spring-boot-starter-redisson/</link>
+      <pubDate>Sun, 28 Jul 2019 10:41:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-07-28-spring-boot-starter-redisson/</guid>
+      <description>spring-boot-starter-redisson 前言 最近忽然发现springboot2的spring-boot-starter-data-redis底层默认使用了lettuce作为连接池</description>
+    </item>
+    
+    <item>
+      <title>快速构建高性能web框架Tornado的基础结构</title>
+      <link>https://www.naah69.com/post/2019-06-28-tornado/</link>
+      <pubDate>Fri, 28 Jun 2019 21:17:24 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-28-tornado/</guid>
+      <description>1 介绍 大部分python开发都知道Flask,Djongo,Tornado. 而我在进行python端的web开发时,会根据所实现的功能进行技</description>
+    </item>
+    
+    <item>
+      <title>这样做,能让我的Docker镜像更轻巧</title>
+      <link>https://www.naah69.com/post/2019-06-23-alpine-glib-docker/</link>
+      <pubDate>Sun, 23 Jun 2019 14:12:25 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-23-alpine-glib-docker/</guid>
+      <description>1 打造最小docker基础镜像 1.1 使用alpine-glib作为基础镜像 Alpine 操作系统是一个面向安全的轻型 Linux 发行版。采用了 musl libc 和 busybox 以减小系统的体积</description>
+    </item>
+    
+    <item>
+      <title>Golang踩坑记录</title>
+      <link>https://www.naah69.com/post/2019-06-23-go-trap/</link>
+      <pubDate>Sun, 23 Jun 2019 13:42:08 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-23-go-trap/</guid>
+      <description>1 国内如何快速go get github的包 在命令行输入go get ...前输入以下命令 1 2 3 4 #配置你自己的http代理 export http_proxy=http://127.0.0.1:1087 go get ... 2 golang版本ji</description>
+    </item>
+    
+    <item>
+      <title>k8s怎么使用GPU？这篇文章告诉你怎么做！</title>
+      <link>https://www.naah69.com/post/2019-06-22-docker-k8s-gpu/</link>
+      <pubDate>Sat, 22 Jun 2019 20:44:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-22-docker-k8s-gpu/</guid>
+      <description>我是不会告诉你为啥要用docker,nvidia-docker,k8s的！百度和google一堆，自己找找！这里只教你怎么部署坑最少！ 1 所需</description>
+    </item>
+    
+    <item>
+      <title>Hugo-Algolia-Chinese-Builder更新啦</title>
+      <link>https://www.naah69.com/post/2019-06-22-hugo-algolia-chinese-builder-2/</link>
+      <pubDate>Sat, 22 Jun 2019 20:28:03 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-22-hugo-algolia-chinese-builder-2/</guid>
+      <description>1 Go版本 GitHub地址 1.1 新版本特点 完全使用go进行分词，摒弃node.js分词 加入sego分词，使用双分词优化质量，同时优化分词速度 加入</description>
+    </item>
+    
+    <item>
+      <title>最完善的docker安装和配置教程</title>
+      <link>https://www.naah69.com/post/2019-06-21-docker/</link>
+      <pubDate>Fri, 21 Jun 2019 20:44:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-21-docker/</guid>
+      <description>1 所需环境 可能大部分人喜欢用ubuntu来进行，但是我喜欢用centos，所以本文就用centos7 谁让我是作者，就是这么任性！ 2 安装和配置</description>
+    </item>
+    
+    <item>
+      <title>欢迎各位品尝SpringCloud-Starter-Drift-Client</title>
+      <link>https://www.naah69.com/post/2018-12-01-springcloud-starter-drift-client/</link>
+      <pubDate>Sat, 01 Dec 2018 15:31:06 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-12-01-springcloud-starter-drift-client/</guid>
+      <description>1 介绍 1.1 Thrift 在介绍spring-cloud-starter-drift之前，我们应该先了解什么是Thrift。 Thrift是一款跨语言的RPC</description>
+    </item>
+    
+    <item>
+      <title>《什么是数学》的思维导图</title>
+      <link>https://www.naah69.com/post/2018-12-01-math-mind/</link>
+      <pubDate>Sat, 01 Dec 2018 14:25:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-12-01-math-mind/</guid>
+      <description>1 前言 由于要转向AI的算法岗位，所以最近在恶补数学，有幸拜读了一本，国外很火的数学基础书《什么是数学》。 也将过去忘记的数学简单的复习了一下，</description>
+    </item>
+    
+    <item>
+      <title>踩坑之Java执行Linux命令死锁阻塞挂起</title>
+      <link>https://www.naah69.com/post/2018-10-17-process-dead-lock/</link>
+      <pubDate>Wed, 17 Oct 2018 13:20:24 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-10-17-process-dead-lock/</guid>
+      <description>1 问题背景 最近在做一个需求需要调用linux下的某个脚本来对ai的模型进行训练，很简单的需求，我像往常一样写下如下的代码片段： 1 2 Process process = Runtime.getRuntime().exec(cmd); process.waitFor();</description>
+    </item>
+    
+    <item>
+      <title>使用rocketmq-starter发送事务消息</title>
+      <link>https://www.naah69.com/post/2018-10-11-rocketmq-starter-transcation/</link>
+      <pubDate>Thu, 11 Oct 2018 11:43:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-10-11-rocketmq-starter-transcation/</guid>
+      <description>1 RocketMQ分布式事务机制 1.1 概念介绍 事务消息：MQ 提供类似 X/Open XA 的分布事务功能，通过 MQ 事务消息能达到分布式事务的最终一致。 半消息：暂不能</description>
+    </item>
+    
+    <item>
+      <title>教你go语言如何压缩打包</title>
+      <link>https://www.naah69.com/post/2018-10-01-go-compress-packaging/</link>
+      <pubDate>Mon, 01 Oct 2018 19:42:19 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-10-01-go-compress-packaging/</guid>
+      <description>1 压缩前后对比图 只有一句hello world！竟然打包后达到了2.1M 2 详细过程 2.1 参数打包 2.1.1 使用带有参数的go build 进行打包 1 go build -ldflags &amp;#34;-s -w&amp;#34; hello.go -ldflags &amp;lsquo;[pattern=]arg list&amp;rsquo;</description>
+    </item>
+    
+    <item>
+      <title>应用于Hugo的Algolia中文分词器</title>
+      <link>https://www.naah69.com/post/2018-10-01-algolia-chinese/</link>
+      <pubDate>Mon, 01 Oct 2018 18:49:57 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-10-01-algolia-chinese/</guid>
+      <description>因为使用Hugo进行搭建博客，由于静态化博客使用的是Algolia提供的索引服务。 而node.js中的插件hugo-algolia只能提供英</description>
+    </item>
+    
+    <item>
+      <title>踩坑之spring-boot-starter-rocketmq的使用</title>
+      <link>https://www.naah69.com/post/2018-09-11-rocketmq-demo/</link>
+      <pubDate>Tue, 11 Sep 2018 21:03:24 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-09-11-rocketmq-demo/</guid>
+      <description>官网GitHub地址 ,这个文档超级坑，特别是里面的辣鸡Demo,全是错 本文Demo源码 1 Maven依赖 文档中的Maven依赖,引用后无法下载</description>
+    </item>
+    
+    <item>
+      <title>使用Hugo生成静态化文件搭建网站</title>
+      <link>https://www.naah69.com/post/2018-09-02-hugo-demo/</link>
+      <pubDate>Sun, 02 Sep 2018 22:18:40 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-09-02-hugo-demo/</guid>
+      <description>转载至Hugo中文文档 快速开始 安装Hugo 1.二进制安装（推荐：简单、快速） 到Hugo Releases下载对应的操作系统版本的Hugo二进制</description>
+    </item>
+    
+    <item>
+      <title>Art White主题发布啦！</title>
+      <link>https://www.naah69.com/post/2018-09-02-hugo-theme-artwhite/</link>
+      <pubDate>Sun, 02 Sep 2018 22:18:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-09-02-hugo-theme-artwhite/</guid>
+      <description>Art White Theme for Hugo English Doc Art White是Hugo的一款博客主题. 这是 示例网站 . 它基于 Clean White主题进行开发. 1 新功能 畅言评论 Algolia英语分词(需</description>
+    </item>
+    
+    <item>
+      <title>ABOUT ME</title>
+      <link>https://www.naah69.com/about/</link>
+      <pubDate>Fri, 31 Aug 2018 10:47:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/about/</guid>
+      <description>简介 本博客博主 那焱 , 花名 纳兰 , 英文名 Naah 生于1996年 ，籍贯黑龙江(东北人哈！) ，现居浙江杭州 2018年毕业于传说中的齐齐哈尔大学，目前从事架</description>
+    </item>
+    
+    <item>
+      <title>SEARCH</title>
+      <link>https://www.naah69.com/search/article/</link>
+      <pubDate>Fri, 31 Aug 2018 10:47:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/search/article/</guid>
+      <description>aaa</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Gateway转发WebSocket</title>
+      <link>https://www.naah69.com/post/2018-05-31-springcloud-gateway-websocket/</link>
+      <pubDate>Thu, 31 May 2018 22:11:46 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-05-31-springcloud-gateway-websocket/</guid>
+      <description>在经过了两天的刻苦钻研，在经过了google,stackoverflow,github轮番查找无果，而官方文档又毫无记录的情况下。 终于，一个</description>
+    </item>
+    
+    <item>
+      <title>汉王英译汉词典批量导入工具</title>
+      <link>https://www.naah69.com/post/2017-09-13-%E6%B1%89%E7%8E%8B%E8%8B%B1%E8%AF%91%E6%B1%89%E8%AF%8D%E5%85%B8%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 13 Sep 2017 10:57:57 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-13-%E6%B1%89%E7%8E%8B%E8%8B%B1%E8%AF%91%E6%B1%89%E8%AF%8D%E5%85%B8%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5%E5%B7%A5%E5%85%B7/</guid>
+      <description>前几天在马云家买了一款扫描翻译笔——汉王A200 Plus 店家提供了很多很多很多词典，但是汉王的精（la）美（ji）词典导入工具一次只能导入一个词典</description>
+    </item>
+    
+    <item>
+      <title>算法基础之回溯算法</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:46:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</guid>
+      <description>回溯算法 回溯法（探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到</description>
+    </item>
+    
+    <item>
+      <title>算法基础之动态规划</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <pubDate>Sat, 09 Sep 2017 11:43:36 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <description>动态规划 把多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解，创立了解决这类过程优化问题的新方法——动态规划 算法应用 最长公共子</description>
+    </item>
+    
+    <item>
+      <title>算法基础之分治算法</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:39:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</guid>
+      <description>分治算法 分治算法的基本思想是将一个规模为N的问题分解为K个规模较小的子问题，这些子问题相互独立且与原问题性质相同。求出子问题的解，就可得到原</description>
+    </item>
+    
+    <item>
+      <title>算法基础之贪心算法</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:33:44 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</guid>
+      <description>贪心算法 贪心算法（又称贪婪算法）是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，他所做出的是在某种意</description>
+    </item>
+    
+    <item>
+      <title>算法基础之穷举算法</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%A9%B7%E4%B8%BE%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:28:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%A9%B7%E4%B8%BE%E7%AE%97%E6%B3%95/</guid>
+      <description>穷举算法 穷举法的基本思想是根据题目的部分条件确定答案的大致范围，并在此范围内对所有可能的情况逐一验证，直到全部情况验证完毕。若某个情况验证符</description>
+    </item>
+    
+    <item>
+      <title>算法基础之递归算法</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:24:55 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/</guid>
+      <description>递归算法 递归算法是把问题转化为规模缩小了的同类问题的子问题。然后 递归调用函数（或过程）来表示问题的解。 一个过程(或函数)直接或间接调用自己本</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法九之基数排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%9D%E4%B9%8B%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:31:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%9D%E4%B9%8B%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/</guid>
+      <description>基数排序 基数排序（radix sort）属于“分配式排序”（distribution sort），又称“桶子法”（bucket sort）或bin</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法八之归并排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%85%AB%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:25:26 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%85%AB%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</guid>
+      <description>归并排序 归并排序（MERGE-SORT）是建立在归并操作上的一种有效的排序算法,该算法是采用分治法（Divide and Conquer）的一个非常</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法七之快速排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%83%E4%B9%8B%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:22:37 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%83%E4%B9%8B%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</guid>
+      <description>选择排序算法 选择排序（Selection sort）是一种简单直观的排序算法。 它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法六之冒泡排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%85%AD%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:20:31 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%85%AD%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</guid>
+      <description>交换排序算法 所谓交换，就是根据序列中两个记录键值的比较结果来对换这两个记录在序列中的位置，稳定的算法 交换排序的特点是：将键值较大的记录向序列</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法五之堆排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%BA%94%E4%B9%8B%E5%A0%86%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:16:48 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%BA%94%E4%B9%8B%E5%A0%86%E6%8E%92%E5%BA%8F/</guid>
+      <description>选择排序算法 选择排序（Selection sort）是一种简单直观的排序算法。 它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法四之简单选择排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%9B%9B%E4%B9%8B%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:09:45 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%9B%9B%E4%B9%8B%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</guid>
+      <description>选择排序算法 选择排序（Selection sort）是一种简单直观的排序算法。 它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法三之希尔排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%89%E4%B9%8B%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 08:59:49 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%89%E4%B9%8B%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/</guid>
+      <description>插入排序算法 有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法二之折半插入排序（二分插入排序）</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%BA%8C%E4%B9%8B%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F-%E4%BA%8C%E5%88%86%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 08:56:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%BA%8C%E4%B9%8B%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F-%E4%BA%8C%E5%88%86%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</guid>
+      <description>插入排序算法 有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法一之直接插入排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%80%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 08:54:28 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%80%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</guid>
+      <description>插入排序算法 有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序</description>
+    </item>
+    
+    <item>
+      <title>算法基础之思维导图</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/</link>
+      <pubDate>Sat, 09 Sep 2017 08:43:46 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>数据结构之思维导图</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/</link>
+      <pubDate>Thu, 17 Aug 2017 11:58:48 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/</guid>
+      <description>通过这些天对数据结构的学习，使用思维导图进行了总结</description>
+    </item>
+    
+    <item>
+      <title>数据结构图Graph之最终类</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%9C%80%E7%BB%88%E7%B1%BB/</link>
+      <pubDate>Thu, 17 Aug 2017 11:51:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%9C%80%E7%BB%88%E7%B1%BB/</guid>
+      <description>该类包括 基础方法 邻接矩阵 邻接表 深度优先遍历 广度优先遍历 最小生成树 最短路径 拓扑排序 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30</description>
+    </item>
+    
+    <item>
+      <title>数据结构图Graph之拓扑排序</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Thu, 17 Aug 2017 11:42:36 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/</guid>
+      <description>一级压一级 将0入度的输出，之后入度为入度为0的，入度减1，直到入度为0才能输出 通过邻接表与栈实现 算法准备 a. 邻接表 b. 最小权值数组least c. 上</description>
+    </item>
+    
+    <item>
+      <title>数据结构图Graph之最短路径问题迪杰斯特拉算法</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98%E8%BF%AA%E6%9D%B0%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 17 Aug 2017 11:36:06 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98%E8%BF%AA%E6%9D%B0%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95/</guid>
+      <description>原理与普里母算法思路相同，只是比较的时候不同 通过邻接矩阵进行计算 算法准备 a. 邻接矩阵 b. 最小权值数组least c. 上一个顶点下标数组lastInd</description>
+    </item>
+    
+    <item>
+      <title>数据结构图Graph之最小生成树问题克鲁斯卡尔算法</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98%E5%85%8B%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 17 Aug 2017 11:31:07 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98%E5%85%8B%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E7%AE%97%E6%B3%95/</guid>
+      <description>算法准备 a. Edge度对象数组（从小到大） b. 查询数组parent c. find方法（查找数组中该顶点能到达的最后位置） 算法思路 a. 遍历edge数组 b.</description>
+    </item>
+    
+    <item>
+      <title>数据结构图Graph之最小生成树问题普里姆算法</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98%E6%99%AE%E9%87%8C%E5%A7%86%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 17 Aug 2017 11:25:46 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98%E6%99%AE%E9%87%8C%E5%A7%86%E7%AE%97%E6%B3%95/</guid>
+      <description>一个连通图的生成树是一个极小的连通子图，它含有图中全部的顶点，但只有足以构成一棵树的n-1条边。我们把构造连通网的最小代价生成树。称为最小生</description>
+    </item>
+    
+    <item>
+      <title>数据结构图Graph之广度优先遍历</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Thu, 17 Aug 2017 11:20:16 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</guid>
+      <description>广度优先遍历，也称为广度优先搜索。简称BFS 类似于二叉树的层序遍历 算法准备 a. 记录是否遍历过的数组 b. 邻接点的队列 算法思路（递归） a. 从某顶点开始</description>
+    </item>
+    
+    <item>
+      <title>数据结构图Graph之深度优先遍历</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Thu, 17 Aug 2017 11:10:40 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</guid>
+      <description>深度优先遍历，也称为深度优先搜索。简称DFS 它从图中的某个顶点V出发，访问该顶点，然后从v的未被访问的邻接点（出度的点）出发，深度优先遍历图</description>
+    </item>
+    
+    <item>
+      <title>数据结构查找二叉树SearchBinaryTree之JAVA代码</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9F%A5%E6%89%BE%E4%BA%8C%E5%8F%89%E6%A0%91searchbinarytree%E4%B9%8Bjava%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Thu, 17 Aug 2017 11:00:26 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9F%A5%E6%89%BE%E4%BA%8C%E5%8F%89%E6%A0%91searchbinarytree%E4%B9%8Bjava%E4%BB%A3%E7%A0%81/</guid>
+      <description>下面是我自己写的查找二叉树的结构： 希望对各位有所帮助，如果有错误的地方或更好的建议，请不吝赐教，谢谢 构建查找二叉树 查找二叉树添加节点方法 在某</description>
+    </item>
+    
+    <item>
+      <title>数据结构二叉树BinaryTree之java构建二叉树JAVA代码</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BA%8C%E5%8F%89%E6%A0%91binarytree%E4%B9%8Bjava%E6%9E%84%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91java%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Thu, 17 Aug 2017 10:52:45 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BA%8C%E5%8F%89%E6%A0%91binarytree%E4%B9%8Bjava%E6%9E%84%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91java%E4%BB%A3%E7%A0%81/</guid>
+      <description>经过几天的学习，简单的编写了一个二叉树的类 其中包括 属性 根节点 方法 层序构建二叉树 前序构建二叉树 得到当前的深度 得到当前的节点数 前序遍历 中序遍历 后</description>
+    </item>
+    
+    <item>
+      <title>数据结构二叉树BinaryTree之遍历</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BA%8C%E5%8F%89%E6%A0%91binarytree%E4%B9%8B%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Thu, 17 Aug 2017 10:46:27 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BA%8C%E5%8F%89%E6%A0%91binarytree%E4%B9%8B%E9%81%8D%E5%8E%86/</guid>
+      <description>1.前序遍历 规则为若二叉树为空，则返回空，否则按如下顺序进行访问 访问根节点 访问左节点 访问右节点 总结：中左右 顺序：中左右 规律：要访问的放中间 每</description>
+    </item>
+    
+    <item>
+      <title>数据结构二叉树BinaryTree之性质&#43;推导</title>
+      <link>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BA%8C%E5%8F%89%E6%A0%91binarytree%E4%B9%8B%E6%80%A7%E8%B4%A8-%E6%8E%A8%E5%AF%BC/</link>
+      <pubDate>Thu, 17 Aug 2017 10:42:52 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BA%8C%E5%8F%89%E6%A0%91binarytree%E4%B9%8B%E6%80%A7%E8%B4%A8-%E6%8E%A8%E5%AF%BC/</guid>
+      <description>由于无法打出上下标效果，所以本节采用截图形式 性质1：在二叉树的第i层上至多有2^(i-1)个结点（i&amp;gt;=1） 性质2：深度为k的二叉树至</description>
+    </item>
+    
+    <item>
+      <title>数据结构键值HashMap之自己编写简单的HashMap</title>
+      <link>https://www.naah69.com/post/2017-08-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%94%AE%E5%80%BChashmap%E4%B9%8B%E8%87%AA%E5%B7%B1%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84hashmap/</link>
+      <pubDate>Thu, 10 Aug 2017 03:26:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%94%AE%E5%80%BChashmap%E4%B9%8B%E8%87%AA%E5%B7%B1%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84hashmap/</guid>
+      <description>通过key计算二次哈希值，然后哈希值与数组长度进行与运算 总结： 得到的结果便是数组的下标 通过该种索引方法可以实现查询优化 通过key计算二次哈希</description>
+    </item>
+    
+    <item>
+      <title>送婴儿-庆周岁之喜</title>
+      <link>https://www.naah69.com/post/2017-08-08-%E9%80%81%E5%A9%B4%E5%84%BF/</link>
+      <pubDate>Tue, 08 Aug 2017 22:30:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-08-%E9%80%81%E5%A9%B4%E5%84%BF/</guid>
+      <description>近闻令爱襁褓今岁子月破茧出，岁序更新化蝶纷飞小弟赠此赋。 愿你孩提之季笑逐颜开不闻忧，愿你垂髫之季聪明伶俐巧乖柔； 愿你总角之季思学悟道明己好，</description>
+    </item>
+    
+    <item>
+      <title>数据结构Stack之中缀表达式转后缀表达式运算应用</title>
+      <link>https://www.naah69.com/post/2017-08-08-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84stack%E4%B9%8B%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%90%E7%AE%97%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Tue, 08 Aug 2017 12:59:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-08-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84stack%E4%B9%8B%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%90%E7%AE%97%E5%BA%94%E7%94%A8/</guid>
+      <description>通过学习java中的Stack栈，写一个一个简单的中缀表达式转换为后缀表达式并计算的应用 由于时间问题，没有写字符分割函数。暂时用空格进行分割</description>
+    </item>
+    
+    <item>
+      <title>java程序转为EXE，无需安装JAVA环境运行程序</title>
+      <link>https://www.naah69.com/post/2017-08-08-java2exebyexe4j/</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-08-java2exebyexe4j/</guid>
+      <description>昨日在Google查资料的时候，需要使用ss，但是经常改ss配置好麻烦（穷逼使用免费的ss配置要经常改），毕竟我这么懒，于是着手开始写代码。</description>
+    </item>
+    
+    <item>
+      <title>2017 7 11 沈惊蛰</title>
+      <link>https://www.naah69.com/post/2017-7-11-%E6%B2%88%E6%83%8A%E8%9B%B0/</link>
+      <pubDate>Tue, 11 Jul 2017 22:23:34 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-7-11-%E6%B2%88%E6%83%8A%E8%9B%B0/</guid>
+      <description>沈氏千金明眸皓齿冰肌骨，微博之上膏粱锦绣春台处。 珍馐美馔亥时不问群餐览，倾盖故者垂涎欲滴胃清寒。</description>
+    </item>
+    
+    <item>
+      <title>为军人写</title>
+      <link>https://www.naah69.com/post/2017-7-11-%E4%B8%BA%E5%86%9B%E4%BA%BA%E5%86%99/</link>
+      <pubDate>Tue, 11 Jul 2017 22:22:34 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-7-11-%E4%B8%BA%E5%86%9B%E4%BA%BA%E5%86%99/</guid>
+      <description>古有班超弃笔从戎三十六人纵横西域，然中华雄狮韬光养晦六十余载，今日昂首阔步踏足八方，我等中华军人为，达国之大计，扬国之华威，震国之雠敌，聚沙</description>
+    </item>
+    
+    <item>
+      <title>Surface工具箱</title>
+      <link>https://www.naah69.com/post/2017-06-16-surface%E5%B7%A5%E5%85%B7%E7%AE%B1/</link>
+      <pubDate>Fri, 16 Jun 2017 01:44:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-06-16-surface%E5%B7%A5%E5%85%B7%E7%AE%B1/</guid>
+      <description>链接：https://pan.baidu.com/s/1i4Rnn3B 密码：nsmb 安装密码naah 安装完成后SurfaceNaah为主程序</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC H5 js摄像头拍照 ajax上传返回url路径</title>
+      <link>https://www.naah69.com/post/2017-05-12-springmvc-h5-js%E6%91%84%E5%83%8F%E5%A4%B4%E6%8B%8D%E7%85%A7-ajax%E4%B8%8A%E4%BC%A0%E8%BF%94%E5%9B%9Eurl%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Fri, 12 May 2017 10:00:14 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-05-12-springmvc-h5-js%E6%91%84%E5%83%8F%E5%A4%B4%E6%8B%8D%E7%85%A7-ajax%E4%B8%8A%E4%BC%A0%E8%BF%94%E5%9B%9Eurl%E8%B7%AF%E5%BE%84/</guid>
+      <description>前几日项目中遇到的问题，对于这个问题网上的资料都不算完整，不过大概思路有很多，今天这里我就实现一下： 1 前端标签 canvas用于显示照片，vi</description>
+    </item>
+    
+    <item>
+      <title>springMVC ueditor傻瓜配置系列之不成功你砍我！</title>
+      <link>https://www.naah69.com/post/2017-05-11-springmvc-ueditor%E5%82%BB%E7%93%9C%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%8D%E6%88%90%E5%8A%9F%E4%BD%A0%E7%A0%8D%E6%88%91/</link>
+      <pubDate>Thu, 11 May 2017 09:31:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-05-11-springmvc-ueditor%E5%82%BB%E7%93%9C%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%8D%E6%88%90%E5%8A%9F%E4%BD%A0%E7%A0%8D%E6%88%91/</guid>
+      <description>前几日在项目中要使用到编辑器，于是度娘看了几款前端编辑器， 最后&amp;hellip;选择了百度开发的ueditor编辑器，这可能是我最后悔的决定！</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC表单提交错误400排查思路及解决方案</title>
+      <link>https://www.naah69.com/post/2017-05-11-springmvc%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF400%E6%8E%92%E6%9F%A5%E6%80%9D%E8%B7%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Thu, 11 May 2017 09:20:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-05-11-springmvc%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF400%E6%8E%92%E6%9F%A5%E6%80%9D%E8%B7%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>前几天在做某一项目时提交表单发现400错误， 如下图所示： 然而根据描述根本无法发现错误所在，于是我对20多个表单项逐一排查，发现！根本就是大海</description>
+    </item>
+    
+    <item>
+      <title>在你自己的时区里,一切都安排准时</title>
+      <link>https://www.naah69.com/post/2017-05-08-%E5%9C%A8%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%97%B6%E5%8C%BA%E9%87%8C-%E4%B8%80%E5%88%87%E9%83%BD%E5%AE%89%E6%8E%92%E5%87%86%E6%97%B6/</link>
+      <pubDate>Mon, 08 May 2017 10:38:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-05-08-%E5%9C%A8%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%97%B6%E5%8C%BA%E9%87%8C-%E4%B8%80%E5%88%87%E9%83%BD%E5%AE%89%E6%8E%92%E5%87%86%E6%97%B6/</guid>
+      <description>前几天在网上看到这段话，就想转到博客，给自己看，也给每一个来我博客的人看， 每个人都有自己的时区，就像在命理学中，十年一大运，每每交运，便是天</description>
+    </item>
+    
+    <item>
+      <title>shadowsocks自动下载配置版(win版)</title>
+      <link>https://www.naah69.com/post/2017-04-13-shadowsocks%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E9%85%8D%E7%BD%AE%E7%89%88win%E7%89%88/</link>
+      <pubDate>Thu, 13 Apr 2017 09:45:45 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-04-13-shadowsocks%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E9%85%8D%E7%BD%AE%E7%89%88win%E7%89%88/</guid>
+      <description>什么是 ShadowSocks （影梭） ShadowSocks 是由@clowwindy所开发的一个开源 Socks5 代理。 如其官网所言 ，它是 “A secure socks5 proxy, designed to protect your Internet traffic” （一个安全的 Socks5 代理）</description>
+    </item>
+    
+    <item>
+      <title>虚度年华-Jam</title>
+      <link>https://www.naah69.com/post/2017-03-24-%E8%99%9A%E5%BA%A6%E5%B9%B4%E5%8D%8E-jam/</link>
+      <pubDate>Fri, 24 Mar 2017 08:43:06 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-03-24-%E8%99%9A%E5%BA%A6%E5%B9%B4%E5%8D%8E-jam/</guid>
+      <description>虚度年华-Jam 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 风向着你的衣裳 破帆像海里的浪 追上华丽的太阳 走在想你的路上 浮现</description>
+    </item>
+    
+    <item>
+      <title>生与死-《Life and Death》</title>
+      <link>https://www.naah69.com/post/2017-03-09-%E7%94%9F%E4%B8%8E%E6%AD%BB-life-and-death/</link>
+      <pubDate>Thu, 09 Mar 2017 08:31:40 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-03-09-%E7%94%9F%E4%B8%8E%E6%AD%BB-life-and-death/</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 I strove with none, for none was worth my strife; Nature I lov’d, and next to Nature, Art; I warm’d both hands before the fire of life; It sinks, and I am ready to depart. 我和谁都不争，和谁争我</description>
+    </item>
+    
+    <item>
+      <title>阅读的重要性</title>
+      <link>https://www.naah69.com/post/2017-02-06-%E9%98%85%E8%AF%BB%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7/</link>
+      <pubDate>Mon, 06 Feb 2017 08:18:48 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-02-06-%E9%98%85%E8%AF%BB%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7/</guid>
+      <description>一旦丧失阅读和思考的主动性， 陷入别人的话语场中而无力自拔， 就有可能被别人特有的问题意识所覆盖， 乃至从此难以明状自己的切身体验， 暴露出文化分析</description>
+    </item>
+    
+    <item>
+      <title>生日词系列</title>
+      <link>https://www.naah69.com/post/2016-12-31-%E7%94%9F%E6%97%A5%E8%AF%8D/</link>
+      <pubDate>Sat, 31 Dec 2016 08:13:27 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2016-12-31-%E7%94%9F%E6%97%A5%E8%AF%8D/</guid>
+      <description>2019 生日词，庚戌日庆己亥廿三之喜 1 2 3 4 5 6 7 8 寒月追星风不及，百鸟朝凤树鸣啼。 万势消泯长河缓，千峰挺屹芊草返。 欲将落日换长虹，行路漫漫荆棘重</description>
+    </item>
+    
+    <item>
+      <title>遍历红尘</title>
+      <link>https://www.naah69.com/post/2016-12-28-%E9%81%8D%E5%8E%86%E7%BA%A2%E5%B0%98/</link>
+      <pubDate>Wed, 28 Dec 2016 08:12:26 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2016-12-28-%E9%81%8D%E5%8E%86%E7%BA%A2%E5%B0%98/</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 如果有一天我不用为生计而奔波苦恼时， 如果有一天我不会为生计而委曲求全时。 我想我会卸下</description>
+    </item>
+    
+    <item>
+      <title>放开你的眼界吧，人外有人，天外有天</title>
+      <link>https://www.naah69.com/post/2016-11-01-%E6%94%BE%E5%BC%80%E4%BD%A0%E7%9A%84%E7%9C%BC%E7%95%8C%E5%90%A7-%E4%BA%BA%E5%A4%96%E6%9C%89%E4%BA%BA-%E5%A4%A9%E5%A4%96%E6%9C%89%E5%A4%A9/</link>
+      <pubDate>Tue, 01 Nov 2016 07:54:53 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2016-11-01-%E6%94%BE%E5%BC%80%E4%BD%A0%E7%9A%84%E7%9C%BC%E7%95%8C%E5%90%A7-%E4%BA%BA%E5%A4%96%E6%9C%89%E4%BA%BA-%E5%A4%A9%E5%A4%96%E6%9C%89%E5%A4%A9/</guid>
+      <description>江海汪洋,众人仅汲一缕,则纳其为己,然不知百石外可有三人汲其万缕一江半海,其三皆以为瑕,奈何吾知其江海之宽广,微力甚末,无聚力以噬江海,唯如</description>
+    </item>
+    
+    <item>
+      <title>记录词</title>
+      <link>https://www.naah69.com/post/2016-10-07-%E8%AE%B0%E5%BD%95%E8%AF%8D/</link>
+      <pubDate>Fri, 07 Oct 2016 07:52:49 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2016-10-07-%E8%AE%B0%E5%BD%95%E8%AF%8D/</guid>
+      <description>东渐于海，西被于流沙，朔南暨，声教讫于四海。 有鸟止于阜，三年不飞不鸣，是何鸟也？三年不飞，一飞冲天；三年不鸣，一鸣惊人！ ———— 成语&amp;quo</description>
+    </item>
+    
+  </channel>
+</rss>

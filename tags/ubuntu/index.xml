@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on </title>
+    <link>https://www.naah69.com/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 01 Dec 2019 13:23:02 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu18.04配置GPU开发环境教程</title>
+      <link>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</link>
+      <pubDate>Sun, 01 Dec 2019 13:23:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</guid>
+      <description>本文环境 ubuntu 18.04 1 nvidia显卡驱动 1 sudo apt-get install nvidia-driver-435 2 cuda 2.1 下载cuda CUDA官网 选择配置，但是Installer Type必须选择runfile,根</description>
+    </item>
+    
+  </channel>
+</rss>

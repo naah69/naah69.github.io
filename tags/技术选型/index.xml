@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术选型 on </title>
+    <link>https://www.naah69.com/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/</link>
+    <description>Recent content in 技术选型 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 04 Jan 2020 21:45:39 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微服务拆分及技术选型(2019总结版)</title>
+      <link>https://www.naah69.com/post/2020-01-04-microservice-servicemesh-thinkabout/</link>
+      <pubDate>Sat, 04 Jan 2020 21:45:39 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-04-microservice-servicemesh-thinkabout/</guid>
+      <description>最近参加了ECUG大会，其中有两个分享是有关微服务的，一个是CODING的微服务拆分，一个是网易的服务网格实践，那我对这些也有些思考，今天我</description>
+    </item>
+    
+  </channel>
+</rss>

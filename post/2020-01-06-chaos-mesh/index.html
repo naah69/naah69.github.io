@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>有关混沌工程的学习 | 纳兰小筑</title>
+    <meta name="description" content="Naah,那焱,纳兰,一只正在通往机器学习的可爱的程序猿,热爱生活,拥抱变化,喜欢有关草木植物的任何事物,偶尔喜欢读读书写写诗" />
+    <meta name="keywords" content="Naah,那焱,纳兰,NaYan,nayan,纳兰的博客,那焱的网络日志,那焱的博客,Naah Blog,博客,个人网站,Java,Python" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="/img/favicon.ico">
+    <link rel="canonical" href="https://www.naah69.com/post/2020-01-06-chaos-mesh/">
+    <meta name="google-site-verification" content="RvhbpALX9GqGk5KVFhjMl2VqnksKeAoApN3upkrcDxM" />
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.naah69.com/css/hux-blog.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"
+      integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.js"
+        integrity="sha256-Gr6WcN18NVkLDr/zaAKoBQWpBSRw6LuPvNz2pwOe7Ng=" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI=" crossorigin="anonymous"
+        onload='renderMathInElement(document.body,{
+                delimiters:[{left:"$$", right: "$$", display: true,throwOnError:false},{left: "$", right: "$", display: false}],strict:false
+});'>
+
+</script>
+
+
+
+
+
+
+
+    
+<style>
+    article img{cursor: zoom-in;}
+     
+    header.intro-header {
+        background-image: url('https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/20211204162656.png')
+    }
+     
+    #floatting_dir {
+        position: fixed;
+        display: none;
+        width: auto;
+        height: auto;
+        font-size: 13px;
+    }
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+    @media screen and (max-width: 500px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    @media screen and (max-width: 768px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    .katex-display>.katex{
+        white-space:normal;
+    }
+
+    .katex .base, .katex .strut{
+        margin-top: 0.5em;
+    }
+
+    pre {
+        border:0px;
+        margin: 0px;
+    }
+
+
+</style>
+
+
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://www.naah69.com/">Naah-Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse" style="max-height: 1000px;" >
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://www.naah69.com/">HOME</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/essay"  target="_blank" >essay</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/foundation"  target="_blank" >foundation</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/java"  target="_blank" >java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/math"  target="_blank" >math</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/others"  target="_blank" >others</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+
+                    <li>
+                        <a href="https://www.naah69.com/about">About Me</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/search/article">Search
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            
+            $navbar.className = " ";
+            
+            setTimeout(function () {
+                
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a href="https://www.naah69.com/%20categories/others" target="_blank" ><i class="fa fa-folder-o"></i>&nbsp;Others</a>
+                        
+                        
+                        <a class="tag" href="/tags/chaos" title="Chaos" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;Chaos
+                        </a>
+                        
+
+                    </div>
+
+                    <h1>有关混沌工程的学习</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Naah on Monday, Jan 06,2020 16:02:27
+                        
+                        <span id="/post/2020-01-06-chaos-mesh/" class="meta_data_item" data-flag-title="">
+    <span class="post-meta-item-icon">
+      <span class="octicon octicon-eye"></span>
+    </span>
+    &nbsp;
+    <i class="fa fa-eye"></i>
+    <span class="old-visitors-count" style="display: none;"></span>
+    <span id="busuanzi_container_page_pv">
+  <span id="busuanzi_value_page_pv"></span>
+
+</span>
+</span>
+
+
+
+                        
+                    </span><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container" id="container_div">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+
+                
+
+                
+
+                
+                
+                <div id="floatting_dir" style="margin: 10px;border: 1px solid gray;z-index:99999;">
+                    <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                        <strong id="dir_btn_open" style="color: black;font-size: large;">目录</strong>
+                        <strong id="dir_btn_close" style="color: black;font-size: large;float: right">x</strong>
+                    </header>
+                    <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
+                        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#11-混沌工程的起源">1.1 混沌工程的起源</a></li>
+    <li><a href="#12-混沌工程的目的">1.2 混沌工程的目的</a></li>
+    <li><a href="#13-混沌工程的五个原则">1.3 混沌工程的五个原则</a>
+      <ul>
+        <li><a href="#131-建立稳定状态的假设">1.3.1 建立稳定状态的假设</a></li>
+        <li><a href="#132-多样化现实世界事件">1.3.2 多样化现实世界事件</a></li>
+        <li><a href="#133-在生产环境运行实验">1.3.3 在生产环境运行实验</a></li>
+        <li><a href="#134-持续自动化运行实验">1.3.4 持续自动化运行实验</a></li>
+        <li><a href="#135-最小影响范围">1.3.5 最小影响范围</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#21-实施混沌工程的步骤">2.1 实施混沌工程的步骤</a></li>
+    <li><a href="#22-在企业中落地">2.2 在企业中落地</a>
+      <ul>
+        <li><a href="#221-系统评估">2.2.1 系统评估</a></li>
+        <li><a href="#222-选择合适的混沌实验工具">2.2.2 选择合适的混沌实验工具</a></li>
+        <li><a href="#223-混沌工程技术演进">2.2.3 混沌工程技术演进</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                    </div>
+                </div>
+                
+                
+                
+
+                <p>最近参加了<code>ECUG</code>大会，其中有一个分享是<code>pingCAP</code>的CEO大佬<code>刘奇</code>分析的他们开源的在k8s平台上使用的<code>混沌工程</code>插件<code>Chaos Mesh</code>，我第一次听说混动工程这个概念，应该是在18年上半年，那时候的我还没毕业，有一天在找资料的时候，在<code>掘金</code>还是<code>segmentfault</code>上（记不清）看到一篇文章，讲的是混沌工程，点击去看了几分钟，emmmm，没看懂，里面各种各样的名词让我云里雾里。于是就离开；直到今年年初阿里巴巴开源了<code>ChaosBlade</code>。这个概念又一次闯进了我的世界。脑子还残存着中二少年对<strong>混沌</strong>这个词的执念，带着一丝记忆开始调研这项技术。这次我看懂了&hellip;，说白了就是给系统找茬，一会捅咕这，一会鼓捣那，反正就是折磨系统，找出系统的薄弱点，提升系统的容错能力，提高系统的健壮性。下面就来仔细说道说道这个东西。</p>
+<h1 id="1-什么是混沌工程">1 什么是混沌工程？</h1>
+<h2 id="11-混沌工程的起源">1.1 混沌工程的起源</h2>
+<p>2008年之前，国际巨型视频网站<code>Netflix</code>的模式还是自建机房，自己维护，但是由于在全球有超1亿用户，所以流量特别大，有一天服务宕机，导致部分国家的不可用长达一天时间，于是他们下狠心将服务区迁移到AWS上，做了多节点分布式部署，同时增加对服务的可用性、容错性、健壮性测试，而这套测试就是混沌工程的前身。他们将这种测试方法和工具抽象剥离出来后，起名叫<code>Chaos Monkey</code>，寓意为上蹿下跳捣乱的猴子（看来猴子这个物种无论海内海外，都认为他们喜欢捣乱，想想大闹天宫的大圣）。</p>
+<p>经过几年的发展，这种思想被海内外争相效仿，来提升自己公司的产品，而就在这个时候，2014年Netflix宣布新增一个职位叫混沌工程师，代表他们将混沌工程融入了公司的运维文化，这也直接瞬间激起混沌工程的热度。</p>
+<p>2015年，Netflix与社区正式提出混沌工程原则，从此Netflix不再是一种工具，一个方法，而是真正的有了一套理论支撑</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gamy18zbqej30u00grab2.jpg" alt=""></p>
+<h2 id="12-混沌工程的目的">1.2 混沌工程的目的</h2>
+<ol>
+<li>提高系统架构的容错能力与健壮性</li>
+<li>提高开发和运维的故障应急效率</li>
+<li>提早暴露问题，降低线上故障发生率与复发率</li>
+<li>提高用户使用体验</li>
+</ol>
+<p>混沌工程可不是恶意找茬，而是为了优化服务而做出的检测与尝试，毕竟大佬尼采曾经说过：“打不到我的必然是我更加强大”</p>
+<h2 id="13-混沌工程的五个原则">1.3 混沌工程的五个原则</h2>
+<h3 id="131-建立稳定状态的假设">1.3.1 建立稳定状态的假设</h3>
+<p>在做混沌工程实验的时候，首先得确定需要测试的指标已经做了高可用的工作，才能进行验证指标对业务的是否有影响。如果没有做好高可用工作，而引入混沌工程实验的话，对业务而言将会是一声灾难。</p>
+<h3 id="132-多样化现实世界事件">1.3.2 多样化现实世界事件</h3>
+<p>不能够凭空想像出一些事件来验证，而是引入那些真实存在的，频繁发生的，且影响重大的事件。对我们而言给这些事件做混沌实验才具有价值。如磁盘故障、网络延时、主机宕机等。</p>
+<h3 id="133-在生产环境运行实验">1.3.3 在生产环境运行实验</h3>
+<p>尽量在类生产环境中进行测试，生产环境的多样性是任何其它环境无法比拟的。混沌工程的价值就是保证生产上的业务连续不中断。</p>
+<h3 id="134-持续自动化运行实验">1.3.4 持续自动化运行实验</h3>
+<p>实施混沌工程实验一般最开始是人工手动操作，当我们对业务有足够的信心时，要把混沌实验做成持续自动化。在版本升级、不断迭代的过程中，持续不断自动化地做验证，最大程序保证业务的连续性验证。</p>
+<h3 id="135-最小影响范围">1.3.5 最小影响范围</h3>
+<p>做混沌工程的意义就是保证生产上的业务。在我们实施混沌实验时也必须保证对线上业务影响最小。在实施实验时，从小范围开始，不断扩大范围，避开高风险时段，如选择业务量最小的时候实施实验。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gamy7xax2dj30u00grmy5.jpg" alt=""></p>
+<h1 id="2-混沌工程如何实践">2 混沌工程如何实践</h1>
+<h2 id="21-实施混沌工程的步骤">2.1 实施混沌工程的步骤</h2>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gamye4p41tj30u00fnjsn.jpg" alt=""></p>
+<p>有了这些原则，就可以根据业务的真实场景设计混沌工程实验。</p>
+<p>在真实展开实验时分为两个阶段：准备阶段、执行阶段。</p>
+<ol>
+<li>
+<p>准备阶段</p>
+<ul>
+<li>
+<p>确认本次实验需要验证的目标。遵循建立稳定状态的假设、多样化现实世界事件的原则。例如：Redis的超时不会对系统影响。代码中已经对Redis超时的情况做了相关的工作，保证业务的可靠。实验只是用来测试验证。</p>
+</li>
+<li>
+<p>选择实验范围。遵循对线上业务影响最小、尽量与生产环境相近的原则。例如先测试环境验证，<strong>生产环境选择最小量用户验证</strong>。如果求稳，可以先进行流量录制，在其他环境对流量进行重放，进行打标实现可控制的爆炸半径更大</p>
+</li>
+<li>
+<p>确认监控指标。例如：订单成交量、应用请求响应时间、应用响应错误率，做好监控实时查看状态。</p>
+</li>
+<li>
+<p>团队成员沟通。遵循最小化影响范围。确保团队相关成员了解实施情况，关注业务状态。准备阶段一般只是第一次实验的时候操作，一旦验证好了以后以后，后续重复执行本次工程不需要重新准备，除非对实验过程有变动。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>执行阶段</p>
+<ul>
+<li>
+<p>执行实验。遵循最小化影响范围。执行过程中实时关注指标，如果有异常，随时终止实验。例如，把Redis延时调大，查看监控指标是否有异常。</p>
+</li>
+<li>
+<p>分析结果。遵循最小化影响范围。根据收集的指标数据确认假设Redis的超时不会对系统影响。如果验证假设不成立，则需要分析代码，确认好原因，再组织下一次的混沌工程实验。</p>
+</li>
+<li>
+<p>扩大实验范围。遵循最小化影响范围。先小范围测试，再逐步扩大测试范围。</p>
+</li>
+<li>
+<p>自动化。遵循持续自动化运行实验。当对代码有足够的信心之后，将混沌工程实践做成自动化，让混沌工程实验能够持续保证业务的可用性，获得最大的价值。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="22-在企业中落地">2.2 在企业中落地</h2>
+<p>面对上级，表达出混沌工程的价值以及如何控制影响面，最主要的要选对故障背锅人（哈哈哈哈，开玩笑）</p>
+<p>面对业务方，表达为啥实施实验，能给业务带来什么价值，如何修复发现的问题</p>
+<h3 id="221-系统评估">2.2.1 系统评估</h3>
+<p>评估系统成熟度，了解系统，并且思考实验环境的选择以及故障注入的范围大小以及故障画像</p>
+<p>系统成熟度：
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gamypol2cjj30fv067dh7.jpg" alt=""></p>
+<p>实验环境及故障范围：
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gamzsvxczwj30u00gw753.jpg" alt=""></p>
+<p>流量录制：
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gamz31fnrxj30hc081js2.jpg" alt=""></p>
+<p>故障画像：
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gamzpp1opej30k00hddh8.jpg" alt=""></p>
+<h3 id="222-选择合适的混沌实验工具">2.2.2 选择合适的混沌实验工具</h3>
+<p>选择实验工具，我们要根据以下几点进行考虑</p>
+<ol>
+<li>场景丰富度（进程、网络、应用、容器）</li>
+<li>工具类型（实验工具、开发框架、产品平台）</li>
+<li>易用性</li>
+<li>构建语言</li>
+<li>社区状态</li>
+</ol>
+<h3 id="223-混沌工程技术演进">2.2.3 混沌工程技术演进</h3>
+<p>一个好的混沌工程绝对不是几天几个月就能建成的，一定要经过岁月的沉淀，反复的思考，稳重的提升，还记得阿里最早的混沌工程吗，当众减网线，从最早的<code>同城容灾，断网演练</code>到后来的公司级故障演练平台。多少个双11背后如果没有大量的故障演练支持，就没有阿里的今天。</p>
+<h1 id="3-技术选型">3 技术选型</h1>
+<p>下面我们将对市面上主流的几款混沌工程的工具进行对比：</p>
+<ol>
+<li>chaos-mesh(PingCAP)</li>
+<li>ChaosMonkey(Netflix)</li>
+<li>ChaosBlade(Alibaba)</li>
+<li>ChaosKube</li>
+<li>Litmus</li>
+</ol>
+<p>看着下面的图，我们也能看出来，在k8s这个平台上<code>chaos-mesh</code>支持的最好，而在JVM平台上阿里的<code>ChaosBlade</code>也不错。</p>
+<p>Talk is cheap,
+Show me the code!
+But first, show me the demo!!!</p>
+<p>两个工具的使用都比较简单，这里不进行演示，下面提供两者的github地址</p>
+<p><a href="https://github.com/pingcap/chaos-mesh">chaos-mesh github</a></p>
+<p><a href="https://github.com/chaosblade-io/chaosblade">ChaosBlade github</a></p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gamzjvteadj315s0t2dk6.jpg" alt=""></p>
+
+                
+                <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
+                
+                
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2020-01-04-microservice-servicemesh-thinkabout/" data-toggle="tooltip" data-placement="top" title="微服务拆分及技术选型(2019总结版)">&larr; 上一篇</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/2020-01-07-xu-cloud-feature/" data-toggle="tooltip" data-placement="top" title="有关云计算的未来：云计算3.0的思考">下一篇 &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+
+
+
+<div id="SOHUCS" sid='2020-01-06-16:02:27-有关混沌工程的学习'></div>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com
+/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com/js/changyan.labs.https.js?appid=cytako4HR"></script>
+
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytako4HR';
+        var conf = 'prod_b9da8b3167eed0ab02bb9913a13e0435';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            var head = document.getElementsByTagName('head')[0]||document.head||document.documentElement;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.charset = 'utf-8';
+            script.id = 'changyan_mobile_js';
+            script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf;
+            head.appendChild(script);
+        } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+</script>
+
+
+
+            </div>
+            
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    <section class="visible-md visible-lg">
+        <hr>
+        <h5><a href="https://www.naah69.com/about" target="_blank">博主信息</a></h5>
+        <div class="short-about">
+            
+            <img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9gy1fw0npk3155j20u0140aca.jpg"/>
+            
+
+            <h3 style="margin-bottom: 20px;">
+                
+                那焱(纳兰)
+                
+                &nbsp;
+                
+                Naah
+                
+            </h3>
+
+            
+            <p>架构师</p>
+            
+
+            
+            <p>热爱生活,拥抱变化</p>
+            
+
+            
+            <ul class="list-inline">
+                
+                
+                <li>
+                    <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <a target="_blank" href="https://weibo.com/naah">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+
+                    <a href="javascript:wx()">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a target="_blank" href="https://github.com/naah69">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </section>
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5><a href="/tags/"   target="_blank" >标签展示</a></h5>
+        <div class="tags">
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80" title="算法基础"  target="_blank" >
+            算法基础(16)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="数据结构"  target="_blank" >
+            数据结构(14)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
+            环境配置系列(12)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
+            排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ci/cd" title="ci/cd"  target="_blank" >
+            ci/cd(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E5%9B%BE" title="图"  target="_blank" >
+            图(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
+            数学基础(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习"  target="_blank" >
+            深度学习(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络"  target="_blank" >
+            神经网络(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8" title="算法应用"  target="_blank" >
+            算法应用(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94" title="随笔"  target="_blank" >
+            随笔(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/go" title="go"  target="_blank" >
+            go(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/software" title="software"  target="_blank" >
+            software(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/hugo" title="hugo"  target="_blank" >
+            hugo(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/mark" title="mark"  target="_blank" >
+            mark(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91" title="二叉树"  target="_blank" >
+            二叉树(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E8%AE%B0%E5%BD%95" title="记录"  target="_blank" >
+            记录(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/docker" title="docker"  target="_blank" >
+            docker(3)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ecug" title="ecug"  target="_blank" >
+            ecug(3)
+            </a>
+
+            
+
+            <a href="/tags/"  target="_blank" >
+            全部标签
+            </a>
+
+        </div>
+    </section>
+    
+
+    
+    <hr>
+    <h5>友情链接</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.liaoxuefeng.com/">廖雪峰的官方网站</a></li>
+        
+        <li><a target="_blank" href="http://www.dayanzai.me/">大眼仔旭下载站</a></li>
+        
+        <li><a target="_blank" href="http://www.carrotchou.blog/">胡萝卜周下载站</a></li>
+        
+        <li><a target="_blank" href="http://xclient.info/">Xclient Mac下载站</a></li>
+        
+    </ul>
+
+    
+    <hr>
+    <h5>工具网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.algolia.com/">Algolia</a></li>
+        
+        <li><a target="_blank" href="https://changyan.kuaizhan.com/">畅言</a></li>
+        
+        <li><a target="_blank" href="http://tool.chinaz.com/">站长工具</a></li>
+        
+        <li><a target="_blank" href="https://tool.lu/">程序猿在线工具箱</a></li>
+        
+        <li><a target="_blank" href="https://www.bejson.com/">配置文件工具箱</a></li>
+        
+        <li><a target="_blank" href="http://www.jq22.com/textDifference">文本对比</a></li>
+        
+        <li><a target="_blank" href="https://cloudconvert.com/formats">在线文件格式转换</a></li>
+        
+    </ul>
+    
+    <hr>
+    <h5>收藏网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+        
+        <li><a target="_blank" href="https://www.nowcoder.com/">牛客网</a></li>
+        
+        <li><a target="_blank" href="http://www.acmcoder.com/">赛码网</a></li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://weibo.com/naah">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    <script>
+                        function wx() {
+                            layer.open({
+                                type: 1,
+                                title: false,
+                                closeBtn: 1,
+                                area: ['500px', '500px'],
+                                skin: 'layui-layer-nobg', 
+                                shadeClose: true,
+                                content: '<img src="https:\/\/naah-blog.oss-cn-hangzhou.aliyuncs.com\/img\/ed1d2fb9gy1fw0ntoycqcj20rr0rs3zo.jpg" width="500px" height="500px">'
+                            });
+                        }
+                    </script>
+                    <li>
+                        <a href="javascript:wx()">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/naah69">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy;   2020 <a href="http://www.beian.miit.gov.cn" target="_blank">浙ICP备19040622号</a>
+                    <br>
+                    
+                    <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+<script src="https://www.naah69.com/js/hux-blog.min.js"></script>
+
+<script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
+
+
+<script>
+
+
+    var _baId = '5d8997bbef4253c1fdbcba1a8fb66019';
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?"+ _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+
+<!-- async load function -->
+function async(u, c) {
+    var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+        o.addEventListener('load', function (e) {
+            c(null, e);
+        }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+}
+
+<!--fastClick.js -->
+async("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav) FastClick.attach($nav);
+})
+
+</script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155998534-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155998534-1');
+</script>
+
+
+
+
+</body>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+    <script src="https://www.naah69.com/js/article.js"></script>
+
+
+</html>

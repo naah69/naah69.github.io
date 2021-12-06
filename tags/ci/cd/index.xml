@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CI/CD on </title>
+    <link>https://www.naah69.com/tags/ci/cd/</link>
+    <description>Recent content in CI/CD on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://www.naah69.com/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于Scrum&#43;XP&#43;DevOps的学习</title>
+      <link>https://www.naah69.com/post/2020-01-09-scrum-xp-devops/</link>
+      <pubDate>Thu, 09 Jan 2020 21:14:07 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-09-scrum-xp-devops/</guid>
+      <description>最近听了ECUG大会上孙敬云老师的分享感觉受益匪浅，毕竟大学课本上只讲到瀑布模型就没有下文了，工作以后一直贯彻的都是Scrum路线，一直也没</description>
+    </item>
+    
+    <item>
+      <title>BlueOcean实战多分支pipeline构建(Jenkins)</title>
+      <link>https://www.naah69.com/post/2019-12-22-jenkins-pipeline/</link>
+      <pubDate>Sun, 22 Dec 2019 14:52:00 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-22-jenkins-pipeline/</guid>
+      <description>最近，将公司的CI/CD从jenkins传统配置更改成了jenkins最新的声明式流水线(Declarative Pipeline)，这样就可</description>
+    </item>
+    
+    <item>
+      <title>Jenkinsfile的高亮、提示和校验</title>
+      <link>https://www.naah69.com/post/2019-12-23-jenkinsflie-plugin/</link>
+      <pubDate>Sun, 22 Dec 2019 14:36:00 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-23-jenkinsflie-plugin/</guid>
+      <description>原本我以为强大的IDEA什么插件都有，然而这个，真没有！ 但是在VsCode里找到了jenkinsfile高亮、提示和校验插件 1 高亮、代码提示</description>
+    </item>
+    
+    <item>
+      <title>SonarQube7.7安装阿里JAVA规范插件P3C</title>
+      <link>https://www.naah69.com/post/2019-12-08-sonar-p3c/</link>
+      <pubDate>Sun, 08 Dec 2019 19:22:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-sonar-p3c/</guid>
+      <description>1 环境准备 这里特别说明！ 由于SonarQube各版本之间插件无法统通用，而官方并没有支持 所以本篇文章只保证SonarQube7.7-comm</description>
+    </item>
+    
+    <item>
+      <title>docker构建SonarQube进行代码质量检查</title>
+      <link>https://www.naah69.com/post/2019-12-08-sonarqube/</link>
+      <pubDate>Sun, 08 Dec 2019 19:18:54 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-sonarqube/</guid>
+      <description>1 环境准备 1.1 docker环境准备 docker或k8s或rancher 1.2 宿主机创建所需的持久化目录（不持久化可跳过） postgresql数据库</description>
+    </item>
+    
+    <item>
+      <title>Rancher2配置Webhook(修复官方bug)</title>
+      <link>https://www.naah69.com/post/2019-12-08-rancher2-webhoook/</link>
+      <pubDate>Sun, 08 Dec 2019 19:01:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-rancher2-webhoook/</guid>
+      <description>起因 由于我们团队的开发环境是使用jenkins+Harbor+rancher2进行部署ci/cd的，所以需要进行webhook调用 但是在通过</description>
+    </item>
+    
+    <item>
+      <title>jenkins钉钉机器人通知(201912最新版本)</title>
+      <link>https://www.naah69.com/post/2019-12-08-jenkins-dingding-notify-new-version/</link>
+      <pubDate>Sun, 08 Dec 2019 17:23:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-jenkins-dingding-notify-new-version/</guid>
+      <description>1 安装jenkins插件 Manage Jenkins Manage Plugins 安装Dingding[钉钉] Plugin 重启jenkins 2 创建钉钉机器人 只有群主和群管理员才能创建机器人 进入群设置,</description>
+    </item>
+    
+  </channel>
+</rss>

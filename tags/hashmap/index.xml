@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HashMap on </title>
+    <link>https://www.naah69.com/tags/hashmap/</link>
+    <description>Recent content in HashMap on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 10 Aug 2017 03:26:17 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/hashmap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据结构键值HashMap之自己编写简单的HashMap</title>
+      <link>https://www.naah69.com/post/2017-08-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%94%AE%E5%80%BChashmap%E4%B9%8B%E8%87%AA%E5%B7%B1%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84hashmap/</link>
+      <pubDate>Thu, 10 Aug 2017 03:26:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-08-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%94%AE%E5%80%BChashmap%E4%B9%8B%E8%87%AA%E5%B7%B1%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84hashmap/</guid>
+      <description>通过key计算二次哈希值，然后哈希值与数组长度进行与运算 总结： 得到的结果便是数组的下标 通过该种索引方法可以实现查询优化 通过key计算二次哈希</description>
+    </item>
+    
+  </channel>
+</rss>

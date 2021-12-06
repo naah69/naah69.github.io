@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chaos on </title>
+    <link>https://www.naah69.com/tags/chaos/</link>
+    <description>Recent content in Chaos on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 06 Jan 2020 16:02:27 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/chaos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>有关混沌工程的学习</title>
+      <link>https://www.naah69.com/post/2020-01-06-chaos-mesh/</link>
+      <pubDate>Mon, 06 Jan 2020 16:02:27 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2020-01-06-chaos-mesh/</guid>
+      <description>最近参加了ECUG大会，其中有一个分享是pingCAP的CEO大佬刘奇分析的他们开源的在k8s平台上使用的混沌工程插件Chaos Mesh，我</description>
+    </item>
+    
+  </channel>
+</rss>

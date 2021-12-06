@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SpringMVC on </title>
+    <link>https://www.naah69.com/tags/springmvc/</link>
+    <description>Recent content in SpringMVC on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 12 May 2017 10:00:14 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/springmvc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringMVC H5 js摄像头拍照 ajax上传返回url路径</title>
+      <link>https://www.naah69.com/post/2017-05-12-springmvc-h5-js%E6%91%84%E5%83%8F%E5%A4%B4%E6%8B%8D%E7%85%A7-ajax%E4%B8%8A%E4%BC%A0%E8%BF%94%E5%9B%9Eurl%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Fri, 12 May 2017 10:00:14 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-05-12-springmvc-h5-js%E6%91%84%E5%83%8F%E5%A4%B4%E6%8B%8D%E7%85%A7-ajax%E4%B8%8A%E4%BC%A0%E8%BF%94%E5%9B%9Eurl%E8%B7%AF%E5%BE%84/</guid>
+      <description>前几日项目中遇到的问题，对于这个问题网上的资料都不算完整，不过大概思路有很多，今天这里我就实现一下： 1 前端标签 canvas用于显示照片，vi</description>
+    </item>
+    
+    <item>
+      <title>springMVC ueditor傻瓜配置系列之不成功你砍我！</title>
+      <link>https://www.naah69.com/post/2017-05-11-springmvc-ueditor%E5%82%BB%E7%93%9C%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%8D%E6%88%90%E5%8A%9F%E4%BD%A0%E7%A0%8D%E6%88%91/</link>
+      <pubDate>Thu, 11 May 2017 09:31:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-05-11-springmvc-ueditor%E5%82%BB%E7%93%9C%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%8D%E6%88%90%E5%8A%9F%E4%BD%A0%E7%A0%8D%E6%88%91/</guid>
+      <description>前几日在项目中要使用到编辑器，于是度娘看了几款前端编辑器， 最后&amp;hellip;选择了百度开发的ueditor编辑器，这可能是我最后悔的决定！</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC表单提交错误400排查思路及解决方案</title>
+      <link>https://www.naah69.com/post/2017-05-11-springmvc%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF400%E6%8E%92%E6%9F%A5%E6%80%9D%E8%B7%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Thu, 11 May 2017 09:20:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-05-11-springmvc%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF400%E6%8E%92%E6%9F%A5%E6%80%9D%E8%B7%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>前几天在做某一项目时提交表单发现400错误， 如下图所示： 然而根据描述根本无法发现错误所在，于是我对20多个表单项逐一排查，发现！根本就是大海</description>
+    </item>
+    
+  </channel>
+</rss>

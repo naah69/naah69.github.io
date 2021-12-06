@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>400错误 on </title>
+    <link>https://www.naah69.com/tags/400%E9%94%99%E8%AF%AF/</link>
+    <description>Recent content in 400错误 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 11 May 2017 09:20:02 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/400%E9%94%99%E8%AF%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringMVC表单提交错误400排查思路及解决方案</title>
+      <link>https://www.naah69.com/post/2017-05-11-springmvc%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF400%E6%8E%92%E6%9F%A5%E6%80%9D%E8%B7%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Thu, 11 May 2017 09:20:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-05-11-springmvc%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF400%E6%8E%92%E6%9F%A5%E6%80%9D%E8%B7%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>前几天在做某一项目时提交表单发现400错误， 如下图所示： 然而根据描述根本无法发现错误所在，于是我对20多个表单项逐一排查，发现！根本就是大海</description>
+    </item>
+    
+  </channel>
+</rss>

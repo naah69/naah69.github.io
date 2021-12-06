@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>排序算法 on </title>
+    <link>https://www.naah69.com/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 排序算法 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 09 Sep 2017 09:31:05 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法基础之排序算法九之基数排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%9D%E4%B9%8B%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:31:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%9D%E4%B9%8B%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/</guid>
+      <description>基数排序 基数排序（radix sort）属于“分配式排序”（distribution sort），又称“桶子法”（bucket sort）或bin</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法八之归并排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%85%AB%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:25:26 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%85%AB%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</guid>
+      <description>归并排序 归并排序（MERGE-SORT）是建立在归并操作上的一种有效的排序算法,该算法是采用分治法（Divide and Conquer）的一个非常</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法七之快速排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%83%E4%B9%8B%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:22:37 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%83%E4%B9%8B%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</guid>
+      <description>选择排序算法 选择排序（Selection sort）是一种简单直观的排序算法。 它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法六之冒泡排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%85%AD%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:20:31 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%85%AD%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</guid>
+      <description>交换排序算法 所谓交换，就是根据序列中两个记录键值的比较结果来对换这两个记录在序列中的位置，稳定的算法 交换排序的特点是：将键值较大的记录向序列</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法五之堆排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%BA%94%E4%B9%8B%E5%A0%86%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:16:48 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%BA%94%E4%B9%8B%E5%A0%86%E6%8E%92%E5%BA%8F/</guid>
+      <description>选择排序算法 选择排序（Selection sort）是一种简单直观的排序算法。 它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法四之简单选择排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%9B%9B%E4%B9%8B%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 09:09:45 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%9B%9B%E4%B9%8B%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</guid>
+      <description>选择排序算法 选择排序（Selection sort）是一种简单直观的排序算法。 它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法三之希尔排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%89%E4%B9%8B%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 08:59:49 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%89%E4%B9%8B%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/</guid>
+      <description>插入排序算法 有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法二之折半插入排序（二分插入排序）</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%BA%8C%E4%B9%8B%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F-%E4%BA%8C%E5%88%86%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 08:56:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%BA%8C%E4%B9%8B%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F-%E4%BA%8C%E5%88%86%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</guid>
+      <description>插入排序算法 有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序</description>
+    </item>
+    
+    <item>
+      <title>算法基础之排序算法一之直接插入排序</title>
+      <link>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%80%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Sep 2017 08:54:28 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2017-09-09-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%80%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</guid>
+      <description>插入排序算法 有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序</description>
+    </item>
+    
+  </channel>
+</rss>

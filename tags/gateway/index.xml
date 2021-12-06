@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GateWay on </title>
+    <link>https://www.naah69.com/tags/gateway/</link>
+    <description>Recent content in GateWay on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 31 May 2018 22:11:46 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/gateway/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Cloud Gateway转发WebSocket</title>
+      <link>https://www.naah69.com/post/2018-05-31-springcloud-gateway-websocket/</link>
+      <pubDate>Thu, 31 May 2018 22:11:46 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2018-05-31-springcloud-gateway-websocket/</guid>
+      <description>在经过了两天的刻苦钻研，在经过了google,stackoverflow,github轮番查找无果，而官方文档又毫无记录的情况下。 终于，一个</description>
+    </item>
+    
+  </channel>
+</rss>

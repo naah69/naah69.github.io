@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>机器学习系列 on </title>
+    <link>https://www.naah69.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</link>
+    <description>Recent content in 机器学习系列 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 08 Dec 2019 17:29:04 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CentOS7配置GPU开发环境教程</title>
+      <link>https://www.naah69.com/post/2019-12-08-centos7-gpu-env/</link>
+      <pubDate>Sun, 08 Dec 2019 17:29:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-centos7-gpu-env/</guid>
+      <description>本文环境 CentOS7 1 nvidia显卡驱动 通过ELRepo源的nvidia-detect命令来自动化安装驱动，省时省力，告别传统手工操作，一步一个坑 1.1</description>
+    </item>
+    
+    <item>
+      <title>ONNX-TensorRT6安装教程(python)</title>
+      <link>https://www.naah69.com/post/2019-12-01-onnx-tensorrt/</link>
+      <pubDate>Sun, 01 Dec 2019 18:24:13 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-onnx-tensorrt/</guid>
+      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 必备环境 Protobuf &amp;gt;= 3.8.x 1 apt-get install libprotobuf-dev protobuf-compiler TensorRT 6.0 上篇文章tensorrt6安装教程 cuda和cu</description>
+    </item>
+    
+    <item>
+      <title>TensorRT6安装教程(python)</title>
+      <link>https://www.naah69.com/post/2019-12-01-tensorrt/</link>
+      <pubDate>Sun, 01 Dec 2019 18:10:30 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-tensorrt/</guid>
+      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 conda 不进行赘述 1.2 tensorrt安装包 根据你的机器的cuda和cudnn版本下</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu18.04配置GPU开发环境教程</title>
+      <link>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</link>
+      <pubDate>Sun, 01 Dec 2019 13:23:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</guid>
+      <description>本文环境 ubuntu 18.04 1 nvidia显卡驱动 1 sudo apt-get install nvidia-driver-435 2 cuda 2.1 下载cuda CUDA官网 选择配置，但是Installer Type必须选择runfile,根</description>
+    </item>
+    
+    <item>
+      <title>机器学习系列03-决策树算法</title>
+      <link>https://www.naah69.com/post/2019-10-06-mlch03-tree/</link>
+      <pubDate>Sat, 05 Oct 2019 15:06:16 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-10-06-mlch03-tree/</guid>
+      <description>1 概述 决策树本质上是数据结构中的树，不过有一些区别是，树的根节点和中间节点都是判断，而树的边都条件，而所有叶子节点都是一些结果。其实本质上就</description>
+    </item>
+    
+    <item>
+      <title>机器学习系列02-k近邻分类算法</title>
+      <link>https://www.naah69.com/post/2019-10-06-mlch02-knn/</link>
+      <pubDate>Sat, 05 Oct 2019 11:10:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-10-06-mlch02-knn/</guid>
+      <description>1 概述 k-近邻算法采用测量不同特征值之间的距离的方法进行分类 2 优缺点 优点：精度高，对异常值不敏感，无数据输入假定 缺点：计算复杂度该，空间复杂</description>
+    </item>
+    
+    <item>
+      <title>机器学习系列01-机器学习相关基础概念</title>
+      <link>https://www.naah69.com/post/2019-10-04-mlch01/</link>
+      <pubDate>Fri, 04 Oct 2019 20:15:29 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-10-04-mlch01/</guid>
+      <description>机器学习给人的感觉就是非常的高大上，因为机器学习的一些名词总是让人云里雾里，今天我们主要来通俗易懂的讲一下机器学习的概念。 1 数据 数据大家应该</description>
+    </item>
+    
+  </channel>
+</rss>

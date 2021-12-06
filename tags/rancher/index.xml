@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rancher on </title>
+    <link>https://www.naah69.com/tags/rancher/</link>
+    <description>Recent content in rancher on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 08 Dec 2019 19:01:18 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/rancher/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rancher2配置Webhook(修复官方bug)</title>
+      <link>https://www.naah69.com/post/2019-12-08-rancher2-webhoook/</link>
+      <pubDate>Sun, 08 Dec 2019 19:01:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-12-08-rancher2-webhoook/</guid>
+      <description>起因 由于我们团队的开发环境是使用jenkins+Harbor+rancher2进行部署ci/cd的，所以需要进行webhook调用 但是在通过</description>
+    </item>
+    
+    <item>
+      <title>k8s怎么使用GPU？这篇文章告诉你怎么做！</title>
+      <link>https://www.naah69.com/post/2019-06-22-docker-k8s-gpu/</link>
+      <pubDate>Sat, 22 Jun 2019 20:44:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-06-22-docker-k8s-gpu/</guid>
+      <description>我是不会告诉你为啥要用docker,nvidia-docker,k8s的！百度和google一堆，自己找找！这里只教你怎么部署坑最少！ 1 所需</description>
+    </item>
+    
+  </channel>
+</rss>

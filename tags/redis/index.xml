@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redis on </title>
+    <link>https://www.naah69.com/tags/redis/</link>
+    <description>Recent content in Redis on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 28 Jul 2019 10:41:51 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>最简单的spring-boot-starter-redisson发布啦！</title>
+      <link>https://www.naah69.com/post/2019-07-28-spring-boot-starter-redisson/</link>
+      <pubDate>Sun, 28 Jul 2019 10:41:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2019-07-28-spring-boot-starter-redisson/</guid>
+      <description>spring-boot-starter-redisson 前言 最近忽然发现springboot2的spring-boot-starter-data-redis底层默认使用了lettuce作为连接池</description>
+    </item>
+    
+  </channel>
+</rss>

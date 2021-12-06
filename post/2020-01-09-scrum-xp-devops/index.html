@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>关于Scrum&#43;XP&#43;DevOps的学习 | 纳兰小筑</title>
+    <meta name="description" content="Naah,那焱,纳兰,一只正在通往机器学习的可爱的程序猿,热爱生活,拥抱变化,喜欢有关草木植物的任何事物,偶尔喜欢读读书写写诗" />
+    <meta name="keywords" content="Scrum,XP,DevOps,CI/CD,jenkins,持续集成,持续交付" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="/img/favicon.ico">
+    <link rel="canonical" href="https://www.naah69.com/post/2020-01-09-scrum-xp-devops/">
+    <meta name="google-site-verification" content="RvhbpALX9GqGk5KVFhjMl2VqnksKeAoApN3upkrcDxM" />
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.naah69.com/css/hux-blog.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"
+      integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.js"
+        integrity="sha256-Gr6WcN18NVkLDr/zaAKoBQWpBSRw6LuPvNz2pwOe7Ng=" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI=" crossorigin="anonymous"
+        onload='renderMathInElement(document.body,{
+                delimiters:[{left:"$$", right: "$$", display: true,throwOnError:false},{left: "$", right: "$", display: false}],strict:false
+});'>
+
+</script>
+
+
+
+
+
+
+
+    
+<style>
+    article img{cursor: zoom-in;}
+     
+    header.intro-header {
+        background-image: url('https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/20211204162656.png')
+    }
+     
+    #floatting_dir {
+        position: fixed;
+        display: none;
+        width: auto;
+        height: auto;
+        font-size: 13px;
+    }
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+    @media screen and (max-width: 500px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    @media screen and (max-width: 768px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    .katex-display>.katex{
+        white-space:normal;
+    }
+
+    .katex .base, .katex .strut{
+        margin-top: 0.5em;
+    }
+
+    pre {
+        border:0px;
+        margin: 0px;
+    }
+
+
+</style>
+
+
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://www.naah69.com/">Naah-Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse" style="max-height: 1000px;" >
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://www.naah69.com/">HOME</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/essay"  target="_blank" >essay</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/foundation"  target="_blank" >foundation</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/java"  target="_blank" >java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/math"  target="_blank" >math</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/others"  target="_blank" >others</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+
+                    <li>
+                        <a href="https://www.naah69.com/about">About Me</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/search/article">Search
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            
+            $navbar.className = " ";
+            
+            setTimeout(function () {
+                
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a href="https://www.naah69.com/%20categories/others" target="_blank" ><i class="fa fa-folder-o"></i>&nbsp;Others</a>
+                        
+                        
+                        <a class="tag" href="/tags/scrum" title="Scrum" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;Scrum
+                        </a>
+                        
+                        <a class="tag" href="/tags/devops" title="DevOps" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;DevOps
+                        </a>
+                        
+                        <a class="tag" href="/tags/ci/cd" title="CI/CD" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;CI/CD
+                        </a>
+                        
+                        <a class="tag" href="/tags/ecug" title="ECUG" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;ECUG
+                        </a>
+                        
+
+                    </div>
+
+                    <h1>关于Scrum&#43;XP&#43;DevOps的学习</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Naah on Thursday, Jan 09,2020 21:14:07
+                        
+                        <span id="/post/2020-01-09-scrum-xp-devops/" class="meta_data_item" data-flag-title="">
+    <span class="post-meta-item-icon">
+      <span class="octicon octicon-eye"></span>
+    </span>
+    &nbsp;
+    <i class="fa fa-eye"></i>
+    <span class="old-visitors-count" style="display: none;"></span>
+    <span id="busuanzi_container_page_pv">
+  <span id="busuanzi_value_page_pv"></span>
+
+</span>
+</span>
+
+
+
+                        
+                    </span><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container" id="container_div">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+
+                
+
+                
+
+                
+                
+                <div id="floatting_dir" style="margin: 10px;border: 1px solid gray;z-index:99999;">
+                    <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                        <strong id="dir_btn_open" style="color: black;font-size: large;">目录</strong>
+                        <strong id="dir_btn_close" style="color: black;font-size: large;float: right">x</strong>
+                    </header>
+                    <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
+                        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#11-软件工程的演进">1.1 软件工程的演进</a></li>
+    <li><a href="#12-瀑布模型">1.2 瀑布模型</a></li>
+    <li><a href="#13-敏捷开发">1.3 敏捷开发</a>
+      <ul>
+        <li><a href="#131-scrum实践">1.3.1 Scrum实践</a></li>
+        <li><a href="#132-极限编程xp实战">1.3.2 极限编程（XP）实战</a></li>
+        <li><a href="#133-思考自己的团队是不是敏捷">1.3.3 思考自己的团队是不是敏捷</a></li>
+      </ul>
+    </li>
+    <li><a href="#14-devops模型">1.4 DevOps模型</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#21-第一工作法工作流">2.1 第一工作法（工作流）</a>
+      <ul>
+        <li><a href="#211-定义工作流">2.1.1 定义工作流</a></li>
+        <li><a href="#212-工作流实践">2.1.2 工作流实践</a></li>
+        <li><a href="#213-版本和分支策略">2.1.3 版本和分支策略</a></li>
+        <li><a href="#214-规划流水线">2.1.4 规划流水线</a></li>
+        <li><a href="#215-scrumxpdevops流程">2.1.5 Scrum+XP+DevOps流程</a></li>
+      </ul>
+    </li>
+    <li><a href="#22--第二工作法反馈流">2.2  第二工作法（反馈流）</a>
+      <ul>
+        <li><a href="#221-持续反馈">2.2.1 持续反馈</a></li>
+        <li><a href="#222-查看在制品">2.2.2 查看在制品</a></li>
+      </ul>
+    </li>
+    <li><a href="#23-第三工作法学习">2.3 第三工作法（学习）</a>
+      <ul>
+        <li><a href="#231-不断尝试和重复学习">2.3.1 不断尝试和重复学习</a></li>
+        <li><a href="#232-测试四象限">2.3.2 测试四象限</a></li>
+        <li><a href="#233-运维四象限">2.3.3 运维四象限</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#31-实践整合">3.1 实践整合</a></li>
+    <li><a href="#32-建立工程师文化模型">3.2 建立工程师文化模型</a></li>
+    <li><a href="#33-目录结构">3.3 目录结构</a></li>
+    <li><a href="#34-版本控制规划">3.4 版本控制规划</a></li>
+    <li><a href="#35-快速失败的流水线">3.5 快速失败的流水线</a></li>
+    <li><a href="#36-可视化反馈平台">3.6 可视化反馈平台</a></li>
+    <li><a href="#37-持续改进">3.7 持续改进</a></li>
+    <li><a href="#38-更多的质量保证">3.8 更多的质量保证</a>
+      <ul>
+        <li><a href="#381-ciccd">3.8.1 CI/CCD</a></li>
+        <li><a href="#382-环境与配置管理">3.8.2 环境与配置管理</a></li>
+        <li><a href="#383-制品库管理">3.8.3 制品库管理</a></li>
+        <li><a href="#384-流程控制">3.8.4 流程控制</a></li>
+        <li><a href="#385-数据收集和监控">3.8.5 数据收集和监控</a></li>
+        <li><a href="#386-容灾">3.8.6 容灾</a></li>
+        <li><a href="#387-紧急事件处理">3.8.7 紧急事件处理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                    </div>
+                </div>
+                
+                
+                
+
+                <p>最近听了<code>ECUG</code>大会上孙敬云老师的分享感觉受益匪浅，毕竟大学课本上只讲到<code>瀑布模型</code>就没有下文了，工作以后一直贯彻的都是<code>Scrum</code>路线，一直也没有时间好好的去学习整理这部分的知识，直到近几天听到了孙老师的分享，所以就在这里记录下孙老师的分享也总结我自己的思路。以下内容部分摘自于孙老师的分析PPT</p>
+<h1 id="1-软件工程之路">1 软件工程之路</h1>
+<h2 id="11-软件工程的演进">1.1 软件工程的演进</h2>
+<p>貌似大学的那门软件工程只给我们讲到了1980年，之后的需要我们走出校门，在社会中进行学习。</p>
+<p>先来看下面这张图，是1980年至今的软件工程演化路线，像瀑布模型大家应该是耳熟能详。</p>
+<p>进入1990年，Scrum这种，近几年应该也是略有耳闻，可是像<code>极限编程</code>这种可能就很少听说了吧。</p>
+<p>再向后看，进入2000年，<code>持续集成</code>也就是<code>CI/CD</code>中的CI和<code>敏捷开发</code>近几年炒的火热，互联网公司争先恐后，<code>kanban</code>（今天公司产品说，我才知道kanban是日本人发明的）也有点大势已去，不过市场上应该还有不少公司在使用kanban。</p>
+<p>走到了2010年，我们所看到的应该就是几个随处可见的概念了，<code>持续交付</code>,<code>DevOps</code>,<code>Scrumban</code>（我们近几年说的真正意义上的Scrum）</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gaqmlv405yj313q0eumy2.jpg" alt=""></p>
+<h2 id="12-瀑布模型">1.2 瀑布模型</h2>
+<p>在这里不详细叙述，只叙述几个痛点。</p>
+<ol>
+<li>产生客户价值周期长</li>
+<li>部门、角色之间存在壁垒</li>
+<li>无法及时响应需求变化</li>
+<li>价值流动不可见</li>
+</ol>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gaqn08p3u5j30i30e80tg.jpg" alt=""></p>
+<h2 id="13-敏捷开发">1.3 敏捷开发</h2>
+<p>敏捷软件开发（英语：Agile software development），又称敏捷开发，是一种能应对快速变化需求的软件开发能力。它们的具体名称、理念、过程、术语都不尽相同，相对于“非敏捷”，更强调程序员团队与业务专家之间的紧密协作、面对面的沟通（认为比书面的文档更有效）、频繁交付新的软件版本、紧凑而自我组织型的团队、能够很好地适应需求变化的代码编写和团队组织方法，也更注重软件开发过程中人的作用。</p>
+<p>说人话，就是更注重沟通，快速产出新版本，并且更适应需求变更的的适合小团体开发的方法。</p>
+<p>下图左方，是需求池的概念（比如jira中的backlog），比如7%的需求是现实中大量客户的需求，则我们将这7%的需求作为优先级最高的需求。</p>
+<p>下图右方，是迭代和反馈的概念。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gaqn86hgwdj30rz0haq3g.jpg" alt=""></p>
+<p>敏捷开发中有敏捷宣言，可以更好地阐述敏捷开发的概念。</p>
+<ol>
+<li>个体和互动高于流程和工具（敏捷开发的站会落实了这一点）</li>
+<li>工作的软件高于详尽的文档（jira、miro等更好地代替厚重的需求文档）</li>
+<li>客户合作高于合同谈判（公司内各部门甩锅情况，难道不应该用合作为公司创造价值吗）</li>
+<li>响应变化高于遵循计划（快速响应时长需求，而不是错过市场变化）</li>
+</ol>
+<h3 id="131-scrum实践">1.3.1 Scrum实践</h3>
+<p>下图右上方是Scrum中的角色定义。</p>
+<ol>
+<li>Product Owner（产品负责人，主要负责产品设计，需求筛选等）</li>
+<li>Scrum Master（敏捷主管，主要负责项目迭代跟进等）</li>
+<li>Scrum Team（敏捷团队，主要负责需求的研发测试部署等，包括Dev、Test、Ops等）</li>
+</ol>
+<p>下图左方是<code>用户故事</code>（<code>user story</code>）,其实就是我们传统意义上的需求，只不过以一种需求方的更委婉拟人的语气来讲述该用户人群的需求。</p>
+<blockquote>
+<p>例如：我是一个买家，我希望我的购物车能通过价格排序，这样我就能根据我卡中的钱进行合理的消费。</p>
+</blockquote>
+<p>下图中部，则是Scrum的核心流程。有很多公司光注重了其中的流程（比如站会），却没有得到其中的精髓。Scrum中把一个迭代叫做一个<code>冲刺</code>(<code>Sprint</code>)，这也是很多地方把计划会议叫做冲刺会的由来，一般一个Sprint为1~4周。核心流程包括4个会议，如下所示：</p>
+<ol>
+<li>
+<p>计划会议（Product Owener、Scrum Master、Scrum Team）</p>
+<ol>
+<li>从Backlog中按照优先级选择这个Sprint要做的User Story</li>
+<li>向团队解释澄清User Story的需求，并决定是否将User Story拆解为更细粒度的<code>Sub Task</code></li>
+<li>团队估计User Story的<code>Story Point</code>（用以评估story的大小，有一种好玩的方式叫做<code>Scrum Poker</code>）</li>
+<li>团队决定是否将User Story拆分Sub Task来进行跟踪</li>
+<li>决定这个Sprint的目标和交付的User Story</li>
+</ol>
+</li>
+<li>
+<p>每日站会（Product Owener（可选）、Scrum Master、Scrum Team）</p>
+<ol>
+<li>站会维持在15分钟以内，分早晚</li>
+<li>团队成员讲述围绕3点：我做了什么，我将要做什么，我遇到什么困难</li>
+<li>每人陆续进行讲述，为了快速响应，维持最新消息，包括需求调整等</li>
+<li>以及进行高效沟通，传递信息，拒绝信息发散</li>
+<li>确定相关问题后，团体相关人员小范围讨论</li>
+</ol>
+</li>
+<li>
+<p>评审会议（Product Owener、Scrum Master、Scrum Team）</p>
+<ol>
+<li>类似于传统意义上的验收阶段</li>
+<li>介绍Sprint结果，按User Story顺序演示新功能</li>
+<li>回答相关人员对展示的疑问，并记录其所期望的更改，收集反馈</li>
+<li>如果遇到一些还没解决的障碍，则将障碍加入障碍Backlog</li>
+<li>以User Story作为是否成功交付的标准来评价任务完成情况</li>
+</ol>
+</li>
+<li>
+<p>回顾会议（Scrum Master、Scrum Team）</p>
+<ol>
+<li>回顾这个Sprint，收集Sprint的相关数据</li>
+<li>产生见解，多问为什么，找到各个方面的优缺点，进行复盘分析</li>
+<li>进行头脑风暴分析解决方案，投票选出下期的改进项</li>
+<li>探索提高效率和质量的方式</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gaqo57dnjdj313y0j1jsi.jpg" alt=""></p>
+<h3 id="132-极限编程xp实战">1.3.2 极限编程（XP）实战</h3>
+<p><code>极限编程</code>是敏捷开发中最具成效的几种方法之一，如同其他敏捷方法，它和传统方法的本质不同在于它更强调可适应性能性以及面临的困难。</p>
+<p>它的基础和价值观是：</p>
+<ol>
+<li>交流（加强交流，解决信息不同步导致的问题）</li>
+<li>朴素（秉持最小可用，勤于迭代，不做拍脑袋的无用功扩展）</li>
+<li>反馈（多接受反馈，以进行快速调整修改）</li>
+<li>勇气（在该重构时重构，当状态不对时，放弃思考，调整状态后重新思考）</li>
+</ol>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garbhnqosbj305m08it8i.jpg" alt=""></p>
+<p>它认为任何一个软件项目都可以从四个方面入手进行改善：加强交流；从简单做起；寻求反馈；勇于实事求是。</p>
+<p>下图是极限编程的13个最佳实践。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garb5d7l86j311z0go403.jpg" alt=""></p>
+<h3 id="133-思考自己的团队是不是敏捷">1.3.3 思考自己的团队是不是敏捷</h3>
+<p>问问自己下面的几个问题：</p>
+<ol>
+<li>成员是否氢气的知道团队的目标？</li>
+<li>成员是否可以预测结果并且充满信心？</li>
+<li>成员是否主动做事并且为此负责？</li>
+<li>成员是否愿意持续改进团队？</li>
+</ol>
+<p>如果你对上述几个问题的回答时肯定的，那么恭喜你，你们的团队是关注发展的敏捷团队，如果你对上述问题有部分或全部否定，那么你可能需要调整你的团队，你们只不过是在关注敏捷的形式，而没有精髓。</p>
+<h2 id="14-devops模型">1.4 DevOps模型</h2>
+<p><code>DevOps</code>是一种开发、测试和运维之间文化沟通，通过自动化的方式来进行软件交付和架构变更的流程，使构建、测试、发布软件能更快捷、频繁、可靠。它的出现是因为软件逐渐的认识到，开发、测试和运维的紧密合作可以更好的交付软件产品和服务。</p>
+<p>下图是DevOps的标准化流程，通过建立一个完备的团队来建立一条IT服务供应链，通过自动化实现高效率交付，不固定需求管理、工具链等，只专注于持续的稳定的价值交付</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garbp6858zj30x209fwem.jpg" alt=""></p>
+<h1 id="2-三部工作法">2 三部工作法</h1>
+<h2 id="21-第一工作法工作流">2.1 第一工作法（工作流）</h2>
+<p>这一步工作法是关于从开发到运再到客户的<code>自左向右</code>的<code>工作流</code></p>
+<h3 id="211-定义工作流">2.1.1 定义工作流</h3>
+<p>下图展示了自循环工作流的流程，其中前4项属于Dev范畴，后4项属于Ops范畴：</p>
+<ol>
+<li>plan（计划）</li>
+<li>code（编码）</li>
+<li>build（构建）</li>
+<li>test（测试）</li>
+<li>release（发布）</li>
+<li>deploy（部署）</li>
+<li>operate（操作）</li>
+<li>monitor（监控）</li>
+</ol>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garelj1i9bj30g807xdg0.jpg" alt=""></p>
+<h3 id="212-工作流实践">2.1.2 工作流实践</h3>
+<p>下图左方是我们针对上面的工作流的一种实践，是一种工作日志的方式，这种工作方式同样适用于敏捷开发（jira中的工作日志），其实DevOps的本质就是敏捷开发。</p>
+<ol>
+<li>过程名称</li>
+<li>输入</li>
+<li>输出</li>
+<li>工具</li>
+<li>DoD（Definition of Done，完成的定义，可以理解为完成的标准）</li>
+<li>平均前置任务等待数（完成当前任务，依赖等待了多少任务）</li>
+<li>手工比例（手工操作的步骤占据了总量多少）</li>
+<li>%C/A（返工指标，完成时间/总花费时间，总花费时间=完成时间+修复时间）</li>
+<li>处理时间PT(真正处理该任务所花费的时间)</li>
+<li>流动时间FT（从接收到需求到需求完成所花费的时间）</li>
+</ol>
+<p>通过上方工作日志所记录的数据，我们可以对我们的工作进行阶段性的分析，比如：</p>
+<ol>
+<li><code>平均前置任务等待数</code>可以用来判断我们的任务分配是否合理</li>
+<li><code>手工比例</code>可以用来提示我们是否需要使用自动化来优化流程</li>
+<li><code>%C/A</code>可以用来判断一个人的工作质量是否需要优化</li>
+<li>等等</li>
+</ol>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gareprcwxcj311u0i20t7.jpg" alt=""></p>
+<h3 id="213-版本和分支策略">2.1.3 版本和分支策略</h3>
+<h4 id="2131-普通版本管理">2.1.3.1 普通版本管理</h4>
+<ol>
+<li>新需求拉一条新的分支进行开发，命名<code>xxx feature branch</code></li>
+<li>新bug拉一条新的分支进行修复，命名<code>xxx fix branch</code></li>
+<li>master分支保持永远可构建成功状态</li>
+<li>每当新需求或新bug完成合并到主分支，触发主分支的pipeline构建流程</li>
+</ol>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garftub94ij30vi0drt98.jpg" alt=""></p>
+<h4 id="2132-gitflow实践">2.1.3.2 GitFLow实践</h4>
+<p>这种方案是基于<code>GitFLow</code>的标准来进行版本控制的。</p>
+<p>该方案采用<code>develop</code>、<code>feature</code>、<code>hotfix</code>、<code>release</code>、<code>prod</code>等分支进行实践，比较适合版本并存的团队</p>
+<ol>
+<li>develop：主开发分支，包含所有发布到下一个release的代码</li>
+<li>feature：新功能开发分支，最后会合并回develop分支</li>
+<li>hotfix：prod发现bug时，用来热修复分支，最后会合并回develop分支</li>
+<li>release：发布版本时，基于develop创建的分支</li>
+<li>prod: 用于发布到生产环境的代码的分支，只能合并不能修改。</li>
+</ol>
+<p>这种方式很灵活，代码隔离也很好，只是过于繁琐。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garg8wih1aj30z80h8t9l.jpg" alt=""></p>
+<h4 id="2133-tag版本实践">2.1.3.3 tag版本实践</h4>
+<p>该方案是基于版本打tag的方式来进行版本控制的。</p>
+<p>该方案采用<code>master</code>、<code>feature</code>、<code>fix</code>等分支进行实践，比较适合小版本滚动升级团队</p>
+<ol>
+<li>master：主分支，该分支不允许修改，只允许合并，该分支永远保持可构建状态，发布时通过tag来进行版本发布</li>
+<li>feature：新功能开发分支，最后会合并回master分支</li>
+<li>fix：线上发生bug后，用于修复的分支最终会合并到master分支</li>
+</ol>
+<p>这种方式很简单，但是对多环境的支持不是很好。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gargg62nebj30zu0g2dgo.jpg" alt=""></p>
+<p>我们推荐使用GitFlow+Tag的方式来进行版本控制。以触发多环境下的pipeline自动化流程。</p>
+<h3 id="214-规划流水线">2.1.4 规划流水线</h3>
+<p>这里主要是我们的CI/CD的流水线的结构，可已使用<code>Jenkins</code>的pipeline也可以使用<code>Gitlab</code>的pipeline。</p>
+<p>这里链接下之前写的Jenkinsfile教程（<a href="https://www.naah69.com/post/2019-12-22-jenkins-pipeline/">Jenkins Pipeline 教程</a>）</p>
+<p>自动：</p>
+<ol>
+<li>代码检测（推荐使用SonarQube，<a href="https://www.naah69.com/post/2019-12-08-sonarqube/">教程</a>）</li>
+<li>单元测试（很重要，java可使用junit，其他的未调研）</li>
+<li>制品（过去的jar包，如今的docker image）</li>
+<li>集成测试（很重要，属于自动化测试中的一个重要环节）</li>
+<li>性能测试（大部分场景下可能不会每次都做）</li>
+<li>安全测试（跟性能测试差不多）</li>
+<li>部署预发布（这里泛指线上以下的所有环境）</li>
+</ol>
+<p>手动：</p>
+<ol>
+<li>验收测试</li>
+<li>部署线上</li>
+</ol>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gargqdrahbj30x60cldge.jpg" alt=""></p>
+<h3 id="215-scrumxpdevops流程">2.1.5 Scrum+XP+DevOps流程</h3>
+<p>看过了上面的部分，你一定嗤之以鼻，因为下面的图其实就是上面的Scrum图+Pipeline的图。其实下面你的这张图才能真正意义上的指导我们如何在工作中实践Scrum+DevOps。我将下面的图分层了4块，让我们一起看看下面的图吧</p>
+<h4 id="scrumxp流程">Scrum+XP流程</h4>
+<p>第一部分的需求池的这个概念我们在上方的Scrum中已经看到了，在这里不做详细解释，如果记不太清了，可以回到上方#1.3.1 进行复习。</p>
+<p>第二部分的Scrum流程需要我们再来回顾一下，一个迭代中的4个会议还记得吗，不记得就回去看看吧，通过小迭代来进行可持续的速度小型发布，其中要落实XP的13个实践，包括集体所有权、简单设计、重构等等。</p>
+<h4 id="cicd">CI/CD</h4>
+<p>通过代码版本控制来触发我们的的CI和CD的构建。</p>
+<p>通过发布编码标准，测试驱动开发，代码riew等来提升我们的代码质量以进行优质的代码持续集成。</p>
+<p>在持续集成之后，迎面而来的是构建、测试、部署，这几个步骤的才是真真正的表现我们的团队的持续交付的质量。</p>
+<p>在3和4两个步骤，我们会看到下方有包含对号和错号的表格，这个我们会在接下来的地方讲到，这个是个CI/CD反馈表，用来表示我们某个阶段的CI/CD的缩略情况，可以通过这个反馈来进行相关的分析。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garhg4mj8qj314h0gdmz0.jpg" alt=""></p>
+<h2 id="22--第二工作法反馈流">2.2  第二工作法（反馈流）</h2>
+<h3 id="221-持续反馈">2.2.1 持续反馈</h3>
+<p>下方的图是CI/CD的持续反馈图，可能做过Jenkins的Pipeline的小伙伴已经能看出它了。</p>
+<p>顶部的“表头”其实就是我们的Pipeline的流程，而每一行是我们的历史构建记录，通过这张图我们可以清洗的看到我们在某一阶段的pipeline的执行情况，就可以看到我们在哪一个节点发生错误的情况比较高。</p>
+<blockquote>
+<p>在这个流程中最重要的就是测试部分，如果我们的团队对包括单元测试在内的测试环节如果不是很重视，那这个反馈将对我们的团队毫无意义。</p>
+</blockquote>
+<p>在DevOps中，我们推崇测试驱动开发，通过先写单元测试，集成测试等用例来驱动我们的开发进行编码。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gariex0yhnj313n0jjgoh.jpg" alt=""></p>
+<h3 id="222-查看在制品">2.2.2 查看在制品</h3>
+<p>这里的制品的含义就是我们所构建的，比如java的jar，golang的native，docker的docker image等。</p>
+<p>通过DevOps的反馈，我们可以查看制品所在的story的目前阶段</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garimh2qyoj311o0el0tu.jpg" alt=""></p>
+<h2 id="23-第三工作法学习">2.3 第三工作法（学习）</h2>
+<h3 id="231-不断尝试和重复学习">2.3.1 不断尝试和重复学习</h3>
+<p>让我们再来看下面这张图，对比上面的那种图，在我们的编码、测试、部署三个阶段多了个小锤子的标志。</p>
+<p>这里的编码、测试、部署，分别代表着开发、测试、运维，三个岗位需要不断的尝试、配合和重复学习来让这条IT服务供应链更快速更稳定更自动化，让信息反馈更精准、更全面的覆盖到整个服务生命周期。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garipkoo29j30wz07674h.jpg" alt=""></p>
+<h3 id="232-测试四象限">2.3.2 测试四象限</h3>
+<p>首先画一个由x轴支持评价和y轴业务技术导向组成的四象限，我们将我们DevOps中的所有种类的测试流程放入其中，来将每一个测试落实在一个二维区间内，再在每一种测试上标识一个工作投入程度，组成下面的图。</p>
+<p>我们之前提过，在XP极限开发中，我们推崇测试驱动开发，因为测试驱动开发可以让我们在开发之前更加深入的理解业务，并且基于接口定义程序，更好的组织我们的软件架构。</p>
+<p>所以下图是我们的测试流程应在我们的工作中所占有的工作比例，如果所有的工作经历为100%的话，那么6颗星则为60%，每颗星占据10%。</p>
+<p>良好的开发习惯，和标准的测试流程可以让我们的代码质量更上一层楼。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garj2bo4kmj30pv0gqgm5.jpg" alt=""></p>
+<h3 id="233-运维四象限">2.3.3 运维四象限</h3>
+<p>上面我们说了测试的四象限，这里我们说说运维的四象限，我们以紧急性为x轴，重要性为y轴，这个四象限其实是很多工种的人都会使用到的，会将我们每天的任务放到里面，用来确定任务的优先级，我们知道基于这种四象限，我们的优先级会有下方四种：</p>
+<ol>
+<li>紧急且重要</li>
+<li>紧急不重要</li>
+<li>重要不紧急</li>
+<li>不重要不紧急</li>
+</ol>
+<p>我们将运维的工作放在上面，如果大部分的工作都落实在紧急且重要的第一象限上的话，那么说明我们的DevOps流程是有问题的，比如我们的运维的大部分精力都在每天的线上紧急修复之类的任务，就说明我们的开发和测试的质量是有问题的。</p>
+<p>运维的工作不应该重点在右方，而应该重心左移，偏向于重要不紧急，多做一些规划性的工作，比如从传统部署方式转向k8s容器编排等工作。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garj9hkaf7j31400ht0tp.jpg" alt=""></p>
+<h1 id="3-工程化指南">3 工程化指南</h1>
+<h2 id="31-实践整合">3.1 实践整合</h2>
+<p>在上面我们将上面说讲述的知识合并起来，组成我们真正在工作中实践所要用到的东西。Scrum+XP+DevOps</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garjvxpuiej30zk0elgmg.jpg" alt=""></p>
+<h2 id="32-建立工程师文化模型">3.2 建立工程师文化模型</h2>
+<p>小团队内部要做到：</p>
+<ol>
+<li>可视化面板和主动领取任务(信息扁平化，加速效率，共同目标帮助队友完成任务)</li>
+<li>成为用户故事的负责人（每个人都要有主人翁意识，认为自己是UserStory的主人）</li>
+<li>20%的非功能性需求（给开发一点非业务的技术需求，提升多巴胺，产生乐趣）</li>
+<li>合入主干的代码需要审核（合代码需要组内review，降低代码出问题的概率）</li>
+<li>周期性的技术分享（每个人都要分享，对自己所学到的东西进行沉淀，同时也吸取组内其他人的分享）</li>
+</ol>
+<p>公司级别：</p>
+<ol>
+<li>举办黑客马拉松（选择一个主题，让公司的开发进行参与，进行开发，讨论，提升技术激情）</li>
+<li>举办技术沙龙</li>
+</ol>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gark1hfz26j30e70e5dg6.jpg" alt=""></p>
+<h2 id="33-目录结构">3.3 目录结构</h2>
+<p>定义每种语言的标准的目录结构，比如下方的目录结构就是Node.js的标准目录结构，我将一些语言级通用的结构用红框画了出来。</p>
+<ol>
+<li>src</li>
+<li>test</li>
+<li>.env</li>
+<li>Compilefile</li>
+<li>Dockerfile</li>
+<li>Jenkisnfile</li>
+</ol>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garkjmnep0j310v0hqt9t.jpg" alt=""></p>
+<h2 id="34-版本控制规划">3.4 版本控制规划</h2>
+<p>下图使用的是基于Tag的版本控制，我这里看推荐使用GitFLow+Tag的方式来进行基于Tag多多环境的版本控制的方式进行构建使用。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garkkrtm86j30vz0f8wez.jpg" alt=""></p>
+<h2 id="35-快速失败的流水线">3.5 快速失败的流水线</h2>
+<p>下图中的快速失败的概念是指当pipeline中某一节点未达到通过的要求，则不再运行之后得节点，以当前节点的失败为整个pipeline的失败。</p>
+<p>像jenkins原生就兼容快速失败。下图是jenkins最新的Blue Ocean界面，很友好的。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garkn5txgmj313w0dxwfh.jpg" alt=""></p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garkp4yfjgj30jo02lmx0.jpg" alt=""></p>
+<h2 id="36-可视化反馈平台">3.6 可视化反馈平台</h2>
+<p>在第二工作法中，我们学习到了反馈工作流，如果使用jenkins构建pipeline的时候，我们就可以通过jenkins原生支持的可视化结果来了解到我们近期的CI/CD情况。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garku94wfjj31940oh40r.jpg" alt=""></p>
+<h2 id="37-持续改进">3.7 持续改进</h2>
+<p>在我们的产品设计中，有一个<code>MVP</code>的概念，它的意思是<code>最小可行产品</code>，这个概念来自于《精益创业：新创企业的成长思维》这本书中，书中提倡首先定义一个面向市场的最小可用的极简原型产品，然后再不断的试验和学习中，以最小的成本和最有效的方式来验证产品是否符合用户需求，灵活调整方向，以达到“快速失败，廉价失败”的方式来验证产品是否符合市场需求。这是一种不断学习，挖掘用户需求，迭代优化产品的方式。</p>
+<p>我们对待我们的团队，其实也要像对待我们的产品一样，不停地学习，不停地尝试，不停地优化，这样让我们的团队快速成长，要允许我们的团队犯错（但是不能重复掉进相同或相似的坑中）。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garkx6lkbpj30wm07sjs1.jpg" alt=""></p>
+<h2 id="38-更多的质量保证">3.8 更多的质量保证</h2>
+<h3 id="381-ciccd">3.8.1 CI/CCD</h3>
+<p>通过良好的测试+自动化流水线来提高我们的代码的质量</p>
+<p>在部署前：</p>
+<ol>
+<li>集成测试</li>
+<li>性能测试</li>
+<li>安全性测试</li>
+</ol>
+<p>部署后测试：</p>
+<ol>
+<li>自动化测试</li>
+<li>验收测试</li>
+</ol>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garl6tf411j30mr08n74j.jpg" alt=""></p>
+<h3 id="382-环境与配置管理">3.8.2 环境与配置管理</h3>
+<p>通过配置中心来区别应用在各个环境中的配置，以防止出现踩到带着开发测试的配置上线的这种老旧坑。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garlaw1sp9j30xy0gudh3.jpg" alt=""></p>
+<h3 id="383-制品库管理">3.8.3 制品库管理</h3>
+<p>制品库推荐也同样隔离开，预发和生产使用同一个制品库，开发和测试使用同一个制品库，在两个制品库之间，需要人为来审核和同步。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garlfmzq6hj313e0g7wfh.jpg" alt=""></p>
+<h3 id="384-流程控制">3.8.4 流程控制</h3>
+<p>这里的流程控制主要指的是CI/CD的流程控制。因为我们都知道jenkins单节点在同一时间自由一个pipeline能构建，也就是说单节点jenkins不能多条pipeline并发构建。所以我们需要搭建分布式的jenkins集群，来对pipeline的构建进行调度。</p>
+<p>另一种更好的方式就是通过gitlab或其他支持并发pipeline构建的工具进行构建。</p>
+<p>下方的pipeline中在测试环节分成了三个分支，这个特性我们再使用jenkins的pipeline时是有完美支持的，名字叫并行流，是根据条件来判断三个分支是否进行的。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garlimibgyj311f0i2myo.jpg" alt=""></p>
+<h3 id="385-数据收集和监控">3.8.5 数据收集和监控</h3>
+<p>我们的服务上线后，我们需要使用两种方式来确保我们线上使用的服务能够健康的提供服务。</p>
+<ol>
+<li>日志</li>
+<li>监控</li>
+</ol>
+<p>通过采集我们的线上的服务的日志，来对线上日志进行分析，达到实时监控服务健康情况的需求。这里推荐使用市场较为开放通用的开源方案ELK</p>
+<p>我们同时还要对我们的中间件，流量，物理硬件等进行相关监控，以确定基础环境的实时监控情况，这里我推荐使用Prometheus+Granfa进行监控。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garlpbbkl1j31590h8jsu.jpg" alt=""></p>
+<h3 id="386-容灾">3.8.6 容灾</h3>
+<p>当我们的应用日益复杂且用户量逐渐提高后，我们需要对我们的服务进行容灾配置以及周期醒的混沌工程演练。我们的服务应该像下图一样逐渐进阶为可用性更高的部署方式。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1garludcfnsj308u0j5jrh.jpg" alt=""></p>
+<h3 id="387-紧急事件处理">3.8.7 紧急事件处理</h3>
+<p>我们永远都不能问心无愧的拍着胸口说我们的服务非常的问题，可用性能达到100%。因为100%是我们的服务的可用性极限，就算我们的服务可用性做到6个9，8个9，但是永远也达不到100%，永远只能无限的趋近于100%。因为我们永远都没办法避免黑天鹅事件。但是我们能做的是出现黑天鹅事件后，我们要快速响应，将我们的损失降到最低。下面就说说当出现线上故障的时候，我们应该怎么做才能更好的减少我们的损失。</p>
+<p>事故发生前（凡事有预案）:</p>
+<ol>
+<li>提前准备可能出现的事故</li>
+<li>全员参与容灾演练</li>
+<li>多做混沌工程，提高服务的可用性和健壮性</li>
+</ol>
+<p>事故发生时（先通报，后处理）：</p>
+<ol>
+<li>Ops和Dev相互通报</li>
+<li>Ops和Dev各自向上级汇报</li>
+<li>主管决定是否继续向上级汇报</li>
+</ol>
+<p>事故处理中(先止损，后查因)：</p>
+<ol>
+<li>是否有处理预案</li>
+<li>有预案，Ops主管10分钟内做回滚决定</li>
+<li>无预案，Ops主管和Dev主管决定回滚和补救方案</li>
+</ol>
+<p>事故处理后（反思，定级）：</p>
+<ol>
+<li>Ops通报事故处理结果</li>
+<li>24小时内主要责任部门牵头矩形Case Study</li>
+<li>对事故进行定级</li>
+</ol>
+
+                
+                <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
+                
+                
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2020-01-07-xu-cloud-feature/" data-toggle="tooltip" data-placement="top" title="有关云计算的未来：云计算3.0的思考">&larr; 上一篇</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/2020-02-06-neurous/" data-toggle="tooltip" data-placement="top" title="深度学习数学基础(一)之神经元构造">下一篇 &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+
+
+
+<div id="SOHUCS" sid='2020-01-09-21:14:07-关于Scrum&#43;XP&#43;DevOps的学习'></div>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com
+/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com/js/changyan.labs.https.js?appid=cytako4HR"></script>
+
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytako4HR';
+        var conf = 'prod_b9da8b3167eed0ab02bb9913a13e0435';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            var head = document.getElementsByTagName('head')[0]||document.head||document.documentElement;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.charset = 'utf-8';
+            script.id = 'changyan_mobile_js';
+            script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf;
+            head.appendChild(script);
+        } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+</script>
+
+
+
+            </div>
+            
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    <section class="visible-md visible-lg">
+        <hr>
+        <h5><a href="https://www.naah69.com/about" target="_blank">博主信息</a></h5>
+        <div class="short-about">
+            
+            <img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9gy1fw0npk3155j20u0140aca.jpg"/>
+            
+
+            <h3 style="margin-bottom: 20px;">
+                
+                那焱(纳兰)
+                
+                &nbsp;
+                
+                Naah
+                
+            </h3>
+
+            
+            <p>架构师</p>
+            
+
+            
+            <p>热爱生活,拥抱变化</p>
+            
+
+            
+            <ul class="list-inline">
+                
+                
+                <li>
+                    <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <a target="_blank" href="https://weibo.com/naah">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+
+                    <a href="javascript:wx()">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a target="_blank" href="https://github.com/naah69">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </section>
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5><a href="/tags/"   target="_blank" >标签展示</a></h5>
+        <div class="tags">
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80" title="算法基础"  target="_blank" >
+            算法基础(16)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="数据结构"  target="_blank" >
+            数据结构(14)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
+            环境配置系列(12)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
+            排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ci/cd" title="ci/cd"  target="_blank" >
+            ci/cd(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E5%9B%BE" title="图"  target="_blank" >
+            图(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
+            数学基础(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习"  target="_blank" >
+            深度学习(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络"  target="_blank" >
+            神经网络(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8" title="算法应用"  target="_blank" >
+            算法应用(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94" title="随笔"  target="_blank" >
+            随笔(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/go" title="go"  target="_blank" >
+            go(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/software" title="software"  target="_blank" >
+            software(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/hugo" title="hugo"  target="_blank" >
+            hugo(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/mark" title="mark"  target="_blank" >
+            mark(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91" title="二叉树"  target="_blank" >
+            二叉树(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E8%AE%B0%E5%BD%95" title="记录"  target="_blank" >
+            记录(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/docker" title="docker"  target="_blank" >
+            docker(3)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ecug" title="ecug"  target="_blank" >
+            ecug(3)
+            </a>
+
+            
+
+            <a href="/tags/"  target="_blank" >
+            全部标签
+            </a>
+
+        </div>
+    </section>
+    
+
+    
+    <hr>
+    <h5>友情链接</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.liaoxuefeng.com/">廖雪峰的官方网站</a></li>
+        
+        <li><a target="_blank" href="http://www.dayanzai.me/">大眼仔旭下载站</a></li>
+        
+        <li><a target="_blank" href="http://www.carrotchou.blog/">胡萝卜周下载站</a></li>
+        
+        <li><a target="_blank" href="http://xclient.info/">Xclient Mac下载站</a></li>
+        
+    </ul>
+
+    
+    <hr>
+    <h5>工具网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.algolia.com/">Algolia</a></li>
+        
+        <li><a target="_blank" href="https://changyan.kuaizhan.com/">畅言</a></li>
+        
+        <li><a target="_blank" href="http://tool.chinaz.com/">站长工具</a></li>
+        
+        <li><a target="_blank" href="https://tool.lu/">程序猿在线工具箱</a></li>
+        
+        <li><a target="_blank" href="https://www.bejson.com/">配置文件工具箱</a></li>
+        
+        <li><a target="_blank" href="http://www.jq22.com/textDifference">文本对比</a></li>
+        
+        <li><a target="_blank" href="https://cloudconvert.com/formats">在线文件格式转换</a></li>
+        
+    </ul>
+    
+    <hr>
+    <h5>收藏网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+        
+        <li><a target="_blank" href="https://www.nowcoder.com/">牛客网</a></li>
+        
+        <li><a target="_blank" href="http://www.acmcoder.com/">赛码网</a></li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://weibo.com/naah">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    <script>
+                        function wx() {
+                            layer.open({
+                                type: 1,
+                                title: false,
+                                closeBtn: 1,
+                                area: ['500px', '500px'],
+                                skin: 'layui-layer-nobg', 
+                                shadeClose: true,
+                                content: '<img src="https:\/\/naah-blog.oss-cn-hangzhou.aliyuncs.com\/img\/ed1d2fb9gy1fw0ntoycqcj20rr0rs3zo.jpg" width="500px" height="500px">'
+                            });
+                        }
+                    </script>
+                    <li>
+                        <a href="javascript:wx()">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/naah69">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy;   2020 <a href="http://www.beian.miit.gov.cn" target="_blank">浙ICP备19040622号</a>
+                    <br>
+                    
+                    <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+<script src="https://www.naah69.com/js/hux-blog.min.js"></script>
+
+<script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
+
+
+<script>
+
+
+    var _baId = '5d8997bbef4253c1fdbcba1a8fb66019';
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?"+ _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+
+<!-- async load function -->
+function async(u, c) {
+    var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+        o.addEventListener('load', function (e) {
+            c(null, e);
+        }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+}
+
+<!--fastClick.js -->
+async("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav) FastClick.attach($nav);
+})
+
+</script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155998534-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155998534-1');
+</script>
+
+
+
+
+</body>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+    <script src="https://www.naah69.com/js/article.js"></script>
+
+
+</html>

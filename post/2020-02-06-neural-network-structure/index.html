@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>深度学习数学基础(二)之神经网络构造 | 纳兰小筑</title>
+    <meta name="description" content="Naah,那焱,纳兰,一只正在通往机器学习的可爱的程序猿,热爱生活,拥抱变化,喜欢有关草木植物的任何事物,偶尔喜欢读读书写写诗" />
+    <meta name="keywords" content="深度学习,神经网络,神经网络结构" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="/img/favicon.ico">
+    <link rel="canonical" href="https://www.naah69.com/post/2020-02-06-neural-network-structure/">
+    <meta name="google-site-verification" content="RvhbpALX9GqGk5KVFhjMl2VqnksKeAoApN3upkrcDxM" />
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.naah69.com/css/hux-blog.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"
+      integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.js"
+        integrity="sha256-Gr6WcN18NVkLDr/zaAKoBQWpBSRw6LuPvNz2pwOe7Ng=" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI=" crossorigin="anonymous"
+        onload='renderMathInElement(document.body,{
+                delimiters:[{left:"$$", right: "$$", display: true,throwOnError:false},{left: "$", right: "$", display: false}],strict:false
+});'>
+
+</script>
+
+
+
+
+
+
+
+    
+<style>
+    article img{cursor: zoom-in;}
+     
+    header.intro-header {
+        background-image: url('https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/20211204162656.png')
+    }
+     
+    #floatting_dir {
+        position: fixed;
+        display: none;
+        width: auto;
+        height: auto;
+        font-size: 13px;
+    }
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+    @media screen and (max-width: 500px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    @media screen and (max-width: 768px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    .katex-display>.katex{
+        white-space:normal;
+    }
+
+    .katex .base, .katex .strut{
+        margin-top: 0.5em;
+    }
+
+    pre {
+        border:0px;
+        margin: 0px;
+    }
+
+
+</style>
+
+
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://www.naah69.com/">Naah-Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse" style="max-height: 1000px;" >
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://www.naah69.com/">HOME</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/essay"  target="_blank" >essay</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/foundation"  target="_blank" >foundation</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/java"  target="_blank" >java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/math"  target="_blank" >math</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/others"  target="_blank" >others</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+
+                    <li>
+                        <a href="https://www.naah69.com/about">About Me</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/search/article">Search
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            
+            $navbar.className = " ";
+            
+            setTimeout(function () {
+                
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a href="https://www.naah69.com/%20categories/math" target="_blank" ><i class="fa fa-folder-o"></i>&nbsp;MATH</a>
+                        
+                        
+                        <a class="tag" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;深度学习
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;神经网络
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;数学基础
+                        </a>
+                        
+
+                    </div>
+
+                    <h1>深度学习数学基础(二)之神经网络构造</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Naah on Thursday, Feb 06,2020 19:40:19
+                        
+                        <span id="/post/2020-02-06-neural-network-structure/" class="meta_data_item" data-flag-title="">
+    <span class="post-meta-item-icon">
+      <span class="octicon octicon-eye"></span>
+    </span>
+    &nbsp;
+    <i class="fa fa-eye"></i>
+    <span class="old-visitors-count" style="display: none;"></span>
+    <span id="busuanzi_container_page_pv">
+  <span id="busuanzi_value_page_pv"></span>
+
+</span>
+</span>
+
+
+
+                        
+                    </span><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container" id="container_div">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+
+                
+
+                
+
+                
+                
+                <div id="floatting_dir" style="margin: 10px;border: 1px solid gray;z-index:99999;">
+                    <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                        <strong id="dir_btn_open" style="color: black;font-size: large;">目录</strong>
+                        <strong id="dir_btn_close" style="color: black;font-size: large;float: right">x</strong>
+                    </header>
+                    <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
+                        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#31-示例说明">3.1 示例说明</a></li>
+    <li><a href="#32-偏置">3.2 偏置</a></li>
+    <li><a href="#33-实例解释">3.3 实例解释</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#41-权重与偏置">4.1 权重与偏置</a></li>
+    <li><a href="#42-模型合理性">4.2 模型合理性</a></li>
+    <li><a href="#43-网络自学习的神经网络">4.3 网络自学习的神经网络</a>
+      <ul>
+        <li><a href="#431-有监督学习">4.3.1 有监督学习</a></li>
+        <li><a href="#432-最优解">4.3.2 最优解</a></li>
+        <li><a href="#433-代价函数">4.3.3 代价函数</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                    </div>
+                </div>
+                
+                
+                
+
+                <p>本篇内容含有大量公式，如果展示不佳，请跳转至<a href="https://www.naah69.com/post/2020-02-06-neural-network-structure/">原文</a></p>
+<p>书接上文，继续说说神经网络的结构。首先我们要回顾上一篇文章<a href="https://www.naah69.com/post/2020-02-06-neurous/">深度学习数学基础(一)之神经元构造</a>中讲到的两个公式。</p>
+<ol>
+<li>加权输入公式
+$$z=w_1x_1+w_2x_2+w_3x_3+&hellip;+b $$</li>
+<li>激活公式
+$$y=a(z)$$</li>
+</ol>
+<p>还有神经元构造图：
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmxyn9isyj30xw09cdhm.jpg" alt=""></p>
+<p>我们只要将这样的神经元连接成网络状，那么就形成了<code>神经网络</code>。这里我们主要说最基础的<code>阶层型神经网络</code>,像<code>卷积神经网络</code>,<code>循环神经网络</code>等需要学习完本系列后再进行学习。</p>
+<p>那么我们先来通俗的比喻下神经网络用来干什么的，我们以往在写程序的时候都是求结果，而神经网络求得却不是结果，而是公式或规则（比喻），其实神经网络就是通过大量的计算来不断的减小误差来求距离正解最相似的公式的权重和偏置等（统称参数）。所以感觉神经网络高大上的朋友们不要有感觉自己学不会的想法，其实神经网络并不难，就是一个又一个的公式组合起来而已，不同的算法其实就是各个大佬用数学建模，我们不看那么远，先跟我一起把神经网络的基础入门一下吧。</p>
+<h1 id="1-神经网络">1 神经网络</h1>
+<p>下面就是一个阶层型的神经网络的图片，按照层对该神经网络划分，可分为<code>输入层</code>,<code>隐藏层</code>(也称为中间层),<code>输出层</code>。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmy301uw2j30zc0hon1e.jpg" alt=""></p>
+<h1 id="2-神经网络层级的职责">2 神经网络层级的职责</h1>
+<p>下面我们说说神经网络中各层的职责：</p>
+<ol>
+<li><code>输入层</code>：该层负责读取神经网络需要的数据，这个层的神经元没有输入监听，他们的输出是将读取的数据原样输出。<strong>输入==输出</strong></li>
+<li><code>隐藏层</code>：该层神经元则负责上面我们所回顾的两个公式的计算操作，在神经网络中，这层是实际处理信息的部分。<strong>计算z和y</strong></li>
+<li><code>输出层</code>：该层与隐藏层一样，执行两个公式的计算，并且显示神经网络的计算结果，也就是最终输出。<strong>计算z和y并显示结果</strong></li>
+</ol>
+<p>下图是一个最简单的神经网络示例，用于我们来理解神经网络的本质。这个简单的神经网络的特征是，前一层的神经单与下一层的所有神经元都有箭头连接，这样的层构造称为<code>全连接层（fully connected layer）</code>
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1gbmyc9at60j30xm0pydlb.jpg" alt=""></p>
+<p>输入层：输入与输出是相同的，如果一定要引入激活函数，那激活函数就是恒等函数$a(z)=z$，该示例中输入层有12个神经元，对应图片的12个像素数据</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnns6i500j30p60fiq4d.jpg" alt=""></p>
+<p>隐藏层：输入是变量，根据对应的权重和偏置来计算z，再经由激活函数计算，输出值传递到下一层</p>
+<p>输出层：该层有两个神经元，分别对应着要识别的数字0和1，两个神经元分别是对两个输出值较为兴奋的神经元，通过sigmoid我们可以拿到两个神经元对数据的兴奋度，通过对连个兴奋度做比较，我们就可以来猜这个数据到底是什么了!</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnnswhex8j312q0dugoj.jpg" alt=""></p>
+<h1 id="3-神经网络的结构">3 神经网络的结构</h1>
+<h2 id="31-示例说明">3.1 示例说明</h2>
+<p>我们还使用上方的示例来进行说明</p>
+<p>建立一个神经网络，用来识别通过 4×3 像素的图像读取的手写数字 0 和 1。学习数据是 64 张图像，其中像素是单色二值。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnnvsc0juj311m0aet9m.jpg" alt=""></p>
+<p>模式识别的难点在于答案不标准，这个例题也体现了这样的特性。即使是区区一个 4×3 像素的二值图像，所读入的手写数字0 和 1 的像素模式也是多种多样的。例如，上方图像可以认为是读入了手写数字 0。对于这样的数字 0，即使人能设法识别出来，让计算机来判断也十分困难。下面让我们使用一个小故事来了解下如何使用神经网络来解决这个问题。</p>
+<p>假设有个神经网络，输入层12个神经元小弟，隐藏层住着3个神经元中层干部，顶层住着2个神经元大哥，</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbno7quihyj31q60u07ga.jpg" alt=""></p>
+<p>底层输入层的12个小弟接到任务要监控图片的动静，所以12个输入层小弟分别住在4x3像素的图像的各个像素上对图片进行监控，如果像素信号是白色0，小弟就睡觉不管，如果像素是黑色1，小弟就兴奋向上层通风报信，将他们的信息传递个他们的领导A、B、C</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnodl2fzaj30vw0boad2.jpg" alt=""></p>
+<p>住在隐藏层的3个中层干部ABC分别重视下面三个地方，从下面的小弟那里拿到信息，然后自身对信息的思考（计算z和y），看看有没有需要自己注意的地方，把自己的想法跟顶层的两个大哥汇报</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnp9t8egrj31i00hwwgx.jpg" alt=""></p>
+<p>住在最顶层输出层的大哥拿到下面三个干部递交的信息，与三个干部一样，也进行了思考作出了对应的策略，然后两个大哥看了下各自的策略，选出更好的那一个(兴奋度高的)作为了这次行动的策略。</p>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnovmevrhj32120osdjb.jpg" alt=""></p>
+<p>让我们再来回顾下上面说到的隐藏层，3个中层干部分别重视三个模式，所以3个中层干部对12个手下各有偏爱，比如A干部就看重小弟4和7，B干部看重小弟5和8，C干部看中小弟6和9。
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnpfl38kxj312m0ja408.jpg" alt=""></p>
+<p>所以这几个干部有点偏心，着重看了直接小弟给的情报，所以他们之间传递的兴奋度的管道也变粗了。
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnpkbp931j31qh0u0du2.jpg" alt=""></p>
+<p>而住在顶层的大哥对中层的干部也各有偏爱，比如大哥0喜欢干部A和C，大哥1喜欢干部B
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnq6k09i0j31cu0p077w.jpg" alt=""></p>
+<p>那么，我们读入手写数字0，下面的小弟4、7、6、9看到这个图就特别兴奋了
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnq9b6mkoj30re0c4ac1.jpg" alt=""></p>
+<p>兴奋的小弟4和7向干部A传递消息，兴奋的小弟6和9向干部C传递了消息，没人向干部B传递消息。
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnqe9x6iij31sq0swdqx.jpg" alt=""></p>
+<p>干部A和C也接到了小弟传来的信息也兴奋了起来，于是干部A和C也向上层向大哥0发送信息，而干部B由于没有掌握到信息，就没有向大哥1发送消息。
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnqloshcqj31380q076w.jpg" alt=""></p>
+<p>由于大哥0是兴奋地，而大哥1是冷静的，根据之前说的大哥0的兴奋度比大哥1高，所以就判断这个图片是0</p>
+<h2 id="32-偏置">3.2 偏置</h2>
+<p>在上面的示例中，下层的兴奋度会或多或少的向上层传递，但是除了干部看中小弟和大哥看中干部的关系而传送的兴奋度外，还遗漏了一些信息，这个信息就是”噪音“，如果这些噪声迷住了每个人的脑子，就会导致无法正确的传递兴奋度信息，隐藏我们需要减少噪音的功能，也就是我们所说的<code>偏置</code>，将偏置放在每个人（神经元）的心中，用来忽略少量的噪音，这个心中的偏置，就是各个人固有的个性。</p>
+<h2 id="33-实例解释">3.3 实例解释</h2>
+<p>在上面的示例中，我们理解了神经网络识别数字的的模式识别，而我们应该看到了每个人之间的关系（就是权重）和每个人的个性(偏置)合作推导出了答案，也就是神经网络整体的判断。所以我们应该明白，我们最终从神经网络中获取的应该是关系和个性，也就是<code>权重</code>和<code>偏置</code>，也就是我们所说的模型的参数。</p>
+<h1 id="4-神经网络的信息说明">4 神经网络的信息说明</h1>
+<p>上面我们通过实例考察了大哥带着小弟来识别数字0、1的结构，只要将这个组织替换为神经网络，我们就可以理解神经元进模式识别的结构。</p>
+<h2 id="41-权重与偏置">4.1 权重与偏置</h2>
+<p>观看下面的两张图，我们就会发现，输入层的12个小弟其实就是输入层的12个神经元，隐藏层的3个干部其实就是隐藏层的3个神经元，而顶层的两个大哥就是输出层的两个神经元。
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbno7quihyj31q60u07ga.jpg" alt="">
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnr54avtrj30c20jymzj.jpg" alt="">、</p>
+<p>接下来，我们将层级中领导对下级的看重的关系看做神经元的<code>权重</code>，干部A看重小弟4和7，这种关系可以看做是输入层的神经元4和7指向隐藏层的神经元A的箭头的权重较大，隐藏层与输出层的关系类似，下面我们将这种权重关系通过图片标记出来。通过这样的权重关系，最后输出层神经元0的输出值较大，所以最终输出0
+<img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnrbsq2qrj310c0u0th7.jpg" alt=""></p>
+<p>在像上图这种前一层与后一层全连接的情况下，输入图像0时，原本不希望隐藏层B神经元以及输出层1神经元也有信号传递，所以我们需要禁止掉这种信号，使信号更清晰，这种功能就是我们说的<code>偏置</code>。</p>
+<h2 id="42-模型合理性">4.2 模型合理性</h2>
+<p>上面我们将小故事翻译成了神经网络，但是也不能保证一定能求出权重和偏置。如果想实际建立基于上面这个想法的神经网络，能充分解释所给的数据就能验证它的合理性，这点需要一定的数学计算，需要将我们的语言描述转化为数据的式子，我们会在下篇文章开始讲一些会用到的数学。</p>
+<h2 id="43-网络自学习的神经网络">4.3 网络自学习的神经网络</h2>
+<p>本文开篇我们说神经网络是通过大量计算来算出权重和偏置等参数，而在上一个示例中，我们事先假定了权重的大小（假定中层对小弟的看看着关系），那么这个权重的大小应该如何确定呢？神经网络中比较重要的一点就是利用<code>网络自学习</code>算法来确定权重大小</p>
+<p>神经网络的参数确定方法分为<code>有监督学习</code>和<code>无监督学习</code>，在这个系列里我们只介绍有监督学习。</p>
+<h3 id="431-有监督学习">4.3.1 有监督学习</h3>
+<blockquote>
+<p>有监督学习：为了确定神经网络的权重和偏置，事先给予数据，这些数据成为<code>学习数据</code>、<code>训练数据</code>。根据给定的数据确定权重和偏置，称为<code>学习</code>、<code>训练</code>。</p>
+</blockquote>
+<h3 id="432-最优解">4.3.2 最优解</h3>
+<p>神经网络是如何学习的呢？</p>
+<blockquote>
+<p>神经网络学习的思路：计算神经网络得出的预测值与正解的误差，确定使误差总和达到最小的权重和偏置，这在数学上成为模型的<code>最优化</code></p>
+</blockquote>
+<h3 id="433-代价函数">4.3.3 代价函数</h3>
+<p>关于预测值和正解的误差总和，有各种各样的定义。这个误差的总和称为<code>代价函数</code>，符号表示是${C}_{T}$（T是Total的首字母）</p>
+<p>我们这个系列中使用最经典的方式<code>平方误差和</code>，利用平方误差确定参数的方法在数学上成为最小二乘法，它在统计学中是回归分析的常规手段。</p>
+<blockquote>
+<p>平方误差和：通过计算预测值与正解的误差的平方再求和</p>
+</blockquote>
+<p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/0082zybply1gbnsb00p1ij314i0mq43y.jpg" alt=""></p>
+<p>下一篇开始，我们就要正式的进入数学的领域，兴奋不兴奋！</p>
+
+                
+                <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
+                
+                
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2020-02-06-neurous/" data-toggle="tooltip" data-placement="top" title="深度学习数学基础(一)之神经元构造">&larr; 上一篇</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/2020-02-08-math-basic/" data-toggle="tooltip" data-placement="top" title="深度学习数学基础(三)之简单数学">下一篇 &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+
+
+
+<div id="SOHUCS" sid='2020-02-06-19:40:19-深度学习数学基础(二)之神经网络构造'></div>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com
+/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com/js/changyan.labs.https.js?appid=cytako4HR"></script>
+
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytako4HR';
+        var conf = 'prod_b9da8b3167eed0ab02bb9913a13e0435';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            var head = document.getElementsByTagName('head')[0]||document.head||document.documentElement;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.charset = 'utf-8';
+            script.id = 'changyan_mobile_js';
+            script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf;
+            head.appendChild(script);
+        } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+</script>
+
+
+
+            </div>
+            
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    <section class="visible-md visible-lg">
+        <hr>
+        <h5><a href="https://www.naah69.com/about" target="_blank">博主信息</a></h5>
+        <div class="short-about">
+            
+            <img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9gy1fw0npk3155j20u0140aca.jpg"/>
+            
+
+            <h3 style="margin-bottom: 20px;">
+                
+                那焱(纳兰)
+                
+                &nbsp;
+                
+                Naah
+                
+            </h3>
+
+            
+            <p>架构师</p>
+            
+
+            
+            <p>热爱生活,拥抱变化</p>
+            
+
+            
+            <ul class="list-inline">
+                
+                
+                <li>
+                    <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <a target="_blank" href="https://weibo.com/naah">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+
+                    <a href="javascript:wx()">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a target="_blank" href="https://github.com/naah69">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </section>
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5><a href="/tags/"   target="_blank" >标签展示</a></h5>
+        <div class="tags">
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80" title="算法基础"  target="_blank" >
+            算法基础(16)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="数据结构"  target="_blank" >
+            数据结构(14)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
+            环境配置系列(12)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
+            排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ci/cd" title="ci/cd"  target="_blank" >
+            ci/cd(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E5%9B%BE" title="图"  target="_blank" >
+            图(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
+            数学基础(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习"  target="_blank" >
+            深度学习(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络"  target="_blank" >
+            神经网络(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8" title="算法应用"  target="_blank" >
+            算法应用(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94" title="随笔"  target="_blank" >
+            随笔(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/go" title="go"  target="_blank" >
+            go(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/software" title="software"  target="_blank" >
+            software(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/hugo" title="hugo"  target="_blank" >
+            hugo(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/mark" title="mark"  target="_blank" >
+            mark(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91" title="二叉树"  target="_blank" >
+            二叉树(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E8%AE%B0%E5%BD%95" title="记录"  target="_blank" >
+            记录(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/docker" title="docker"  target="_blank" >
+            docker(3)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ecug" title="ecug"  target="_blank" >
+            ecug(3)
+            </a>
+
+            
+
+            <a href="/tags/"  target="_blank" >
+            全部标签
+            </a>
+
+        </div>
+    </section>
+    
+
+    
+    <hr>
+    <h5>友情链接</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.liaoxuefeng.com/">廖雪峰的官方网站</a></li>
+        
+        <li><a target="_blank" href="http://www.dayanzai.me/">大眼仔旭下载站</a></li>
+        
+        <li><a target="_blank" href="http://www.carrotchou.blog/">胡萝卜周下载站</a></li>
+        
+        <li><a target="_blank" href="http://xclient.info/">Xclient Mac下载站</a></li>
+        
+    </ul>
+
+    
+    <hr>
+    <h5>工具网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.algolia.com/">Algolia</a></li>
+        
+        <li><a target="_blank" href="https://changyan.kuaizhan.com/">畅言</a></li>
+        
+        <li><a target="_blank" href="http://tool.chinaz.com/">站长工具</a></li>
+        
+        <li><a target="_blank" href="https://tool.lu/">程序猿在线工具箱</a></li>
+        
+        <li><a target="_blank" href="https://www.bejson.com/">配置文件工具箱</a></li>
+        
+        <li><a target="_blank" href="http://www.jq22.com/textDifference">文本对比</a></li>
+        
+        <li><a target="_blank" href="https://cloudconvert.com/formats">在线文件格式转换</a></li>
+        
+    </ul>
+    
+    <hr>
+    <h5>收藏网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+        
+        <li><a target="_blank" href="https://www.nowcoder.com/">牛客网</a></li>
+        
+        <li><a target="_blank" href="http://www.acmcoder.com/">赛码网</a></li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://weibo.com/naah">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    <script>
+                        function wx() {
+                            layer.open({
+                                type: 1,
+                                title: false,
+                                closeBtn: 1,
+                                area: ['500px', '500px'],
+                                skin: 'layui-layer-nobg', 
+                                shadeClose: true,
+                                content: '<img src="https:\/\/naah-blog.oss-cn-hangzhou.aliyuncs.com\/img\/ed1d2fb9gy1fw0ntoycqcj20rr0rs3zo.jpg" width="500px" height="500px">'
+                            });
+                        }
+                    </script>
+                    <li>
+                        <a href="javascript:wx()">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/naah69">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy;   2020 <a href="http://www.beian.miit.gov.cn" target="_blank">浙ICP备19040622号</a>
+                    <br>
+                    
+                    <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+<script src="https://www.naah69.com/js/hux-blog.min.js"></script>
+
+<script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
+
+
+<script>
+
+
+    var _baId = '5d8997bbef4253c1fdbcba1a8fb66019';
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?"+ _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+
+<!-- async load function -->
+function async(u, c) {
+    var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+        o.addEventListener('load', function (e) {
+            c(null, e);
+        }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+}
+
+<!--fastClick.js -->
+async("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav) FastClick.attach($nav);
+})
+
+</script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155998534-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155998534-1');
+</script>
+
+
+
+
+</body>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+    <script src="https://www.naah69.com/js/article.js"></script>
+
+
+</html>

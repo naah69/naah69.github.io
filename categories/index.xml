@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on </title>
+    <link>https://www.naah69.com/categories/</link>
+    <description>Recent content in Categories on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 13 Feb 2020 15:06:33 +0800</lastBuildDate><atom:link href="https://www.naah69.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MATH</title>
+      <link>https://www.naah69.com/categories/math/</link>
+      <pubDate>Thu, 13 Feb 2020 15:06:33 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/categories/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Others</title>
+      <link>https://www.naah69.com/categories/others/</link>
+      <pubDate>Thu, 09 Jan 2020 21:14:07 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/categories/others/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://www.naah69.com/categories/python/</link>
+      <pubDate>Sun, 01 Dec 2019 18:24:13 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JAVA</title>
+      <link>https://www.naah69.com/categories/java/</link>
+      <pubDate>Sun, 28 Jul 2019 10:41:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FOUNDATION</title>
+      <link>https://www.naah69.com/categories/foundation/</link>
+      <pubDate>Sat, 09 Sep 2017 11:46:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/categories/foundation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ESSAY</title>
+      <link>https://www.naah69.com/categories/essay/</link>
+      <pubDate>Tue, 08 Aug 2017 22:30:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/categories/essay/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

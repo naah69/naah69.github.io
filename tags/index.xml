@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on </title>
+    <link>https://www.naah69.com/tags/</link>
+    <description>Recent content in Tags on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 13 Feb 2020 15:06:33 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数学基础</title>
+      <link>https://www.naah69.com/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Thu, 13 Feb 2020 15:06:33 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>深度学习</title>
+      <link>https://www.naah69.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Thu, 13 Feb 2020 15:06:33 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>神经网络</title>
+      <link>https://www.naah69.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Thu, 13 Feb 2020 15:06:33 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DevOps</title>
+      <link>https://www.naah69.com/tags/devops/</link>
+      <pubDate>Thu, 09 Jan 2020 21:14:07 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ECUG</title>
+      <link>https://www.naah69.com/tags/ecug/</link>
+      <pubDate>Thu, 09 Jan 2020 21:14:07 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/ecug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scrum</title>
+      <link>https://www.naah69.com/tags/scrum/</link>
+      <pubDate>Thu, 09 Jan 2020 21:14:07 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/scrum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>相关思考</title>
+      <link>https://www.naah69.com/tags/%E7%9B%B8%E5%85%B3%E6%80%9D%E8%80%83/</link>
+      <pubDate>Tue, 07 Jan 2020 14:46:06 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E7%9B%B8%E5%85%B3%E6%80%9D%E8%80%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chaos</title>
+      <link>https://www.naah69.com/tags/chaos/</link>
+      <pubDate>Mon, 06 Jan 2020 16:02:27 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/chaos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>大会分享</title>
+      <link>https://www.naah69.com/tags/%E5%A4%A7%E4%BC%9A%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Sat, 04 Jan 2020 21:45:39 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%A4%A7%E4%BC%9A%E5%88%86%E4%BA%AB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>微服务</title>
+      <link>https://www.naah69.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Sat, 04 Jan 2020 21:45:39 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>微服务拆分</title>
+      <link>https://www.naah69.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86/</link>
+      <pubDate>Sat, 04 Jan 2020 21:45:39 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>技术选型</title>
+      <link>https://www.naah69.com/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/</link>
+      <pubDate>Sat, 04 Jan 2020 21:45:39 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>服务网格</title>
+      <link>https://www.naah69.com/tags/%E6%9C%8D%E5%8A%A1%E7%BD%91%E6%A0%BC/</link>
+      <pubDate>Sat, 04 Jan 2020 21:45:39 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%9C%8D%E5%8A%A1%E7%BD%91%E6%A0%BC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jenkins</title>
+      <link>https://www.naah69.com/tags/jenkins/</link>
+      <pubDate>Sun, 22 Dec 2019 14:52:00 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/jenkins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>环境配置系列</title>
+      <link>https://www.naah69.com/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97/</link>
+      <pubDate>Sun, 22 Dec 2019 14:52:00 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SonarQube</title>
+      <link>https://www.naah69.com/tags/sonarqube/</link>
+      <pubDate>Sun, 08 Dec 2019 19:22:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/sonarqube/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rancher</title>
+      <link>https://www.naah69.com/tags/rancher/</link>
+      <pubDate>Sun, 08 Dec 2019 19:01:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/rancher/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CentOS</title>
+      <link>https://www.naah69.com/tags/centos/</link>
+      <pubDate>Sun, 08 Dec 2019 17:29:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/centos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CUDA</title>
+      <link>https://www.naah69.com/tags/cuda/</link>
+      <pubDate>Sun, 08 Dec 2019 17:29:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/cuda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GPU</title>
+      <link>https://www.naah69.com/tags/gpu/</link>
+      <pubDate>Sun, 08 Dec 2019 17:29:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/gpu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NVIDIA</title>
+      <link>https://www.naah69.com/tags/nvidia/</link>
+      <pubDate>Sun, 08 Dec 2019 17:29:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/nvidia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>机器学习系列</title>
+      <link>https://www.naah69.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</link>
+      <pubDate>Sun, 08 Dec 2019 17:29:04 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ONNX</title>
+      <link>https://www.naah69.com/tags/onnx/</link>
+      <pubDate>Sun, 01 Dec 2019 18:24:13 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/onnx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TensorRT</title>
+      <link>https://www.naah69.com/tags/tensorrt/</link>
+      <pubDate>Sun, 01 Dec 2019 18:24:13 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/tensorrt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>https://www.naah69.com/tags/ubuntu/</link>
+      <pubDate>Sun, 01 Dec 2019 13:23:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://www.naah69.com/tags/java/</link>
+      <pubDate>Sun, 28 Jul 2019 10:41:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redis</title>
+      <link>https://www.naah69.com/tags/redis/</link>
+      <pubDate>Sun, 28 Jul 2019 10:41:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redisson</title>
+      <link>https://www.naah69.com/tags/redisson/</link>
+      <pubDate>Sun, 28 Jul 2019 10:41:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/redisson/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SpringBoot</title>
+      <link>https://www.naah69.com/tags/springboot/</link>
+      <pubDate>Sun, 28 Jul 2019 10:41:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/springboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SpringCloud</title>
+      <link>https://www.naah69.com/tags/springcloud/</link>
+      <pubDate>Sun, 28 Jul 2019 10:41:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/springcloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tornado</title>
+      <link>https://www.naah69.com/tags/tornado/</link>
+      <pubDate>Fri, 28 Jun 2019 21:17:24 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/tornado/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://www.naah69.com/tags/docker/</link>
+      <pubDate>Sun, 23 Jun 2019 14:12:25 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>踩坑</title>
+      <link>https://www.naah69.com/tags/%E8%B8%A9%E5%9D%91/</link>
+      <pubDate>Sun, 23 Jun 2019 13:42:08 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E8%B8%A9%E5%9D%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>k8s</title>
+      <link>https://www.naah69.com/tags/k8s/</link>
+      <pubDate>Sat, 22 Jun 2019 20:44:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/k8s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nvidia-docker</title>
+      <link>https://www.naah69.com/tags/nvidia-docker/</link>
+      <pubDate>Sat, 22 Jun 2019 20:44:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/nvidia-docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algolia</title>
+      <link>https://www.naah69.com/tags/algolia/</link>
+      <pubDate>Sat, 22 Jun 2019 20:28:03 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/algolia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>https://www.naah69.com/tags/go/</link>
+      <pubDate>Sat, 22 Jun 2019 20:28:03 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://www.naah69.com/tags/hugo/</link>
+      <pubDate>Sat, 22 Jun 2019 20:28:03 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jieba</title>
+      <link>https://www.naah69.com/tags/jieba/</link>
+      <pubDate>Sat, 22 Jun 2019 20:28:03 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/jieba/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software</title>
+      <link>https://www.naah69.com/tags/software/</link>
+      <pubDate>Sat, 22 Jun 2019 20:28:03 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Drift</title>
+      <link>https://www.naah69.com/tags/drift/</link>
+      <pubDate>Sat, 01 Dec 2018 15:31:06 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/drift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Thrift</title>
+      <link>https://www.naah69.com/tags/thrift/</link>
+      <pubDate>Sat, 01 Dec 2018 15:31:06 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/thrift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>思维导图</title>
+      <link>https://www.naah69.com/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/</link>
+      <pubDate>Sat, 01 Dec 2018 14:25:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Process</title>
+      <link>https://www.naah69.com/tags/process/</link>
+      <pubDate>Wed, 17 Oct 2018 13:20:24 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/process/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apache</title>
+      <link>https://www.naah69.com/tags/apache/</link>
+      <pubDate>Thu, 11 Oct 2018 11:43:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/apache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RocketMQ</title>
+      <link>https://www.naah69.com/tags/rocketmq/</link>
+      <pubDate>Thu, 11 Oct 2018 11:43:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/rocketmq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>压缩</title>
+      <link>https://www.naah69.com/tags/%E5%8E%8B%E7%BC%A9/</link>
+      <pubDate>Mon, 01 Oct 2018 19:42:19 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%8E%8B%E7%BC%A9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>打包</title>
+      <link>https://www.naah69.com/tags/%E6%89%93%E5%8C%85/</link>
+      <pubDate>Mon, 01 Oct 2018 19:42:19 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%89%93%E5%8C%85/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HanLP</title>
+      <link>https://www.naah69.com/tags/hanlp/</link>
+      <pubDate>Mon, 01 Oct 2018 18:49:57 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/hanlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GateWay</title>
+      <link>https://www.naah69.com/tags/gateway/</link>
+      <pubDate>Thu, 31 May 2018 22:11:46 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/gateway/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WebSocket</title>
+      <link>https://www.naah69.com/tags/websocket/</link>
+      <pubDate>Thu, 31 May 2018 22:11:46 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/websocket/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>工具</title>
+      <link>https://www.naah69.com/tags/%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 13 Sep 2017 10:57:57 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%B7%A5%E5%85%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>八皇后问题</title>
+      <link>https://www.naah69.com/tags/%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 09 Sep 2017 11:46:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>回溯算法</title>
+      <link>https://www.naah69.com/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:46:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>算法基础</title>
+      <link>https://www.naah69.com/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sat, 09 Sep 2017 11:46:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>算法应用</title>
+      <link>https://www.naah69.com/tags/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Sat, 09 Sep 2017 11:46:51 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>动态规划算法</title>
+      <link>https://www.naah69.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:43:36 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>最长公共子序列</title>
+      <link>https://www.naah69.com/tags/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Sat, 09 Sep 2017 11:43:36 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>分治算法</title>
+      <link>https://www.naah69.com/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:39:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>贪心算法</title>
+      <link>https://www.naah69.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:33:44 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>穷举算法</title>
+      <link>https://www.naah69.com/tags/%E7%A9%B7%E4%B8%BE%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:28:38 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E7%A9%B7%E4%B8%BE%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>递归算法</title>
+      <link>https://www.naah69.com/tags/%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 11:24:55 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>排序算法</title>
+      <link>https://www.naah69.com/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 09:31:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>交换算法</title>
+      <link>https://www.naah69.com/tags/%E4%BA%A4%E6%8D%A2%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 09:22:37 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E4%BA%A4%E6%8D%A2%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>选择算法</title>
+      <link>https://www.naah69.com/tags/%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 09:16:48 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>插入算法</title>
+      <link>https://www.naah69.com/tags/%E6%8F%92%E5%85%A5%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 09 Sep 2017 08:59:49 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%8F%92%E5%85%A5%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>总结</title>
+      <link>https://www.naah69.com/tags/%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 17 Aug 2017 11:58:48 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%80%BB%E7%BB%93/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>数据结构</title>
+      <link>https://www.naah69.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Thu, 17 Aug 2017 11:58:48 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>克鲁斯卡尔算法</title>
+      <link>https://www.naah69.com/tags/%E5%85%8B%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 17 Aug 2017 11:51:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%85%8B%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>图</title>
+      <link>https://www.naah69.com/tags/%E5%9B%BE/</link>
+      <pubDate>Thu, 17 Aug 2017 11:51:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%9B%BE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>广度优先遍历</title>
+      <link>https://www.naah69.com/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Thu, 17 Aug 2017 11:51:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>拓扑排序</title>
+      <link>https://www.naah69.com/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Thu, 17 Aug 2017 11:51:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>普里姆算法</title>
+      <link>https://www.naah69.com/tags/%E6%99%AE%E9%87%8C%E5%A7%86%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 17 Aug 2017 11:51:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%99%AE%E9%87%8C%E5%A7%86%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>最小生成树问题</title>
+      <link>https://www.naah69.com/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 17 Aug 2017 11:51:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>最短路径问题</title>
+      <link>https://www.naah69.com/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 17 Aug 2017 11:51:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>深度优先遍历</title>
+      <link>https://www.naah69.com/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Thu, 17 Aug 2017 11:51:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>迪杰斯特拉算法</title>
+      <link>https://www.naah69.com/tags/%E8%BF%AA%E6%9D%B0%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 17 Aug 2017 11:51:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E8%BF%AA%E6%9D%B0%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>布鲁斯卡尔算法</title>
+      <link>https://www.naah69.com/tags/%E5%B8%83%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 17 Aug 2017 11:31:07 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%B8%83%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>算法</title>
+      <link>https://www.naah69.com/tags/%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 17 Aug 2017 11:31:07 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>广度优先算法</title>
+      <link>https://www.naah69.com/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 17 Aug 2017 11:20:16 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>深度优先算法</title>
+      <link>https://www.naah69.com/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 17 Aug 2017 11:10:40 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>二叉树</title>
+      <link>https://www.naah69.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 17 Aug 2017 11:00:26 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>查找二叉树</title>
+      <link>https://www.naah69.com/tags/%E6%9F%A5%E6%89%BE%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 17 Aug 2017 11:00:26 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%9F%A5%E6%89%BE%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>二叉树遍历</title>
+      <link>https://www.naah69.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Thu, 17 Aug 2017 10:52:45 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HashMap</title>
+      <link>https://www.naah69.com/tags/hashmap/</link>
+      <pubDate>Thu, 10 Aug 2017 03:26:17 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/hashmap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>随笔</title>
+      <link>https://www.naah69.com/tags/%E9%9A%8F%E7%AC%94/</link>
+      <pubDate>Tue, 08 Aug 2017 22:30:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E9%9A%8F%E7%AC%94/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>栈</title>
+      <link>https://www.naah69.com/tags/%E6%A0%88/</link>
+      <pubDate>Tue, 08 Aug 2017 12:59:05 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%A0%88/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>exe4j</title>
+      <link>https://www.naah69.com/tags/exe4j/</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.naah69.com/tags/exe4j/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ajax</title>
+      <link>https://www.naah69.com/tags/ajax/</link>
+      <pubDate>Fri, 12 May 2017 10:00:14 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/ajax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>https://www.naah69.com/tags/html/</link>
+      <pubDate>Fri, 12 May 2017 10:00:14 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SpringMVC</title>
+      <link>https://www.naah69.com/tags/springmvc/</link>
+      <pubDate>Fri, 12 May 2017 10:00:14 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/springmvc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>demo</title>
+      <link>https://www.naah69.com/tags/demo/</link>
+      <pubDate>Thu, 11 May 2017 09:31:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/demo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ueditor</title>
+      <link>https://www.naah69.com/tags/ueditor/</link>
+      <pubDate>Thu, 11 May 2017 09:31:18 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/ueditor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>400错误</title>
+      <link>https://www.naah69.com/tags/400%E9%94%99%E8%AF%AF/</link>
+      <pubDate>Thu, 11 May 2017 09:20:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/400%E9%94%99%E8%AF%AF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MARK</title>
+      <link>https://www.naah69.com/tags/mark/</link>
+      <pubDate>Mon, 08 May 2017 10:38:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/mark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>励志</title>
+      <link>https://www.naah69.com/tags/%E5%8A%B1%E5%BF%97/</link>
+      <pubDate>Mon, 08 May 2017 10:38:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%8A%B1%E5%BF%97/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>记录</title>
+      <link>https://www.naah69.com/tags/%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Mon, 08 May 2017 10:38:47 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E8%AE%B0%E5%BD%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shadowsocks</title>
+      <link>https://www.naah69.com/tags/shadowsocks/</link>
+      <pubDate>Thu, 13 Apr 2017 09:45:45 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/shadowsocks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>影梭</title>
+      <link>https://www.naah69.com/tags/%E5%BD%B1%E6%A2%AD/</link>
+      <pubDate>Thu, 13 Apr 2017 09:45:45 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E5%BD%B1%E6%A2%AD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>科学上网</title>
+      <link>https://www.naah69.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</link>
+      <pubDate>Thu, 13 Apr 2017 09:45:45 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>生日词</title>
+      <link>https://www.naah69.com/tags/%E7%94%9F%E6%97%A5%E8%AF%8D/</link>
+      <pubDate>Sat, 31 Dec 2016 08:13:27 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E7%94%9F%E6%97%A5%E8%AF%8D/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CI/CD</title>
+      <link>https://www.naah69.com/tags/ci/cd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.naah69.com/tags/ci/cd/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta name="generator" content="Hugo 0.89.4" />
+    <title>纳兰小筑</title>
+    <meta name="description" content="Naah,那焱,纳兰,一只正在通往机器学习的可爱的程序猿,热爱生活,拥抱变化,喜欢有关草木植物的任何事物,偶尔喜欢读读书写写诗" />
+    <meta name="keywords" content="Naah,那焱,纳兰,NaYan,nayan,纳兰的博客,那焱的网络日志,那焱的博客,Naah Blog,博客,个人网站,Java,Python" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="/img/favicon.ico">
+    <link rel="canonical" href="https://www.naah69.com/">
+    <meta name="google-site-verification" content="RvhbpALX9GqGk5KVFhjMl2VqnksKeAoApN3upkrcDxM" />
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.naah69.com/css/hux-blog.min.css">
+    
+
+
+
+
+
+
+
+     
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://www.naah69.com/">Naah-Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse" style="max-height: 1000px;" >
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://www.naah69.com/">HOME</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/essay"  target="_blank" >essay</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/foundation"  target="_blank" >foundation</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/java"  target="_blank" >java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/math"  target="_blank" >math</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/others"  target="_blank" >others</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+
+                    <li>
+                        <a href="https://www.naah69.com/about">About Me</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/search/article">Search
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            
+            $navbar.className = " ";
+            
+            setTimeout(function () {
+                
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+<header class="intro-header" style="background-image: url('https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/20211204162656.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>纳兰小筑</h1>
+                    
+                    <span class="subheading">给别人一般如沐春风的温馨，锋芒可以不用太露。<br><br>给自己保留随意任性的自由，名气可以不用太大。
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<div class="container">
+    <div class="row">
+        
+        
+        <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container
+        ">
+            
+
+<div class="post-preview">
+    <a href="https://www.naah69.com/post/2019-10-06-mlch03-tree/" target="_blank">
+        <h2 class="post-title">
+            <span>机器学习系列03-决策树算法</span>
+
+        </h2>
+
+        
+        <div class="post-content-preview">
+            
+            1 概述 决策树本质上是数据结构中的树，不过有一些区别是，树的根节点和中间节点都是判断，而树的边都条件，而所有叶子节点都是一些结果。其实本质上就
+            
+        </div>
+    </a>
+    <p class="post-meta" style="margin-bottom: 5px">
+        Posted by Naah on Saturday, Oct 05,2019 15:06:16
+    </p>
+<div>
+    <span class="categories_list">
+        <i class="fa fa-folder-o" ></i>
+        
+        <a href="https://www.naah69.com/categories/python"  target="_blank">Python</a>、
+        
+    </span>
+    <span class="categories_list">
+        <i class="fa fa-tags" ></i>
+        
+        <a class="tag"  href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank">机器学习系列</a>、
+        
+    </span>
+</div>
+</div>
+<div>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://www.naah69.com/post/2019-10-06-mlch02-knn/" target="_blank">
+        <h2 class="post-title">
+            <span>机器学习系列02-k近邻分类算法</span>
+
+        </h2>
+
+        
+        <div class="post-content-preview">
+            
+            1 概述 k-近邻算法采用测量不同特征值之间的距离的方法进行分类 2 优缺点 优点：精度高，对异常值不敏感，无数据输入假定 缺点：计算复杂度该，空间复杂
+            
+        </div>
+    </a>
+    <p class="post-meta" style="margin-bottom: 5px">
+        Posted by Naah on Saturday, Oct 05,2019 11:10:04
+    </p>
+<div>
+    <span class="categories_list">
+        <i class="fa fa-folder-o" ></i>
+        
+        <a href="https://www.naah69.com/categories/python"  target="_blank">Python</a>、
+        
+    </span>
+    <span class="categories_list">
+        <i class="fa fa-tags" ></i>
+        
+        <a class="tag"  href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank">机器学习系列</a>、
+        
+    </span>
+</div>
+</div>
+<div>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://www.naah69.com/post/2019-10-04-mlch01/" target="_blank">
+        <h2 class="post-title">
+            <span>机器学习系列01-机器学习相关基础概念</span>
+
+        </h2>
+
+        
+        <div class="post-content-preview">
+            
+            机器学习给人的感觉就是非常的高大上，因为机器学习的一些名词总是让人云里雾里，今天我们主要来通俗易懂的讲一下机器学习的概念。 1 数据 数据大家应该
+            
+        </div>
+    </a>
+    <p class="post-meta" style="margin-bottom: 5px">
+        Posted by Naah on Friday, Oct 04,2019 20:15:29
+    </p>
+<div>
+    <span class="categories_list">
+        <i class="fa fa-folder-o" ></i>
+        
+        <a href="https://www.naah69.com/categories/python"  target="_blank">Python</a>、
+        
+    </span>
+    <span class="categories_list">
+        <i class="fa fa-tags" ></i>
+        
+        <a class="tag"  href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank">机器学习系列</a>、
+        
+    </span>
+</div>
+</div>
+<div>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://www.naah69.com/post/2019-07-28-spring-boot-starter-redisson/" target="_blank">
+        <h2 class="post-title">
+            <span>最简单的spring-boot-starter-redisson发布啦！</span>
+
+        </h2>
+
+        
+        <div class="post-content-preview">
+            
+            spring-boot-starter-redisson 前言 最近忽然发现springboot2的spring-boot-starter-data-redis底层默认使用了lettuce作为连接池
+            
+        </div>
+    </a>
+    <p class="post-meta" style="margin-bottom: 5px">
+        Posted by Naah on Sunday, Jul 28,2019 10:41:51
+    </p>
+<div>
+    <span class="categories_list">
+        <i class="fa fa-folder-o" ></i>
+        
+        <a href="https://www.naah69.com/categories/java"  target="_blank">Java</a>、
+        
+    </span>
+    <span class="categories_list">
+        <i class="fa fa-tags" ></i>
+        
+        <a class="tag"  href="/tags/java" title="Java"  target="_blank">Java</a>、
+        
+        <a class="tag"  href="/tags/springcloud" title="SpringCLoud"  target="_blank">SpringCLoud</a>、
+        
+        <a class="tag"  href="/tags/springboot" title="SpringBoot"  target="_blank">SpringBoot</a>、
+        
+        <a class="tag"  href="/tags/redisson" title="Redisson"  target="_blank">Redisson</a>、
+        
+        <a class="tag"  href="/tags/redis" title="Redis"  target="_blank">Redis</a>、
+        
+    </span>
+</div>
+</div>
+<div>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://www.naah69.com/post/2019-06-28-tornado/" target="_blank">
+        <h2 class="post-title">
+            <span>快速构建高性能web框架Tornado的基础结构</span>
+
+        </h2>
+
+        
+        <div class="post-content-preview">
+            
+            快速基于Tornado构建高性能web框架
+            
+        </div>
+    </a>
+    <p class="post-meta" style="margin-bottom: 5px">
+        Posted by Naah on Friday, Jun 28,2019 21:17:24
+    </p>
+<div>
+    <span class="categories_list">
+        <i class="fa fa-folder-o" ></i>
+        
+        <a href="https://www.naah69.com/categories/python"  target="_blank">Python</a>、
+        
+    </span>
+    <span class="categories_list">
+        <i class="fa fa-tags" ></i>
+        
+        <a class="tag"  href="/tags/tornado" title="Tornado"  target="_blank">Tornado</a>、
+        
+    </span>
+</div>
+</div>
+<div>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://www.naah69.com/post/2019-06-23-alpine-glib-docker/" target="_blank">
+        <h2 class="post-title">
+            <span>这样做,能让我的Docker镜像更轻巧</span>
+
+        </h2>
+
+        
+        <div class="post-content-preview">
+            
+            使用alpine-glib打造最小docker基础镜像以及教你如何优化你的Dockerfile
+            
+        </div>
+    </a>
+    <p class="post-meta" style="margin-bottom: 5px">
+        Posted by Naah on Sunday, Jun 23,2019 14:12:25
+    </p>
+<div>
+    <span class="categories_list">
+        <i class="fa fa-folder-o" ></i>
+        
+        <a href="https://www.naah69.com/categories/others"  target="_blank">Others</a>、
+        
+    </span>
+    <span class="categories_list">
+        <i class="fa fa-tags" ></i>
+        
+        <a class="tag"  href="/tags/docker" title="docker"  target="_blank">docker</a>、
+        
+    </span>
+</div>
+</div>
+<div>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://www.naah69.com/post/2019-06-23-go-trap/" target="_blank">
+        <h2 class="post-title">
+            <span>Golang踩坑记录</span>
+
+        </h2>
+
+        
+        <div class="post-content-preview">
+            
+            1 国内如何快速go get github的包 在命令行输入go get ...前输入以下命令 1 2 3 4 #配置你自己的http代理 export http_proxy=http://127.0.0.1:1087 go get ... 2 golang版本ji
+            
+        </div>
+    </a>
+    <p class="post-meta" style="margin-bottom: 5px">
+        Posted by Naah on Sunday, Jun 23,2019 13:42:08
+    </p>
+<div>
+    <span class="categories_list">
+        <i class="fa fa-folder-o" ></i>
+        
+        <a href="https://www.naah69.com/categories/others"  target="_blank">Others</a>、
+        
+    </span>
+    <span class="categories_list">
+        <i class="fa fa-tags" ></i>
+        
+        <a class="tag"  href="/tags/%E8%B8%A9%E5%9D%91" title="踩坑"  target="_blank">踩坑</a>、
+        
+    </span>
+</div>
+</div>
+<div>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://www.naah69.com/post/2019-06-22-docker-k8s-gpu/" target="_blank">
+        <h2 class="post-title">
+            <span>k8s怎么使用GPU？这篇文章告诉你怎么做！</span>
+
+        </h2>
+
+        
+        <div class="post-content-preview">
+            
+            docker,nvidia-docker,cuda,k8s的集成使用,docker镜像源,docker镜像存储位置,docker引擎,docker权限的配置
+            
+        </div>
+    </a>
+    <p class="post-meta" style="margin-bottom: 5px">
+        Posted by Naah on Saturday, Jun 22,2019 20:44:47
+    </p>
+<div>
+    <span class="categories_list">
+        <i class="fa fa-folder-o" ></i>
+        
+        <a href="https://www.naah69.com/categories/others"  target="_blank">Others</a>、
+        
+    </span>
+    <span class="categories_list">
+        <i class="fa fa-tags" ></i>
+        
+        <a class="tag"  href="/tags/docker" title="docker"  target="_blank">docker</a>、
+        
+        <a class="tag"  href="/tags/nvidia-docker" title="nvidia-docker"  target="_blank">nvidia-docker</a>、
+        
+        <a class="tag"  href="/tags/k8s" title="k8s"  target="_blank">k8s</a>、
+        
+        <a class="tag"  href="/tags/rancher" title="rancher"  target="_blank">rancher</a>、
+        
+        <a class="tag"  href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank">环境配置系列</a>、
+        
+    </span>
+</div>
+</div>
+<div>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://www.naah69.com/post/2019-06-22-hugo-algolia-chinese-builder-2/" target="_blank">
+        <h2 class="post-title">
+            <span>Hugo-Algolia-Chinese-Builder更新啦</span>
+
+        </h2>
+
+        
+        <div class="post-content-preview">
+            
+            全新基于Go语言的Algolia分词器
+            
+        </div>
+    </a>
+    <p class="post-meta" style="margin-bottom: 5px">
+        Posted by Naah on Saturday, Jun 22,2019 20:28:03
+    </p>
+<div>
+    <span class="categories_list">
+        <i class="fa fa-folder-o" ></i>
+        
+        <a href="https://www.naah69.com/categories/java"  target="_blank">Java</a>、
+        
+        <a href="https://www.naah69.com/categories/others"  target="_blank">OTHERS</a>、
+        
+    </span>
+    <span class="categories_list">
+        <i class="fa fa-tags" ></i>
+        
+        <a class="tag"  href="/tags/hugo" title="Hugo"  target="_blank">Hugo</a>、
+        
+        <a class="tag"  href="/tags/algolia" title="Algolia"  target="_blank">Algolia</a>、
+        
+        <a class="tag"  href="/tags/jieba" title="Jieba"  target="_blank">Jieba</a>、
+        
+        <a class="tag"  href="/tags/software" title="Software"  target="_blank">Software</a>、
+        
+        <a class="tag"  href="/tags/go" title="Go"  target="_blank">Go</a>、
+        
+    </span>
+</div>
+</div>
+<div>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://www.naah69.com/post/2019-06-21-docker/" target="_blank">
+        <h2 class="post-title">
+            <span>最完善的docker安装和配置教程</span>
+
+        </h2>
+
+        
+        <div class="post-content-preview">
+            
+            docker,docker安装,docker镜像源,docker镜像存储位置,docker引擎,docker权限的配置
+            
+        </div>
+    </a>
+    <p class="post-meta" style="margin-bottom: 5px">
+        Posted by Naah on Friday, Jun 21,2019 20:44:47
+    </p>
+<div>
+    <span class="categories_list">
+        <i class="fa fa-folder-o" ></i>
+        
+        <a href="https://www.naah69.com/categories/others"  target="_blank">Others</a>、
+        
+    </span>
+    <span class="categories_list">
+        <i class="fa fa-tags" ></i>
+        
+        <a class="tag"  href="/tags/docker" title="docker"  target="_blank">docker</a>、
+        
+        <a class="tag"  href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank">环境配置系列</a>、
+        
+    </span>
+</div>
+</div>
+<div>
+</div>
+<hr>
+
+
+
+            
+
+
+
+<ul class="pager">
+    
+    <li class="previous">
+        <a href="/page/2/">&larr; 上一页</a>
+    </li>
+    
+
+    
+    
+    <li class="pagination__item">
+        <a  aria-label="Goto page 1" href="/">1</a>
+    </li>
+    
+    <li class="pagination__item">
+        <a  aria-label="Goto page 2" href="/page/2/">2</a>
+    </li>
+    
+    <li class="pagination__item">
+        <a  style="background-color:#404040;color: white;"  aria-label="Goto page 3" href="/page/3/">3</a>
+    </li>
+    
+    <li class="pagination__item">
+        <a  aria-label="Goto page 4" href="/page/4/">4</a>
+    </li>
+    
+    <li class="pagination__item">
+        <a  aria-label="Goto page 5" href="/page/5/">5</a>
+    </li>
+    
+    <li class="pagination__item">
+        <a  aria-label="Goto page 6" href="/page/6/">6</a>
+    </li>
+    
+    <li class="pagination__item">
+        <a  aria-label="Goto page 7" href="/page/7/">7</a>
+    </li>
+    
+    <li class="pagination__item">
+        <a  aria-label="Goto page 8" href="/page/8/">8</a>
+    </li>
+    
+    <li class="pagination__item">
+        <a  aria-label="Goto page 9" href="/page/9/">9</a>
+    </li>
+    
+    
+
+    
+    <li class="next">
+        <a href="/page/4/">下一页 &rarr;</a>
+    </li>
+    
+</ul>
+
+
+        </div>
+        
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    <section class="visible-md visible-lg">
+        <hr>
+        <h5><a href="https://www.naah69.com/about" target="_blank">博主信息</a></h5>
+        <div class="short-about">
+            
+            <img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9gy1fw0npk3155j20u0140aca.jpg"/>
+            
+
+            <h3 style="margin-bottom: 20px;">
+                
+                那焱(纳兰)
+                
+                &nbsp;
+                
+                Naah
+                
+            </h3>
+
+            
+            <p>架构师</p>
+            
+
+            
+            <p>热爱生活,拥抱变化</p>
+            
+
+            
+            <ul class="list-inline">
+                
+                
+                <li>
+                    <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <a target="_blank" href="https://weibo.com/naah">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+
+                    <a href="javascript:wx()">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a target="_blank" href="https://github.com/naah69">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </section>
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5><a href="/tags/"   target="_blank" >标签展示</a></h5>
+        <div class="tags">
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80" title="算法基础"  target="_blank" >
+            算法基础(16)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="数据结构"  target="_blank" >
+            数据结构(14)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
+            环境配置系列(12)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
+            排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ci/cd" title="ci/cd"  target="_blank" >
+            ci/cd(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E5%9B%BE" title="图"  target="_blank" >
+            图(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
+            数学基础(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习"  target="_blank" >
+            深度学习(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络"  target="_blank" >
+            神经网络(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8" title="算法应用"  target="_blank" >
+            算法应用(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94" title="随笔"  target="_blank" >
+            随笔(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/go" title="go"  target="_blank" >
+            go(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/software" title="software"  target="_blank" >
+            software(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/hugo" title="hugo"  target="_blank" >
+            hugo(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/mark" title="mark"  target="_blank" >
+            mark(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91" title="二叉树"  target="_blank" >
+            二叉树(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E8%AE%B0%E5%BD%95" title="记录"  target="_blank" >
+            记录(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/docker" title="docker"  target="_blank" >
+            docker(3)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ecug" title="ecug"  target="_blank" >
+            ecug(3)
+            </a>
+
+            
+
+            <a href="/tags/"  target="_blank" >
+            全部标签
+            </a>
+
+        </div>
+    </section>
+    
+
+    
+    <hr>
+    <h5>友情链接</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.liaoxuefeng.com/">廖雪峰的官方网站</a></li>
+        
+        <li><a target="_blank" href="http://www.dayanzai.me/">大眼仔旭下载站</a></li>
+        
+        <li><a target="_blank" href="http://www.carrotchou.blog/">胡萝卜周下载站</a></li>
+        
+        <li><a target="_blank" href="http://xclient.info/">Xclient Mac下载站</a></li>
+        
+    </ul>
+
+    
+    <hr>
+    <h5>工具网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.algolia.com/">Algolia</a></li>
+        
+        <li><a target="_blank" href="https://changyan.kuaizhan.com/">畅言</a></li>
+        
+        <li><a target="_blank" href="http://tool.chinaz.com/">站长工具</a></li>
+        
+        <li><a target="_blank" href="https://tool.lu/">程序猿在线工具箱</a></li>
+        
+        <li><a target="_blank" href="https://www.bejson.com/">配置文件工具箱</a></li>
+        
+        <li><a target="_blank" href="http://www.jq22.com/textDifference">文本对比</a></li>
+        
+        <li><a target="_blank" href="https://cloudconvert.com/formats">在线文件格式转换</a></li>
+        
+    </ul>
+    
+    <hr>
+    <h5>收藏网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+        
+        <li><a target="_blank" href="https://www.nowcoder.com/">牛客网</a></li>
+        
+        <li><a target="_blank" href="http://www.acmcoder.com/">赛码网</a></li>
+        
+    </ul>
+</div>
+
+    </div>
+</div>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://weibo.com/naah">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    <script>
+                        function wx() {
+                            layer.open({
+                                type: 1,
+                                title: false,
+                                closeBtn: 1,
+                                area: ['500px', '500px'],
+                                skin: 'layui-layer-nobg', 
+                                shadeClose: true,
+                                content: '<img src="https:\/\/naah-blog.oss-cn-hangzhou.aliyuncs.com\/img\/ed1d2fb9gy1fw0ntoycqcj20rr0rs3zo.jpg" width="500px" height="500px">'
+                            });
+                        }
+                    </script>
+                    <li>
+                        <a href="javascript:wx()">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/naah69">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy;   2020 <a href="http://www.beian.miit.gov.cn" target="_blank">浙ICP备19040622号</a>
+                    <br>
+                    
+                    <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+<script src="https://www.naah69.com/js/hux-blog.min.js"></script>
+
+<script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
+
+
+<script>
+
+
+    var _baId = '5d8997bbef4253c1fdbcba1a8fb66019';
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?"+ _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+
+<!-- async load function -->
+function async(u, c) {
+    var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+        o.addEventListener('load', function (e) {
+            c(null, e);
+        }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+}
+
+<!--fastClick.js -->
+async("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav) FastClick.attach($nav);
+})
+
+</script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155998534-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155998534-1');
+</script>
+
+
+
+
+</body>
+
+ 
+</html>
