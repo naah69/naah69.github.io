@@ -26,6 +26,66 @@
 });'>
 
 </script>
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/styles/a11y-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/sql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+
+<style>
+  .hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:24px;
+    border-right: 1px solid #c5c5c5;
+  }
+
+  .hljs-ln-code {
+    padding-left: 1em;
+  }
+
+  .hljs-ln{border-collapse:collapse}
+   
+  .hljs-ln-n:before{content:attr(data-line-number);margin-right:1em;}
+  .highlight pre, pre, .highlight .hll{padding: 6px 0px}
+  .hljs{padding: 8px 0px}
+  em{color: red}
+  #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+  #index nav ul li {padding-left: 0em;}
+  #index nav ul li ul {padding-left: 1em;}
+  pre{
+    background: none;
+  }
+
+  @media screen and (max-width: 500px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+  @media screen and (max-width: 768px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+
+</style>
+
+
 
 
 
@@ -79,6 +139,7 @@
 
 
 </head>
+<body>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -124,6 +185,10 @@
                     
                     <li>
                         <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
                     </li>
                     
 
@@ -260,18 +325,23 @@
                     <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
                         <nav id="TableOfContents">
   <ul>
-    <li><a href="#11-thrift">1.1 Thrift</a></li>
-    <li><a href="#12-drift">1.2 Drift</a></li>
-    <li><a href="#13-springcloud-starter-drift-client">1.3 SpringCloud-Starter-Drift-Client</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#21-建立springcloud项目">2.1 建立SpringCloud项目</a></li>
-    <li><a href="#22-配置组件">2.2 配置组件</a></li>
-    <li><a href="#23-开启注解">2.3 开启注解</a></li>
-    <li><a href="#24-编写接口">2.4 编写接口</a></li>
-    <li><a href="#25-服务注入">2.5 服务注入</a></li>
-    <li><a href="#26-使用服务">2.6 使用服务</a></li>
+    <li><a href="#1-介绍">1 介绍</a>
+      <ul>
+        <li><a href="#11-thrift">1.1 Thrift</a></li>
+        <li><a href="#12-drift">1.2 Drift</a></li>
+        <li><a href="#13-springcloud-starter-drift-client">1.3 SpringCloud-Starter-Drift-Client</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-demo">2 DEMO</a>
+      <ul>
+        <li><a href="#21-建立springcloud项目">2.1 建立SpringCloud项目</a></li>
+        <li><a href="#22-配置组件">2.2 配置组件</a></li>
+        <li><a href="#23-开启注解">2.3 开启注解</a></li>
+        <li><a href="#24-编写接口">2.4 编写接口</a></li>
+        <li><a href="#25-服务注入">2.5 服务注入</a></li>
+        <li><a href="#26-使用服务">2.6 使用服务</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
                     </div>
@@ -318,247 +388,120 @@
 <h1 id="2-demo">2 DEMO</h1>
 <h2 id="21-建立springcloud项目">2.1 建立SpringCloud项目</h2>
 <p>引入maven依赖（目前只支持consul，不过可以自定义实现）。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
-    <span style="color:#f92672">&lt;groupId&gt;</span>com.naah69<span style="color:#f92672">&lt;/groupId&gt;</span>
-    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-cloud-starter-drift-client<span style="color:#f92672">&lt;/artifactId&gt;</span>
-    <span style="color:#f92672">&lt;version&gt;</span>1.0.0<span style="color:#f92672">&lt;/version&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span>
-<span style="color:#f92672">&lt;dependency&gt;</span>
-    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#f92672">&lt;/groupId&gt;</span>
-    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-cloud-starter-consul-discovery<span style="color:#f92672">&lt;/artifactId&gt;</span>
-    <span style="color:#f92672">&lt;version&gt;</span>2.0.1.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span>
-<span style="color:#f92672">&lt;dependency&gt;</span>
-    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
-    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-actuator<span style="color:#f92672">&lt;/artifactId&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="22-配置组件">2.2 配置组件</h2>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.naah69&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-drift-client&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-consul-discovery&lt;/artifactId&gt;
+    &lt;version&gt;2.0.1.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h2 id="22-配置组件">2.2 配置组件</h2>
 <p>编写SpringCloud配置。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21">21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22">22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23">23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24">24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25">25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26">26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27">27</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="28"><a style="outline: none; text-decoration:none; color:inherit" href="#28">28</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="29"><a style="outline: none; text-decoration:none; color:inherit" href="#29">29</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="30"><a style="outline: none; text-decoration:none; color:inherit" href="#30">30</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="31"><a style="outline: none; text-decoration:none; color:inherit" href="#31">31</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="32"><a style="outline: none; text-decoration:none; color:inherit" href="#32">32</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="33"><a style="outline: none; text-decoration:none; color:inherit" href="#33">33</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="34"><a style="outline: none; text-decoration:none; color:inherit" href="#34">34</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="35"><a style="outline: none; text-decoration:none; color:inherit" href="#35">35</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="36"><a style="outline: none; text-decoration:none; color:inherit" href="#36">36</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="37"><a style="outline: none; text-decoration:none; color:inherit" href="#37">37</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="38"><a style="outline: none; text-decoration:none; color:inherit" href="#38">38</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="39"><a style="outline: none; text-decoration:none; color:inherit" href="#39">39</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="40"><a style="outline: none; text-decoration:none; color:inherit" href="#40">40</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="41"><a style="outline: none; text-decoration:none; color:inherit" href="#41">41</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="42"><a style="outline: none; text-decoration:none; color:inherit" href="#42">42</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="43"><a style="outline: none; text-decoration:none; color:inherit" href="#43">43</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="44"><a style="outline: none; text-decoration:none; color:inherit" href="#44">44</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="45"><a style="outline: none; text-decoration:none; color:inherit" href="#45">45</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="46"><a style="outline: none; text-decoration:none; color:inherit" href="#46">46</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="47"><a style="outline: none; text-decoration:none; color:inherit" href="#47">47</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="48"><a style="outline: none; text-decoration:none; color:inherit" href="#48">48</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="49"><a style="outline: none; text-decoration:none; color:inherit" href="#49">49</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="50"><a style="outline: none; text-decoration:none; color:inherit" href="#50">50</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="51"><a style="outline: none; text-decoration:none; color:inherit" href="#51">51</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="52"><a style="outline: none; text-decoration:none; color:inherit" href="#52">52</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="53"><a style="outline: none; text-decoration:none; color:inherit" href="#53">53</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="54"><a style="outline: none; text-decoration:none; color:inherit" href="#54">54</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="55"><a style="outline: none; text-decoration:none; color:inherit" href="#55">55</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="56"><a style="outline: none; text-decoration:none; color:inherit" href="#56">56</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="57"><a style="outline: none; text-decoration:none; color:inherit" href="#57">57</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="58"><a style="outline: none; text-decoration:none; color:inherit" href="#58">58</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="59"><a style="outline: none; text-decoration:none; color:inherit" href="#59">59</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="60"><a style="outline: none; text-decoration:none; color:inherit" href="#60">60</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="61"><a style="outline: none; text-decoration:none; color:inherit" href="#61">61</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="62"><a style="outline: none; text-decoration:none; color:inherit" href="#62">62</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="63"><a style="outline: none; text-decoration:none; color:inherit" href="#63">63</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="64"><a style="outline: none; text-decoration:none; color:inherit" href="#64">64</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">spring</span>:
-  <span style="color:#f92672">cloud</span>:
-    <span style="color:#f92672">consul</span>:
-      <span style="color:#f92672">host</span>: <span style="color:#ae81ff">127.0.0.1</span>
-      <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8500</span>
-      <span style="color:#f92672">retry</span>:
-        <span style="color:#f92672">max-attempts</span>: <span style="color:#ae81ff">500</span>
-      <span style="color:#f92672">discovery</span>:
-        <span style="color:#f92672">health-check-critical-timeout</span>: <span style="color:#ae81ff">5m</span>
-        <span style="color:#f92672">health-check-path</span>: <span style="color:#ae81ff">/actuator/health</span>
-        <span style="color:#f92672">health-check-interval</span>: <span style="color:#ae81ff">5s</span>
-        <span style="color:#f92672">tags</span>: <span style="color:#ae81ff">dev</span>
-        <span style="color:#f92672">instance-id</span>: <span style="color:#ae81ff">demo</span>
-        <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
-        <span style="color:#f92672">prefer-ip-address</span>: <span style="color:#66d9ef">true</span>
-        <span style="color:#f92672">health-check-tls-skip-verify</span>: <span style="color:#66d9ef">true</span>
-        <span style="color:#f92672">query-passing</span>: <span style="color:#66d9ef">true</span>
-        <span style="color:#f92672">register</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#f92672">drift</span>:
-    <span style="color:#75715e">#    开关</span>
-    <span style="color:#f92672">enable</span>: <span style="color:#66d9ef">true</span>
-    <span style="color:#f92672">client</span>:
-      <span style="color:#75715e">#      接口扫描路径</span>
-      <span style="color:#f92672">package-to-scan</span>: <span style="color:#ae81ff">com.example.demo</span>
-      <span style="color:#75715e">#      传输模型（com.naah69.rpc.drift.client.properties.DriftTransportModel）</span>
-      <span style="color:#f92672">transport-model</span>: <span style="color:#ae81ff">framed</span>
-      <span style="color:#75715e">#      序列化模型（com.naah69.rpc.drift.client.properties.DriftProtocolModel）</span>
-      <span style="color:#f92672">protocol-model</span>: <span style="color:#ae81ff">binary</span>
-      <span style="color:#75715e">#      服务列表刷新时间</span>
-      <span style="color:#f92672">refresh-interval</span>: <span style="color:#ae81ff">30000</span>
-      <span style="color:#f92672">pool</span>:
-        <span style="color:#75715e">#        连接重试次数</span>
-        <span style="color:#f92672">retry-times</span>: <span style="color:#ae81ff">0</span>
-        <span style="color:#75715e">#        连接超时时间</span>
-        <span style="color:#f92672">connect-timeout</span>: <span style="color:#ae81ff">2000000</span>
-        <span style="color:#75715e">#        请求超时时间</span>
-        <span style="color:#f92672">request-timeout</span>: <span style="color:#ae81ff">2000</span>
-        <span style="color:#75715e">#        最大连接数</span>
-        <span style="color:#f92672">pool-max-total-per-key</span>: <span style="color:#ae81ff">1</span>
-        <span style="color:#75715e">#        最大空闲数</span>
-        <span style="color:#f92672">pool-max-idle-per-key</span>: <span style="color:#ae81ff">1</span>
-        <span style="color:#75715e">#        最小空闲数</span>
-        <span style="color:#f92672">pool-min-idle-per-key</span>: <span style="color:#ae81ff">1</span>
-        <span style="color:#75715e">#        最大等待时间</span>
-        <span style="color:#f92672">pool-max-wait</span>: <span style="color:#ae81ff">3000</span>
-        <span style="color:#75715e">#        创建时测试可用</span>
-        <span style="color:#f92672">test-on-create</span>: <span style="color:#66d9ef">true</span>
-        <span style="color:#75715e">#        借出时测试可用</span>
-        <span style="color:#f92672">test-on-borrow</span>: <span style="color:#66d9ef">true</span>
-        <span style="color:#75715e">#        返回时测试可用</span>
-        <span style="color:#f92672">test-on-return</span>: <span style="color:#66d9ef">true</span>
-        <span style="color:#75715e">#        空闲连接自动被回收</span>
-        <span style="color:#f92672">test-while-idle</span>: <span style="color:#66d9ef">true</span>
+<pre><code class="language-yaml">spring:
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      retry:
+        max-attempts: 500
+      discovery:
+        health-check-critical-timeout: 5m
+        health-check-path: /actuator/health
+        health-check-interval: 5s
+        tags: dev
+        instance-id: demo
+        enabled: true
+        prefer-ip-address: true
+        health-check-tls-skip-verify: true
+        query-passing: true
+        register: true
+  drift:
+    #    开关
+    enable: true
+    client:
+      #      接口扫描路径
+      package-to-scan: com.example.demo
+      #      传输模型（com.naah69.rpc.drift.client.properties.DriftTransportModel）
+      transport-model: framed
+      #      序列化模型（com.naah69.rpc.drift.client.properties.DriftProtocolModel）
+      protocol-model: binary
+      #      服务列表刷新时间
+      refresh-interval: 30000
+      pool:
+        #        连接重试次数
+        retry-times: 0
+        #        连接超时时间
+        connect-timeout: 2000000
+        #        请求超时时间
+        request-timeout: 2000
+        #        最大连接数
+        pool-max-total-per-key: 1
+        #        最大空闲数
+        pool-max-idle-per-key: 1
+        #        最小空闲数
+        pool-min-idle-per-key: 1
+        #        最大等待时间
+        pool-max-wait: 3000
+        #        创建时测试可用
+        test-on-create: true
+        #        借出时测试可用
+        test-on-borrow: true
+        #        返回时测试可用
+        test-on-return: true
+        #        空闲连接自动被回收
+        test-while-idle: true
 
-<span style="color:#f92672">management</span>:
-  <span style="color:#f92672">endpoint</span>:
-    <span style="color:#f92672">shutdown</span>:
-      <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
-    <span style="color:#f92672">health</span>:
-      <span style="color:#f92672">show-details</span>: <span style="color:#ae81ff">always</span>
-  <span style="color:#f92672">endpoints</span>:
-    <span style="color:#f92672">web</span>:
-      <span style="color:#f92672">exposure</span>:
-        <span style="color:#f92672">include</span>: <span style="color:#e6db74">&#34;*&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="23-开启注解">2.3 开启注解</h2>
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: &quot;*&quot;
+</code></pre>
+<h2 id="23-开启注解">2.3 开启注解</h2>
 <p>在你的Application上添加以下的注解,开启组件。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@EnableDiscoveryClient</span>
-<span style="color:#a6e22e">@EnableDriftClient</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="24-编写接口">2.4 编写接口</h2>
+<pre><code class="language-java">@EnableDiscoveryClient
+@EnableDriftClient
+</code></pre>
+<h2 id="24-编写接口">2.4 编写接口</h2>
 <p>通过以下几个注解来编写接口，因为怕使用者混淆，所以我们使用ThriftClient，表示这是Thrift服务的客户端。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//服务端在注册中心的名字
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">@ThriftClient</span><span style="color:#f92672">(</span>serviceId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;nlu_service&#34;</span><span style="color:#f92672">)</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">NLU</span> <span style="color:#f92672">{</span>
+<pre><code class="language-java">//服务端在注册中心的名字
+@ThriftClient(serviceId = &quot;nlu_service&quot;)
+public interface NLU {
 
-    <span style="color:#75715e">//对应的方法的名字
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@ThriftMethod</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;parse&#34;</span><span style="color:#f92672">)</span>
-    String <span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span>String scene<span style="color:#f92672">,</span> String version<span style="color:#f92672">,</span> String text<span style="color:#f92672">);</span>
+    //对应的方法的名字
+    @ThriftMethod(&quot;parse&quot;)
+    String parse(String scene, String version, String text);
 
-    <span style="color:#a6e22e">@ThriftMethod</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;status&#34;</span><span style="color:#f92672">)</span>
-    String <span style="color:#a6e22e">status</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="25-服务注入">2.5 服务注入</h2>
+    @ThriftMethod(&quot;status&quot;)
+    String status();
+}
+</code></pre>
+<h2 id="25-服务注入">2.5 服务注入</h2>
 <p>我们使用ThriftRefer注解来注入客户端，使用version字段我们可以进行版本号的设置，防止多版本服务在注册中心注册时调用混乱的BUG.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#a6e22e">@ThriftRefer</span><span style="color:#f92672">(</span>version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1.2.1&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">private</span> NLU nlu<span style="color:#f92672">;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="26-使用服务">2.6 使用服务</h2>
+<pre><code class="language-java">    @ThriftRefer(version = &quot;1.2.1&quot;)
+    private NLU nlu;
+</code></pre>
+<h2 id="26-使用服务">2.6 使用服务</h2>
 <p>经过以上几个步骤，我们就可以进行使用了。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/demo&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">demo</span><span style="color:#f92672">(){</span>
-        <span style="color:#66d9ef">return</span> nlu<span style="color:#f92672">.</span><span style="color:#a6e22e">status</span><span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+<pre><code class="language-java">    @GetMapping(&quot;/demo&quot;)
+    public String demo(){
+        return nlu.status();
+    }
+</code></pre>
+
                 
                 <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
                 
@@ -717,7 +660,7 @@
             
             
             <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
-            环境配置系列(12)
+            环境配置系列(14)
             </a>
 
             
@@ -725,6 +668,13 @@
             
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
             排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
             </a>
 
             
@@ -746,13 +696,6 @@
             
             <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
             数学基础(7)
-            </a>
-
-            
-            
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
-            机器学习系列(7)
             </a>
 
             
@@ -998,6 +941,7 @@
 <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
 
 
+
 <script>
 
 
@@ -1062,10 +1006,73 @@ gtag('config', 'UA-155998534-1');
 </body>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
     <script src="https://www.naah69.com/js/article.js"></script>
+    <script>
+
+
+    
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+        singleLine: true
+    });
+
+    $("style").each(function(){
+        style=$(this).text()
+        if(style.indexOf(".hljs-ln td{padding:0}")!=-1){
+            $(this).remove();
+        }
+    });
+
+
+    
+    var snippets = document.querySelectorAll('pre>code');
+    var htmlCopyButton = `<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i></button>`;
+
+    snippets.forEach(snippet => {
+        var pre = snippet.parentNode;
+        var pre_parent = pre.parentNode;
+
+        var wrapper = document.createElement('div');
+
+        pre_parent.replaceChild(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        wrapper.classList.add('code-highlight');
+        wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+        var class0 = (snippet.classList[0] || 'code')
+        var lang = (class0.replace("language-", "") || 'code').toUpperCase();
+        wrapper.setAttribute('data-lang', lang);
+    });
+
+    
+    var clipboard = new ClipboardJS('.codecopy-btn', {
+        target: trigger => {
+            return trigger.nextSibling;
+        },
+    });
+
+    clipboard.on('success', e => {
+        e.trigger.setAttribute('aria-label', 'Copied!');
+        e.clearSelection();
+    });
+
+    
+    
+    var btns = document.querySelectorAll('.codecopy-btn');
+
+    btns.forEach(btn => {
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    });
+
+</script>
 
 
 </html>

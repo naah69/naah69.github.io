@@ -13,7 +13,7 @@
       <pubDate>Sun, 23 Jun 2019 13:42:08 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2019-06-23-go-trap/</guid>
-      <description>1 国内如何快速go get github的包 在命令行输入go get ...前输入以下命令 1 2 3 4 #配置你自己的http代理 export http_proxy=http://127.0.0.1:1087 go get ... 2 golang版本ji</description>
+      <description>1 国内如何快速go get github的包 在命令行输入go get ...前输入以下命令 #配置你自己的http代理 export http_proxy=http://127.0.0.1:1087 go get ... 2 golang版本jieba的</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Wed, 17 Oct 2018 13:20:24 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2018-10-17-process-dead-lock/</guid>
-      <description>1 问题背景 最近在做一个需求需要调用linux下的某个脚本来对ai的模型进行训练，很简单的需求，我像往常一样写下如下的代码片段： 1 2 Process process = Runtime.getRuntime().exec(cmd); process.waitFor();</description>
+      <description>1 问题背景 最近在做一个需求需要调用linux下的某个脚本来对ai的模型进行训练，很简单的需求，我像往常一样写下如下的代码片段： Process process = Runtime.getRuntime().exec(cmd); process.waitFor(); Bu</description>
     </item>
     
     <item>

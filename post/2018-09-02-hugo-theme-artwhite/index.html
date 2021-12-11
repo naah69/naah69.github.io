@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.naah69.com/css/hux-blog.min.css">
     
+    
+
 
 
 
@@ -68,6 +70,7 @@
 
 
 </head>
+<body>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -113,6 +116,10 @@
                     
                     <li>
                         <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
                     </li>
                     
 
@@ -245,35 +252,40 @@
                     <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
                         <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-新功能">1 新功能</a></li>
-    <li><a href="#2-截图">2 截图</a>
+    <li><a href="#art-white-theme-for-hugo">Art White Theme for Hugo</a></li>
+    <li><a href="#english-dochttpsgithubcomnaah69hugo-theme-artwhiteblobmasterreadmemd"><a href="https://github.com/naah69/hugo-theme-artwhite/blob/master/README.md">English Doc</a></a>
       <ul>
-        <li><a href="#21-首页">2.1 首页</a></li>
-        <li><a href="#22-文章页">2.2 文章页</a></li>
-        <li><a href="#23-搜索页">2.3 搜索页</a></li>
+        <li><a href="#1-新功能">1 新功能</a></li>
+        <li><a href="#2-截图">2 截图</a>
+          <ul>
+            <li><a href="#21-首页">2.1 首页</a></li>
+            <li><a href="#22-文章页">2.2 文章页</a></li>
+            <li><a href="#23-搜索页">2.3 搜索页</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-快速开始">3 快速开始</a></li>
+        <li><a href="#4-配置">4 配置</a>
+          <ul>
+            <li><a href="#41-畅言评论">4.1 畅言评论</a></li>
+            <li><a href="#42-algolia全站搜索">4.2 Algolia全站搜索</a></li>
+            <li><a href="#43-统计">4.3 统计</a></li>
+            <li><a href="#44-页面计数">4.4 页面计数</a></li>
+            <li><a href="#45-文章浮动目录">4.5 文章浮动目录</a></li>
+            <li><a href="#46-侧边栏标签">4.6 侧边栏标签</a></li>
+            <li><a href="#47-页码按钮">4.7 页码按钮</a></li>
+          </ul>
+        </li>
+        <li><a href="#5-服务编译和部署">5 服务、编译和部署</a>
+          <ul>
+            <li><a href="#51-本地服务脚本">5.1 本地服务脚本</a></li>
+            <li><a href="#52-编译脚本">5.2 编译脚本</a></li>
+            <li><a href="#53-部署脚本">5.3 部署脚本</a></li>
+          </ul>
+        </li>
+        <li><a href="#6-感谢">6 感谢</a></li>
+        <li><a href="#7-反馈">7 反馈</a></li>
       </ul>
     </li>
-    <li><a href="#3-快速开始">3 快速开始</a></li>
-    <li><a href="#4-配置">4 配置</a>
-      <ul>
-        <li><a href="#41-畅言评论">4.1 畅言评论</a></li>
-        <li><a href="#42-algolia全站搜索">4.2 Algolia全站搜索</a></li>
-        <li><a href="#43-统计">4.3 统计</a></li>
-        <li><a href="#44-页面计数">4.4 页面计数</a></li>
-        <li><a href="#45-文章浮动目录">4.5 文章浮动目录</a></li>
-        <li><a href="#46-侧边栏标签">4.6 侧边栏标签</a></li>
-        <li><a href="#47-页码按钮">4.7 页码按钮</a></li>
-      </ul>
-    </li>
-    <li><a href="#5-服务编译和部署">5 服务、编译和部署</a>
-      <ul>
-        <li><a href="#51-本地服务脚本">5.1 本地服务脚本</a></li>
-        <li><a href="#52-编译脚本">5.2 编译脚本</a></li>
-        <li><a href="#53-部署脚本">5.3 部署脚本</a></li>
-      </ul>
-    </li>
-    <li><a href="#6-感谢">6 感谢</a></li>
-    <li><a href="#7-反馈">7 反馈</a></li>
   </ul>
 </nav>
                     </div>
@@ -306,275 +318,123 @@
 <p><img src="https://raw.githubusercontent.com/naah69/hugo-theme-artwhite/master/images/search.png" alt="screenshot"></p>
 <h2 id="3-快速开始">3 快速开始</h2>
 <p>1.进入Hugo项目的目录运行下面语句:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ mkdir themes
+<pre><code>$ mkdir themes
 $ cd themes
 $ git clone https://github.com/naah69/hugo-theme-artwhite.git
-</code></pre></td></tr></table>
-</div>
-</div><p>如果你的站点已经是一个git仓库，可能你想建立一个子模块，避免弄乱git仓库的话，运行下面语句.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ mkdir themes
+</code></pre>
+<p>如果你的站点已经是一个git仓库，可能你想建立一个子模块，避免弄乱git仓库的话，运行下面语句.</p>
+<pre><code>$ mkdir themes
 $ git submodule add https://github.com/naah69/hugo-theme-artwhite.git themes/hugo-theme-artwhite
-</code></pre></td></tr></table>
-</div>
-</div><p>2.把<code>themes/hugo-theme-artwhite/requiredFile</code>下的所有文件覆盖到你的项目目录中.</p>
+</code></pre>
+<p>2.把<code>themes/hugo-theme-artwhite/requiredFile</code>下的所有文件覆盖到你的项目目录中.</p>
 <p>3.运行hugo本地服务命令</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ ./server
-</code></pre></td></tr></table>
-</div>
-</div><p>现在用浏览器进入 <a href="http://localhost:1313"><code>http://localhost:1313</code></a></p>
+<pre><code>$ ./server
+</code></pre>
+<p>现在用浏览器进入 <a href="http://localhost:1313"><code>http://localhost:1313</code></a></p>
 <h2 id="4-配置">4 配置</h2>
 <p>首先让我们看看 <a href="https://github.com/naah69/hugo-theme-artwhite/blob/master/requiredFile/config.toml">config.toml</a>。了解如何自定义你的网站，随意配置这些配置项。</p>
 <h3 id="41-畅言评论">4.1 畅言评论</h3>
 <p>我们使用的是<a href="https://changyan.kuaizhan.com/">畅言</a>提供的评论服务，如果你想开启评论，去畅言创建一个账号，并在配置文件中填写以下配置。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#75715e">#畅言评论配置</span>
-<span style="color:#75715e">#changyan comment config</span>
-<span style="color:#a6e22e">changyan_enable</span> = <span style="color:#66d9ef">true</span>
-<span style="color:#a6e22e">changyan_appid</span> = <span style="color:#e6db74">&#34;&#34;</span>
-<span style="color:#a6e22e">changyan_conf</span> = <span style="color:#e6db74">&#34;&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>你也可以通过<code>changyan_enable</code>来关闭评论。</p>
+<pre><code class="language-toml">#畅言评论配置
+#changyan comment config
+changyan_enable = true
+changyan_appid = &quot;&quot;
+changyan_conf = &quot;&quot;
+</code></pre>
+<p>你也可以通过<code>changyan_enable</code>来关闭评论。</p>
 <h3 id="42-algolia全站搜索">4.2 Algolia全站搜索</h3>
 <p>1.跟着 <a href="https://forestry.io/blog/search-with-algolia-in-hugo/#3-create-your-index-in-algolia">这篇教程</a> 在Algolia中创建你的索引.
 我们需要将网站的索引存在网上。ArtWhite主题的搜索页面将对这个网站的插件进行适配</p>
 <p>2.进入hugo项目的目录，运行下面的命令,这条命令需要 <code>node.js</code> 环境:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm install hugo-algolia -g
-</code></pre></td></tr></table>
-</div>
-</div><p>3.然后我们创建一个叫<code>config.yaml</code>的文件, 输入下面的配置:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">---
-baseurl: &#34;your baseurl&#34;
-DefaultContentLanguage: &#34;zh-cn&#34;
+<pre><code class="language-bash">$ npm install hugo-algolia.exe -g
+</code></pre>
+<p>3.然后我们创建一个叫<code>config.yaml</code>的文件, 输入下面的配置:</p>
+<pre><code>---
+baseurl: &quot;your baseurl&quot;
+DefaultContentLanguage: &quot;zh-cn&quot;
 hasCJKLanguage: true
-languageCode: &#34;zh-cn&#34;
-title: &#34;your site title&#34;
-theme: &#34;hugo-theme-artwhite&#34;
-metaDataFormat: &#34;yaml&#34;
+languageCode: &quot;zh-cn&quot;
+title: &quot;your site title&quot;
+theme: &quot;hugo-theme-artwhite&quot;
+metaDataFormat: &quot;yaml&quot;
 algolia:
-  index: &#34;your algolia index&#34;
-  key: &#34;your algolia admin key&#34;
-  appID: &#34;your algolia appID&#34;
+  index: &quot;your algolia index&quot;
+  key: &quot;your algolia admin key&quot;
+  appID: &quot;your algolia appID&quot;
 ---
-</code></pre></td></tr></table>
-</div>
-</div><p>4.在<code>config.toml</code>中加入下面的配置， 这样搜索页面才能访问到algolia中的索引数据:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7">7</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#75715e">#algolia 前端网站搜索配置</span>
-<span style="color:#75715e">#algolia web config</span>
-<span style="color:#a6e22e">algolia_search</span> = <span style="color:#66d9ef">true</span>
-<span style="color:#a6e22e">algolia_appId</span> = <span style="color:#e6db74">&#34;&#34;</span>
-<span style="color:#a6e22e">algolia_indexName</span> = <span style="color:#e6db74">&#34;&#34;</span>
-<span style="color:#75715e">#search key</span>
-<span style="color:#a6e22e">algolia_apiKey</span> = <span style="color:#e6db74">&#34;&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>ArtWhite主题已经支持Algolia, 所以你可以构建的网站。</p>
+</code></pre>
+<p>4.在<code>config.toml</code>中加入下面的配置， 这样搜索页面才能访问到algolia中的索引数据:</p>
+<pre><code class="language-toml">#algolia 前端网站搜索配置
+#algolia web config
+algolia_search = true
+algolia_appId = &quot;&quot;
+algolia_indexName = &quot;&quot;
+#search key
+algolia_apiKey = &quot;&quot;
+</code></pre>
+<p>ArtWhite主题已经支持Algolia, 所以你可以构建的网站。</p>
 <p>5.生成索引文件: 进入hugo项目的目录然后允许下面的命令:</p>
 <p>中英文分词(它需要<code>JAVA</code>环境):</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar naah-algolia-builder-0.0.1.jar
-</code></pre></td></tr></table>
-</div>
-</div><p>英文分词:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./compile.cmd
-</code></pre></td></tr></table>
-</div>
-</div><p>打开你的搜索页: http://localhost:1313/search</p>
+<pre><code class="language-bash">$ java -jar naah-algolia-builder-0.0.1.jar
+</code></pre>
+<p>英文分词:</p>
+<pre><code class="language-bash">$ ./compile.cmd
+</code></pre>
+<p>打开你的搜索页: http://localhost:1313/search</p>
 <h3 id="43-统计">4.3 统计</h3>
 <p>我们可以开启和关闭百度统计. 在配置中填写你的id</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">ba_track_id</span>  = <span style="color:#e6db74">&#34;XXXXXXXXXXXXXXXX&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>ba_track_id</code>为空则是不开启百度统计</p>
+<pre><code class="language-toml">ba_track_id  = &quot;XXXXXXXXXXXXXXXX&quot;
+</code></pre>
+<p><code>ba_track_id</code>为空则是不开启百度统计</p>
 <h3 id="44-页面计数">4.4 页面计数</h3>
 <p>页面计数我们使用的是<a href="http://busuanzi.ibruce.info/">不蒜子</a>提供的服务. 如果你想开启这个功能，填写下面的配置.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">page_view_conter</span> = <span style="color:#66d9ef">true</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>你也可以通过<code>page_view_conter</code> 来关闭它</p>
+<pre><code class="language-toml">page_view_conter = true
+</code></pre>
+<p>你也可以通过<code>page_view_conter</code> 来关闭它</p>
 <h3 id="45-文章浮动目录">4.5 文章浮动目录</h3>
 <p>文章浮动目录是我自己写的.如果你想开启他，填写下面的配置。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">floatting_directory_enable</span>=<span style="color:#66d9ef">true</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>你也可以通过<code>floatting_directory_enable</code>来关闭它</p>
+<pre><code class="language-toml">floatting_directory_enable=true
+</code></pre>
+<p>你也可以通过<code>floatting_directory_enable</code>来关闭它</p>
 <h3 id="46-侧边栏标签">4.6 侧边栏标签</h3>
 <p>如果你想开启侧边栏标签，就在配置中填写它</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">sidebar_tags_enable</span> = <span style="color:#66d9ef">true</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>你也可以通过<code>sidebar_tags_enable</code>来关闭它</p>
+<pre><code class="language-toml">sidebar_tags_enable = true
+</code></pre>
+<p>你也可以通过<code>sidebar_tags_enable</code>来关闭它</p>
 <h3 id="47-页码按钮">4.7 页码按钮</h3>
 <p>如果你想开启页码，就在配置中填写它</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">page_enable</span> = <span style="color:#66d9ef">true</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>你也可以通过<code>page_enable</code>来关闭它</p>
+<pre><code class="language-toml">page_enable = true
+</code></pre>
+<p>你也可以通过<code>page_enable</code>来关闭它</p>
 <h2 id="5-服务编译和部署">5 服务、编译和部署</h2>
 <h3 id="51-本地服务脚本">5.1 本地服务脚本</h3>
 <p>运行下面的命令，本地服务就会启动</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./server.cmd
-</code></pre></td></tr></table>
-</div>
-</div><p><a href="http://localhost:1313"><code>http://localhost:1313</code></a></p>
+<pre><code class="language-bash">$ ./server.cmd
+</code></pre>
+<p><a href="http://localhost:1313"><code>http://localhost:1313</code></a></p>
 <h3 id="52-编译脚本">5.2 编译脚本</h3>
 <p>运行下面的命令，将会编译html和索引，但是只有英文索引</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./compile.cmd
-</code></pre></td></tr></table>
-</div>
-</div><p>运行下面的命令，将会编译html和中英文索引。(千万别删<code>complie</code>,因为它依赖<code>compile</code>脚本 )</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar naah-algolia-builder-0.0.1.jar
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="53-部署脚本">5.3 部署脚本</h3>
+<pre><code class="language-bash">$ ./compile.cmd
+</code></pre>
+<p>运行下面的命令，将会编译html和中英文索引。(千万别删<code>complie</code>,因为它依赖<code>compile</code>脚本 )</p>
+<pre><code class="language-bash">$ java -jar naah-algolia-builder-0.0.1.jar
+</code></pre>
+<h3 id="53-部署脚本">5.3 部署脚本</h3>
 <p>如果这是你第一次部署,先初始化git仓库.运行下面的命令</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git init
+<pre><code class="language-bash">$ git init
 $ git remote add &lt;仓库短名&gt; &lt;git仓库链接&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>修改脚本</strong></p>
+</code></pre>
+<p><strong>修改脚本</strong></p>
 <p>如果你只使用英文索引,用下面的命令替换<code>java -jar naah-algolia-builder-0.0.1.jar</code></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./compile.cmd
-</code></pre></td></tr></table>
-</div>
-</div><p>修改<code>deploy</code>脚本,把最后一行换掉.(如果你有多个仓库，可以把他们都写上)</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git push -f &lt;仓库短名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>然后运行下面的命令，它将按顺序的编译html，生成索引，然后部署到远程仓库.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./deploy
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="6-感谢">6 感谢</h2>
+<pre><code class="language-bash">./compile.cmd
+</code></pre>
+<p>修改<code>deploy</code>脚本,把最后一行换掉.(如果你有多个仓库，可以把他们都写上)</p>
+<pre><code class="language-bash">git push -f &lt;仓库短名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;
+</code></pre>
+<p>然后运行下面的命令，它将按顺序的编译html，生成索引，然后部署到远程仓库.</p>
+<pre><code class="language-bash">$ ./deploy
+</code></pre>
+<h2 id="6-感谢">6 感谢</h2>
 <p>感谢<a href="https://github.com/zhaohuabing/hugo-theme-cleanwhite">hugo-theme-cleanwhite</a>这个art white 的基础主题。</p>
 <h2 id="7-反馈">7 反馈</h2>
 <p>如果你遇到什么问题, 可以<a href="https://github.com/naah69/hugo-theme-artwhite/issues/new">提问题</a>或者发现bug进行pr</p>
@@ -737,7 +597,7 @@ $ git remote add &lt;仓库短名&gt; &lt;git仓库链接&gt;
             
             
             <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
-            环境配置系列(12)
+            环境配置系列(14)
             </a>
 
             
@@ -745,6 +605,13 @@ $ git remote add &lt;仓库短名&gt; &lt;git仓库链接&gt;
             
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
             排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
             </a>
 
             
@@ -766,13 +633,6 @@ $ git remote add &lt;仓库短名&gt; &lt;git仓库链接&gt;
             
             <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
             数学基础(7)
-            </a>
-
-            
-            
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
-            机器学习系列(7)
             </a>
 
             
@@ -1018,6 +878,7 @@ $ git remote add &lt;仓库短名&gt; &lt;git仓库链接&gt;
 <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
 
 
+
 <script>
 
 
@@ -1082,10 +943,9 @@ gtag('config', 'UA-155998534-1');
 </body>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
     <script src="https://www.naah69.com/js/article.js"></script>
+    
 
 
 </html>

@@ -26,6 +26,66 @@
 });'>
 
 </script>
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/styles/a11y-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/sql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+
+<style>
+  .hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:24px;
+    border-right: 1px solid #c5c5c5;
+  }
+
+  .hljs-ln-code {
+    padding-left: 1em;
+  }
+
+  .hljs-ln{border-collapse:collapse}
+   
+  .hljs-ln-n:before{content:attr(data-line-number);margin-right:1em;}
+  .highlight pre, pre, .highlight .hll{padding: 6px 0px}
+  .hljs{padding: 8px 0px}
+  em{color: red}
+  #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+  #index nav ul li {padding-left: 0em;}
+  #index nav ul li ul {padding-left: 1em;}
+  pre{
+    background: none;
+  }
+
+  @media screen and (max-width: 500px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+  @media screen and (max-width: 768px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+
+</style>
+
+
 
 
 
@@ -79,6 +139,7 @@
 
 
 </head>
+<body>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -124,6 +185,10 @@
                     
                     <li>
                         <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
                     </li>
                     
 
@@ -260,9 +325,15 @@
                     <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
                         <nav id="TableOfContents">
   <ul>
-    <li><a href="#31-配置上传功能">3.1 配置上传功能</a></li>
-    <li><a href="#32-配置图片显示文件等其他配置方式相同">3.2 配置图片显示（文件等其他配置方式相同）</a></li>
-    <li><a href="#33-ueditor与multipartresolver配置冲突解决方案">3.3 ueditor与multipartResolver配置冲突解决方案</a></li>
+    <li><a href="#1-下载ueditor">1 下载ueditor</a></li>
+    <li><a href="#2-前端配置">2 前端配置</a></li>
+    <li><a href="#3-后端配置">3 后端配置</a>
+      <ul>
+        <li><a href="#31-配置上传功能">3.1 配置上传功能</a></li>
+        <li><a href="#32-配置图片显示文件等其他配置方式相同">3.2 配置图片显示（文件等其他配置方式相同）</a></li>
+        <li><a href="#33-ueditor与multipartresolver配置冲突解决方案">3.3 ueditor与multipartResolver配置冲突解决方案</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
                     </div>
@@ -288,34 +359,18 @@
 <h1 id="2-前端配置">2 前端配置</h1>
 <p>首先我们写前端页面</p>
 <p>1.在要放编辑器的div或其他标签内插入下面这条语句，该语句为编辑器窗口</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editor&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;message&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;height: 500px&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/plain&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>2.根据自己的路径导入js，</p>
+<pre><code class="language-javascript">&lt;script id=&quot;editor&quot; name=&quot;message&quot; style=&quot;height: 500px&quot; type=&quot;text/plain&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>2.根据自己的路径导入js，</p>
 <p>注意路径，因为我习惯使用相对路径，我的所有controller都没有目录结构（如@RequestMapping(&ldquo;login.naah&rdquo;)），所以默认从根目录读取！</p>
 <p>getEditor中的值要与上文中的id对应！</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;!-- 配置文件 --&gt;
-&lt;script type=&#34;text/javascript&#34; charset=&#34;utf-8&#34; src=&#34;lib/ueditor/ueditor.config.js&#34;&gt;&lt;/script&gt;
+<pre><code>&lt;!-- 配置文件 --&gt;
+&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;lib/ueditor/ueditor.config.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- 编辑器源码文件 --&gt;
-&lt;script type=&#34;text/javascript&#34; charset=&#34;utf-8&#34; src=&#34;lib/ueditor/ueditor.all.js&#34;&gt; &lt;/script&gt; &lt;script&gt;var ue = UE.getEditor(&#39;editor&#39;);&lt;/script&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>此时如果js路径正确的话，打开网页已经可以看到编辑器页面了，如下图所示：</p>
+&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;lib/ueditor/ueditor.all.js&quot;&gt; &lt;/script&gt; &lt;script&gt;var ue = UE.getEditor('editor');&lt;/script&gt;
+</code></pre>
+<p>此时如果js路径正确的话，打开网页已经可以看到编辑器页面了，如下图所示：</p>
 <p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9ly1g068inhbegj21k10iewge.jpg" alt=""></p>
 <p> </p>
 <p>3.在ueditor.config.js中可根据注释设置编辑器的界面。</p>
@@ -326,81 +381,43 @@
 <h2 id="31-配置上传功能">3.1 配置上传功能</h2>
 <p>1.首先我们根据jsp目录下的controller.jsp写出对应的springMVC的controller，该类主要是实现读取config配置并且上传那文件图片等功能，</p>
 <p>这个RequestMapping的目录一定要和你的ueditor目录对应，否则无法解析config.json</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21">21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22">22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23">23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24">24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25">25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26">26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27">27</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;lib/ueditor/ued.naah&#34;</span><span style="color:#f92672">)</span>
-	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">config</span><span style="color:#f92672">(</span>HttpServletRequest request<span style="color:#f92672">,</span>HttpServletResponse response<span style="color:#f92672">)</span>
-	<span style="color:#f92672">{</span>
+<pre><code class="language-java">@RequestMapping(&quot;lib/ueditor/ued.naah&quot;)
+	public void config(HttpServletRequest request,HttpServletResponse response)
+	{
 
-		response<span style="color:#f92672">.</span><span style="color:#a6e22e">setContentType</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">);</span>
-		String rootPath <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getServletContext</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getRealPath</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">);</span>
+		response.setContentType(&quot;application/json&quot;);
+		String rootPath = request.getSession().getServletContext().getRealPath(&quot;/&quot;);
 
-		<span style="color:#66d9ef">try</span>
-		<span style="color:#f92672">{</span>
-			String exec <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ActionEnter<span style="color:#f92672">(</span>request<span style="color:#f92672">,</span> rootPath<span style="color:#f92672">).</span><span style="color:#a6e22e">exec</span><span style="color:#f92672">();</span>
-			Files a <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Files<span style="color:#f92672">)</span> request<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;file&#34;</span><span style="color:#f92672">);</span>
-			<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>a <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
-			<span style="color:#f92672">{</span>
-				f<span style="color:#f92672">.</span><span style="color:#a6e22e">Ins</span><span style="color:#f92672">(</span>a<span style="color:#f92672">);</span>
-				request<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">().</span><span style="color:#a6e22e">removeAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;file&#34;</span><span style="color:#f92672">);</span>
-			<span style="color:#f92672">}</span>
-			PrintWriter writer <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">();</span>
-			writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>exec<span style="color:#f92672">);</span>
-			writer<span style="color:#f92672">.</span><span style="color:#a6e22e">flush</span><span style="color:#f92672">();</span>
-			writer<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
-		<span style="color:#f92672">}</span>
-		<span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span>
-		<span style="color:#f92672">{</span>
-			e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
-		<span style="color:#f92672">}</span>
+		try
+		{
+			String exec = new ActionEnter(request, rootPath).exec();
+			Files a = (Files) request.getSession().getAttribute(&quot;file&quot;);
+			if (a != null)
+			{
+				f.Ins(a);
+				request.getSession().removeAttribute(&quot;file&quot;);
+			}
+			PrintWriter writer = response.getWriter();
+			writer.write(exec);
+			writer.flush();
+			writer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 
-	<span style="color:#f92672">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>2.将jsp/lib下的jar包导入web-inf/lib，将jsp/config.json复制到ueditor下，然后可以选择性删除jsp文件夹</p>
+	}
+</code></pre>
+<p>2.将jsp/lib下的jar包导入web-inf/lib，将jsp/config.json复制到ueditor下，然后可以选择性删除jsp文件夹</p>
 <p> </p>
 <p>3.打开ueditor.config.js，对serverUrl进行修改，</p>
 <p>我的RequestMapping为lib/ueditor/ued.naah，</p>
 <p>因为URL为ueditor的目录，所以我们将RequestMapping中的目录去掉，</p>
 <p>改为URL+&lsquo;ued.naah&rsquo;</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">serverUrl: URL + &#34;ued.naah&#34;
-</code></pre></td></tr></table>
-</div>
-</div><p> </p>
+<pre><code>serverUrl: URL + &quot;ued.naah&quot;
+</code></pre>
+<p> </p>
 <h2 id="32-配置图片显示文件等其他配置方式相同">3.2 配置图片显示（文件等其他配置方式相同）</h2>
 <p>经过配置后我们会发现此时打开图片已经可以上传图片了，但是可能上传后无法显示图片，那么继续向下看</p>
 <p> </p>
@@ -411,64 +428,22 @@
 <p>如果此时调试运行包含项目名的话，可能如下</p>
 <p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9ly1g068jlja87j209301lq2r.jpg" alt=""></p>
 <p>这个时候要将imageUrlPrefix设置为/+项目名 如下：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&#34;imageUrlPrefix&#34;: &#34;/police&#34;, //* 图片访问路径前缀 /*/
-</code></pre></td></tr></table>
-</div>
-</div><p>如果运行不包含项目名的话，配置如下：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&#34;imageUrlPrefix&#34;: &#34;/&#34;, //* 图片访问路径前缀 /*/
-</code></pre></td></tr></table>
-</div>
-</div><p>3.文件上传目录可根据实际需求更改（文件上传后，脑子短路的我在eclipse内找图片找不到，后来才反应过来应该在tomcat的部署目录下）</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&#34;imagePathFormat&#34;: &#34;/files/images/{yyyy}{mm}{dd}/{time}{rand:6}&#34;, //* 上传保存路径,可以自定义保存路径和文件名格式 /*/
-</code></pre></td></tr></table>
-</div>
-</div><p>其他相对应的配置前缀同样如此配置。。。</p>
+<pre><code>&quot;imageUrlPrefix&quot;: &quot;/police&quot;, //* 图片访问路径前缀 /*/
+</code></pre>
+<p>如果运行不包含项目名的话，配置如下：</p>
+<pre><code>&quot;imageUrlPrefix&quot;: &quot;/&quot;, //* 图片访问路径前缀 /*/
+</code></pre>
+<p>3.文件上传目录可根据实际需求更改（文件上传后，脑子短路的我在eclipse内找图片找不到，后来才反应过来应该在tomcat的部署目录下）</p>
+<pre><code>&quot;imagePathFormat&quot;: &quot;/files/images/{yyyy}{mm}{dd}/{time}{rand:6}&quot;, //* 上传保存路径,可以自定义保存路径和文件名格式 /*/
+</code></pre>
+<p>其他相对应的配置前缀同样如此配置。。。</p>
 <h2 id="33-ueditor与multipartresolver配置冲突解决方案">3.3 ueditor与multipartResolver配置冲突解决方案</h2>
 <p>在配置成功ueditor后，如果使用表单上传文件或者使用ajax异步传送文件返回url等操作，</p>
 <p>会上传失败，下面提出解决方案：</p>
 <p>1.在文件中建立该类</p>
 <p>2.将url.contains(&quot;&quot;)中的值改为上文中我们创建的ueditor config读取类的RequestMapping的值</p>
 <p>代表当遇到url为RequestMapping的文件则不拦截到multipartResolver中</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import javax.servlet.http.HttpServletRequest;
+<pre><code>import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
@@ -478,7 +453,7 @@ public class CommonsMultipartResolverPhhc extends CommonsMultipartResolver
 	public boolean isMultipart(HttpServletRequest request)
 	{
 		String url = request.getRequestURI();
-		if (url != null &amp;&amp; url.contains(&#34;lib/ueditor/ued.naah&#34;))
+		if (url != null &amp;&amp; url.contains(&quot;lib/ueditor/ued.naah&quot;))
 		{
 			return false;
 		}
@@ -488,19 +463,12 @@ public class CommonsMultipartResolverPhhc extends CommonsMultipartResolver
 		}
 	}
 }
-</code></pre></td></tr></table>
-</div>
-</div><p>3.在springMVC.xml中配置bean</p>
+</code></pre>
+<p>3.在springMVC.xml中配置bean</p>
 <p>这个class路径就是上文中写的CommonsMultipartResolverPhhc类的路径</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;bean id=&#34;multipartResolver&#34; class=&#34;com.naah.tools.CommonsMultipartResolverPhhc&#34;&gt; &lt;property name=&#34;maxUploadSize&#34; value=&#34;102400000&#34; /&gt; &lt;/bean&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>4.这个时候就可以成功的将ueditor与multipartResolver分离了</p>
+<pre><code>&lt;bean id=&quot;multipartResolver&quot; class=&quot;com.naah.tools.CommonsMultipartResolverPhhc&quot;&gt; &lt;property name=&quot;maxUploadSize&quot; value=&quot;102400000&quot; /&gt; &lt;/bean&gt;
+</code></pre>
+<p>4.这个时候就可以成功的将ueditor与multipartResolver分离了</p>
 <p>快试试效果怎么样吧！</p>
 <p> </p>
 
@@ -662,7 +630,7 @@ public class CommonsMultipartResolverPhhc extends CommonsMultipartResolver
             
             
             <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
-            环境配置系列(12)
+            环境配置系列(14)
             </a>
 
             
@@ -670,6 +638,13 @@ public class CommonsMultipartResolverPhhc extends CommonsMultipartResolver
             
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
             排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
             </a>
 
             
@@ -691,13 +666,6 @@ public class CommonsMultipartResolverPhhc extends CommonsMultipartResolver
             
             <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
             数学基础(7)
-            </a>
-
-            
-            
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
-            机器学习系列(7)
             </a>
 
             
@@ -943,6 +911,7 @@ public class CommonsMultipartResolverPhhc extends CommonsMultipartResolver
 <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
 
 
+
 <script>
 
 
@@ -1007,10 +976,73 @@ gtag('config', 'UA-155998534-1');
 </body>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
     <script src="https://www.naah69.com/js/article.js"></script>
+    <script>
+
+
+    
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+        singleLine: true
+    });
+
+    $("style").each(function(){
+        style=$(this).text()
+        if(style.indexOf(".hljs-ln td{padding:0}")!=-1){
+            $(this).remove();
+        }
+    });
+
+
+    
+    var snippets = document.querySelectorAll('pre>code');
+    var htmlCopyButton = `<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i></button>`;
+
+    snippets.forEach(snippet => {
+        var pre = snippet.parentNode;
+        var pre_parent = pre.parentNode;
+
+        var wrapper = document.createElement('div');
+
+        pre_parent.replaceChild(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        wrapper.classList.add('code-highlight');
+        wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+        var class0 = (snippet.classList[0] || 'code')
+        var lang = (class0.replace("language-", "") || 'code').toUpperCase();
+        wrapper.setAttribute('data-lang', lang);
+    });
+
+    
+    var clipboard = new ClipboardJS('.codecopy-btn', {
+        target: trigger => {
+            return trigger.nextSibling;
+        },
+    });
+
+    clipboard.on('success', e => {
+        e.trigger.setAttribute('aria-label', 'Copied!');
+        e.clearSelection();
+    });
+
+    
+    
+    var btns = document.querySelectorAll('.codecopy-btn');
+
+    btns.forEach(btn => {
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    });
+
+</script>
 
 
 </html>

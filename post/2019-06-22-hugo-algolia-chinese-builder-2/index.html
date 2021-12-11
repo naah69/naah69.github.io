@@ -26,6 +26,66 @@
 });'>
 
 </script>
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/styles/a11y-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/sql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+
+<style>
+  .hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:24px;
+    border-right: 1px solid #c5c5c5;
+  }
+
+  .hljs-ln-code {
+    padding-left: 1em;
+  }
+
+  .hljs-ln{border-collapse:collapse}
+   
+  .hljs-ln-n:before{content:attr(data-line-number);margin-right:1em;}
+  .highlight pre, pre, .highlight .hll{padding: 6px 0px}
+  .hljs{padding: 8px 0px}
+  em{color: red}
+  #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+  #index nav ul li {padding-left: 0em;}
+  #index nav ul li ul {padding-left: 1em;}
+  pre{
+    background: none;
+  }
+
+  @media screen and (max-width: 500px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+  @media screen and (max-width: 768px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+
+</style>
+
+
 
 
 
@@ -79,6 +139,7 @@
 
 
 </head>
+<body>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -124,6 +185,10 @@
                     
                     <li>
                         <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
                     </li>
                     
 
@@ -270,10 +335,14 @@
                     <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
                         <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#1-go版本">1 Go版本</a>
       <ul>
-        <li><a href="#11-新版本特点">1.1 新版本特点</a></li>
-        <li><a href="#12-效果对比">1.2 效果对比</a></li>
+        <li>
+          <ul>
+            <li><a href="#11-新版本特点">1.1 新版本特点</a></li>
+            <li><a href="#12-效果对比">1.2 效果对比</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -297,30 +366,15 @@
 <h3 id="12-效果对比">1.2 效果对比</h3>
 <p>100多篇文章情况下</p>
 <p>老版本速度</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">participles success: 22392 ms
+<pre><code>participles success: 22392 ms
 generate algolia index success: 1 ms
-</code></pre></td></tr></table>
-</div>
-</div><p>新版本速度</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">participles success: 180 ms
+</code></pre>
+<p>新版本速度</p>
+<pre><code>participles success: 180 ms
 generate algolia index success: 2 ms
 generate algolia index num:  13009
-</code></pre></td></tr></table>
-</div>
-</div>
+</code></pre>
+
                 
                 <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
                 
@@ -479,7 +533,7 @@ generate algolia index num:  13009
             
             
             <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
-            环境配置系列(12)
+            环境配置系列(14)
             </a>
 
             
@@ -487,6 +541,13 @@ generate algolia index num:  13009
             
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
             排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
             </a>
 
             
@@ -508,13 +569,6 @@ generate algolia index num:  13009
             
             <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
             数学基础(7)
-            </a>
-
-            
-            
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
-            机器学习系列(7)
             </a>
 
             
@@ -760,6 +814,7 @@ generate algolia index num:  13009
 <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
 
 
+
 <script>
 
 
@@ -824,10 +879,73 @@ gtag('config', 'UA-155998534-1');
 </body>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
     <script src="https://www.naah69.com/js/article.js"></script>
+    <script>
+
+
+    
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+        singleLine: true
+    });
+
+    $("style").each(function(){
+        style=$(this).text()
+        if(style.indexOf(".hljs-ln td{padding:0}")!=-1){
+            $(this).remove();
+        }
+    });
+
+
+    
+    var snippets = document.querySelectorAll('pre>code');
+    var htmlCopyButton = `<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i></button>`;
+
+    snippets.forEach(snippet => {
+        var pre = snippet.parentNode;
+        var pre_parent = pre.parentNode;
+
+        var wrapper = document.createElement('div');
+
+        pre_parent.replaceChild(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        wrapper.classList.add('code-highlight');
+        wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+        var class0 = (snippet.classList[0] || 'code')
+        var lang = (class0.replace("language-", "") || 'code').toUpperCase();
+        wrapper.setAttribute('data-lang', lang);
+    });
+
+    
+    var clipboard = new ClipboardJS('.codecopy-btn', {
+        target: trigger => {
+            return trigger.nextSibling;
+        },
+    });
+
+    clipboard.on('success', e => {
+        e.trigger.setAttribute('aria-label', 'Copied!');
+        e.clearSelection();
+    });
+
+    
+    
+    var btns = document.querySelectorAll('.codecopy-btn');
+
+    btns.forEach(btn => {
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    });
+
+</script>
 
 
 </html>

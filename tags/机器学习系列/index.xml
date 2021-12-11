@@ -6,7 +6,16 @@
     <description>Recent content in 机器学习系列 on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 08 Dec 2019 17:29:04 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Jun 2021 18:11:34 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>alpine 编译opencv</title>
+      <link>https://www.naah69.com/post/2021-06-09-alpine-opencv/</link>
+      <pubDate>Wed, 09 Jun 2021 18:11:34 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2021-06-09-alpine-opencv/</guid>
+      <description>0 环境准备 docker镜像：openjdk:8-jdk-alpine 1 ANT(java需要，普通编译可跳过) 1.1 下载ant cd /app wget https://downloads.apache.org//ant/binaries/apache-ant-1.9.15-bin.zip unzip apache-ant-1.9.15-bin.zip 1.2 配置A</description>
+    </item>
+    
     <item>
       <title>CentOS7配置GPU开发环境教程</title>
       <link>https://www.naah69.com/post/2019-12-08-centos7-gpu-env/</link>
@@ -22,7 +31,7 @@
       <pubDate>Sun, 01 Dec 2019 18:24:13 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2019-12-01-onnx-tensorrt/</guid>
-      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 必备环境 Protobuf &amp;gt;= 3.8.x 1 apt-get install libprotobuf-dev protobuf-compiler TensorRT 6.0 上篇文章tensorrt6安装教程 cuda和cu</description>
+      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 必备环境 Protobuf &amp;gt;= 3.8.x apt-get install libprotobuf-dev protobuf-compiler TensorRT 6.0 上篇文章tensorrt6安装教程 cuda和cud</description>
     </item>
     
     <item>
@@ -40,7 +49,7 @@
       <pubDate>Sun, 01 Dec 2019 13:23:02 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</guid>
-      <description>本文环境 ubuntu 18.04 1 nvidia显卡驱动 1 sudo apt-get install nvidia-driver-435 2 cuda 2.1 下载cuda CUDA官网 选择配置，但是Installer Type必须选择runfile,根</description>
+      <description>本文环境 ubuntu 18.04 1 nvidia显卡驱动 sudo apt-get install nvidia-driver-435 2 cuda 2.1 下载cuda CUDA官网 选择配置，但是Installer Type必须选择runfile,根据</description>
     </item>
     
     <item>

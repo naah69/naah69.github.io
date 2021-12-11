@@ -6,7 +6,34 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 13 Feb 2020 15:06:33 +0800</lastBuildDate><atom:link href="https://www.naah69.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Dec 2021 19:49:02 +0800</lastBuildDate><atom:link href="https://www.naah69.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aaa</title>
+      <link>https://www.naah69.com/post/aaa/</link>
+      <pubDate>Sat, 11 Dec 2021 19:49:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/aaa/</guid>
+      <description>ls asd  </description>
+    </item>
+    
+    <item>
+      <title>k8s安装openvpn（ldap）</title>
+      <link>https://www.naah69.com/post/2021-07-26-k8s-openvpn-ldap/</link>
+      <pubDate>Mon, 26 Jul 2021 18:15:50 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2021-07-26-k8s-openvpn-ldap/</guid>
+      <description>1 安装helm3.0 略过 2 下载charts git clone https://hub.fastgit.org/helm/charts.git 3 安装openvpn 安装openvpn需要持久卷，没有可以安装一个nfs的默认存储类 3.1 进入o</description>
+    </item>
+    
+    <item>
+      <title>alpine 编译opencv</title>
+      <link>https://www.naah69.com/post/2021-06-09-alpine-opencv/</link>
+      <pubDate>Wed, 09 Jun 2021 18:11:34 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2021-06-09-alpine-opencv/</guid>
+      <description>0 环境准备 docker镜像：openjdk:8-jdk-alpine 1 ANT(java需要，普通编译可跳过) 1.1 下载ant cd /app wget https://downloads.apache.org//ant/binaries/apache-ant-1.9.15-bin.zip unzip apache-ant-1.9.15-bin.zip 1.2 配置A</description>
+    </item>
+    
     <item>
       <title>深度学习数学基础(六)之链式法则</title>
       <link>https://www.naah69.com/post/2020-02-11-linked/</link>
@@ -166,7 +193,7 @@
       <pubDate>Sun, 01 Dec 2019 18:24:13 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2019-12-01-onnx-tensorrt/</guid>
-      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 必备环境 Protobuf &amp;gt;= 3.8.x 1 apt-get install libprotobuf-dev protobuf-compiler TensorRT 6.0 上篇文章tensorrt6安装教程 cuda和cu</description>
+      <description>1 环境准备 本文环境：ubuntu 18.04、cuda 10.0 cudnn 7.6 python 3.7.6 1.1 必备环境 Protobuf &amp;gt;= 3.8.x apt-get install libprotobuf-dev protobuf-compiler TensorRT 6.0 上篇文章tensorrt6安装教程 cuda和cud</description>
     </item>
     
     <item>
@@ -184,7 +211,7 @@
       <pubDate>Sun, 01 Dec 2019 13:23:02 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</guid>
-      <description>本文环境 ubuntu 18.04 1 nvidia显卡驱动 1 sudo apt-get install nvidia-driver-435 2 cuda 2.1 下载cuda CUDA官网 选择配置，但是Installer Type必须选择runfile,根</description>
+      <description>本文环境 ubuntu 18.04 1 nvidia显卡驱动 sudo apt-get install nvidia-driver-435 2 cuda 2.1 下载cuda CUDA官网 选择配置，但是Installer Type必须选择runfile,根据</description>
     </item>
     
     <item>
@@ -247,7 +274,7 @@
       <pubDate>Sun, 23 Jun 2019 13:42:08 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2019-06-23-go-trap/</guid>
-      <description>1 国内如何快速go get github的包 在命令行输入go get ...前输入以下命令 1 2 3 4 #配置你自己的http代理 export http_proxy=http://127.0.0.1:1087 go get ... 2 golang版本ji</description>
+      <description>1 国内如何快速go get github的包 在命令行输入go get ...前输入以下命令 #配置你自己的http代理 export http_proxy=http://127.0.0.1:1087 go get ... 2 golang版本jieba的</description>
     </item>
     
     <item>
@@ -301,7 +328,7 @@
       <pubDate>Wed, 17 Oct 2018 13:20:24 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2018-10-17-process-dead-lock/</guid>
-      <description>1 问题背景 最近在做一个需求需要调用linux下的某个脚本来对ai的模型进行训练，很简单的需求，我像往常一样写下如下的代码片段： 1 2 Process process = Runtime.getRuntime().exec(cmd); process.waitFor();</description>
+      <description>1 问题背景 最近在做一个需求需要调用linux下的某个脚本来对ai的模型进行训练，很简单的需求，我像往常一样写下如下的代码片段： Process process = Runtime.getRuntime().exec(cmd); process.waitFor(); Bu</description>
     </item>
     
     <item>
@@ -319,7 +346,7 @@
       <pubDate>Mon, 01 Oct 2018 19:42:19 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2018-10-01-go-compress-packaging/</guid>
-      <description>1 压缩前后对比图 只有一句hello world！竟然打包后达到了2.1M 2 详细过程 2.1 参数打包 2.1.1 使用带有参数的go build 进行打包 1 go build -ldflags &amp;#34;-s -w&amp;#34; hello.go -ldflags &amp;lsquo;[pattern=]arg list&amp;rsquo;</description>
+      <description>1 压缩前后对比图 只有一句hello world！竟然打包后达到了2.1M 2 详细过程 2.1 参数打包 2.1.1 使用带有参数的go build 进行打包 go build -ldflags &amp;quot;-s -w&amp;quot; hello.go -ldflags &amp;lsquo;[pattern=]arg list&amp;rsquo; arguments</description>
     </item>
     
     <item>
@@ -535,7 +562,7 @@
       <pubDate>Thu, 17 Aug 2017 11:51:17 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2017-08-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9B%BEgraph%E4%B9%8B%E6%9C%80%E7%BB%88%E7%B1%BB/</guid>
-      <description>该类包括 基础方法 邻接矩阵 邻接表 深度优先遍历 广度优先遍历 最小生成树 最短路径 拓扑排序 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30</description>
+      <description>该类包括 基础方法 邻接矩阵 邻接表 深度优先遍历 广度优先遍历 最小生成树 最短路径 拓扑排序 package com.naah.s4_Graph; import java.lang.reflect.Array; import java.util.Arrays; import java.util.LinkedList; import java.util.List; import java.util.Stack; /** * * ClassNameCh 图 * ClassNameEn Graph * Description 数据结构图 * Company *</description>
     </item>
     
     <item>
@@ -742,7 +769,7 @@
       <pubDate>Fri, 24 Mar 2017 08:43:06 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2017-03-24-%E8%99%9A%E5%BA%A6%E5%B9%B4%E5%8D%8E-jam/</guid>
-      <description>虚度年华-Jam 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 风向着你的衣裳 破帆像海里的浪 追上华丽的太阳 走在想你的路上 浮现</description>
+      <description>虚度年华-Jam 风向着你的衣裳 破帆像海里的浪 追上华丽的太阳 走在想你的路上 浮现出你的脸庞 古楼房陈旧明亮 披上午后的夕阳 解开不朽的风光 心不在焉船上</description>
     </item>
     
     <item>
@@ -751,7 +778,7 @@
       <pubDate>Thu, 09 Mar 2017 08:31:40 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2017-03-09-%E7%94%9F%E4%B8%8E%E6%AD%BB-life-and-death/</guid>
-      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 I strove with none, for none was worth my strife; Nature I lov’d, and next to Nature, Art; I warm’d both hands before the fire of life; It sinks, and I am ready to depart. 我和谁都不争，和谁争我</description>
+      <description>I strove with none, for none was worth my strife; Nature I lov’d, and next to Nature, Art; I warm’d both hands before the fire of life; It sinks, and I am ready to depart. 我和谁都不争，和谁争我都不屑； 我爱大自然，其次就是</description>
     </item>
     
     <item>
@@ -769,7 +796,7 @@
       <pubDate>Sat, 31 Dec 2016 08:13:27 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2016-12-31-%E7%94%9F%E6%97%A5%E8%AF%8D/</guid>
-      <description>2019 生日词，庚戌日庆己亥廿三之喜 1 2 3 4 5 6 7 8 寒月追星风不及，百鸟朝凤树鸣啼。 万势消泯长河缓，千峰挺屹芊草返。 欲将落日换长虹，行路漫漫荆棘重</description>
+      <description>2019 生日词，庚戌日庆己亥廿三之喜 寒月追星风不及，百鸟朝凤树鸣啼。 万势消泯长河缓，千峰挺屹芊草返。 欲将落日换长虹，行路漫漫荆棘重。 湍急瀑闭密书志</description>
     </item>
     
     <item>
@@ -778,7 +805,7 @@
       <pubDate>Wed, 28 Dec 2016 08:12:26 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2016-12-28-%E9%81%8D%E5%8E%86%E7%BA%A2%E5%B0%98/</guid>
-      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 如果有一天我不用为生计而奔波苦恼时， 如果有一天我不会为生计而委曲求全时。 我想我会卸下</description>
+      <description>如果有一天我不用为生计而奔波苦恼时， 如果有一天我不会为生计而委曲求全时。 我想我会卸下现世的潮衣华服， 裹上田间老伯的麻衣补丁， 像羚羊驰疾在藏青</description>
     </item>
     
     <item>

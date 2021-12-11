@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>k8s安装openvpn（ldap） | 纳兰小筑</title>
+    <meta name="description" content="Naah,那焱,纳兰,一只正在通往机器学习的可爱的程序猿,热爱生活,拥抱变化,喜欢有关草木植物的任何事物,偶尔喜欢读读书写写诗" />
+    <meta name="keywords" content="openvpn,ldap,k8s" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="/img/favicon.ico">
+    <link rel="canonical" href="https://www.naah69.com/post/2021-07-26-k8s-openvpn-ldap/">
+    <meta name="google-site-verification" content="RvhbpALX9GqGk5KVFhjMl2VqnksKeAoApN3upkrcDxM" />
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.naah69.com/css/hux-blog.min.css">
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/styles/a11y-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/sql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+
+<style>
+  .hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:24px;
+    border-right: 1px solid #c5c5c5;
+  }
+
+  .hljs-ln-code {
+    padding-left: 1em;
+  }
+
+  .hljs-ln{border-collapse:collapse}
+   
+  .hljs-ln-n:before{content:attr(data-line-number);margin-right:1em;}
+  .highlight pre, pre, .highlight .hll{padding: 6px 0px}
+  .hljs{padding: 8px 0px}
+  em{color: red}
+  #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+  #index nav ul li {padding-left: 0em;}
+  #index nav ul li ul {padding-left: 1em;}
+  pre{
+    background: none;
+  }
+
+  @media screen and (max-width: 500px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+  @media screen and (max-width: 768px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+
+</style>
+
+
+
+
+
+
+
+
+
+    
+<style>
+    article img{cursor: zoom-in;}
+     
+    header.intro-header {
+        background-image: url('https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/20211204162656.png')
+    }
+     
+    #floatting_dir {
+        position: fixed;
+        display: none;
+        width: auto;
+        height: auto;
+        font-size: 13px;
+    }
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+    @media screen and (max-width: 500px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    @media screen and (max-width: 768px){
+        #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+        #index nav ul li {padding-left: 0em;}
+        #index nav ul li ul {padding-left: 1em;}
+    }
+    .katex-display>.katex{
+        white-space:normal;
+    }
+
+    .katex .base, .katex .strut{
+        margin-top: 0.5em;
+    }
+
+    pre {
+        border:0px;
+        margin: 0px;
+    }
+
+
+</style>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://www.naah69.com/">Naah-Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse" style="max-height: 1000px;" >
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://www.naah69.com/">HOME</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/essay"  target="_blank" >essay</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/foundation"  target="_blank" >foundation</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/java"  target="_blank" >java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/math"  target="_blank" >math</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/others"  target="_blank" >others</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
+                    </li>
+                    
+
+                    <li>
+                        <a href="https://www.naah69.com/about">About Me</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/search/article">Search
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            
+            $navbar.className = " ";
+            
+            setTimeout(function () {
+                
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a href="https://www.naah69.com/%20categories/others" target="_blank" ><i class="fa fa-folder-o"></i>&nbsp;Others</a>
+                        
+                        
+                        <a class="tag" href="/tags/k8s" title="k8s" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;k8s
+                        </a>
+                        
+                        <a class="tag" href="/tags/openvpn" title="openvpn" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;openvpn
+                        </a>
+                        
+                        <a class="tag" href="/tags/ldap" title="ldap" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;ldap
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列" target="_blank">
+                        <i class="fa fa-tags"></i>&nbsp;环境配置系列
+                        </a>
+                        
+
+                    </div>
+
+                    <h1>k8s安装openvpn（ldap）</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Naah on Monday, Jul 26,2021 18:15:50
+                        
+                        <span id="/post/2021-07-26-k8s-openvpn-ldap/" class="meta_data_item" data-flag-title="">
+    <span class="post-meta-item-icon">
+      <span class="octicon octicon-eye"></span>
+    </span>
+    &nbsp;
+    <i class="fa fa-eye"></i>
+    <span class="old-visitors-count" style="display: none;"></span>
+    <span id="busuanzi_container_page_pv">
+  <span id="busuanzi_value_page_pv"></span>
+
+</span>
+</span>
+
+
+
+                        
+                    </span><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container" id="container_div">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+
+                
+
+                
+
+                
+                
+                <div id="floatting_dir" style="margin: 10px;border: 1px solid gray;z-index:99999;">
+                    <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                        <strong id="dir_btn_open" style="color: black;font-size: large;">目录</strong>
+                        <strong id="dir_btn_close" style="color: black;font-size: large;float: right">x</strong>
+                    </header>
+                    <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
+                        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-安装helm30">1 安装helm3.0</a></li>
+    <li><a href="#2-下载charts">2 下载charts</a></li>
+    <li><a href="#3-安装openvpn">3 安装openvpn</a>
+      <ul>
+        <li><a href="#31-进入openvpn目录">3.1 进入openvpn目录</a></li>
+        <li><a href="#32-修改configmap">3.2 修改configmap</a>
+          <ul>
+            <li><a href="#321-修改configuresh">3.2.1 修改configure.sh</a></li>
+            <li><a href="#322-修改openvpnconf">3.2.2 修改openvpn.conf</a></li>
+            <li><a href="#323-加入新配置文件auth-ldapconf">3.2.3 加入新配置文件auth-ldap.conf</a></li>
+            <li><a href="#324-最终配置">3.2.4 最终配置</a></li>
+          </ul>
+        </li>
+        <li><a href="#33-修改deployment">3.3 修改deployment</a>
+          <ul>
+            <li><a href="#331-修改主机权限">3.3.1 修改主机权限</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4-启动openvpn服务">4 启动openvpn服务</a></li>
+    <li><a href="#5-ovpn连接文件">5 ovpn连接文件</a>
+      <ul>
+        <li><a href="#51-创建ovpn">5.1 创建ovpn</a></li>
+        <li><a href="#52-修改ovpn">5.2 修改ovpn</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                    </div>
+                </div>
+                
+                
+                
+
+                <h1 id="1-安装helm30">1 安装helm3.0</h1>
+<p>略过</p>
+<h1 id="2-下载charts">2 下载charts</h1>
+<pre><code class="language-bash">git clone https://hub.fastgit.org/helm/charts.git
+</code></pre>
+<h1 id="3-安装openvpn">3 安装openvpn</h1>
+<blockquote>
+<p>安装openvpn需要持久卷，没有可以安装一个nfs的默认存储类</p>
+</blockquote>
+<h2 id="31-进入openvpn目录">3.1 进入openvpn目录</h2>
+<pre><code class="language-bash">cd /root/helm/charts/stable/openvpn
+</code></pre>
+<h2 id="32-修改configmap">3.2 修改configmap</h2>
+<pre><code class="language-bash">cd /root/helm/charts/stable/openvpn/templates
+vi config-openvpn.yaml
+</code></pre>
+<h3 id="321-修改configuresh">3.2.1 修改configure.sh</h3>
+<p>在最后一行<code>exec ...</code>前加入以下行</p>
+<pre><code class="language-bash"># 加入ldap插件
+apk add openvpn-auth-ldap --update-cache --repository http://dl-4.alpinelinux.org/alpine/edge/main/
+
+# 开启ip转发
+sysctl -w net.ipv4.ip_forward=1
+</code></pre>
+<h3 id="322-修改openvpnconf">3.2.2 修改openvpn.conf</h3>
+<p>在最后加入以下行，开启<code>ldap</code>和客户端忽略cert</p>
+<pre><code class="language-bash">plugin /usr/lib/openvpn/plugins/openvpn-auth-ldap.so &quot;/etc/openvpn/setup/auth-ldap.conf uid=%u&quot; 
+
+client-cert-not-required
+</code></pre>
+<h3 id="323-加入新配置文件auth-ldapconf">3.2.3 加入新配置文件auth-ldap.conf</h3>
+<pre><code class="language-xml">&lt;LDAP&gt;
+        URL             ldap://你的ldapurl
+        BindDN                你的用来登陆验证的ldap账号
+        Password      ldap账号密码
+        Timeout         15
+        TLSEnable       no
+        FollowReferrals no
+&lt;/LDAP&gt;
+&lt;Authorization&gt;
+        BaseDN          &quot;ldap用户的基础路径&quot;
+        SearchFilter    &quot;uid=%u&quot;
+        RequireGroup    true
+        &lt;Group&gt;
+                BaseDN          &quot;组的base目录&quot;
+                SearchFilter    &quot;(cn=openvpn)&quot;
+                MemberAttribute uniqueMember
+        &lt;/Group&gt;
+&lt;/Authorization&gt;
+
+</code></pre>
+<h3 id="324-最终配置">3.2.4 最终配置</h3>
+<pre><code class="language-yaml">apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template &quot;openvpn.fullname&quot; . }}
+  labels:
+    app: {{ template &quot;openvpn.name&quot; . }}
+    chart: {{ template &quot;openvpn.chart&quot; . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  auth-ldap.conf: |-
+    &lt;LDAP&gt;
+            URL             ldap://10.247.30.15
+            BindDN                cn=readonly,dc=mindflow,dc=com
+            Password      mindflowreadonly
+            Timeout         15
+            TLSEnable       no
+            FollowReferrals no
+    &lt;/LDAP&gt;
+    &lt;Authorization&gt;
+            BaseDN          &quot;ou=users,dc=mindflow,dc=com&quot;
+            SearchFilter    &quot;uid=%u&quot;
+            RequireGroup    true
+            &lt;Group&gt;
+                    BaseDN          &quot;ou=confluence-jira,ou=group,dc=mindflow,dc=com&quot;
+                    SearchFilter    &quot;(cn=研发部)&quot;
+                    MemberAttribute uniqueMember
+            &lt;/Group&gt;
+    &lt;/Authorization&gt;
+
+  setup-certs.sh: |-
+    #!/bin/bash
+    EASY_RSA_LOC=&quot;/etc/openvpn/certs&quot;
+    cd $EASY_RSA_LOC
+    SERVER_CERT=&quot;${EASY_RSA_LOC}/pki/issued/server.crt&quot;
+    if [ -e &quot;$SERVER_CERT&quot; ]
+    then
+      echo &quot;found existing certs - reusing&quot;
+      {{- if .Values.openvpn.useCrl }}
+      if [ ! -e ${EASY_RSA_LOC}/crl.pem ]
+      then
+        echo &quot;generating missed crl file&quot;
+        ./easyrsa gen-crl
+        cp ${EASY_RSA_LOC}/pki/crl.pem ${EASY_RSA_LOC}/crl.pem
+        chmod 644 ${EASY_RSA_LOC}/crl.pem
+      fi
+      {{- end }}
+      {{- if .Values.openvpn.taKey }}
+        if [ ! -e ${EASY_RSA_LOC}/pki/ta.key ]
+        then
+          echo &quot;generating missed ta.key&quot;
+          openvpn --genkey --secret ${EASY_RSA_LOC}/pki/ta.key
+        fi
+      {{- end }}
+    else
+      cp -R /usr/share/easy-rsa/* $EASY_RSA_LOC
+      ./easyrsa init-pki
+      echo &quot;ca\n&quot; | ./easyrsa build-ca nopass
+      ./easyrsa build-server-full server nopass
+      ./easyrsa gen-dh
+      {{- if .Values.openvpn.useCrl }}
+      ./easyrsa gen-crl
+      cp ${EASY_RSA_LOC}/pki/crl.pem ${EASY_RSA_LOC}/crl.pem # Note: the pki/ directory is inaccessible after openvpn drops privileges, so we cp crl.pem to ${EASY_RSA_LOC} to allow CRL updates without a restart
+      chmod 644 ${EASY_RSA_LOC}/crl.pem
+      {{- end }}
+      {{- if .Values.openvpn.taKey }}
+      openvpn --genkey --secret ${EASY_RSA_LOC}/pki/ta.key
+      {{- end }}
+    fi
+
+
+  newClientCert.sh: |-
+    #!/bin/bash
+    EASY_RSA_LOC=&quot;/etc/openvpn/certs&quot;
+    cd $EASY_RSA_LOC
+    MY_IP_ADDR=&quot;$2&quot;
+    ./easyrsa build-client-full $1 nopass
+    cat &gt;${EASY_RSA_LOC}/pki/$1.ovpn &lt;&lt;EOF
+    client
+    nobind
+    dev tun
+    {{- if eq .Values.service.type &quot;NodePort&quot; }}
+    remote ${MY_IP_ADDR} {{ .Values.service.nodePort }} {{ .Values.openvpn.OVPN_PROTO }}
+    {{- else }}
+    remote ${MY_IP_ADDR} {{ .Values.service.externalPort }} {{ .Values.openvpn.OVPN_PROTO }}
+    {{- end }}
+    {{ if .Values.openvpn.cipher }}
+    cipher {{ .Values.openvpn.cipher }}
+    {{- end }}
+    {{ if .Values.openvpn.redirectGateway }}
+    redirect-gateway def1
+    {{- end }}
+    {{ if .Values.openvpn.clientConf }}
+    {{ indent 6 .Values.openvpn.clientConf }}
+    {{- end }}
+    &lt;key&gt;
+    `cat ${EASY_RSA_LOC}/pki/private/$1.key`
+    &lt;/key&gt;
+    &lt;cert&gt;
+    `cat ${EASY_RSA_LOC}/pki/issued/$1.crt`
+    &lt;/cert&gt;
+    &lt;ca&gt;
+    `cat ${EASY_RSA_LOC}/pki/ca.crt`
+    &lt;/ca&gt;
+    {{- if .Values.openvpn.taKey }}
+    &lt;tls-auth&gt;
+    `cat ${EASY_RSA_LOC}/pki/ta.key`
+    &lt;/tls-auth&gt;
+    key-direction 1
+    {{- end }}
+    EOF
+    cat pki/$1.ovpn
+
+  revokeClientCert.sh: |-
+    #!/bin/bash
+    EASY_RSA_LOC=&quot;/etc/openvpn/certs&quot;
+    cd $EASY_RSA_LOC
+    ./easyrsa revoke $1
+    ./easyrsa gen-crl
+    cp ${EASY_RSA_LOC}/pki/crl.pem ${EASY_RSA_LOC}
+    chmod 644 ${EASY_RSA_LOC}/crl.pem
+
+  configure.sh: |-
+    #!/bin/sh
+
+    cidr2mask() {
+       # Number of args to shift, 255..255, first non-255 byte, zeroes
+       set -- $(( 5 - ($1 / 8) )) 255 255 255 255 $(( (255 &lt;&lt; (8 - ($1 % 8))) &amp; 255 )) 0 0 0
+       [ $1 -gt 1 ] &amp;&amp; shift &quot;$1&quot; || shift
+       echo ${1-0}.${2-0}.${3-0}.${4-0}
+    }
+
+    cidr2net() {
+        local i ip mask netOctets octets
+        ip=&quot;${1%/*}&quot;
+        mask=&quot;${1#*/}&quot;
+        octets=$(echo &quot;$ip&quot; | tr '.' '\n')
+
+        for octet in $octets; do
+            i=$((i+1))
+            if [ $i -le $(( mask / 8)) ]; then
+                netOctets=&quot;$netOctets.$octet&quot;
+            elif [ $i -eq  $(( mask / 8 +1 )) ]; then
+                netOctets=&quot;$netOctets.$((((octet / ((256 / ((2**((mask % 8)))))))) * ((256 / ((2**((mask % 8))))))))&quot;
+            else
+                netOctets=&quot;$netOctets.0&quot;
+            fi
+        done
+
+        echo ${netOctets#.}
+    }
+
+    /etc/openvpn/setup/setup-certs.sh
+    {{ if .Values.openvpn.istio.enabled }}
+    iptables -t nat -A PREROUTING -s {{ .Values.openvpn.OVPN_NETWORK }}/{{ .Values.openvpn.OVPN_SUBNET }} -i tun0 -p tcp -j REDIRECT --to-ports {{ .Values.openvpn.istio.proxy.port }}
+    {{ end }}
+
+    {{ range .Values.openvpn.iptablesExtra }}
+    iptables {{ . }}
+    {{ end }}
+
+    iptables -t nat -A POSTROUTING -s {{ .Values.openvpn.OVPN_NETWORK }}/{{ .Values.openvpn.OVPN_SUBNET }} -o eth0 -j MASQUERADE
+    mkdir -p /dev/net
+    if [ ! -c /dev/net/tun ]; then
+        mknod /dev/net/tun c 10 200
+    fi
+
+    if [ &quot;$DEBUG&quot; == &quot;1&quot; ]; then
+        echo ========== ${OVPN_CONFIG} ==========
+        cat &quot;${OVPN_CONFIG}&quot;
+        echo ====================================
+    fi
+
+    intAndIP=&quot;$(ip route get 8.8.8.8 | awk '/8.8.8.8/ {print $5 &quot;-&quot; $7}')&quot;
+    int=&quot;${intAndIP%-*}&quot;
+    ip=&quot;${intAndIP#*-}&quot;
+    cidr=&quot;$(ip addr show dev &quot;$int&quot; | awk -vip=&quot;$ip&quot; '($2 ~ ip) {print $2}')&quot;
+    NETWORK=&quot;$(cidr2net $cidr)&quot;
+    NETMASK=&quot;$(cidr2mask ${cidr#*/})&quot;
+    DNS=$(cat /etc/resolv.conf | grep -v '^#' | grep nameserver | awk '{print $2}')
+    SEARCH=$(cat /etc/resolv.conf | grep -v '^#' | grep search | awk '{$1=&quot;&quot;; print $0}')
+    FORMATTED_SEARCH=&quot;&quot;
+    for DOMAIN in $SEARCH; do
+      FORMATTED_SEARCH=&quot;${FORMATTED_SEARCH}push \&quot;dhcp-option DOMAIN-SEARCH ${DOMAIN}\&quot;\n&quot;
+    done
+    cp -f /etc/openvpn/setup/openvpn.conf /etc/openvpn/
+    sed 's|OVPN_K8S_SEARCH|'&quot;${FORMATTED_SEARCH}&quot;'|' -i /etc/openvpn/openvpn.conf
+    sed 's|OVPN_K8S_DNS|'&quot;${DNS}&quot;'|' -i /etc/openvpn/openvpn.conf
+    sed 's|NETWORK|'&quot;${NETWORK}&quot;'|' -i /etc/openvpn/openvpn.conf
+    sed 's|NETMASK|'&quot;${NETMASK}&quot;'|' -i /etc/openvpn/openvpn.conf
+    apk add openvpn-auth-ldap --update-cache --repository http://dl-4.alpinelinux.org/alpine/edge/main/
+    sysctl -w net.ipv4.ip_forward=1
+    exec openvpn --config /etc/openvpn/openvpn.conf
+  openvpn.conf: |-
+    server {{ .Values.openvpn.OVPN_NETWORK }} {{ .Values.openvpn.OVPN_SUBNET }}
+    verb 3
+    {{ if .Values.openvpn.useCrl }}
+    crl-verify /etc/openvpn/certs/crl.pem
+    {{ end }}
+    key /etc/openvpn/certs/pki/private/server.key
+    ca /etc/openvpn/certs/pki/ca.crt
+    cert /etc/openvpn/certs/pki/issued/server.crt
+    dh /etc/openvpn/certs/pki/dh.pem
+    {{ if .Values.openvpn.taKey }}
+    tls-auth /etc/openvpn/certs/pki/ta.key 0
+    {{ end }}
+
+    {{ if .Values.openvpn.cipher }}
+    cipher {{ .Values.openvpn.cipher }}
+    {{ end }}
+    key-direction 0
+    keepalive 10 60
+    persist-key
+    persist-tun
+
+    proto {{ .Values.openvpn.OVPN_PROTO }}
+    port  {{ .Values.service.internalPort }}
+    dev tun0
+    status /tmp/openvpn-status.log
+
+    user nobody
+    group nogroup
+
+    {{ if .Values.openvpn.ccd.enabled }}
+    client-config-dir /etc/openvpn/ccd
+    {{ end }}
+
+    {{ if .Values.openvpn.DEFAULT_ROUTE_ENABLED }}
+    push &quot;route NETWORK NETMASK&quot;
+    {{ end }}
+    {{ if and (.Values.openvpn.OVPN_K8S_POD_NETWORK) (.Values.openvpn.OVPN_K8S_POD_SUBNET) }}
+    push &quot;route {{ .Values.openvpn.OVPN_K8S_POD_NETWORK }} {{ .Values.openvpn.OVPN_K8S_POD_SUBNET }}&quot;
+    {{ end }}
+    {{ if and (.Values.openvpn.OVPN_K8S_SVC_NETWORK) (.Values.openvpn.OVPN_K8S_SVC_SUBNET) }}
+    push &quot;route {{ .Values.openvpn.OVPN_K8S_SVC_NETWORK }} {{ .Values.openvpn.OVPN_K8S_SVC_SUBNET }}&quot;
+    {{ end }}
+
+    {{ if .Values.openvpn.dhcpOptionDomain }}
+    OVPN_K8S_SEARCH
+    {{ end }}
+    push &quot;dhcp-option DNS OVPN_K8S_DNS&quot;
+
+    plugin /usr/lib/openvpn/plugins/openvpn-auth-ldap.so &quot;/etc/openvpn/setup/auth-ldap.conf uid=%u&quot;
+
+    client-cert-not-required
+    
+    {{- if .Values.openvpn.serverConf }}
+    {{ indent 6 .Values.openvpn.serverConf }}
+    {{- end -}}
+
+</code></pre>
+<h2 id="33-修改deployment">3.3 修改deployment</h2>
+<pre><code class="language-bash">cd /root/helm/charts/stable/openvpn/templates
+vi openvpn-deployment.yaml
+</code></pre>
+<h3 id="331-修改主机权限">3.3.1 修改主机权限</h3>
+<p>在<code>securityContext</code>内加入<code>privileged</code>,加入后的效果如下</p>
+<pre><code class="language-yaml">        ...
+        securityContext:
+          capabilities:
+            add:
+              - NET_ADMIN
+          privileged: true
+        ...
+</code></pre>
+<h1 id="4-启动openvpn服务">4 启动openvpn服务</h1>
+<ol>
+<li>
+<p>输入下方命令进行启动</p>
+<pre><code class="language-bash">cd /root/helm/charts/stable
+helm install openvpn openvpn/ -n ops
+</code></pre>
+</li>
+<li>
+<p>查看运行日志</p>
+<pre><code class="language-bash">kubectl logs -f $(kubectl get pod -n ops | grep openvpn | awk '{print $1}') -n ops
+</code></pre>
+</li>
+</ol>
+<h1 id="5-ovpn连接文件">5 ovpn连接文件</h1>
+<h2 id="51-创建ovpn">5.1 创建ovpn</h2>
+<ol>
+<li>
+<p>输入下方命令进入pod</p>
+<pre><code class="language-bash">kubectl exec -it $(kubectl get pod -n ops | grep openvpn | awk '{print $1}') sh -n ops
+</code></pre>
+</li>
+<li>
+<p>进入后输入以下命令会创建ovpn文件</p>
+<pre><code class="language-bash">cd /etc/openvpn/setup/
+sh newClientCert.sh client名 连接的IP
+</code></pre>
+</li>
+<li>
+<p>下载ovpn文件</p>
+<pre><code class="language-bash">cd /etc/openvpn/certs/pki
+sz client名.ovpn
+</code></pre>
+</li>
+</ol>
+<h2 id="52-修改ovpn">5.2 修改ovpn</h2>
+<ol>
+<li>
+<p>将<code>redirect-gateway def1</code>删除(这行的意思是所有的流量都走vpn，如果有需要可以不删除)</p>
+</li>
+<li>
+<p>将<code>&lt;key&gt;</code>和<code>&lt;cert&gt;</code>标签删除，注意<code>&lt;ca&gt;</code>千万不要删除</p>
+</li>
+<li>
+<p>修改端口并加入ldap的配置使用用户名密码</p>
+<pre><code>ns-cert-type server
+auth-user-pass
+</code></pre>
+</li>
+</ol>
+<p>最终ovpn文件类似如下：</p>
+<pre><code>client
+nobind
+dev tun
+remote 192.168.101.202 30803 tcp
+ns-cert-type server
+auth-user-pass
+
+
+&lt;ca&gt;
+-----BEGIN CERTIFICATE-----
+很长一串的秘钥
+-----END CERTIFICATE-----
+&lt;/ca&gt;
+
+</code></pre>
+<p>导入openvpn-client连接即可</p>
+
+                
+                <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
+                
+                
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2021-06-09-alpine-opencv/" data-toggle="tooltip" data-placement="top" title="alpine 编译opencv">&larr; 上一篇</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/aaa/" data-toggle="tooltip" data-placement="top" title="Aaa">下一篇 &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+
+
+
+<div id="SOHUCS" sid='2021-07-26-18:15:50-k8s安装openvpn（ldap）'></div>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com
+/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cy-cdn.kuaizhan.com/js/changyan.labs.https.js?appid=cytako4HR"></script>
+
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytako4HR';
+        var conf = 'prod_b9da8b3167eed0ab02bb9913a13e0435';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            var head = document.getElementsByTagName('head')[0]||document.head||document.documentElement;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.charset = 'utf-8';
+            script.id = 'changyan_mobile_js';
+            script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf;
+            head.appendChild(script);
+        } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+</script>
+
+
+
+            </div>
+            
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    <section class="visible-md visible-lg">
+        <hr>
+        <h5><a href="https://www.naah69.com/about" target="_blank">博主信息</a></h5>
+        <div class="short-about">
+            
+            <img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9gy1fw0npk3155j20u0140aca.jpg"/>
+            
+
+            <h3 style="margin-bottom: 20px;">
+                
+                那焱(纳兰)
+                
+                &nbsp;
+                
+                Naah
+                
+            </h3>
+
+            
+            <p>架构师</p>
+            
+
+            
+            <p>热爱生活,拥抱变化</p>
+            
+
+            
+            <ul class="list-inline">
+                
+                
+                <li>
+                    <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <a target="_blank" href="https://weibo.com/naah">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+
+                    <a href="javascript:wx()">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a target="_blank" href="https://github.com/naah69">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </section>
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5><a href="/tags/"   target="_blank" >标签展示</a></h5>
+        <div class="tags">
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80" title="算法基础"  target="_blank" >
+            算法基础(16)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="数据结构"  target="_blank" >
+            数据结构(14)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
+            环境配置系列(14)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
+            排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ci/cd" title="ci/cd"  target="_blank" >
+            ci/cd(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E5%9B%BE" title="图"  target="_blank" >
+            图(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
+            数学基础(7)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" title="深度学习"  target="_blank" >
+            深度学习(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="神经网络"  target="_blank" >
+            神经网络(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8" title="算法应用"  target="_blank" >
+            算法应用(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94" title="随笔"  target="_blank" >
+            随笔(6)
+            </a>
+
+            
+            
+            
+            <a href="/tags/go" title="go"  target="_blank" >
+            go(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/software" title="software"  target="_blank" >
+            software(5)
+            </a>
+
+            
+            
+            
+            <a href="/tags/hugo" title="hugo"  target="_blank" >
+            hugo(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/mark" title="mark"  target="_blank" >
+            mark(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91" title="二叉树"  target="_blank" >
+            二叉树(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E8%AE%B0%E5%BD%95" title="记录"  target="_blank" >
+            记录(4)
+            </a>
+
+            
+            
+            
+            <a href="/tags/docker" title="docker"  target="_blank" >
+            docker(3)
+            </a>
+
+            
+            
+            
+            <a href="/tags/ecug" title="ecug"  target="_blank" >
+            ecug(3)
+            </a>
+
+            
+
+            <a href="/tags/"  target="_blank" >
+            全部标签
+            </a>
+
+        </div>
+    </section>
+    
+
+    
+    <hr>
+    <h5>友情链接</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.liaoxuefeng.com/">廖雪峰的官方网站</a></li>
+        
+        <li><a target="_blank" href="http://www.dayanzai.me/">大眼仔旭下载站</a></li>
+        
+        <li><a target="_blank" href="http://www.carrotchou.blog/">胡萝卜周下载站</a></li>
+        
+        <li><a target="_blank" href="http://xclient.info/">Xclient Mac下载站</a></li>
+        
+    </ul>
+
+    
+    <hr>
+    <h5>工具网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="https://www.algolia.com/">Algolia</a></li>
+        
+        <li><a target="_blank" href="https://changyan.kuaizhan.com/">畅言</a></li>
+        
+        <li><a target="_blank" href="http://tool.chinaz.com/">站长工具</a></li>
+        
+        <li><a target="_blank" href="https://tool.lu/">程序猿在线工具箱</a></li>
+        
+        <li><a target="_blank" href="https://www.bejson.com/">配置文件工具箱</a></li>
+        
+        <li><a target="_blank" href="http://www.jq22.com/textDifference">文本对比</a></li>
+        
+        <li><a target="_blank" href="https://cloudconvert.com/formats">在线文件格式转换</a></li>
+        
+    </ul>
+    
+    <hr>
+    <h5>收藏网站</h5>
+    <ul class="">
+        
+        <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+        
+        <li><a target="_blank" href="https://www.nowcoder.com/">牛客网</a></li>
+        
+        <li><a target="_blank" href="http://www.acmcoder.com/">赛码网</a></li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a href="mailto:nayan3480232@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://weibo.com/naah">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    <script>
+                        function wx() {
+                            layer.open({
+                                type: 1,
+                                title: false,
+                                closeBtn: 1,
+                                area: ['500px', '500px'],
+                                skin: 'layui-layer-nobg', 
+                                shadeClose: true,
+                                content: '<img src="https:\/\/naah-blog.oss-cn-hangzhou.aliyuncs.com\/img\/ed1d2fb9gy1fw0ntoycqcj20rr0rs3zo.jpg" width="500px" height="500px">'
+                            });
+                        }
+                    </script>
+                    <li>
+                        <a href="javascript:wx()">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/naah69">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy;   2021 <a href="http://www.beian.miit.gov.cn" target="_blank">浙ICP备19040622号</a>
+                    <br>
+                    
+                    <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+<script src="https://www.naah69.com/js/hux-blog.min.js"></script>
+
+<script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+
+
+    var _baId = '5d8997bbef4253c1fdbcba1a8fb66019';
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?"+ _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+
+<!-- async load function -->
+function async(u, c) {
+    var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+        o.addEventListener('load', function (e) {
+            c(null, e);
+        }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+}
+
+<!--fastClick.js -->
+async("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav) FastClick.attach($nav);
+})
+
+</script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155998534-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155998534-1');
+</script>
+
+
+
+
+</body>
+
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+    <script src="https://www.naah69.com/js/article.js"></script>
+    <script>
+
+
+    
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+        singleLine: true
+    });
+
+    $("style").each(function(){
+        style=$(this).text()
+        if(style.indexOf(".hljs-ln td{padding:0}")!=-1){
+            $(this).remove();
+        }
+    });
+
+
+    
+    var snippets = document.querySelectorAll('pre>code');
+    var htmlCopyButton = `<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i></button>`;
+
+    snippets.forEach(snippet => {
+        var pre = snippet.parentNode;
+        var pre_parent = pre.parentNode;
+
+        var wrapper = document.createElement('div');
+
+        pre_parent.replaceChild(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        wrapper.classList.add('code-highlight');
+        wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+        var class0 = (snippet.classList[0] || 'code')
+        var lang = (class0.replace("language-", "") || 'code').toUpperCase();
+        wrapper.setAttribute('data-lang', lang);
+    });
+
+    
+    var clipboard = new ClipboardJS('.codecopy-btn', {
+        target: trigger => {
+            return trigger.nextSibling;
+        },
+    });
+
+    clipboard.on('success', e => {
+        e.trigger.setAttribute('aria-label', 'Copied!');
+        e.clearSelection();
+    });
+
+    
+    
+    var btns = document.querySelectorAll('.codecopy-btn');
+
+    btns.forEach(btn => {
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    });
+
+</script>
+
+
+</html>

@@ -6,22 +6,31 @@
     <description>Recent content in Categories on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 13 Feb 2020 15:06:33 +0800</lastBuildDate><atom:link href="https://www.naah69.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Dec 2021 19:49:02 +0800</lastBuildDate><atom:link href="https://www.naah69.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>MATH</title>
-      <link>https://www.naah69.com/categories/math/</link>
-      <pubDate>Thu, 13 Feb 2020 15:06:33 +0800</pubDate>
+      <title>Test</title>
+      <link>https://www.naah69.com/categories/test/</link>
+      <pubDate>Sat, 11 Dec 2021 19:49:02 +0800</pubDate>
       
-      <guid>https://www.naah69.com/categories/math/</guid>
+      <guid>https://www.naah69.com/categories/test/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Others</title>
       <link>https://www.naah69.com/categories/others/</link>
-      <pubDate>Thu, 09 Jan 2020 21:14:07 +0800</pubDate>
+      <pubDate>Mon, 26 Jul 2021 18:15:50 +0800</pubDate>
       
       <guid>https://www.naah69.com/categories/others/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MATH</title>
+      <link>https://www.naah69.com/categories/math/</link>
+      <pubDate>Thu, 13 Feb 2020 15:06:33 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/categories/math/</guid>
       <description></description>
     </item>
     

@@ -26,6 +26,66 @@
 });'>
 
 </script>
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/styles/a11y-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/sql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+
+<style>
+  .hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:24px;
+    border-right: 1px solid #c5c5c5;
+  }
+
+  .hljs-ln-code {
+    padding-left: 1em;
+  }
+
+  .hljs-ln{border-collapse:collapse}
+   
+  .hljs-ln-n:before{content:attr(data-line-number);margin-right:1em;}
+  .highlight pre, pre, .highlight .hll{padding: 6px 0px}
+  .hljs{padding: 8px 0px}
+  em{color: red}
+  #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+  #index nav ul li {padding-left: 0em;}
+  #index nav ul li ul {padding-left: 1em;}
+  pre{
+    background: none;
+  }
+
+  @media screen and (max-width: 500px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+  @media screen and (max-width: 768px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+
+</style>
+
+
 
 
 
@@ -79,6 +139,7 @@
 
 
 </head>
+<body>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -124,6 +185,10 @@
                     
                     <li>
                         <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
                     </li>
                     
 
@@ -260,9 +325,18 @@
                     <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
                         <nav id="TableOfContents">
   <ul>
-    <li><a href="#41-aliyun">4.1 aliyun</a></li>
-    <li><a href="#42-docker">4.2 Docker</a></li>
-    <li><a href="#43-自定义webhooks">4.3 自定义webhooks</a></li>
+    <li><a href="#起因">起因</a></li>
+    <li><a href="#1-配置rancher配置文件">1 配置rancher配置文件</a></li>
+    <li><a href="#2-webhooks镜像安装">2 webhooks镜像安装</a></li>
+    <li><a href="#3-webhooks触发地址">3 webhooks触发地址</a></li>
+    <li><a href="#4-配置仓库触发">4 配置仓库触发</a>
+      <ul>
+        <li><a href="#41-aliyun">4.1 aliyun</a></li>
+        <li><a href="#42-docker">4.2 Docker</a></li>
+        <li><a href="#43-自定义webhooks">4.3 自定义webhooks</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-触发webhooks">5 触发webhooks</a></li>
   </ul>
 </nav>
                     </div>
@@ -293,226 +367,110 @@
 </ul>
 </li>
 </ol>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">  1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">  2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">  3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">  4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">  5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">  6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7">  7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8">  8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9">  9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10"> 10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11"> 11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12"> 12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13"> 13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14"> 14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15"> 15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16"> 16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17"> 17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18"> 18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19"> 19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20"> 20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21"> 21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22"> 22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23"> 23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24"> 24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25"> 25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26"> 26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27"> 27</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="28"><a style="outline: none; text-decoration:none; color:inherit" href="#28"> 28</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="29"><a style="outline: none; text-decoration:none; color:inherit" href="#29"> 29</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="30"><a style="outline: none; text-decoration:none; color:inherit" href="#30"> 30</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="31"><a style="outline: none; text-decoration:none; color:inherit" href="#31"> 31</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="32"><a style="outline: none; text-decoration:none; color:inherit" href="#32"> 32</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="33"><a style="outline: none; text-decoration:none; color:inherit" href="#33"> 33</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="34"><a style="outline: none; text-decoration:none; color:inherit" href="#34"> 34</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="35"><a style="outline: none; text-decoration:none; color:inherit" href="#35"> 35</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="36"><a style="outline: none; text-decoration:none; color:inherit" href="#36"> 36</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="37"><a style="outline: none; text-decoration:none; color:inherit" href="#37"> 37</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="38"><a style="outline: none; text-decoration:none; color:inherit" href="#38"> 38</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="39"><a style="outline: none; text-decoration:none; color:inherit" href="#39"> 39</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="40"><a style="outline: none; text-decoration:none; color:inherit" href="#40"> 40</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="41"><a style="outline: none; text-decoration:none; color:inherit" href="#41"> 41</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="42"><a style="outline: none; text-decoration:none; color:inherit" href="#42"> 42</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="43"><a style="outline: none; text-decoration:none; color:inherit" href="#43"> 43</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="44"><a style="outline: none; text-decoration:none; color:inherit" href="#44"> 44</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="45"><a style="outline: none; text-decoration:none; color:inherit" href="#45"> 45</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="46"><a style="outline: none; text-decoration:none; color:inherit" href="#46"> 46</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="47"><a style="outline: none; text-decoration:none; color:inherit" href="#47"> 47</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="48"><a style="outline: none; text-decoration:none; color:inherit" href="#48"> 48</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="49"><a style="outline: none; text-decoration:none; color:inherit" href="#49"> 49</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="50"><a style="outline: none; text-decoration:none; color:inherit" href="#50"> 50</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="51"><a style="outline: none; text-decoration:none; color:inherit" href="#51"> 51</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="52"><a style="outline: none; text-decoration:none; color:inherit" href="#52"> 52</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="53"><a style="outline: none; text-decoration:none; color:inherit" href="#53"> 53</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="54"><a style="outline: none; text-decoration:none; color:inherit" href="#54"> 54</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="55"><a style="outline: none; text-decoration:none; color:inherit" href="#55"> 55</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="56"><a style="outline: none; text-decoration:none; color:inherit" href="#56"> 56</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="57"><a style="outline: none; text-decoration:none; color:inherit" href="#57"> 57</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="58"><a style="outline: none; text-decoration:none; color:inherit" href="#58"> 58</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="59"><a style="outline: none; text-decoration:none; color:inherit" href="#59"> 59</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="60"><a style="outline: none; text-decoration:none; color:inherit" href="#60"> 60</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="61"><a style="outline: none; text-decoration:none; color:inherit" href="#61"> 61</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="62"><a style="outline: none; text-decoration:none; color:inherit" href="#62"> 62</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="63"><a style="outline: none; text-decoration:none; color:inherit" href="#63"> 63</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="64"><a style="outline: none; text-decoration:none; color:inherit" href="#64"> 64</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="65"><a style="outline: none; text-decoration:none; color:inherit" href="#65"> 65</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="66"><a style="outline: none; text-decoration:none; color:inherit" href="#66"> 66</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="67"><a style="outline: none; text-decoration:none; color:inherit" href="#67"> 67</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="68"><a style="outline: none; text-decoration:none; color:inherit" href="#68"> 68</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="69"><a style="outline: none; text-decoration:none; color:inherit" href="#69"> 69</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="70"><a style="outline: none; text-decoration:none; color:inherit" href="#70"> 70</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="71"><a style="outline: none; text-decoration:none; color:inherit" href="#71"> 71</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="72"><a style="outline: none; text-decoration:none; color:inherit" href="#72"> 72</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="73"><a style="outline: none; text-decoration:none; color:inherit" href="#73"> 73</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="74"><a style="outline: none; text-decoration:none; color:inherit" href="#74"> 74</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="75"><a style="outline: none; text-decoration:none; color:inherit" href="#75"> 75</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="76"><a style="outline: none; text-decoration:none; color:inherit" href="#76"> 76</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="77"><a style="outline: none; text-decoration:none; color:inherit" href="#77"> 77</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="78"><a style="outline: none; text-decoration:none; color:inherit" href="#78"> 78</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="79"><a style="outline: none; text-decoration:none; color:inherit" href="#79"> 79</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="80"><a style="outline: none; text-decoration:none; color:inherit" href="#80"> 80</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="81"><a style="outline: none; text-decoration:none; color:inherit" href="#81"> 81</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="82"><a style="outline: none; text-decoration:none; color:inherit" href="#82"> 82</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="83"><a style="outline: none; text-decoration:none; color:inherit" href="#83"> 83</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="84"><a style="outline: none; text-decoration:none; color:inherit" href="#84"> 84</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="85"><a style="outline: none; text-decoration:none; color:inherit" href="#85"> 85</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="86"><a style="outline: none; text-decoration:none; color:inherit" href="#86"> 86</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="87"><a style="outline: none; text-decoration:none; color:inherit" href="#87"> 87</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="88"><a style="outline: none; text-decoration:none; color:inherit" href="#88"> 88</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="89"><a style="outline: none; text-decoration:none; color:inherit" href="#89"> 89</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="90"><a style="outline: none; text-decoration:none; color:inherit" href="#90"> 90</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="91"><a style="outline: none; text-decoration:none; color:inherit" href="#91"> 91</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="92"><a style="outline: none; text-decoration:none; color:inherit" href="#92"> 92</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="93"><a style="outline: none; text-decoration:none; color:inherit" href="#93"> 93</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="94"><a style="outline: none; text-decoration:none; color:inherit" href="#94"> 94</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="95"><a style="outline: none; text-decoration:none; color:inherit" href="#95"> 95</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="96"><a style="outline: none; text-decoration:none; color:inherit" href="#96"> 96</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="97"><a style="outline: none; text-decoration:none; color:inherit" href="#97"> 97</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="98"><a style="outline: none; text-decoration:none; color:inherit" href="#98"> 98</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="99"><a style="outline: none; text-decoration:none; color:inherit" href="#99"> 99</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="100"><a style="outline: none; text-decoration:none; color:inherit" href="#100">100</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="101"><a style="outline: none; text-decoration:none; color:inherit" href="#101">101</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="102"><a style="outline: none; text-decoration:none; color:inherit" href="#102">102</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="103"><a style="outline: none; text-decoration:none; color:inherit" href="#103">103</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="104"><a style="outline: none; text-decoration:none; color:inherit" href="#104">104</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="105"><a style="outline: none; text-decoration:none; color:inherit" href="#105">105</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="106"><a style="outline: none; text-decoration:none; color:inherit" href="#106">106</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="107"><a style="outline: none; text-decoration:none; color:inherit" href="#107">107</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="108"><a style="outline: none; text-decoration:none; color:inherit" href="#108">108</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="109"><a style="outline: none; text-decoration:none; color:inherit" href="#109">109</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="110"><a style="outline: none; text-decoration:none; color:inherit" href="#110">110</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="111"><a style="outline: none; text-decoration:none; color:inherit" href="#111">111</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="112"><a style="outline: none; text-decoration:none; color:inherit" href="#112">112</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+<pre><code class="language-json">[
     {
-        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;&lt;webhooks-id&gt;&#34;</span>,
-        <span style="color:#f92672">&#34;execute-command&#34;</span>: <span style="color:#e6db74">&#34;/webhooks.sh&#34;</span>,
-        <span style="color:#f92672">&#34;command-working-directory&#34;</span>: <span style="color:#e6db74">&#34;/home&#34;</span>,
-        <span style="color:#f92672">&#34;response-message&#34;</span>: <span style="color:#e6db74">&#34;I got the payload!&#34;</span>,
-        <span style="color:#f92672">&#34;include-command-output-in-response&#34;</span>: <span style="color:#66d9ef">true</span>,
-        <span style="color:#f92672">&#34;include-command-output-in-response-on-error&#34;</span>: <span style="color:#66d9ef">true</span>,
-        <span style="color:#f92672">&#34;trigger-rule-mismatch-http-response-code&#34;</span>: <span style="color:#ae81ff">500</span>,
-        <span style="color:#f92672">&#34;response-headers&#34;</span>:
+        &quot;id&quot;: &quot;&lt;webhooks-id&gt;&quot;,
+        &quot;execute-command&quot;: &quot;/webhooks.sh&quot;,
+        &quot;command-working-directory&quot;: &quot;/home&quot;,
+        &quot;response-message&quot;: &quot;I got the payload!&quot;,
+        &quot;include-command-output-in-response&quot;: true,
+        &quot;include-command-output-in-response-on-error&quot;: true,
+        &quot;trigger-rule-mismatch-http-response-code&quot;: 500,
+        &quot;response-headers&quot;:
         [
             {
-                <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Access-Control-Allow-Origin&#34;</span>,
-                <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
+                &quot;name&quot;: &quot;Access-Control-Allow-Origin&quot;,
+                &quot;value&quot;: &quot;*&quot;
             }
         ],
-        <span style="color:#f92672">&#34;pass-arguments-to-command&#34;</span>:
+        &quot;pass-arguments-to-command&quot;:
         [
             {
-                <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;entire-payload&#34;</span>
+                &quot;source&quot;: &quot;entire-payload&quot;
             }
           ],
-        <span style="color:#f92672">&#34;pass-environment-to-command&#34;</span>:
+        &quot;pass-environment-to-command&quot;:
         [
             {
-                <span style="color:#f92672">&#34;envname&#34;</span>: <span style="color:#e6db74">&#34;APP_NS&#34;</span>,
-                <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;url&#34;</span>,
-                <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;ns&#34;</span>
+                &quot;envname&quot;: &quot;APP_NS&quot;,
+                &quot;source&quot;: &quot;url&quot;,
+                &quot;name&quot;: &quot;ns&quot;
             },
             {
-                <span style="color:#f92672">&#34;envname&#34;</span>: <span style="color:#e6db74">&#34;APP_WORKLOAD&#34;</span>,
-                <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;url&#34;</span>,
-                <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;workload&#34;</span>
+                &quot;envname&quot;: &quot;APP_WORKLOAD&quot;,
+                &quot;source&quot;: &quot;url&quot;,
+                &quot;name&quot;: &quot;workload&quot;
             },
             {
-                <span style="color:#f92672">&#34;envname&#34;</span>: <span style="color:#e6db74">&#34;APP_CONTAINER&#34;</span>,
-                <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;url&#34;</span>,
-                <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;container&#34;</span>
+                &quot;envname&quot;: &quot;APP_CONTAINER&quot;,
+                &quot;source&quot;: &quot;url&quot;,
+                &quot;name&quot;: &quot;container&quot;
             },
             {
-                <span style="color:#f92672">&#34;envname&#34;</span>: <span style="color:#e6db74">&#34;REPO_TYPE&#34;</span>,
-                <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;url&#34;</span>,
-                <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;repo_type&#34;</span>
+                &quot;envname&quot;: &quot;REPO_TYPE&quot;,
+                &quot;source&quot;: &quot;url&quot;,
+                &quot;name&quot;: &quot;repo_type&quot;
             },
             {
-                <span style="color:#f92672">&#34;envname&#34;</span>: <span style="color:#e6db74">&#34;NET_TYPE&#34;</span>,
-                <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;url&#34;</span>,
-                <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;net_type&#34;</span>
+                &quot;envname&quot;: &quot;NET_TYPE&quot;,
+                &quot;source&quot;: &quot;url&quot;,
+                &quot;name&quot;: &quot;net_type&quot;
             },
             {
-                <span style="color:#f92672">&#34;envname&#34;</span>: <span style="color:#e6db74">&#34;MAIL_TO&#34;</span>,
-                <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>,
-                <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;&lt;MAIL_TO&gt;&#34;</span>
+                &quot;envname&quot;: &quot;MAIL_TO&quot;,
+                &quot;source&quot;: &quot;string&quot;,
+                &quot;name&quot;: &quot;&lt;MAIL_TO&gt;&quot;
             }
         ],
-        <span style="color:#f92672">&#34;trigger-rule&#34;</span>:
+        &quot;trigger-rule&quot;:
         {
-            <span style="color:#f92672">&#34;and&#34;</span>:
+            &quot;and&quot;:
             [
                 {
-                    <span style="color:#f92672">&#34;match&#34;</span>:
+                    &quot;match&quot;:
                     {
-                        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;value&#34;</span>,
-                        <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;&lt;token&gt;&#34;</span>,
-                        <span style="color:#f92672">&#34;parameter&#34;</span>:
+                        &quot;type&quot;: &quot;value&quot;,
+                        &quot;value&quot;: &quot;&lt;token&gt;&quot;,
+                        &quot;parameter&quot;:
                         {
-                            <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;url&#34;</span>,
-                            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;token&#34;</span>
+                            &quot;source&quot;: &quot;url&quot;,
+                            &quot;name&quot;: &quot;token&quot;
                         }
                     }
                 },
                 {
-                    <span style="color:#f92672">&#34;match&#34;</span>:
+                    &quot;match&quot;:
                     {
-                        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;value&#34;</span>,
-                        <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;&lt;namespaces&gt;&#34;</span>,
-                        <span style="color:#f92672">&#34;parameter&#34;</span>:
+                        &quot;type&quot;: &quot;value&quot;,
+                        &quot;value&quot;: &quot;&lt;namespaces&gt;&quot;,
+                        &quot;parameter&quot;:
                         {
-                            <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;url&#34;</span>,
-                            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;ns&#34;</span>
+                            &quot;source&quot;: &quot;url&quot;,
+                            &quot;name&quot;: &quot;ns&quot;
                         }
                     }
                 },
                 {
-                    <span style="color:#f92672">&#34;match&#34;</span>:
+                    &quot;match&quot;:
                     {
-                        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;value&#34;</span>,
-                        <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;&lt;workload&gt;&#34;</span>,
-                        <span style="color:#f92672">&#34;parameter&#34;</span>:
+                        &quot;type&quot;: &quot;value&quot;,
+                        &quot;value&quot;: &quot;&lt;workload&gt;&quot;,
+                        &quot;parameter&quot;:
                         {
-                            <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;url&#34;</span>,
-                            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;workload&#34;</span>
+                            &quot;source&quot;: &quot;url&quot;,
+                            &quot;name&quot;: &quot;workload&quot;
                         }
                     }
                 },
                 {
-                    <span style="color:#f92672">&#34;match&#34;</span>:
+                    &quot;match&quot;:
                     {
-                        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;value&#34;</span>,
-                        <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;&lt;container&gt;&#34;</span>,
-                        <span style="color:#f92672">&#34;parameter&#34;</span>:
+                        &quot;type&quot;: &quot;value&quot;,
+                        &quot;value&quot;: &quot;&lt;container&gt;&quot;,
+                        &quot;parameter&quot;:
                         {
-                            <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;url&#34;</span>,
-                            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;container&#34;</span>
+                            &quot;source&quot;: &quot;url&quot;,
+                            &quot;name&quot;: &quot;container&quot;
                         }
                     }
                 }
@@ -521,9 +479,8 @@
     }
 ]
 
-</code></pre></td></tr></table>
-</div>
-</div><p>3.填写<code>添加配置映射</code>参数，其中:</p>
+</code></pre>
+<p>3.填写<code>添加配置映射</code>参数，其中:</p>
 <ul>
 <li>名称: 可以随意填写;</li>
 <li>键: 以<code>.json</code>结尾的文件名，比如<code>springboot-demo.json</code>;</li>
@@ -534,15 +491,9 @@
 <h1 id="2-webhooks镜像安装">2 webhooks镜像安装</h1>
 <p>依次点击 <code>system项目\工作负载\工作负载</code>，点击右侧<code>部署服务</code>。</p>
 <p>下面这个镜像是我自己打包的，官方的镜像包，在你使用自定义镜像仓库时会报错</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">registry.cn-hangzhou.aliyuncs.com/rancher2/webhook:1.0
-</code></pre></td></tr></table>
-</div>
-</div><ol>
+<pre><code>registry.cn-hangzhou.aliyuncs.com/rancher2/webhook:1.0
+</code></pre>
+<ol>
 <li>
 <p>配置服务名称和镜像
 <img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1g9oeju59zuj31c40dyjrl.jpg" alt=""></p>
@@ -597,27 +548,15 @@
 </li>
 </ol>
 <h1 id="3-webhooks触发地址">3 webhooks触发地址</h1>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7">7</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">http<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>://&lt;webhooks_url&gt;/hooks/<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>&lt;webhooks_id&gt;?<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>token<span style="color:#f92672">=</span>&lt;token&gt;&amp;<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>ns<span style="color:#f92672">=</span>&lt;namespaces&gt;&amp;<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>workload<span style="color:#f92672">=</span>&lt;workload&gt;&amp;<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>container<span style="color:#f92672">=</span>&lt;container&gt;&amp;<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>repo_type<span style="color:#f92672">=</span>&lt;repo_type&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>如果是阿里云的镜像仓库，可在url中添加<code>net_type</code>指定网络类型:</p>
+<pre><code class="language-bash">http(s)://&lt;webhooks_url&gt;/hooks/\
+&lt;webhooks_id&gt;?\
+token=&lt;token&gt;&amp;\
+ns=&lt;namespaces&gt;&amp;\
+workload=&lt;workload&gt;&amp;\
+container=&lt;container&gt;&amp;\
+repo_type=&lt;repo_type&gt;
+</code></pre>
+<p>如果是阿里云的镜像仓库，可在url中添加<code>net_type</code>指定网络类型:</p>
 <ul>
 <li>公共网络:如果不指定，则默认为公共网络拉取镜像</li>
 <li>专有网络:<code>net_type=vpc</code></li>
@@ -633,51 +572,27 @@
 <p>如果是使用Jenkins自定义构建镜像，可以设置<code>repo_type=custom</code>。</p>
 <p>在Jenkins构建项目中，在镜像<code>push</code>操作后增加一个<code>执行shell命令</code>的步骤。这个操作主要是在镜像成功推送到镜像仓库后发出<code>POST消息</code>去触发<code>webhooks</code>，这步中需要把上一步推送的<code>镜像仓库地址</code>,<code>镜像命名空间</code>,<code>镜像名</code>，以及镜像tag作为变量传递到这一步，这样在发送<code>POST消息</code>才可以把相关的镜像信息传递给webhooks,从而触发服务升级。</p>
 <p>示例POST消息:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -X POST <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  <span style="color:#e6db74">&#39;http(s)://&lt;webhooks_url&gt;/hooks/&lt;webhooks_id&gt;?\
-</span><span style="color:#e6db74">  token=&lt;token&gt;&amp;\
-</span><span style="color:#e6db74">  ns=&lt;namespaces&gt;&amp;\
-</span><span style="color:#e6db74">  workload=&lt;workload&gt;&amp;\
-</span><span style="color:#e6db74">  container=&lt;container&gt;&amp;\
-</span><span style="color:#e6db74">  repo_type=custom&#39;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#39;Content-Type: application/json&#39;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#39;cache-control: no-cache&#39;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -d <span style="color:#e6db74">&#39;{
-</span><span style="color:#e6db74">    &#34;push_data&#34;: {
-</span><span style="color:#e6db74">        &#34;tag&#34;: &#34;${images_tag}&#34;
-</span><span style="color:#e6db74">    },
-</span><span style="color:#e6db74">    &#34;repository&#34;: {
-</span><span style="color:#e6db74">        &#34;repo_url&#34;: ${images_repo_url},
-</span><span style="color:#e6db74">        &#34;name&#34;: &#34;${images_name}&#34;,
-</span><span style="color:#e6db74">        &#34;namespace&#34;: &#34;${images_namespace}&#34;
-</span><span style="color:#e6db74">    }
-</span><span style="color:#e6db74">}&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="5-触发webhooks">5 触发webhooks</h1>
+<pre><code class="language-bash">curl -X POST \
+  'http(s)://&lt;webhooks_url&gt;/hooks/&lt;webhooks_id&gt;?\
+  token=&lt;token&gt;&amp;\
+  ns=&lt;namespaces&gt;&amp;\
+  workload=&lt;workload&gt;&amp;\
+  container=&lt;container&gt;&amp;\
+  repo_type=custom' \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '{
+    &quot;push_data&quot;: {
+        &quot;tag&quot;: &quot;${images_tag}&quot;
+    },
+    &quot;repository&quot;: {
+        &quot;repo_url&quot;: ${images_repo_url},
+        &quot;name&quot;: &quot;${images_name}&quot;,
+        &quot;namespace&quot;: &quot;${images_namespace}&quot;
+    }
+}'
+</code></pre>
+<h1 id="5-触发webhooks">5 触发webhooks</h1>
 <p>配置完以上参数，提交代码到git仓库后将会自动触发阿里云仓库或者dockerhub的自动构建，创建自动构建方法请自行查阅相关文档。</p>
 <p>webhooks服务收到消息后，会马上触发服务的升级。查看webhooks服务的日志，可以看到已经成功升级。</p>
 <p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/006tNbRwly1g9pe1pb9xdj31oq0l075p.jpg" alt=""></p>
@@ -841,7 +756,7 @@
             
             
             <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
-            环境配置系列(12)
+            环境配置系列(14)
             </a>
 
             
@@ -849,6 +764,13 @@
             
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
             排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
             </a>
 
             
@@ -870,13 +792,6 @@
             
             <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
             数学基础(7)
-            </a>
-
-            
-            
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
-            机器学习系列(7)
             </a>
 
             
@@ -1122,6 +1037,7 @@
 <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
 
 
+
 <script>
 
 
@@ -1186,10 +1102,73 @@ gtag('config', 'UA-155998534-1');
 </body>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
     <script src="https://www.naah69.com/js/article.js"></script>
+    <script>
+
+
+    
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+        singleLine: true
+    });
+
+    $("style").each(function(){
+        style=$(this).text()
+        if(style.indexOf(".hljs-ln td{padding:0}")!=-1){
+            $(this).remove();
+        }
+    });
+
+
+    
+    var snippets = document.querySelectorAll('pre>code');
+    var htmlCopyButton = `<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i></button>`;
+
+    snippets.forEach(snippet => {
+        var pre = snippet.parentNode;
+        var pre_parent = pre.parentNode;
+
+        var wrapper = document.createElement('div');
+
+        pre_parent.replaceChild(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        wrapper.classList.add('code-highlight');
+        wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+        var class0 = (snippet.classList[0] || 'code')
+        var lang = (class0.replace("language-", "") || 'code').toUpperCase();
+        wrapper.setAttribute('data-lang', lang);
+    });
+
+    
+    var clipboard = new ClipboardJS('.codecopy-btn', {
+        target: trigger => {
+            return trigger.nextSibling;
+        },
+    });
+
+    clipboard.on('success', e => {
+        e.trigger.setAttribute('aria-label', 'Copied!');
+        e.clearSelection();
+    });
+
+    
+    
+    var btns = document.querySelectorAll('.codecopy-btn');
+
+    btns.forEach(btn => {
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    });
+
+</script>
 
 
 </html>

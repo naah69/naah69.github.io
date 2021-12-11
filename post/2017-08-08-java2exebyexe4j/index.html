@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.naah69.com/css/hux-blog.min.css">
     
+    
+
 
 
 
@@ -68,6 +70,7 @@
 
 
 </head>
+<body>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -113,6 +116,10 @@
                     
                     <li>
                         <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
                     </li>
                     
 
@@ -241,27 +248,33 @@
                     <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
                         <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#1-生成jar包">1 生成Jar包</a>
       <ul>
-        <li><a href="#11-安装插件">1.1 安装插件：</a></li>
-        <li><a href="#12-生成jar">1.2 生成Jar：</a></li>
+        <li>
+          <ul>
+            <li><a href="#11-安装插件">1.1 安装插件：</a></li>
+            <li><a href="#12-生成jar">1.2 生成Jar：</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li>
+    <li><a href="#2-精简jre">2 精简JRE</a>
       <ul>
-        <li><a href="#21-精简jre--bin">2.1 精简JRE \ BIN</a></li>
-        <li><a href="#22-精简jre--lib">2.2 精简JRE \ LIB</a></li>
+        <li>
+          <ul>
+            <li><a href="#21-精简jre--bin">2.1 精简JRE \ BIN</a></li>
+            <li><a href="#22-精简jre--lib">2.2 精简JRE \ LIB</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li>
+    <li><a href="#3-生成exe文件">3 生成exe文件</a>
       <ul>
-        <li><a href="#31-生成exe文件">3.1 生成exe文件</a></li>
+        <li>
+          <ul>
+            <li><a href="#31-生成exe文件">3.1 生成exe文件</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -310,19 +323,11 @@
 <ol>
 <li>在你的java代码中最后结束的位置假如如下代码</li>
 </ol>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">InputStreamReader ir <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> InputStreamReader<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">in</span><span style="color:#f92672">);</span>
-System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hello&#34;</span><span style="color:#f92672">);</span>
-ir<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">();</span>
-</code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<pre><code class="language-java">InputStreamReader ir = new InputStreamReader(System.in);
+System.out.println(&quot;hello&quot;);
+ir.read();
+</code></pre>
+<ol start="2">
 <li>
 <p>编译你的代码，并使用命令行的java代码运行类</p>
 </li>
@@ -359,15 +364,9 @@ ir<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><sp
 <ol>
 <li>在jar包的目录下建立txt文件，复制下方代码，将代码中jar包的名称改为你的jar包的名称，然后将txt扩展名改为bat。</li>
 </ol>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -jar -verbose：class ss.jar &gt;&gt; classlog.txt
-</code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<pre><code class="language-bash">java -jar -verbose：class ss.jar &gt;&gt; classlog.txt
+</code></pre>
+<ol start="2">
 <li>
 <p>打开刚才建立的蝙蝠，等待命令行窗口消失后，打开jar包目录下classlog.txt。查看是否有运行日志，如果有运行日志请继续往下看。</p>
 </li>
@@ -375,307 +374,155 @@ ir<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><sp
 <p>将下列代码修改source,dest,logname,jarArr,建立相应文件夹后编译运行。</p>
 </li>
 </ol>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">  1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">  2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">  3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">  4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">  5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">  6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7">  7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8">  8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9">  9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10"> 10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11"> 11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12"> 12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13"> 13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14"> 14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15"> 15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16"> 16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17"> 17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18"> 18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19"> 19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20"> 20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21"> 21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22"> 22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23"> 23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24"> 24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25"> 25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26"> 26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27"> 27</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="28"><a style="outline: none; text-decoration:none; color:inherit" href="#28"> 28</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="29"><a style="outline: none; text-decoration:none; color:inherit" href="#29"> 29</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="30"><a style="outline: none; text-decoration:none; color:inherit" href="#30"> 30</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="31"><a style="outline: none; text-decoration:none; color:inherit" href="#31"> 31</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="32"><a style="outline: none; text-decoration:none; color:inherit" href="#32"> 32</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="33"><a style="outline: none; text-decoration:none; color:inherit" href="#33"> 33</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="34"><a style="outline: none; text-decoration:none; color:inherit" href="#34"> 34</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="35"><a style="outline: none; text-decoration:none; color:inherit" href="#35"> 35</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="36"><a style="outline: none; text-decoration:none; color:inherit" href="#36"> 36</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="37"><a style="outline: none; text-decoration:none; color:inherit" href="#37"> 37</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="38"><a style="outline: none; text-decoration:none; color:inherit" href="#38"> 38</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="39"><a style="outline: none; text-decoration:none; color:inherit" href="#39"> 39</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="40"><a style="outline: none; text-decoration:none; color:inherit" href="#40"> 40</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="41"><a style="outline: none; text-decoration:none; color:inherit" href="#41"> 41</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="42"><a style="outline: none; text-decoration:none; color:inherit" href="#42"> 42</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="43"><a style="outline: none; text-decoration:none; color:inherit" href="#43"> 43</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="44"><a style="outline: none; text-decoration:none; color:inherit" href="#44"> 44</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="45"><a style="outline: none; text-decoration:none; color:inherit" href="#45"> 45</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="46"><a style="outline: none; text-decoration:none; color:inherit" href="#46"> 46</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="47"><a style="outline: none; text-decoration:none; color:inherit" href="#47"> 47</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="48"><a style="outline: none; text-decoration:none; color:inherit" href="#48"> 48</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="49"><a style="outline: none; text-decoration:none; color:inherit" href="#49"> 49</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="50"><a style="outline: none; text-decoration:none; color:inherit" href="#50"> 50</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="51"><a style="outline: none; text-decoration:none; color:inherit" href="#51"> 51</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="52"><a style="outline: none; text-decoration:none; color:inherit" href="#52"> 52</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="53"><a style="outline: none; text-decoration:none; color:inherit" href="#53"> 53</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="54"><a style="outline: none; text-decoration:none; color:inherit" href="#54"> 54</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="55"><a style="outline: none; text-decoration:none; color:inherit" href="#55"> 55</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="56"><a style="outline: none; text-decoration:none; color:inherit" href="#56"> 56</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="57"><a style="outline: none; text-decoration:none; color:inherit" href="#57"> 57</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="58"><a style="outline: none; text-decoration:none; color:inherit" href="#58"> 58</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="59"><a style="outline: none; text-decoration:none; color:inherit" href="#59"> 59</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="60"><a style="outline: none; text-decoration:none; color:inherit" href="#60"> 60</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="61"><a style="outline: none; text-decoration:none; color:inherit" href="#61"> 61</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="62"><a style="outline: none; text-decoration:none; color:inherit" href="#62"> 62</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="63"><a style="outline: none; text-decoration:none; color:inherit" href="#63"> 63</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="64"><a style="outline: none; text-decoration:none; color:inherit" href="#64"> 64</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="65"><a style="outline: none; text-decoration:none; color:inherit" href="#65"> 65</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="66"><a style="outline: none; text-decoration:none; color:inherit" href="#66"> 66</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="67"><a style="outline: none; text-decoration:none; color:inherit" href="#67"> 67</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="68"><a style="outline: none; text-decoration:none; color:inherit" href="#68"> 68</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="69"><a style="outline: none; text-decoration:none; color:inherit" href="#69"> 69</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="70"><a style="outline: none; text-decoration:none; color:inherit" href="#70"> 70</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="71"><a style="outline: none; text-decoration:none; color:inherit" href="#71"> 71</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="72"><a style="outline: none; text-decoration:none; color:inherit" href="#72"> 72</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="73"><a style="outline: none; text-decoration:none; color:inherit" href="#73"> 73</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="74"><a style="outline: none; text-decoration:none; color:inherit" href="#74"> 74</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="75"><a style="outline: none; text-decoration:none; color:inherit" href="#75"> 75</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="76"><a style="outline: none; text-decoration:none; color:inherit" href="#76"> 76</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="77"><a style="outline: none; text-decoration:none; color:inherit" href="#77"> 77</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="78"><a style="outline: none; text-decoration:none; color:inherit" href="#78"> 78</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="79"><a style="outline: none; text-decoration:none; color:inherit" href="#79"> 79</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="80"><a style="outline: none; text-decoration:none; color:inherit" href="#80"> 80</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="81"><a style="outline: none; text-decoration:none; color:inherit" href="#81"> 81</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="82"><a style="outline: none; text-decoration:none; color:inherit" href="#82"> 82</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="83"><a style="outline: none; text-decoration:none; color:inherit" href="#83"> 83</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="84"><a style="outline: none; text-decoration:none; color:inherit" href="#84"> 84</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="85"><a style="outline: none; text-decoration:none; color:inherit" href="#85"> 85</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="86"><a style="outline: none; text-decoration:none; color:inherit" href="#86"> 86</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="87"><a style="outline: none; text-decoration:none; color:inherit" href="#87"> 87</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="88"><a style="outline: none; text-decoration:none; color:inherit" href="#88"> 88</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="89"><a style="outline: none; text-decoration:none; color:inherit" href="#89"> 89</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="90"><a style="outline: none; text-decoration:none; color:inherit" href="#90"> 90</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="91"><a style="outline: none; text-decoration:none; color:inherit" href="#91"> 91</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="92"><a style="outline: none; text-decoration:none; color:inherit" href="#92"> 92</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="93"><a style="outline: none; text-decoration:none; color:inherit" href="#93"> 93</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="94"><a style="outline: none; text-decoration:none; color:inherit" href="#94"> 94</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="95"><a style="outline: none; text-decoration:none; color:inherit" href="#95"> 95</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="96"><a style="outline: none; text-decoration:none; color:inherit" href="#96"> 96</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="97"><a style="outline: none; text-decoration:none; color:inherit" href="#97"> 97</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="98"><a style="outline: none; text-decoration:none; color:inherit" href="#98"> 98</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="99"><a style="outline: none; text-decoration:none; color:inherit" href="#99"> 99</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="100"><a style="outline: none; text-decoration:none; color:inherit" href="#100">100</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="101"><a style="outline: none; text-decoration:none; color:inherit" href="#101">101</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="102"><a style="outline: none; text-decoration:none; color:inherit" href="#102">102</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="103"><a style="outline: none; text-decoration:none; color:inherit" href="#103">103</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="104"><a style="outline: none; text-decoration:none; color:inherit" href="#104">104</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="105"><a style="outline: none; text-decoration:none; color:inherit" href="#105">105</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="106"><a style="outline: none; text-decoration:none; color:inherit" href="#106">106</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="107"><a style="outline: none; text-decoration:none; color:inherit" href="#107">107</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="108"><a style="outline: none; text-decoration:none; color:inherit" href="#108">108</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="109"><a style="outline: none; text-decoration:none; color:inherit" href="#109">109</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="110"><a style="outline: none; text-decoration:none; color:inherit" href="#110">110</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="111"><a style="outline: none; text-decoration:none; color:inherit" href="#111">111</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="112"><a style="outline: none; text-decoration:none; color:inherit" href="#112">112</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="113"><a style="outline: none; text-decoration:none; color:inherit" href="#113">113</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="114"><a style="outline: none; text-decoration:none; color:inherit" href="#114">114</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="115"><a style="outline: none; text-decoration:none; color:inherit" href="#115">115</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="116"><a style="outline: none; text-decoration:none; color:inherit" href="#116">116</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="117"><a style="outline: none; text-decoration:none; color:inherit" href="#117">117</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="118"><a style="outline: none; text-decoration:none; color:inherit" href="#118">118</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="119"><a style="outline: none; text-decoration:none; color:inherit" href="#119">119</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="120"><a style="outline: none; text-decoration:none; color:inherit" href="#120">120</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="121"><a style="outline: none; text-decoration:none; color:inherit" href="#121">121</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="122"><a style="outline: none; text-decoration:none; color:inherit" href="#122">122</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="123"><a style="outline: none; text-decoration:none; color:inherit" href="#123">123</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="124"><a style="outline: none; text-decoration:none; color:inherit" href="#124">124</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="125"><a style="outline: none; text-decoration:none; color:inherit" href="#125">125</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="126"><a style="outline: none; text-decoration:none; color:inherit" href="#126">126</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="127"><a style="outline: none; text-decoration:none; color:inherit" href="#127">127</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="128"><a style="outline: none; text-decoration:none; color:inherit" href="#128">128</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="129"><a style="outline: none; text-decoration:none; color:inherit" href="#129">129</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="130"><a style="outline: none; text-decoration:none; color:inherit" href="#130">130</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="131"><a style="outline: none; text-decoration:none; color:inherit" href="#131">131</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="132"><a style="outline: none; text-decoration:none; color:inherit" href="#132">132</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="133"><a style="outline: none; text-decoration:none; color:inherit" href="#133">133</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="134"><a style="outline: none; text-decoration:none; color:inherit" href="#134">134</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="135"><a style="outline: none; text-decoration:none; color:inherit" href="#135">135</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="136"><a style="outline: none; text-decoration:none; color:inherit" href="#136">136</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="137"><a style="outline: none; text-decoration:none; color:inherit" href="#137">137</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="138"><a style="outline: none; text-decoration:none; color:inherit" href="#138">138</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="139"><a style="outline: none; text-decoration:none; color:inherit" href="#139">139</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="140"><a style="outline: none; text-decoration:none; color:inherit" href="#140">140</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="141"><a style="outline: none; text-decoration:none; color:inherit" href="#141">141</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="142"><a style="outline: none; text-decoration:none; color:inherit" href="#142">142</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="143"><a style="outline: none; text-decoration:none; color:inherit" href="#143">143</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="144"><a style="outline: none; text-decoration:none; color:inherit" href="#144">144</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="145"><a style="outline: none; text-decoration:none; color:inherit" href="#145">145</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="146"><a style="outline: none; text-decoration:none; color:inherit" href="#146">146</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="147"><a style="outline: none; text-decoration:none; color:inherit" href="#147">147</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.io.BufferedReader<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.io.File<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.io.FileInputStream<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.io.FileOutputStream<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.io.InputStreamReader<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.nio.charset.Charset<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.nio.file.Files<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.nio.file.Paths<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+<pre><code class="language-java">import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">sm</span> <span style="color:#f92672">{</span>
+public class sm {
 
- <span style="color:#66d9ef">private</span> String source<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C:/Users/Naah/Desktop/ss/jre7/lib&#34;</span><span style="color:#f92672">;</span>
- <span style="color:#66d9ef">private</span> String dest<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C:/Users/Naah/Desktop/ss/jre7/lib&#34;</span><span style="color:#f92672">;</span>
- <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String logname<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C:/Users/Naah/Desktop/ss/classlog.txt&#34;</span><span style="color:#f92672">;</span>
- <span style="color:#66d9ef">private</span> String<span style="color:#f92672">[]</span> jarArr<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]{</span><span style="color:#e6db74">&#34;rt&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;charsets&#34;</span><span style="color:#f92672">}</span> <span style="color:#f92672">;</span>
- <span style="color:#75715e">/***
-</span><span style="color:#75715e"> *
-</span><span style="color:#75715e"> * @param source 类源目录
-</span><span style="color:#75715e"> * @param dest 类拷贝目的目录
-</span><span style="color:#75715e"> * @param dest classlog的路径
-</span><span style="color:#75715e"> * @param jarArr 需要的提取的jar文件
-</span><span style="color:#75715e"> */</span>
- <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
- <span style="color:#75715e">// TODO Auto-generated method stub
-</span><span style="color:#75715e"></span>
- <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
- List list<span style="color:#f92672">=</span>finJar<span style="color:#f92672">(</span>logname<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;ss.jar&#34;</span><span style="color:#f92672">);</span>
- InputStreamReader ir <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> InputStreamReader<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">in</span><span style="color:#f92672">);</span>
- System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;请清理lib目录并解压相关jar包,输入任何字符继续！&#34;</span><span style="color:#f92672">);</span>
- ir<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">();</span>
- String a<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
- <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String string <span style="color:#f92672">:</span> list<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
- a<span style="color:#f92672">=</span>a<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;\n&#34;</span><span style="color:#f92672">+</span>string<span style="color:#f92672">;</span>
- <span style="color:#f92672">}</span>
- a<span style="color:#f92672">=</span>a<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span>a<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">());</span>
- FileOutputStream out<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> FileOutputStream<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span>logname<span style="color:#f92672">));</span>
- out<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>a<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">());</span>
- out<span style="color:#f92672">.</span><span style="color:#a6e22e">flush</span><span style="color:#f92672">();</span>
- out<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+ private String source=&quot;C:/Users/Naah/Desktop/ss/jre7/lib&quot;;
+ private String dest=&quot;C:/Users/Naah/Desktop/ss/jre7/lib&quot;;
+ private static String logname=&quot;C:/Users/Naah/Desktop/ss/classlog.txt&quot;;
+ private String[] jarArr=new String[]{&quot;rt&quot;,&quot;charsets&quot;} ;
+ /***
+ *
+ * @param source 类源目录
+ * @param dest 类拷贝目的目录
+ * @param dest classlog的路径
+ * @param jarArr 需要的提取的jar文件
+ */
+ public static void main(String[] args) {
+ // TODO Auto-generated method stub
 
- sm obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> sm<span style="color:#f92672">();</span>
- obj<span style="color:#f92672">.</span><span style="color:#a6e22e">readAndCopy</span><span style="color:#f92672">(</span>logname<span style="color:#f92672">);</span>
- <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
- e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
- <span style="color:#f92672">}</span>
+ try {
+ List list=finJar(logname,&quot;ss.jar&quot;);
+ InputStreamReader ir = new InputStreamReader(System.in);
+ System.out.println(&quot;请清理lib目录并解压相关jar包,输入任何字符继续！&quot;);
+ ir.read();
+ String a=&quot;&quot;;
+ for (String string : list) {
+ a=a+&quot;\n&quot;+string;
+ }
+ a=a.substring(1,a.length());
+ FileOutputStream out=new FileOutputStream(new File(logname));
+ out.write(a.getBytes());
+ out.flush();
+ out.close();
 
- <span style="color:#f92672">}</span>
+ sm obj = new sm();
+ obj.readAndCopy(logname);
+ } catch (IOException e) {
+ e.printStackTrace();
+ }
+
+ }
 
 
- <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> List <span style="color:#a6e22e">finJar</span><span style="color:#f92672">(</span>String txtPath<span style="color:#f92672">,</span>String jarname<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException<span style="color:#f92672">{</span>
- List list<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
- List jar<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
- List a<span style="color:#f92672">=</span>Files<span style="color:#f92672">.</span><span style="color:#a6e22e">readAllLines</span><span style="color:#f92672">(</span>Paths<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>txtPath<span style="color:#f92672">),</span> Charset<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GBK&#34;</span><span style="color:#f92672">));</span>
- <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String s <span style="color:#f92672">:</span> a<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-<span style="color:#75715e">// if(s.contains(&#34;ss.jar&#34;)==false&amp;&amp;!list.contains(s.substring(s.length()-16,s.length())))
-</span><span style="color:#75715e">// list.add(s.substring(s.length()-16,s.length()));
-</span><span style="color:#75715e"></span> <span style="color:#66d9ef">try</span><span style="color:#f92672">{</span>
- <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>jarname<span style="color:#f92672">)==</span><span style="color:#66d9ef">false</span><span style="color:#f92672">&amp;&amp;!</span>jar<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;\\&#39;</span><span style="color:#f92672">)+</span>1<span style="color:#f92672">,</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;]&#39;</span><span style="color:#f92672">))))</span>
- jar<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;\\&#39;</span><span style="color:#f92672">)+</span>1<span style="color:#f92672">,</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;]&#39;</span><span style="color:#f92672">)));</span>
+ public static List finJar(String txtPath,String jarname) throws IOException{
+ List list=new ArrayList&lt;&gt;();
+ List jar=new ArrayList&lt;&gt;();
+ List a=Files.readAllLines(Paths.get(txtPath), Charset.forName(&quot;GBK&quot;));
+ for (String s : a) {
+// if(s.contains(&quot;ss.jar&quot;)==false&amp;&amp;!list.contains(s.substring(s.length()-16,s.length())))
+// list.add(s.substring(s.length()-16,s.length()));
+ try{
+ if(s.contains(jarname)==false&amp;&amp;!jar.contains(s.substring(s.lastIndexOf('\\')+1, s.lastIndexOf(']'))))
+ jar.add(s.substring(s.lastIndexOf('\\')+1, s.lastIndexOf(']')));
 
 
- <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>jarname<span style="color:#f92672">)==</span><span style="color:#66d9ef">false</span><span style="color:#f92672">&amp;&amp;!</span>list<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">indexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39; &#39;</span><span style="color:#f92672">)+</span>1<span style="color:#f92672">,</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">indexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;from&#34;</span><span style="color:#f92672">)-</span>1<span style="color:#f92672">)))</span>
- list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">indexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39; &#39;</span><span style="color:#f92672">)+</span>1<span style="color:#f92672">,</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">indexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;from&#34;</span><span style="color:#f92672">)-</span>1<span style="color:#f92672">).</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;.&#39;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#39;/&#39;</span><span style="color:#f92672">));</span>
- <span style="color:#f92672">}</span>
- <span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span>
- <span style="color:#f92672">{</span><span style="color:#66d9ef">continue</span><span style="color:#f92672">;}</span>
+ if(s.contains(jarname)==false&amp;&amp;!list.contains(s.substring(s.indexOf(' ')+1, s.indexOf(&quot;from&quot;)-1)))
+ list.add(s.substring(s.indexOf(' ')+1, s.indexOf(&quot;from&quot;)-1).replace('.', '/'));
+ }
+ catch(Exception e)
+ {continue;}
 
-<span style="color:#75715e">//
-</span><span style="color:#75715e"></span> <span style="color:#f92672">}</span>
- <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String string <span style="color:#f92672">:</span> jar<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
- System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>string<span style="color:#f92672">);</span>
- <span style="color:#f92672">}</span>
- <span style="color:#66d9ef">return</span> list<span style="color:#f92672">;</span>
- <span style="color:#f92672">}</span>
+//
+ }
+ for (String string : jar) {
+ System.out.println(string);
+ }
+ return list;
+ }
 
- <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">readAndCopy</span><span style="color:#f92672">(</span>String logName<span style="color:#f92672">)</span>
- <span style="color:#f92672">{</span>
- <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> <span style="color:#75715e">// 用于记录成功拷贝的类数
-</span><span style="color:#75715e"></span> <span style="color:#66d9ef">try</span>
- <span style="color:#f92672">{</span>
- FileInputStream fi <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span>logName<span style="color:#f92672">);</span>
- InputStreamReader ir <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> InputStreamReader<span style="color:#f92672">(</span>fi<span style="color:#f92672">);</span>
- BufferedReader br <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedReader<span style="color:#f92672">(</span>ir<span style="color:#f92672">);</span>
+ public void readAndCopy(String logName)
+ {
+ int count = 0; // 用于记录成功拷贝的类数
+ try
+ {
+ FileInputStream fi = new FileInputStream(logName);
+ InputStreamReader ir = new InputStreamReader(fi);
+ BufferedReader br = new BufferedReader(ir);
 
- String string <span style="color:#f92672">=</span> br<span style="color:#f92672">.</span><span style="color:#a6e22e">readLine</span><span style="color:#f92672">();</span>
- <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>string <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
- <span style="color:#f92672">{</span>
- <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>copyClass<span style="color:#f92672">(</span>string<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
- count<span style="color:#f92672">++;</span>
- <span style="color:#66d9ef">else</span>
- System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ERROR &#34;</span> <span style="color:#f92672">+</span> count <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">+</span> string<span style="color:#f92672">);</span>
- string <span style="color:#f92672">=</span> br<span style="color:#f92672">.</span><span style="color:#a6e22e">readLine</span><span style="color:#f92672">();</span>
- <span style="color:#f92672">}</span>
- <span style="color:#f92672">}</span>
- <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span>
- <span style="color:#f92672">{</span>
- System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ERROR: &#34;</span> <span style="color:#f92672">+</span> e<span style="color:#f92672">);</span>
- <span style="color:#f92672">}</span>
- System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;count: &#34;</span> <span style="color:#f92672">+</span> count<span style="color:#f92672">);</span>
- <span style="color:#f92672">}</span>
+ String string = br.readLine();
+ while(string != null)
+ {
+ if(copyClass(string) == true)
+ count++;
+ else
+ System.out.println(&quot;ERROR &quot; + count + &quot;: &quot; + string);
+ string = br.readLine();
+ }
+ }
+ catch (IOException e)
+ {
+ System.out.println(&quot;ERROR: &quot; + e);
+ }
+ System.out.println(&quot;count: &quot; + count);
+ }
 
- <span style="color:#75715e">/***
-</span><span style="color:#75715e"> * 从原jar路径提取相应的类到目标路径，如将java/lang/CharSequence类从rt目录提取到rt1目录
-</span><span style="color:#75715e"> * @param string 提取类的全路径
-</span><span style="color:#75715e"> * @return
-</span><span style="color:#75715e"> * @throws IOException
-</span><span style="color:#75715e"> */</span>
- <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">copyClass</span><span style="color:#f92672">(</span>String string<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException
- <span style="color:#f92672">{</span>
- String classDir <span style="color:#f92672">=</span> string<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span>string<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">));</span>
- String className <span style="color:#f92672">=</span> string<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>string<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">)+</span>1<span style="color:#f92672">,</span>string<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">())</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.class&#34;</span><span style="color:#f92672">;</span>
+ /***
+ * 从原jar路径提取相应的类到目标路径，如将java/lang/CharSequence类从rt目录提取到rt1目录
+ * @param string 提取类的全路径
+ * @return
+ * @throws IOException
+ */
+ public boolean copyClass(String string) throws IOException
+ {
+ String classDir = string.substring(0,string.lastIndexOf(&quot;/&quot;));
+ String className = string.substring(string.lastIndexOf(&quot;/&quot;)+1,string.length()) + &quot;.class&quot;;
 
- <span style="color:#66d9ef">boolean</span> result <span style="color:#f92672">=</span><span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+ boolean result =false;
 
- <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>String jar <span style="color:#f92672">:</span> jarArr<span style="color:#f92672">){</span>
- File srcFile <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span>source <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">+</span>jar<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">+</span> classDir <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">+</span> className<span style="color:#f92672">);</span>
- <span style="color:#66d9ef">if</span><span style="color:#f92672">(!</span>srcFile<span style="color:#f92672">.</span><span style="color:#a6e22e">exists</span><span style="color:#f92672">())</span>
- <span style="color:#f92672">{</span>
- <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
- <span style="color:#f92672">}</span>
+ for(String jar : jarArr){
+ File srcFile = new File(source + &quot;/&quot;+jar+&quot;/&quot; + classDir + &quot;/&quot; + className);
+ if(!srcFile.exists())
+ {
+ continue;
+ }
 
- <span style="color:#66d9ef">byte</span> buf<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span>256<span style="color:#f92672">];</span>
- FileInputStream fin <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span>srcFile<span style="color:#f92672">);</span>
+ byte buf[] = new byte[256];
+ FileInputStream fin = new FileInputStream(srcFile);
 
- <span style="color:#75715e">/* 目标目录不存在,创建 */</span>
- File destDir <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span>dest <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">+</span>jar<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;1/&#34;</span> <span style="color:#f92672">+</span> classDir<span style="color:#f92672">);</span>
- <span style="color:#66d9ef">if</span><span style="color:#f92672">(!</span>destDir<span style="color:#f92672">.</span><span style="color:#a6e22e">exists</span><span style="color:#f92672">())</span>
- destDir<span style="color:#f92672">.</span><span style="color:#a6e22e">mkdirs</span><span style="color:#f92672">();</span>
+ /* 目标目录不存在,创建 */
+ File destDir = new File(dest + &quot;/&quot;+jar+&quot;1/&quot; + classDir);
+ if(!destDir.exists())
+ destDir.mkdirs();
 
- File destFile <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span>destDir <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">+</span> className<span style="color:#f92672">);</span>
- FileOutputStream fout <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileOutputStream<span style="color:#f92672">(</span>destFile<span style="color:#f92672">);</span>
- <span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
- <span style="color:#66d9ef">while</span><span style="color:#f92672">((</span>len <span style="color:#f92672">=</span> fin<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>buf<span style="color:#f92672">))</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">)</span>
- <span style="color:#f92672">{</span>
- fout<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>buf<span style="color:#f92672">,</span>0<span style="color:#f92672">,</span>len<span style="color:#f92672">);</span>
- <span style="color:#f92672">}</span>
- fout<span style="color:#f92672">.</span><span style="color:#a6e22e">flush</span><span style="color:#f92672">();</span>
- result <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
- <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
- <span style="color:#f92672">}</span>
- <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
- <span style="color:#f92672">}</span>
+ File destFile = new File(destDir + &quot;/&quot; + className);
+ FileOutputStream fout = new FileOutputStream(destFile);
+ int len = 0;
+ while((len = fin.read(buf)) != -1)
+ {
+ fout.write(buf,0,len);
+ }
+ fout.flush();
+ result = true;
+ break;
+ }
+ return result;
+ }
 
-<span style="color:#f92672">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><ol start="4">
+}
+</code></pre>
+<ol start="4">
 <li>
 <p>在运行时，将lib目录下除了提示的jar包与amd64文件夹下的jvm.cfg保留，其他全部删除。</p>
 </li>
@@ -896,7 +743,7 @@ ir<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><sp
             
             
             <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
-            环境配置系列(12)
+            环境配置系列(14)
             </a>
 
             
@@ -904,6 +751,13 @@ ir<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><sp
             
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
             排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
             </a>
 
             
@@ -925,13 +779,6 @@ ir<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><sp
             
             <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
             数学基础(7)
-            </a>
-
-            
-            
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
-            机器学习系列(7)
             </a>
 
             
@@ -1177,6 +1024,7 @@ ir<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><sp
 <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
 
 
+
 <script>
 
 
@@ -1241,10 +1089,9 @@ gtag('config', 'UA-155998534-1');
 </body>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
     <script src="https://www.naah69.com/js/article.js"></script>
+    
 
 
 </html>

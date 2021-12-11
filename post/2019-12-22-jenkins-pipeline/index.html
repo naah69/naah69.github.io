@@ -26,6 +26,66 @@
 });'>
 
 </script>
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/styles/a11y-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/sql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+
+<style>
+  .hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:24px;
+    border-right: 1px solid #c5c5c5;
+  }
+
+  .hljs-ln-code {
+    padding-left: 1em;
+  }
+
+  .hljs-ln{border-collapse:collapse}
+   
+  .hljs-ln-n:before{content:attr(data-line-number);margin-right:1em;}
+  .highlight pre, pre, .highlight .hll{padding: 6px 0px}
+  .hljs{padding: 8px 0px}
+  em{color: red}
+  #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+  #index nav ul li {padding-left: 0em;}
+  #index nav ul li ul {padding-left: 1em;}
+  pre{
+    background: none;
+  }
+
+  @media screen and (max-width: 500px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+  @media screen and (max-width: 768px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+
+</style>
+
+
 
 
 
@@ -79,6 +139,7 @@
 
 
 </head>
+<body>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -124,6 +185,10 @@
                     
                     <li>
                         <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
                     </li>
                     
 
@@ -260,30 +325,36 @@
                     <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
                         <nav id="TableOfContents">
   <ul>
-    <li><a href="#11-配置jenkins插件镜像源">1.1 配置jenkins插件镜像源</a></li>
-    <li><a href="#12-安装blue-ocean">1.2 安装Blue Ocean</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#21-pipeline一级">2.1 pipeline（一级）</a></li>
-    <li><a href="#22-agent二级">2.2 agent（二级）</a></li>
-    <li><a href="#23-environment二级">2.3 environment（二级）</a></li>
-    <li><a href="#24-tools二级">2.4 tools（二级）</a></li>
-    <li><a href="#25-stages二级">2.5 stages（二级）</a>
+    <li><a href="#1-环境准备">1 环境准备</a>
       <ul>
-        <li><a href="#251-stage三级及以下">2.5.1 stage（三级及以下）</a></li>
-        <li><a href="#252-steps四级及以下">2.5.2 steps（四级及以下）</a></li>
-        <li><a href="#253-when四级及以下">2.5.3 when（四级及以下）</a></li>
-        <li><a href="#254-parallel四级及以下">2.5.4 parallel（四级及以下）</a></li>
-        <li><a href="#255-post二级">2.5.5 post（二级）</a></li>
+        <li><a href="#11-配置jenkins插件镜像源">1.1 配置jenkins插件镜像源</a></li>
+        <li><a href="#12-安装blue-ocean">1.2 安装Blue Ocean</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#31-编写jenkinsfile">3.1 编写Jenkinsfile</a></li>
-    <li><a href="#32-jenkinsfile的高亮提示和校验">3.2 Jenkinsfile的高亮、提示和校验</a></li>
-    <li><a href="#33-创建pipeline">3.3 创建PipeLine</a></li>
+    <li><a href="#2-declarative-pipeline语法">2 Declarative Pipeline语法</a>
+      <ul>
+        <li><a href="#21-pipeline一级">2.1 pipeline（一级）</a></li>
+        <li><a href="#22-agent二级">2.2 agent（二级）</a></li>
+        <li><a href="#23-environment二级">2.3 environment（二级）</a></li>
+        <li><a href="#24-tools二级">2.4 tools（二级）</a></li>
+        <li><a href="#25-stages二级">2.5 stages（二级）</a>
+          <ul>
+            <li><a href="#251-stage三级及以下">2.5.1 stage（三级及以下）</a></li>
+            <li><a href="#252-steps四级及以下">2.5.2 steps（四级及以下）</a></li>
+            <li><a href="#253-when四级及以下">2.5.3 when（四级及以下）</a></li>
+            <li><a href="#254-parallel四级及以下">2.5.4 parallel（四级及以下）</a></li>
+            <li><a href="#255-post二级">2.5.5 post（二级）</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#3-构建cicd流程">3 构建CI/CD流程</a>
+      <ul>
+        <li><a href="#31-编写jenkinsfile">3.1 编写Jenkinsfile</a></li>
+        <li><a href="#32-jenkinsfile的高亮提示和校验">3.2 Jenkinsfile的高亮、提示和校验</a></li>
+        <li><a href="#33-创建pipeline">3.3 创建PipeLine</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
                     </div>
@@ -313,15 +384,9 @@
 <li>点击<code>高级</code></li>
 <li>在下方的<code>升级站点URL中输入</code></li>
 </ol>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
-</code></pre></td></tr></table>
-</div>
-</div><ol start="5">
+<pre><code>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
+</code></pre>
+<ol start="5">
 <li>点击<code>提交</code></li>
 <li>重启jenkins</li>
 </ol>
@@ -341,418 +406,206 @@
 <p>默认所有二级标签块是无序的</p>
 <h2 id="21-pipeline一级">2.1 pipeline（一级）</h2>
 <p>jenkinsfile的最外层，所有的步骤都要写在这个块里面 <a href="https://jenkins.io/zh/doc/book/pipeline/syntax/#%E5%A3%B0%E6%98%8E%E5%BC%8F%E6%B5%81%E6%B0%B4%E7%BA%BF">pipeline文档</a></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pipeline{
+<pre><code>pipeline{
 }
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="22-agent二级">2.2 agent（二级）</h2>
+</code></pre>
+<h2 id="22-agent二级">2.2 agent（二级）</h2>
 <p>指定jenkins的执行节点，默认就是<code>any</code>就可以了 <a href="https://jenkins.io/zh/doc/book/pipeline/syntax/#%E4%BB%A3%E7%90%86">agent文档</a></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pipeline{
+<pre><code>pipeline{
     agent any
 }
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="23-environment二级">2.3 environment（二级）</h2>
+</code></pre>
+<h2 id="23-environment二级">2.3 environment（二级）</h2>
 <p>就看这个名，你还能不知道是干啥的？环境变量！！！一个非常有用的东西，贯穿整个pipeline</p>
 <p>使用的时候通过这种格式使用：<code>$变量名</code> <a href="https://jenkins.io/zh/doc/book/pipeline/syntax/#environment">environment文档</a></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pipeline{
+<pre><code>pipeline{
     environment{
         // 下方的变量都是举例说明，用户可以自定义
         // 版本，只改这个就行！！！
-        version = &#39;0.1&#39;
+        version = '0.1'
     
         // docker镜像名
-        docker_app_name = &#39;demo&#39;
+        docker_app_name = 'demo'
         // docker私库地址
-        docker_base_url = &#39;192.168.1.100:1234&#39;
+        docker_base_url = '192.168.1.100:1234'
         // docker路径
-        docker_base_path = &#39;service&#39;
+        docker_base_path = 'service'
     }
 }
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="24-tools二级">2.4 tools（二级）</h2>
+</code></pre>
+<h2 id="24-tools二级">2.4 tools（二级）</h2>
 <p>这个标签块就是用来声明你在jenkins中安装的插件的</p>
 <p>例如下方就是用来声明jenkins中配置的<code>maven</code>插接件 <a href="https://jenkins.io/zh/doc/book/pipeline/syntax/#%E5%B7%A5%E5%85%B7">tools文档</a></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7">7</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pipeline{
+<pre><code>pipeline{
     tools {
         // 两个单引号之间放你在插件中配置的name
-        // 插件 &#39;配置中的插件名&#39;
-        maven &#39;maven3.6.1&#39;
+        // 插件 '配置中的插件名'
+        maven 'maven3.6.1'
     }
 }
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="25-stages二级">2.5 stages（二级）</h2>
+</code></pre>
+<h2 id="25-stages二级">2.5 stages（二级）</h2>
 <p>真正由你来自定义的构建流程的标签块，之后的<code>stage</code>和``就放在这个代码块里的</p>
 <p>其中要包括至少一个<code>stage</code> <a href="https://jenkins.io/zh/doc/book/pipeline/syntax/#stages">stages文档</a></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">6</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pipeline{
+<pre><code>pipeline{
     stages {
-        stage(&#39;Maven Build&#39;){
+        stage('Maven Build'){
         }
     }
 }
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="251-stage三级及以下">2.5.1 stage（三级及以下）</h3>
+</code></pre>
+<h3 id="251-stage三级及以下">2.5.1 stage（三级及以下）</h3>
 <p>终于进入这个高潮阶段了！我们将在这里定义我们的构建流程！</p>
 <p>定义至少一个<code>stage</code> <a href="https://jenkins.io/zh/doc/book/pipeline/syntax/#stage">stage文档</a></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21">21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22">22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23">23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24">24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25">25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26">26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27">27</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="28"><a style="outline: none; text-decoration:none; color:inherit" href="#28">28</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="29"><a style="outline: none; text-decoration:none; color:inherit" href="#29">29</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="30"><a style="outline: none; text-decoration:none; color:inherit" href="#30">30</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="31"><a style="outline: none; text-decoration:none; color:inherit" href="#31">31</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pipeline{
+<pre><code>pipeline{
     stages {
         // 括号内是我们给这个流程定义一个名字
-        stage(&#39;Maven Build&#39;){
+        stage('Maven Build'){
             steps {
                 // 打印 不要跟linux的sh混淆 跟linux的sh并不通用
-                echo &#39;Maven Building....&#39;
+                echo 'Maven Building....'
             }
         }
-        stage(&#39;Test&#39;){
+        stage('Test'){
             steps {
-                echo &#39;Testing....&#39;
+                echo 'Testing....'
             }
         }
-        stage(&#39;Sonar Check&#39;){
+        stage('Sonar Check'){
             steps {
-                echo &#39;Sonar Checking....&#39;
+                echo 'Sonar Checking....'
             }
         }
-        stage(&#39;Docker Build&#39;){
+        stage('Docker Build'){
             steps {
-                echo &#39;Docker Building....&#39;
+                echo 'Docker Building....'
             }
         }
-        stage(&#39;Rancher Deploy&#39;){
+        stage('Rancher Deploy'){
             steps {
-                echo &#39;Rancher Deploying....&#39;
+                echo 'Rancher Deploying....'
             }
         }
     }
 }
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="252-steps四级及以下">2.5.2 steps（四级及以下）</h3>
+</code></pre>
+<h3 id="252-steps四级及以下">2.5.2 steps（四级及以下）</h3>
 <p>这个标签快就是用来让我们在流程中编写执行的步骤</p>
 <p>定义至少一个<code>steps</code> <a href="https://jenkins.io/zh/doc/book/pipeline/syntax/#steps">steps文档</a></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pipeline{
+<pre><code>pipeline{
     stages {
-        stage(&#39;Maven Build&#39;){
+        stage('Maven Build'){
             // 步骤，用来定义流程内的具体实现
             steps {
                 // 打印
-                echo &#39;Maven Building1....&#39;
+                echo 'Maven Building1....'
             }
             steps {
                 // 打印
-                echo &#39;Maven Building2....&#39;
+                echo 'Maven Building2....'
             }
         }
     }
 }
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="253-when四级及以下">2.5.3 when（四级及以下）</h3>
+</code></pre>
+<h3 id="253-when四级及以下">2.5.3 when（四级及以下）</h3>
 <p>这个标签块跟我们写程序时用的<code>if</code>异曲同工！用来控制该节点是否运行</p>
 <p>该标签块有几个条件，我们这里以<code>branch</code>举例， 其他的可以去看<a href="https://jenkins.io/zh/doc/book/pipeline/syntax/#when">when文档</a></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21">21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22">22</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pipeline{
+<pre><code>pipeline{
     stages {
-        stage(&#39;Maven Build&#39;){
+        stage('Maven Build'){
             when {
                 // 当分支是develop时执行
-                branch &#39;develop&#39;
+                branch 'develop'
             }
             steps {
-                echo &#39;Maven Building....&#39;
+                echo 'Maven Building....'
             }
         }
-        stage(&#39;Test&#39;){
+        stage('Test'){
             when {
                 // 当分支是test时执行
-                branch &#39;test&#39;
+                branch 'test'
             }
             steps {
-                echo &#39;Testing....&#39;
+                echo 'Testing....'
             }
         }
     }
 }
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="254-parallel四级及以下">2.5.4 parallel（四级及以下）</h3>
+</code></pre>
+<h3 id="254-parallel四级及以下">2.5.4 parallel（四级及以下）</h3>
 <p>这个标签块很迷惑人，叫做<code>并行</code></p>
 <p>当我第一次看到这个语法的时候，没有在意，以为是多线程的概念，然而我错了！</p>
 <p>这个标签块可以配合<code>when</code>来达到多环境同流程不同构建的目的 <a href="https://jenkins.io/zh/doc/book/pipeline/syntax/#%E5%B9%B6%E8%A1%8C">parallel文档</a></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21">21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22">22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23">23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24">24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25">25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26">26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27">27</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pipeline{
+<pre><code>pipeline{
     stages {
-        stage(&#39;Docker Build&#39;) {
+        stage('Docker Build') {
             parallel {
-                stage(&#39;Dev&#39;) {
+                stage('Dev') {
                     when {
-                        branch &#39;develop&#39;
+                        branch 'develop'
                     }
                     steps {
-                        echo &#39;Dev Building....&#39;
+                        echo 'Dev Building....'
                     }
                 }
-                stage(&#39;Test&#39;) {
+                stage('Test') {
                     when {
-                        branch &#39;test&#39;
+                        branch 'test'
                     }
                     steps {
-                        echo &#39;Test Building....&#39;
+                        echo 'Test Building....'
                     }
                 }
             }
          }
-        stage(&#39;Rancher Deploy&#39;){
-            echo &#39;Rancher Deploying....&#39;
+        stage('Rancher Deploy'){
+            echo 'Rancher Deploying....'
         }
     }
 }
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="255-post二级">2.5.5 post（二级）</h3>
+</code></pre>
+<h3 id="255-post二级">2.5.5 post（二级）</h3>
 <p>这个标签块就是jenkins中原来的构建后执行，大家可以自由发挥，我这里主要用来钉钉通知</p>
 <p>这里我以<code>成功</code>，<code>失败</code>，<code>总是</code>举例，还有其他条件，大家可以去看<a href="https://jenkins.io/zh/doc/book/pipeline/syntax/#post">post文档</a></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21">21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22">22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23">23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24">24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25">25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26">26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27">27</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="28"><a style="outline: none; text-decoration:none; color:inherit" href="#28">28</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="29"><a style="outline: none; text-decoration:none; color:inherit" href="#29">29</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="30"><a style="outline: none; text-decoration:none; color:inherit" href="#30">30</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="31"><a style="outline: none; text-decoration:none; color:inherit" href="#31">31</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="32"><a style="outline: none; text-decoration:none; color:inherit" href="#32">32</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="33"><a style="outline: none; text-decoration:none; color:inherit" href="#33">33</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="34"><a style="outline: none; text-decoration:none; color:inherit" href="#34">34</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="35"><a style="outline: none; text-decoration:none; color:inherit" href="#35">35</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pipeline{
+<pre><code>pipeline{
     post {
       failure {
-        echo &#39;构建失败&#39;
+        echo '构建失败'
         script{
-          jenkins_projectname=env.JOB_NAME.substring(0,env.JOB_NAME.indexOf(&#39;/&#39;))
-          log_url=env.JENKINS_URL+&#34;blue/organizations/jenkins/&#34;+jenkins_projectname+&#34;/detail/&#34;+env.BRANCH_NAME+&#34;/&#34;+env.BUILD_NUMBER+&#34;/pipeline#&#34;
+          jenkins_projectname=env.JOB_NAME.substring(0,env.JOB_NAME.indexOf('/'))
+          log_url=env.JENKINS_URL+&quot;blue/organizations/jenkins/&quot;+jenkins_projectname+&quot;/detail/&quot;+env.BRANCH_NAME+&quot;/&quot;+env.BUILD_NUMBER+&quot;/pipeline#&quot;
         }
-        echo &#34;${log_url}&#34;
-        dingTalk(accessToken: &#34;$jenkins_dingding_token&#34;, imageUrl: &#39;http://www.iconsdb.com/icons/preview/soylent-red/x-mark-3-xxl.png&#39;,
-        message: &#34;构建失败&#34;, jenkinsUrl: &#34;${log_url}&#34;)
+        echo &quot;${log_url}&quot;
+        dingTalk(accessToken: &quot;$jenkins_dingding_token&quot;, imageUrl: 'http://www.iconsdb.com/icons/preview/soylent-red/x-mark-3-xxl.png',
+        message: &quot;构建失败&quot;, jenkinsUrl: &quot;${log_url}&quot;)
       }
     
       success {
-        echo &#39;构建成功&#39;
+        echo '构建成功'
         script{
-          jenkins_projectname=env.JOB_NAME.substring(0,env.JOB_NAME.indexOf(&#39;/&#39;))
-          log_url=env.JENKINS_URL+&#34;blue/organizations/jenkins/&#34;+jenkins_projectname+&#34;/detail/&#34;+env.BRANCH_NAME+&#34;/&#34;+env.BUILD_NUMBER+&#34;/pipeline#&#34;
+          jenkins_projectname=env.JOB_NAME.substring(0,env.JOB_NAME.indexOf('/'))
+          log_url=env.JENKINS_URL+&quot;blue/organizations/jenkins/&quot;+jenkins_projectname+&quot;/detail/&quot;+env.BRANCH_NAME+&quot;/&quot;+env.BUILD_NUMBER+&quot;/pipeline#&quot;
         }
-        dingTalk(accessToken: &#34;$jenkins_dingding_token&#34;, imageUrl: &#39;http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png&#39;,
-        message: &#34;构建成功&#34;,jenkinsUrl: &#34;${log_url}&#34;)
+        dingTalk(accessToken: &quot;$jenkins_dingding_token&quot;, imageUrl: 'http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png',
+        message: &quot;构建成功&quot;,jenkinsUrl: &quot;${log_url}&quot;)
       }
  
       always {
-        echo &#39;开始构建&#39;
+        echo '开始构建'
         script{
-          jenkins_projectname=env.JOB_NAME.substring(0,env.JOB_NAME.indexOf(&#39;/&#39;))
-          log_url=env.JENKINS_URL+&#34;blue/organizations/jenkins/&#34;+jenkins_projectname+&#34;/detail/&#34;+env.BRANCH_NAME+&#34;/&#34;+env.BUILD_NUMBER+&#34;/pipeline#&#34;
+          jenkins_projectname=env.JOB_NAME.substring(0,env.JOB_NAME.indexOf('/'))
+          log_url=env.JENKINS_URL+&quot;blue/organizations/jenkins/&quot;+jenkins_projectname+&quot;/detail/&quot;+env.BRANCH_NAME+&quot;/&quot;+env.BUILD_NUMBER+&quot;/pipeline#&quot;
         }
-        dingTalk(accessToken: &#34;$jenkins_dingding_token&#34;, imageUrl: &#39;http://icon-park.com/imagefiles/loading7_gray.gif&#39;,
-         message: &#34;开始构建&#34;, jenkinsUrl: &#34;${log_url}&#34;)
+        dingTalk(accessToken: &quot;$jenkins_dingding_token&quot;, imageUrl: 'http://icon-park.com/imagefiles/loading7_gray.gif',
+         message: &quot;开始构建&quot;, jenkinsUrl: &quot;${log_url}&quot;)
       }
     }
 
 }
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="3-构建cicd流程">3 构建CI/CD流程</h1>
+</code></pre>
+<h1 id="3-构建cicd流程">3 构建CI/CD流程</h1>
 <h2 id="31-编写jenkinsfile">3.1 编写Jenkinsfile</h2>
 <p>在我们的项目根目录下创建<code>Jenkinsfile</code>文件</p>
 <p>下面的代码包含，<code>maven打包</code>，<code>sonar检查</code>，<code>检查钉钉通知</code>，<code>docker打包</code>，<code>RancherWebhook部署</code>，<code>钉钉构建通知</code></p>
@@ -763,442 +616,208 @@
 <li><a href="https://www.naah69.com/post/2019-12-08-jenkins-dingding-notify-new-version/">jenkins钉钉通知</a></li>
 </ol>
 <p>Jenkinsfile 举例：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">  1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">  2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">  3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">  4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">  5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">  6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7">  7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8">  8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9">  9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10"> 10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11"> 11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12"> 12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13"> 13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14"> 14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15"> 15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16"> 16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17"> 17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18"> 18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19"> 19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20"> 20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21"> 21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22"> 22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23"> 23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24"> 24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25"> 25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26"> 26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27"> 27</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="28"><a style="outline: none; text-decoration:none; color:inherit" href="#28"> 28</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="29"><a style="outline: none; text-decoration:none; color:inherit" href="#29"> 29</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="30"><a style="outline: none; text-decoration:none; color:inherit" href="#30"> 30</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="31"><a style="outline: none; text-decoration:none; color:inherit" href="#31"> 31</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="32"><a style="outline: none; text-decoration:none; color:inherit" href="#32"> 32</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="33"><a style="outline: none; text-decoration:none; color:inherit" href="#33"> 33</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="34"><a style="outline: none; text-decoration:none; color:inherit" href="#34"> 34</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="35"><a style="outline: none; text-decoration:none; color:inherit" href="#35"> 35</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="36"><a style="outline: none; text-decoration:none; color:inherit" href="#36"> 36</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="37"><a style="outline: none; text-decoration:none; color:inherit" href="#37"> 37</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="38"><a style="outline: none; text-decoration:none; color:inherit" href="#38"> 38</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="39"><a style="outline: none; text-decoration:none; color:inherit" href="#39"> 39</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="40"><a style="outline: none; text-decoration:none; color:inherit" href="#40"> 40</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="41"><a style="outline: none; text-decoration:none; color:inherit" href="#41"> 41</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="42"><a style="outline: none; text-decoration:none; color:inherit" href="#42"> 42</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="43"><a style="outline: none; text-decoration:none; color:inherit" href="#43"> 43</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="44"><a style="outline: none; text-decoration:none; color:inherit" href="#44"> 44</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="45"><a style="outline: none; text-decoration:none; color:inherit" href="#45"> 45</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="46"><a style="outline: none; text-decoration:none; color:inherit" href="#46"> 46</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="47"><a style="outline: none; text-decoration:none; color:inherit" href="#47"> 47</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="48"><a style="outline: none; text-decoration:none; color:inherit" href="#48"> 48</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="49"><a style="outline: none; text-decoration:none; color:inherit" href="#49"> 49</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="50"><a style="outline: none; text-decoration:none; color:inherit" href="#50"> 50</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="51"><a style="outline: none; text-decoration:none; color:inherit" href="#51"> 51</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="52"><a style="outline: none; text-decoration:none; color:inherit" href="#52"> 52</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="53"><a style="outline: none; text-decoration:none; color:inherit" href="#53"> 53</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="54"><a style="outline: none; text-decoration:none; color:inherit" href="#54"> 54</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="55"><a style="outline: none; text-decoration:none; color:inherit" href="#55"> 55</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="56"><a style="outline: none; text-decoration:none; color:inherit" href="#56"> 56</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="57"><a style="outline: none; text-decoration:none; color:inherit" href="#57"> 57</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="58"><a style="outline: none; text-decoration:none; color:inherit" href="#58"> 58</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="59"><a style="outline: none; text-decoration:none; color:inherit" href="#59"> 59</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="60"><a style="outline: none; text-decoration:none; color:inherit" href="#60"> 60</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="61"><a style="outline: none; text-decoration:none; color:inherit" href="#61"> 61</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="62"><a style="outline: none; text-decoration:none; color:inherit" href="#62"> 62</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="63"><a style="outline: none; text-decoration:none; color:inherit" href="#63"> 63</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="64"><a style="outline: none; text-decoration:none; color:inherit" href="#64"> 64</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="65"><a style="outline: none; text-decoration:none; color:inherit" href="#65"> 65</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="66"><a style="outline: none; text-decoration:none; color:inherit" href="#66"> 66</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="67"><a style="outline: none; text-decoration:none; color:inherit" href="#67"> 67</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="68"><a style="outline: none; text-decoration:none; color:inherit" href="#68"> 68</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="69"><a style="outline: none; text-decoration:none; color:inherit" href="#69"> 69</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="70"><a style="outline: none; text-decoration:none; color:inherit" href="#70"> 70</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="71"><a style="outline: none; text-decoration:none; color:inherit" href="#71"> 71</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="72"><a style="outline: none; text-decoration:none; color:inherit" href="#72"> 72</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="73"><a style="outline: none; text-decoration:none; color:inherit" href="#73"> 73</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="74"><a style="outline: none; text-decoration:none; color:inherit" href="#74"> 74</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="75"><a style="outline: none; text-decoration:none; color:inherit" href="#75"> 75</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="76"><a style="outline: none; text-decoration:none; color:inherit" href="#76"> 76</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="77"><a style="outline: none; text-decoration:none; color:inherit" href="#77"> 77</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="78"><a style="outline: none; text-decoration:none; color:inherit" href="#78"> 78</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="79"><a style="outline: none; text-decoration:none; color:inherit" href="#79"> 79</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="80"><a style="outline: none; text-decoration:none; color:inherit" href="#80"> 80</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="81"><a style="outline: none; text-decoration:none; color:inherit" href="#81"> 81</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="82"><a style="outline: none; text-decoration:none; color:inherit" href="#82"> 82</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="83"><a style="outline: none; text-decoration:none; color:inherit" href="#83"> 83</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="84"><a style="outline: none; text-decoration:none; color:inherit" href="#84"> 84</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="85"><a style="outline: none; text-decoration:none; color:inherit" href="#85"> 85</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="86"><a style="outline: none; text-decoration:none; color:inherit" href="#86"> 86</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="87"><a style="outline: none; text-decoration:none; color:inherit" href="#87"> 87</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="88"><a style="outline: none; text-decoration:none; color:inherit" href="#88"> 88</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="89"><a style="outline: none; text-decoration:none; color:inherit" href="#89"> 89</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="90"><a style="outline: none; text-decoration:none; color:inherit" href="#90"> 90</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="91"><a style="outline: none; text-decoration:none; color:inherit" href="#91"> 91</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="92"><a style="outline: none; text-decoration:none; color:inherit" href="#92"> 92</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="93"><a style="outline: none; text-decoration:none; color:inherit" href="#93"> 93</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="94"><a style="outline: none; text-decoration:none; color:inherit" href="#94"> 94</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="95"><a style="outline: none; text-decoration:none; color:inherit" href="#95"> 95</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="96"><a style="outline: none; text-decoration:none; color:inherit" href="#96"> 96</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="97"><a style="outline: none; text-decoration:none; color:inherit" href="#97"> 97</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="98"><a style="outline: none; text-decoration:none; color:inherit" href="#98"> 98</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="99"><a style="outline: none; text-decoration:none; color:inherit" href="#99"> 99</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="100"><a style="outline: none; text-decoration:none; color:inherit" href="#100">100</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="101"><a style="outline: none; text-decoration:none; color:inherit" href="#101">101</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="102"><a style="outline: none; text-decoration:none; color:inherit" href="#102">102</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="103"><a style="outline: none; text-decoration:none; color:inherit" href="#103">103</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="104"><a style="outline: none; text-decoration:none; color:inherit" href="#104">104</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="105"><a style="outline: none; text-decoration:none; color:inherit" href="#105">105</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="106"><a style="outline: none; text-decoration:none; color:inherit" href="#106">106</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="107"><a style="outline: none; text-decoration:none; color:inherit" href="#107">107</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="108"><a style="outline: none; text-decoration:none; color:inherit" href="#108">108</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="109"><a style="outline: none; text-decoration:none; color:inherit" href="#109">109</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="110"><a style="outline: none; text-decoration:none; color:inherit" href="#110">110</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="111"><a style="outline: none; text-decoration:none; color:inherit" href="#111">111</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="112"><a style="outline: none; text-decoration:none; color:inherit" href="#112">112</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="113"><a style="outline: none; text-decoration:none; color:inherit" href="#113">113</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="114"><a style="outline: none; text-decoration:none; color:inherit" href="#114">114</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="115"><a style="outline: none; text-decoration:none; color:inherit" href="#115">115</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="116"><a style="outline: none; text-decoration:none; color:inherit" href="#116">116</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="117"><a style="outline: none; text-decoration:none; color:inherit" href="#117">117</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="118"><a style="outline: none; text-decoration:none; color:inherit" href="#118">118</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="119"><a style="outline: none; text-decoration:none; color:inherit" href="#119">119</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="120"><a style="outline: none; text-decoration:none; color:inherit" href="#120">120</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="121"><a style="outline: none; text-decoration:none; color:inherit" href="#121">121</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="122"><a style="outline: none; text-decoration:none; color:inherit" href="#122">122</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="123"><a style="outline: none; text-decoration:none; color:inherit" href="#123">123</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="124"><a style="outline: none; text-decoration:none; color:inherit" href="#124">124</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="125"><a style="outline: none; text-decoration:none; color:inherit" href="#125">125</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="126"><a style="outline: none; text-decoration:none; color:inherit" href="#126">126</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="127"><a style="outline: none; text-decoration:none; color:inherit" href="#127">127</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="128"><a style="outline: none; text-decoration:none; color:inherit" href="#128">128</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="129"><a style="outline: none; text-decoration:none; color:inherit" href="#129">129</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="130"><a style="outline: none; text-decoration:none; color:inherit" href="#130">130</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="131"><a style="outline: none; text-decoration:none; color:inherit" href="#131">131</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="132"><a style="outline: none; text-decoration:none; color:inherit" href="#132">132</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="133"><a style="outline: none; text-decoration:none; color:inherit" href="#133">133</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="134"><a style="outline: none; text-decoration:none; color:inherit" href="#134">134</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="135"><a style="outline: none; text-decoration:none; color:inherit" href="#135">135</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="136"><a style="outline: none; text-decoration:none; color:inherit" href="#136">136</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="137"><a style="outline: none; text-decoration:none; color:inherit" href="#137">137</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="138"><a style="outline: none; text-decoration:none; color:inherit" href="#138">138</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="139"><a style="outline: none; text-decoration:none; color:inherit" href="#139">139</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="140"><a style="outline: none; text-decoration:none; color:inherit" href="#140">140</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="141"><a style="outline: none; text-decoration:none; color:inherit" href="#141">141</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="142"><a style="outline: none; text-decoration:none; color:inherit" href="#142">142</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="143"><a style="outline: none; text-decoration:none; color:inherit" href="#143">143</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="144"><a style="outline: none; text-decoration:none; color:inherit" href="#144">144</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="145"><a style="outline: none; text-decoration:none; color:inherit" href="#145">145</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="146"><a style="outline: none; text-decoration:none; color:inherit" href="#146">146</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="147"><a style="outline: none; text-decoration:none; color:inherit" href="#147">147</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="148"><a style="outline: none; text-decoration:none; color:inherit" href="#148">148</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="149"><a style="outline: none; text-decoration:none; color:inherit" href="#149">149</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="150"><a style="outline: none; text-decoration:none; color:inherit" href="#150">150</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="151"><a style="outline: none; text-decoration:none; color:inherit" href="#151">151</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="152"><a style="outline: none; text-decoration:none; color:inherit" href="#152">152</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="153"><a style="outline: none; text-decoration:none; color:inherit" href="#153">153</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="154"><a style="outline: none; text-decoration:none; color:inherit" href="#154">154</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="155"><a style="outline: none; text-decoration:none; color:inherit" href="#155">155</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="156"><a style="outline: none; text-decoration:none; color:inherit" href="#156">156</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="157"><a style="outline: none; text-decoration:none; color:inherit" href="#157">157</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="158"><a style="outline: none; text-decoration:none; color:inherit" href="#158">158</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="159"><a style="outline: none; text-decoration:none; color:inherit" href="#159">159</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="160"><a style="outline: none; text-decoration:none; color:inherit" href="#160">160</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="161"><a style="outline: none; text-decoration:none; color:inherit" href="#161">161</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="162"><a style="outline: none; text-decoration:none; color:inherit" href="#162">162</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="163"><a style="outline: none; text-decoration:none; color:inherit" href="#163">163</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="164"><a style="outline: none; text-decoration:none; color:inherit" href="#164">164</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="165"><a style="outline: none; text-decoration:none; color:inherit" href="#165">165</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="166"><a style="outline: none; text-decoration:none; color:inherit" href="#166">166</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="167"><a style="outline: none; text-decoration:none; color:inherit" href="#167">167</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="168"><a style="outline: none; text-decoration:none; color:inherit" href="#168">168</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="169"><a style="outline: none; text-decoration:none; color:inherit" href="#169">169</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="170"><a style="outline: none; text-decoration:none; color:inherit" href="#170">170</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="171"><a style="outline: none; text-decoration:none; color:inherit" href="#171">171</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="172"><a style="outline: none; text-decoration:none; color:inherit" href="#172">172</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="173"><a style="outline: none; text-decoration:none; color:inherit" href="#173">173</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="174"><a style="outline: none; text-decoration:none; color:inherit" href="#174">174</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="175"><a style="outline: none; text-decoration:none; color:inherit" href="#175">175</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="176"><a style="outline: none; text-decoration:none; color:inherit" href="#176">176</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="177"><a style="outline: none; text-decoration:none; color:inherit" href="#177">177</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="178"><a style="outline: none; text-decoration:none; color:inherit" href="#178">178</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="179"><a style="outline: none; text-decoration:none; color:inherit" href="#179">179</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="180"><a style="outline: none; text-decoration:none; color:inherit" href="#180">180</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="181"><a style="outline: none; text-decoration:none; color:inherit" href="#181">181</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="182"><a style="outline: none; text-decoration:none; color:inherit" href="#182">182</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="183"><a style="outline: none; text-decoration:none; color:inherit" href="#183">183</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="184"><a style="outline: none; text-decoration:none; color:inherit" href="#184">184</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="185"><a style="outline: none; text-decoration:none; color:inherit" href="#185">185</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="186"><a style="outline: none; text-decoration:none; color:inherit" href="#186">186</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="187"><a style="outline: none; text-decoration:none; color:inherit" href="#187">187</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="188"><a style="outline: none; text-decoration:none; color:inherit" href="#188">188</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="189"><a style="outline: none; text-decoration:none; color:inherit" href="#189">189</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="190"><a style="outline: none; text-decoration:none; color:inherit" href="#190">190</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="191"><a style="outline: none; text-decoration:none; color:inherit" href="#191">191</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="192"><a style="outline: none; text-decoration:none; color:inherit" href="#192">192</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="193"><a style="outline: none; text-decoration:none; color:inherit" href="#193">193</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="194"><a style="outline: none; text-decoration:none; color:inherit" href="#194">194</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="195"><a style="outline: none; text-decoration:none; color:inherit" href="#195">195</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="196"><a style="outline: none; text-decoration:none; color:inherit" href="#196">196</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="197"><a style="outline: none; text-decoration:none; color:inherit" href="#197">197</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="198"><a style="outline: none; text-decoration:none; color:inherit" href="#198">198</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="199"><a style="outline: none; text-decoration:none; color:inherit" href="#199">199</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="200"><a style="outline: none; text-decoration:none; color:inherit" href="#200">200</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="201"><a style="outline: none; text-decoration:none; color:inherit" href="#201">201</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="202"><a style="outline: none; text-decoration:none; color:inherit" href="#202">202</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="203"><a style="outline: none; text-decoration:none; color:inherit" href="#203">203</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="204"><a style="outline: none; text-decoration:none; color:inherit" href="#204">204</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="205"><a style="outline: none; text-decoration:none; color:inherit" href="#205">205</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="206"><a style="outline: none; text-decoration:none; color:inherit" href="#206">206</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="207"><a style="outline: none; text-decoration:none; color:inherit" href="#207">207</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="208"><a style="outline: none; text-decoration:none; color:inherit" href="#208">208</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="209"><a style="outline: none; text-decoration:none; color:inherit" href="#209">209</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="210"><a style="outline: none; text-decoration:none; color:inherit" href="#210">210</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="211"><a style="outline: none; text-decoration:none; color:inherit" href="#211">211</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="212"><a style="outline: none; text-decoration:none; color:inherit" href="#212">212</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="213"><a style="outline: none; text-decoration:none; color:inherit" href="#213">213</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="214"><a style="outline: none; text-decoration:none; color:inherit" href="#214">214</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="215"><a style="outline: none; text-decoration:none; color:inherit" href="#215">215</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="216"><a style="outline: none; text-decoration:none; color:inherit" href="#216">216</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="217"><a style="outline: none; text-decoration:none; color:inherit" href="#217">217</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="218"><a style="outline: none; text-decoration:none; color:inherit" href="#218">218</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="219"><a style="outline: none; text-decoration:none; color:inherit" href="#219">219</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="220"><a style="outline: none; text-decoration:none; color:inherit" href="#220">220</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="221"><a style="outline: none; text-decoration:none; color:inherit" href="#221">221</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="222"><a style="outline: none; text-decoration:none; color:inherit" href="#222">222</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="223"><a style="outline: none; text-decoration:none; color:inherit" href="#223">223</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="224"><a style="outline: none; text-decoration:none; color:inherit" href="#224">224</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="225"><a style="outline: none; text-decoration:none; color:inherit" href="#225">225</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="226"><a style="outline: none; text-decoration:none; color:inherit" href="#226">226</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="227"><a style="outline: none; text-decoration:none; color:inherit" href="#227">227</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="228"><a style="outline: none; text-decoration:none; color:inherit" href="#228">228</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="229"><a style="outline: none; text-decoration:none; color:inherit" href="#229">229</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="230"><a style="outline: none; text-decoration:none; color:inherit" href="#230">230</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">pipeline</span> {
-  <span style="color:#a6e22e">agent</span> <span style="color:#a6e22e">any</span>
-  <span style="color:#a6e22e">environment</span> {
-    <span style="color:#75715e">//版本，只改这个就行！！！
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">version</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">0.1</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+<pre><code>pipeline {
+  agent any
+  environment {
+    //版本，只改这个就行！！！
+    version = '0.1'
 
-    <span style="color:#75715e">//docker镜像名
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">docker_app_name</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">demo</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//docker私库地址
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">docker_base_url</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">192.168.1.100</span>:<span style="color:#ae81ff">1234</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//docker路径
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">docker_base_path</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">service</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//docker线上地址
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">docker_ali_base_url</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">registry</span>.<span style="color:#a6e22e">cn</span><span style="color:#f92672">-</span><span style="color:#a6e22e">hangzhou</span>.<span style="color:#a6e22e">aliyuncs</span>.<span style="color:#a6e22e">com</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//docker线上路径
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">docker_ali_base_path</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">demo</span><span style="color:#f92672">-</span><span style="color:#a6e22e">service</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+    //docker镜像名
+    docker_app_name = 'demo'
+    //docker私库地址
+    docker_base_url = '192.168.1.100:1234'
+    //docker路径
+    docker_base_path = 'service'
+    //docker线上地址
+    docker_ali_base_url = 'registry.cn-hangzhou.aliyuncs.com'
+    //docker线上路径
+    docker_ali_base_path = 'demo-service'
 
-    <span style="color:#75715e">//sonar_scanner的home路径
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">sonar_scanner_home</span> = <span style="color:#a6e22e">tool</span> <span style="color:#a6e22e">name</span>: <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">SonarScanner4</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//sonar project名
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">sonar_app_name</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">demo</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//sonar服务地址
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">sonar_url</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">http</span>:<span style="color:#75715e">//192.168.1.200&#39;
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//sonar钉钉机器人token
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">sonar_dingding_token</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">111111111111111111111111111111111111</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//sonar钉钉通知服务地址
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">sonar_dingding_url</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">192.168.1.300</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+    //sonar_scanner的home路径
+    sonar_scanner_home = tool name: 'SonarScanner4'
+    //sonar project名
+    sonar_app_name = 'demo'
+    //sonar服务地址
+    sonar_url = 'http://192.168.1.200'
+    //sonar钉钉机器人token
+    sonar_dingding_token = '111111111111111111111111111111111111'
+    //sonar钉钉通知服务地址
+    sonar_dingding_url = '192.168.1.300'
     
     
-    <span style="color:#75715e">//rancher webhook地址
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rancher_notify_url</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">192.168.1.400</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#a6e22e">rancher_uat_notify_url</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">webhook</span><span style="color:#f92672">-</span><span style="color:#a6e22e">demo</span>.<span style="color:#a6e22e">rancher</span>.<span style="color:#a6e22e">ocom</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//webhook配置名
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rancher_app_name</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">demo</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//webhook配置token
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rancher_token</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">2222222222222222222222222</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//rancher命名空间
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rancher_namespace</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#66d9ef">default</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//rancher的服务类型
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rancher_workload</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">deployment</span><span style="color:#f92672">/</span><span style="color:#a6e22e">demo</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//rancher容器名
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rancher_container_name</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">demo</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    <span style="color:#75715e">//镜像仓库类型
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rancher_repo_name</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">custom</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+    //rancher webhook地址
+    rancher_notify_url = '192.168.1.400'
+    rancher_uat_notify_url = 'webhook-demo.rancher.ocom'
+    //webhook配置名
+    rancher_app_name = 'demo'
+    //webhook配置token
+    rancher_token = '2222222222222222222222222'
+    //rancher命名空间
+    rancher_namespace = 'default'
+    //rancher的服务类型
+    rancher_workload = 'deployment/demo'
+    //rancher容器名
+    rancher_container_name = 'demo'
+    //镜像仓库类型
+    rancher_repo_name = 'custom'
 
-    <span style="color:#75715e">//jenkins钉钉机器人token
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">jenkins_dingding_token</span> = <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">3333333333333333333333333</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+    //jenkins钉钉机器人token
+    jenkins_dingding_token = '3333333333333333333333333'
 
   }
 
-  <span style="color:#a6e22e">tools</span> {
-    <span style="color:#a6e22e">maven</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">maven3</span><span style="color:#ae81ff">.6.1</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+  tools {
+    maven 'maven3.6.1'
   }
 
-  <span style="color:#a6e22e">stages</span> {
+  stages {
     
-    <span style="color:#75715e">// 开发环境maven打包
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">stage</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Maven</span> <span style="color:#a6e22e">Build</span><span style="color:#960050;background-color:#1e0010">&#39;</span>){
-      <span style="color:#a6e22e">when</span> {
-          <span style="color:#a6e22e">branch</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">develop</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+    // 开发环境maven打包
+    stage('Maven Build'){
+      when {
+          branch 'develop'
       }
-      <span style="color:#a6e22e">steps</span>{
-        <span style="color:#a6e22e">sh</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">mvn</span> <span style="color:#a6e22e">clean</span> <span style="color:#f92672">package</span> <span style="color:#a6e22e">dependency</span>:<span style="color:#a6e22e">copy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">dependencies</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+      steps{
+        sh 'mvn clean package dependency:copy-dependencies'
       }
     }
 
-    <span style="color:#75715e">// 开发环境sonar检查
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">stage</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Sonar</span> <span style="color:#a6e22e">Check</span><span style="color:#960050;background-color:#1e0010">&#39;</span>) {
-      <span style="color:#a6e22e">when</span> {
-          <span style="color:#a6e22e">branch</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">develop</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+    // 开发环境sonar检查
+    stage('Sonar Check') {
+      when {
+          branch 'develop'
       }
-      <span style="color:#a6e22e">steps</span> {
-        <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Sonar</span> <span style="color:#a6e22e">Checking</span><span style="color:#f92672">...</span>.<span style="color:#960050;background-color:#1e0010">&#39;</span>
-        <span style="color:#a6e22e">withSonarQubeEnv</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">sonarqube</span><span style="color:#960050;background-color:#1e0010">&#39;</span>) {
-          <span style="color:#a6e22e">sh</span> <span style="color:#e6db74">&#34;${sonar_scanner_home}/bin/sonar-scanner -Dsonar.projectVersion=$version&#34;</span>
+      steps {
+        echo 'Sonar Checking....'
+        withSonarQubeEnv('sonarqube') {
+          sh &quot;${sonar_scanner_home}/bin/sonar-scanner -Dsonar.projectVersion=$version&quot;
         }
 
-        <span style="color:#75715e">// sonar的钉钉通知
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">sh</span>(<span style="color:#a6e22e">label</span>: <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Sonar</span> <span style="color:#a6e22e">DingDing</span> <span style="color:#a6e22e">Notify</span><span style="color:#960050;background-color:#1e0010">&#39;</span>, <span style="color:#a6e22e">script</span>:
-        <span style="color:#e6db74">&#39;&#39;&#39;</span>
-        <span style="color:#960050;background-color:#1e0010">#</span>!<span style="color:#f92672">/</span><span style="color:#a6e22e">bin</span><span style="color:#f92672">/</span><span style="color:#a6e22e">bash</span>
-        <span style="color:#a6e22e">sonarreport</span>=<span style="color:#960050;background-color:#1e0010">$</span>(<span style="color:#a6e22e">curl</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">s</span> <span style="color:#a6e22e">http</span>:<span style="color:#75715e">//$sonar_dingding_url?projectname=$sonar_app_name)
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">message_url</span>=<span style="color:#e6db74">&#34;http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png&#34;</span>
-        <span style="color:#a6e22e">strB</span>=<span style="color:#e6db74">&#34;ERROR&#34;</span>
-        <span style="color:#66d9ef">case</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">sonarreport</span> <span style="color:#a6e22e">in</span>
-            <span style="color:#f92672">*</span><span style="color:#e6db74">&#34;$strB&#34;</span><span style="color:#f92672">*</span>) <span style="color:#a6e22e">message_url</span>=<span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">&#34;http://www.iconsdb.com/icons/preview/soylent-red/x-mark-3-xxl.png\&#34; ;;
-</span><span style="color:#e6db74">            *) message_url=\&#34;http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png\&#34; ;;
-</span><span style="color:#e6db74">        esac
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">        echo $message_url
-</span><span style="color:#e6db74">        curl -s &#34;</span><span style="color:#a6e22e">https</span>:<span style="color:#75715e">//oapi.dingtalk.com/robot/send?access_token=$sonar_dingding_token&#34; \\
-</span><span style="color:#75715e"></span>           <span style="color:#f92672">-</span><span style="color:#a6e22e">H</span> <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#960050;background-color:#1e0010">\</span>\
-           <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#e6db74">&#34;{
-</span><span style="color:#e6db74">                \\&#34;</span><span style="color:#a6e22e">msgtype</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: \\&#34;</span><span style="color:#a6e22e">link</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;,
-</span><span style="color:#e6db74">                 \\&#34;</span><span style="color:#a6e22e">link</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: {
-</span><span style="color:#e6db74">                          \\&#34;</span><span style="color:#a6e22e">title</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;:\\&#34;</span><span style="color:#a6e22e">sonarqube代码质量报告</span><span style="color:#960050;background-color:#1e0010">：$</span><span style="color:#a6e22e">sonar_app_name</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;,
-</span><span style="color:#e6db74">                          \\&#34;</span><span style="color:#a6e22e">text</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: \\&#34;</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">sonarreport</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;,
-</span><span style="color:#e6db74">                          \\&#34;</span><span style="color:#a6e22e">picUrl</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: \\&#34;</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">message_url</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;,
-</span><span style="color:#e6db74">                          \\&#34;</span><span style="color:#a6e22e">messageUrl</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;:\\&#34;</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">sonar_url</span><span style="color:#f92672">/</span><span style="color:#a6e22e">dashboard</span><span style="color:#960050;background-color:#1e0010">?</span><span style="color:#a6e22e">id</span>=<span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">sonar_app_name</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;
-</span><span style="color:#e6db74">                }
-</span><span style="color:#e6db74">            }&#34;</span>
-        <span style="color:#e6db74">&#39;&#39;&#39;</span>
+        // sonar的钉钉通知
+        sh(label: 'Sonar DingDing Notify', script:
+        '''
+        #!/bin/bash
+        sonarreport=$(curl -s http://$sonar_dingding_url?projectname=$sonar_app_name)
+        message_url=&quot;http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png&quot;
+        strB=&quot;ERROR&quot;
+        case $sonarreport in
+            *&quot;$strB&quot;*) message_url=\&quot;http://www.iconsdb.com/icons/preview/soylent-red/x-mark-3-xxl.png\&quot; ;;
+            *) message_url=\&quot;http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png\&quot; ;;
+        esac
+
+        echo $message_url
+        curl -s &quot;https://oapi.dingtalk.com/robot/send?access_token=$sonar_dingding_token&quot; \\
+           -H &quot;Content-Type: application/json&quot; \\
+           -d &quot;{
+                \\&quot;msgtype\\&quot;: \\&quot;link\\&quot;,
+                 \\&quot;link\\&quot;: {
+                          \\&quot;title\\&quot;:\\&quot;sonarqube代码质量报告：$sonar_app_name\\&quot;,
+                          \\&quot;text\\&quot;: \\&quot;$sonarreport\\&quot;,
+                          \\&quot;picUrl\\&quot;: \\&quot;$message_url\\&quot;,
+                          \\&quot;messageUrl\\&quot;:\\&quot;$sonar_url/dashboard?id=$sonar_app_name\\&quot;
+                }
+            }&quot;
+        '''
         )
       }
     }
     
     
-    <span style="color:#a6e22e">stage</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Docker</span> <span style="color:#a6e22e">Build</span><span style="color:#960050;background-color:#1e0010">&#39;</span>) {
-      <span style="color:#a6e22e">parallel</span> {
+    stage('Docker Build') {
+      parallel {
       
-        <span style="color:#75715e">//开发环境构建docker
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">stage</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Dev</span><span style="color:#960050;background-color:#1e0010">&#39;</span>) {
-          <span style="color:#a6e22e">when</span> {
-              <span style="color:#a6e22e">branch</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">develop</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+        //开发环境构建docker
+        stage('Dev') {
+          when {
+              branch 'develop'
           }
-          <span style="color:#a6e22e">steps</span> {
-            <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Docker</span> <span style="color:#a6e22e">Building</span><span style="color:#f92672">...</span>.<span style="color:#960050;background-color:#1e0010">&#39;</span>
-            <span style="color:#a6e22e">sh</span>(<span style="color:#a6e22e">label</span>: <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Docker</span> <span style="color:#a6e22e">Build</span><span style="color:#960050;background-color:#1e0010">&#39;</span>, <span style="color:#a6e22e">script</span>:
-            <span style="color:#e6db74">&#39;&#39;&#39;</span>
-            <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">build</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">t</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_base_url</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_base_path</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_app_name</span>:<span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">version</span> .
-            <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">push</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_base_url</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_base_path</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_app_name</span>:<span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">version</span>
-            <span style="color:#e6db74">&#39;&#39;&#39;</span>
+          steps {
+            echo 'Docker Building....'
+            sh(label: 'Docker Build', script:
+            '''
+            docker build -t $docker_base_url/$docker_base_path/$docker_app_name:$version .
+            docker push $docker_base_url/$docker_base_path/$docker_app_name:$version
+            '''
             )
           }
         }
         
-        <span style="color:#75715e">//测试环境构建docker
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">stage</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Test</span><span style="color:#960050;background-color:#1e0010">&#39;</span>) {
-          <span style="color:#a6e22e">when</span> {
-              <span style="color:#a6e22e">branch</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">test</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+        //测试环境构建docker
+        stage('Test') {
+          when {
+              branch 'test'
           }
-          <span style="color:#a6e22e">steps</span> {
-            <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Docker</span> <span style="color:#a6e22e">Building</span><span style="color:#f92672">...</span>.<span style="color:#960050;background-color:#1e0010">&#39;</span>
-            <span style="color:#a6e22e">sh</span>(<span style="color:#a6e22e">label</span>: <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Docker</span> <span style="color:#a6e22e">Build</span><span style="color:#960050;background-color:#1e0010">&#39;</span>, <span style="color:#a6e22e">script</span>:
-            <span style="color:#e6db74">&#39;&#39;&#39;</span>
-            <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">pull</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_base_url</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_base_path</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_app_name</span>:<span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">version</span>
-            <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">tag</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_base_url</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_base_path</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_app_name</span>:<span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">version</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_ali_base_url</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_ali_base_path</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_app_name</span>:<span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">version</span>
-            <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">push</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_ali_base_url</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_ali_base_path</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_app_name</span>:<span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">version</span>
-            <span style="color:#e6db74">&#39;&#39;&#39;</span>
+          steps {
+            echo 'Docker Building....'
+            sh(label: 'Docker Build', script:
+            '''
+            docker pull $docker_base_url/$docker_base_path/$docker_app_name:$version
+            docker tag $docker_base_url/$docker_base_path/$docker_app_name:$version $docker_ali_base_url/$docker_ali_base_path/$docker_app_name:$version
+            docker push $docker_ali_base_url/$docker_ali_base_path/$docker_app_name:$version
+            '''
             )
           }
         }
       }
     }
 
-    <span style="color:#a6e22e">stage</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Test</span><span style="color:#960050;background-color:#1e0010">&#39;</span>) {
-      <span style="color:#a6e22e">steps</span> {
-        <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Testing</span>..<span style="color:#960050;background-color:#1e0010">&#39;</span>
+    stage('Test') {
+      steps {
+        echo 'Testing..'
       }
     }
-    <span style="color:#a6e22e">stage</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Rancher</span> <span style="color:#a6e22e">Deploy</span><span style="color:#960050;background-color:#1e0010">&#39;</span>) {
-      <span style="color:#a6e22e">parallel</span> {
-        <span style="color:#75715e">// 开发环境部署
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">stage</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Dev</span><span style="color:#960050;background-color:#1e0010">&#39;</span>) {
-          <span style="color:#a6e22e">when</span> {
-              <span style="color:#a6e22e">branch</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">develop</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+    stage('Rancher Deploy') {
+      parallel {
+        // 开发环境部署
+        stage('Dev') {
+          when {
+              branch 'develop'
           }
           
-          <span style="color:#75715e">// rancher webhook
-</span><span style="color:#75715e"></span>          <span style="color:#a6e22e">steps</span> {
-            <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Rancher</span> <span style="color:#a6e22e">Deploying</span><span style="color:#f92672">...</span>.<span style="color:#960050;background-color:#1e0010">&#39;</span>
-            <span style="color:#a6e22e">sh</span>(<span style="color:#a6e22e">label</span>: <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Rancher</span> <span style="color:#a6e22e">Deploy</span><span style="color:#960050;background-color:#1e0010">&#39;</span>, <span style="color:#a6e22e">script</span>:
-            <span style="color:#e6db74">&#39;&#39;&#39;</span>
-            <span style="color:#960050;background-color:#1e0010">#</span>!<span style="color:#f92672">/</span><span style="color:#a6e22e">bin</span><span style="color:#f92672">/</span><span style="color:#a6e22e">bash</span>
-            <span style="color:#a6e22e">curl</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">X</span> <span style="color:#a6e22e">POST</span> <span style="color:#e6db74">&#34;http://$rancher_notify_url/hooks/$rancher_app_name?token=$rancher_token&amp;ns=$rancher_namespace&amp;workload=$rancher_workload&amp;container=$rancher_container_name&amp;repo_type=$rancher_repo_name&#34;</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">H</span> <span style="color:#960050;background-color:#1e0010">\&#39;</span><span style="color:#a6e22e">Content</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Type</span>: <span style="color:#a6e22e">application</span><span style="color:#f92672">/</span><span style="color:#a6e22e">json</span><span style="color:#960050;background-color:#1e0010">\&#39;</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">H</span> <span style="color:#960050;background-color:#1e0010">\&#39;</span><span style="color:#a6e22e">cache</span><span style="color:#f92672">-</span><span style="color:#a6e22e">control</span>: <span style="color:#a6e22e">no</span><span style="color:#f92672">-</span><span style="color:#a6e22e">cache</span><span style="color:#960050;background-color:#1e0010">\&#39;</span> <span style="color:#960050;background-color:#1e0010">\</span>\
-              <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#e6db74">&#34;{
-</span><span style="color:#e6db74">                \\&#34;</span><span style="color:#a6e22e">push_data</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: {
-</span><span style="color:#e6db74">                    \\&#34;</span><span style="color:#a6e22e">tag</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: \\&#34;</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">version</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;
-</span><span style="color:#e6db74">                },
-</span><span style="color:#e6db74">                \\&#34;</span><span style="color:#a6e22e">repository</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: {
-</span><span style="color:#e6db74">                    \\&#34;</span><span style="color:#a6e22e">repo_url</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: \\&#34;</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_base_url</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;,
-</span><span style="color:#e6db74">                    \\&#34;</span><span style="color:#a6e22e">name</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: \\&#34;</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_app_name</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;,
-</span><span style="color:#e6db74">                    \\&#34;</span><span style="color:#a6e22e">namespace</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: \\&#34;</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_base_path</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;
-</span><span style="color:#e6db74">                }
-</span><span style="color:#e6db74">              }&#34;</span>
-             <span style="color:#e6db74">&#39;&#39;&#39;</span>
+          // rancher webhook
+          steps {
+            echo 'Rancher Deploying....'
+            sh(label: 'Rancher Deploy', script:
+            '''
+            #!/bin/bash
+            curl -X POST &quot;http://$rancher_notify_url/hooks/$rancher_app_name?token=$rancher_token&amp;ns=$rancher_namespace&amp;workload=$rancher_workload&amp;container=$rancher_container_name&amp;repo_type=$rancher_repo_name&quot; -H \'Content-Type: application/json\' -H \'cache-control: no-cache\' \\
+              -d &quot;{
+                \\&quot;push_data\\&quot;: {
+                    \\&quot;tag\\&quot;: \\&quot;$version\\&quot;
+                },
+                \\&quot;repository\\&quot;: {
+                    \\&quot;repo_url\\&quot;: \\&quot;$docker_base_url\\&quot;,
+                    \\&quot;name\\&quot;: \\&quot;$docker_app_name\\&quot;,
+                    \\&quot;namespace\\&quot;: \\&quot;$docker_base_path\\&quot;
+                }
+              }&quot;
+             '''
              )
           }
         }
 
-        <span style="color:#75715e">//测试环境部署
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">stage</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Test</span><span style="color:#960050;background-color:#1e0010">&#39;</span>) {
-          <span style="color:#a6e22e">when</span> {
-              <span style="color:#a6e22e">branch</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">test</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+        //测试环境部署
+        stage('Test') {
+          when {
+              branch 'test'
           }
-          <span style="color:#a6e22e">steps</span> {
-            <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Rancher</span> <span style="color:#a6e22e">Deploying</span><span style="color:#f92672">...</span>.<span style="color:#960050;background-color:#1e0010">&#39;</span>
-            <span style="color:#a6e22e">sh</span>(<span style="color:#a6e22e">label</span>: <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Rancher</span> <span style="color:#a6e22e">Deploy</span><span style="color:#960050;background-color:#1e0010">&#39;</span>, <span style="color:#a6e22e">script</span>:
-            <span style="color:#e6db74">&#39;&#39;&#39;</span>
-            <span style="color:#960050;background-color:#1e0010">#</span>!<span style="color:#f92672">/</span><span style="color:#a6e22e">bin</span><span style="color:#f92672">/</span><span style="color:#a6e22e">bash</span>
-            <span style="color:#a6e22e">curl</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">X</span> <span style="color:#a6e22e">POST</span> <span style="color:#e6db74">&#34;http://$rancher_uat_notify_url/hooks/$rancher_app_name?token=$rancher_token&amp;ns=$rancher_namespace&amp;workload=$rancher_workload&amp;container=$rancher_container_name&amp;repo_type=$rancher_repo_name&#34;</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">H</span> <span style="color:#960050;background-color:#1e0010">\&#39;</span><span style="color:#a6e22e">Content</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Type</span>: <span style="color:#a6e22e">application</span><span style="color:#f92672">/</span><span style="color:#a6e22e">json</span><span style="color:#960050;background-color:#1e0010">\&#39;</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">H</span> <span style="color:#960050;background-color:#1e0010">\&#39;</span><span style="color:#a6e22e">cache</span><span style="color:#f92672">-</span><span style="color:#a6e22e">control</span>: <span style="color:#a6e22e">no</span><span style="color:#f92672">-</span><span style="color:#a6e22e">cache</span><span style="color:#960050;background-color:#1e0010">\&#39;</span> <span style="color:#960050;background-color:#1e0010">\</span>\
-              <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#e6db74">&#34;{
-</span><span style="color:#e6db74">                \\&#34;</span><span style="color:#a6e22e">push_data</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: {
-</span><span style="color:#e6db74">                    \\&#34;</span><span style="color:#a6e22e">tag</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: \\&#34;</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">version</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;
-</span><span style="color:#e6db74">                },
-</span><span style="color:#e6db74">                \\&#34;</span><span style="color:#a6e22e">repository</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: {
-</span><span style="color:#e6db74">                    \\&#34;</span><span style="color:#a6e22e">repo_url</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: \\&#34;</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_ali_base_url</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;,
-</span><span style="color:#e6db74">                    \\&#34;</span><span style="color:#a6e22e">name</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: \\&#34;</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_app_name</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;,
-</span><span style="color:#e6db74">                    \\&#34;</span><span style="color:#a6e22e">namespace</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;: \\&#34;</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">docker_ali_base_path</span><span style="color:#960050;background-color:#1e0010">\\</span><span style="color:#e6db74">&#34;
-</span><span style="color:#e6db74">                }
-</span><span style="color:#e6db74">              }&#34;</span>
-             <span style="color:#e6db74">&#39;&#39;&#39;</span>
+          steps {
+            echo 'Rancher Deploying....'
+            sh(label: 'Rancher Deploy', script:
+            '''
+            #!/bin/bash
+            curl -X POST &quot;http://$rancher_uat_notify_url/hooks/$rancher_app_name?token=$rancher_token&amp;ns=$rancher_namespace&amp;workload=$rancher_workload&amp;container=$rancher_container_name&amp;repo_type=$rancher_repo_name&quot; -H \'Content-Type: application/json\' -H \'cache-control: no-cache\' \\
+              -d &quot;{
+                \\&quot;push_data\\&quot;: {
+                    \\&quot;tag\\&quot;: \\&quot;$version\\&quot;
+                },
+                \\&quot;repository\\&quot;: {
+                    \\&quot;repo_url\\&quot;: \\&quot;$docker_ali_base_url\\&quot;,
+                    \\&quot;name\\&quot;: \\&quot;$docker_app_name\\&quot;,
+                    \\&quot;namespace\\&quot;: \\&quot;$docker_ali_base_path\\&quot;
+                }
+              }&quot;
+             '''
              )
           }
         }
@@ -1207,29 +826,28 @@
 
   }
   
-  <span style="color:#a6e22e">post</span> {
-    <span style="color:#a6e22e">failure</span> {
-      <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">构建失败</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-      <span style="color:#a6e22e">dingTalk</span>(<span style="color:#a6e22e">accessToken</span>: <span style="color:#e6db74">&#34;$jenkins_dingding_token&#34;</span>, <span style="color:#a6e22e">imageUrl</span>: <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">http</span>:<span style="color:#75715e">//www.iconsdb.com/icons/preview/soylent-red/x-mark-3-xxl.png&#39;,
-</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">message</span>: <span style="color:#e6db74">&#34;构建失败&#34;</span>, <span style="color:#a6e22e">jenkinsUrl</span>: <span style="color:#e6db74">&#34;${env.BUILD_URL}&#34;</span>)
+  post {
+    failure {
+      echo '构建失败'
+      dingTalk(accessToken: &quot;$jenkins_dingding_token&quot;, imageUrl: 'http://www.iconsdb.com/icons/preview/soylent-red/x-mark-3-xxl.png',
+      message: &quot;构建失败&quot;, jenkinsUrl: &quot;${env.BUILD_URL}&quot;)
     }
 
-<span style="color:#75715e">//     success {
-</span><span style="color:#75715e">//       echo &#39;构建成功&#39;
-</span><span style="color:#75715e">//       dingTalk(accessToken: &#34;$jenkins_dingding_token&#34;, imageUrl: &#39;http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png&#39;,
-</span><span style="color:#75715e">//       message: &#34;项目[${env.JOB_NAME}#${env.BUILD_NUMBER}]构建成功&#34;,jenkinsUrl: &#34;${env.BUILD_URL}&#34;)
-</span><span style="color:#75715e">//     }
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">//     always {
-</span><span style="color:#75715e">//       echo &#39;开始构建&#39;
-</span><span style="color:#75715e">//       dingTalk(accessToken: &#34;$jenkins_dingding_token&#34;, imageUrl: &#39;http://icon-park.com/imagefiles/loading7_gray.gif&#39;,
-</span><span style="color:#75715e">//        message: &#34;项目[${env.JOB_NAME}#${env.BUILD_NUMBER}]开始构建&#34;, jenkinsUrl: &#34;${env.BUILD_URL}&#34;)
-</span><span style="color:#75715e">//     }
-</span><span style="color:#75715e"></span>  }
+//     success {
+//       echo '构建成功'
+//       dingTalk(accessToken: &quot;$jenkins_dingding_token&quot;, imageUrl: 'http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png',
+//       message: &quot;项目[${env.JOB_NAME}#${env.BUILD_NUMBER}]构建成功&quot;,jenkinsUrl: &quot;${env.BUILD_URL}&quot;)
+//     }
+
+//     always {
+//       echo '开始构建'
+//       dingTalk(accessToken: &quot;$jenkins_dingding_token&quot;, imageUrl: 'http://icon-park.com/imagefiles/loading7_gray.gif',
+//        message: &quot;项目[${env.JOB_NAME}#${env.BUILD_NUMBER}]开始构建&quot;, jenkinsUrl: &quot;${env.BUILD_URL}&quot;)
+//     }
+  }
 }
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="32-jenkinsfile的高亮提示和校验">3.2 Jenkinsfile的高亮、提示和校验</h2>
+</code></pre>
+<h2 id="32-jenkinsfile的高亮提示和校验">3.2 Jenkinsfile的高亮、提示和校验</h2>
 <p>这个点，我将在另一篇文章中进行说明<a href="https://www.naah69.com/post/2019-12-23-jenkinsflie-plugin">Jenkinsfile的高亮、提示和校验</a></p>
 <h2 id="33-创建pipeline">3.3 创建PipeLine</h2>
 <p>1.进入jenkins</p>
@@ -1400,7 +1018,7 @@
             
             
             <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
-            环境配置系列(12)
+            环境配置系列(14)
             </a>
 
             
@@ -1408,6 +1026,13 @@
             
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
             排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
             </a>
 
             
@@ -1429,13 +1054,6 @@
             
             <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
             数学基础(7)
-            </a>
-
-            
-            
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
-            机器学习系列(7)
             </a>
 
             
@@ -1681,6 +1299,7 @@
 <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
 
 
+
 <script>
 
 
@@ -1745,10 +1364,73 @@ gtag('config', 'UA-155998534-1');
 </body>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
     <script src="https://www.naah69.com/js/article.js"></script>
+    <script>
+
+
+    
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+        singleLine: true
+    });
+
+    $("style").each(function(){
+        style=$(this).text()
+        if(style.indexOf(".hljs-ln td{padding:0}")!=-1){
+            $(this).remove();
+        }
+    });
+
+
+    
+    var snippets = document.querySelectorAll('pre>code');
+    var htmlCopyButton = `<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i></button>`;
+
+    snippets.forEach(snippet => {
+        var pre = snippet.parentNode;
+        var pre_parent = pre.parentNode;
+
+        var wrapper = document.createElement('div');
+
+        pre_parent.replaceChild(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        wrapper.classList.add('code-highlight');
+        wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+        var class0 = (snippet.classList[0] || 'code')
+        var lang = (class0.replace("language-", "") || 'code').toUpperCase();
+        wrapper.setAttribute('data-lang', lang);
+    });
+
+    
+    var clipboard = new ClipboardJS('.codecopy-btn', {
+        target: trigger => {
+            return trigger.nextSibling;
+        },
+    });
+
+    clipboard.on('success', e => {
+        e.trigger.setAttribute('aria-label', 'Copied!');
+        e.clearSelection();
+    });
+
+    
+    
+    var btns = document.querySelectorAll('.codecopy-btn');
+
+    btns.forEach(btn => {
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    });
+
+</script>
 
 
 </html>

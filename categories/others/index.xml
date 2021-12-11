@@ -6,7 +6,25 @@
     <description>Recent content in Others on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 09 Jan 2020 21:14:07 +0800</lastBuildDate><atom:link href="https://www.naah69.com/categories/others/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Jul 2021 18:15:50 +0800</lastBuildDate><atom:link href="https://www.naah69.com/categories/others/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>k8s安装openvpn（ldap）</title>
+      <link>https://www.naah69.com/post/2021-07-26-k8s-openvpn-ldap/</link>
+      <pubDate>Mon, 26 Jul 2021 18:15:50 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2021-07-26-k8s-openvpn-ldap/</guid>
+      <description>1 安装helm3.0 略过 2 下载charts git clone https://hub.fastgit.org/helm/charts.git 3 安装openvpn 安装openvpn需要持久卷，没有可以安装一个nfs的默认存储类 3.1 进入o</description>
+    </item>
+    
+    <item>
+      <title>alpine 编译opencv</title>
+      <link>https://www.naah69.com/post/2021-06-09-alpine-opencv/</link>
+      <pubDate>Wed, 09 Jun 2021 18:11:34 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2021-06-09-alpine-opencv/</guid>
+      <description>0 环境准备 docker镜像：openjdk:8-jdk-alpine 1 ANT(java需要，普通编译可跳过) 1.1 下载ant cd /app wget https://downloads.apache.org//ant/binaries/apache-ant-1.9.15-bin.zip unzip apache-ant-1.9.15-bin.zip 1.2 配置A</description>
+    </item>
+    
     <item>
       <title>关于Scrum&#43;XP&#43;DevOps的学习</title>
       <link>https://www.naah69.com/post/2020-01-09-scrum-xp-devops/</link>
@@ -112,7 +130,7 @@
       <pubDate>Sun, 01 Dec 2019 13:23:02 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2019-12-01-ubuntu-gpu-evn/</guid>
-      <description>本文环境 ubuntu 18.04 1 nvidia显卡驱动 1 sudo apt-get install nvidia-driver-435 2 cuda 2.1 下载cuda CUDA官网 选择配置，但是Installer Type必须选择runfile,根</description>
+      <description>本文环境 ubuntu 18.04 1 nvidia显卡驱动 sudo apt-get install nvidia-driver-435 2 cuda 2.1 下载cuda CUDA官网 选择配置，但是Installer Type必须选择runfile,根据</description>
     </item>
     
     <item>
@@ -130,7 +148,7 @@
       <pubDate>Sun, 23 Jun 2019 13:42:08 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2019-06-23-go-trap/</guid>
-      <description>1 国内如何快速go get github的包 在命令行输入go get ...前输入以下命令 1 2 3 4 #配置你自己的http代理 export http_proxy=http://127.0.0.1:1087 go get ... 2 golang版本ji</description>
+      <description>1 国内如何快速go get github的包 在命令行输入go get ...前输入以下命令 #配置你自己的http代理 export http_proxy=http://127.0.0.1:1087 go get ... 2 golang版本jieba的</description>
     </item>
     
     <item>
@@ -166,7 +184,7 @@
       <pubDate>Mon, 01 Oct 2018 19:42:19 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2018-10-01-go-compress-packaging/</guid>
-      <description>1 压缩前后对比图 只有一句hello world！竟然打包后达到了2.1M 2 详细过程 2.1 参数打包 2.1.1 使用带有参数的go build 进行打包 1 go build -ldflags &amp;#34;-s -w&amp;#34; hello.go -ldflags &amp;lsquo;[pattern=]arg list&amp;rsquo;</description>
+      <description>1 压缩前后对比图 只有一句hello world！竟然打包后达到了2.1M 2 详细过程 2.1 参数打包 2.1.1 使用带有参数的go build 进行打包 go build -ldflags &amp;quot;-s -w&amp;quot; hello.go -ldflags &amp;lsquo;[pattern=]arg list&amp;rsquo; arguments</description>
     </item>
     
     <item>

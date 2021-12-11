@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test on </title>
+    <link>https://www.naah69.com/categories/test/</link>
+    <description>Recent content in Test on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 11 Dec 2021 19:49:02 +0800</lastBuildDate><atom:link href="https://www.naah69.com/categories/test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aaa</title>
+      <link>https://www.naah69.com/post/aaa/</link>
+      <pubDate>Sat, 11 Dec 2021 19:49:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/aaa/</guid>
+      <description>ls asd  </description>
+    </item>
+    
+  </channel>
+</rss>

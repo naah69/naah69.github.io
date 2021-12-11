@@ -26,6 +26,66 @@
 });'>
 
 </script>
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/styles/a11y-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/sql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+
+<style>
+  .hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:24px;
+    border-right: 1px solid #c5c5c5;
+  }
+
+  .hljs-ln-code {
+    padding-left: 1em;
+  }
+
+  .hljs-ln{border-collapse:collapse}
+   
+  .hljs-ln-n:before{content:attr(data-line-number);margin-right:1em;}
+  .highlight pre, pre, .highlight .hll{padding: 6px 0px}
+  .hljs{padding: 8px 0px}
+  em{color: red}
+  #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+  #index nav ul li {padding-left: 0em;}
+  #index nav ul li ul {padding-left: 1em;}
+  pre{
+    background: none;
+  }
+
+  @media screen and (max-width: 500px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+  @media screen and (max-width: 768px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+
+</style>
+
+
 
 
 
@@ -79,6 +139,7 @@
 
 
 </head>
+<body>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -124,6 +185,10 @@
                     
                     <li>
                         <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
                     </li>
                     
 
@@ -260,29 +325,36 @@
                     <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
                         <nav id="TableOfContents">
   <ul>
-    <li><a href="#11-docker环境准备">1.1 docker环境准备</a></li>
-    <li><a href="#12-宿主机创建所需的持久化目录不持久化可跳过">1.2 宿主机创建所需的持久化目录（不持久化可跳过）</a></li>
-    <li><a href="#13-设置宿主机虚拟内存">1.3 设置宿主机虚拟内存</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#21-安装postgresql">2.1 安装postgresql</a></li>
-    <li><a href="#22-安装sonarqube">2.2 安装SonarQube</a>
+    <li><a href="#1-环境准备">1 环境准备</a>
       <ul>
-        <li><a href="#221-从docker内复制sonarqube插件不持久化可跳过">2.2.1 从docker内复制SonarQube插件(不持久化可跳过)</a></li>
-        <li><a href="#222-启动sonarqube">2.2.2 启动SonarQube</a></li>
+        <li><a href="#11-docker环境准备">1.1 docker环境准备</a></li>
+        <li><a href="#12-宿主机创建所需的持久化目录不持久化可跳过">1.2 宿主机创建所需的持久化目录（不持久化可跳过）</a></li>
+        <li><a href="#13-设置宿主机虚拟内存">1.3 设置宿主机虚拟内存</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#31-汉化">3.1 汉化</a></li>
-    <li><a href="#32-语言规则">3.2 语言规则</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#41-sonar-scanner代码扫描">4.1 sonar-scanner代码扫描</a></li>
-    <li><a href="#42-maven插件扫描">4.2 maven插件扫描</a></li>
+    <li><a href="#2-安装">2 安装</a>
+      <ul>
+        <li><a href="#21-安装postgresql">2.1 安装postgresql</a></li>
+        <li><a href="#22-安装sonarqube">2.2 安装SonarQube</a>
+          <ul>
+            <li><a href="#221-从docker内复制sonarqube插件不持久化可跳过">2.2.1 从docker内复制SonarQube插件(不持久化可跳过)</a></li>
+            <li><a href="#222-启动sonarqube">2.2.2 启动SonarQube</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#3-配置">3 配置</a>
+      <ul>
+        <li><a href="#31-汉化">3.1 汉化</a></li>
+        <li><a href="#32-语言规则">3.2 语言规则</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-如何扫描代码">4 如何扫描代码</a>
+      <ul>
+        <li><a href="#41-sonar-scanner代码扫描">4.1 sonar-scanner代码扫描</a></li>
+        <li><a href="#42-maven插件扫描">4.2 maven插件扫描</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
                     </div>
@@ -299,53 +371,26 @@
 <li><code>postgresql</code>数据库数据持久化目录</li>
 <li><code>sonar</code>数据和插件持久化目录</li>
 </ol>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p /data/postgresql/data
+<pre><code class="language-bash">mkdir -p /data/postgresql/data
 mkdir -p /data/sonarqube/data
 mkdir -p /data/sonarqube/extensions
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="13-设置宿主机虚拟内存">1.3 设置宿主机虚拟内存</h2>
+</code></pre>
+<h2 id="13-设置宿主机虚拟内存">1.3 设置宿主机虚拟内存</h2>
 <p>如果不设置，可能导致<code>SonarQube</code>镜像内部的<code>es</code>无法启动</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sysctl -w vm.max_map_count<span style="color:#f92672">=</span><span style="color:#ae81ff">262144</span> 
-ulimit -n <span style="color:#ae81ff">65536</span> 
-ulimit -u <span style="color:#ae81ff">2048</span>
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="2-安装">2 安装</h1>
+<pre><code class="language-bash">sysctl -w vm.max_map_count=262144 
+ulimit -n 65536 
+ulimit -u 2048
+</code></pre>
+<h1 id="2-安装">2 安装</h1>
 <h2 id="21-安装postgresql">2.1 安装postgresql</h2>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">6</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -d <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-p <span style="color:#f92672">{</span>postgresql映射的端口<span style="color:#f92672">}</span>:5432 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-e POSTGRES_USER<span style="color:#f92672">=</span>sonar -e POSTGRES_PASSWORD<span style="color:#f92672">=</span>sonar <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-v /data/postgresql/data:/var/lib/postgresql/data <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>--restart<span style="color:#f92672">=</span>always <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>postgres 
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="22-安装sonarqube">2.2 安装SonarQube</h2>
+<pre><code class="language-bash">docker run -d \
+-p {postgresql映射的端口}:5432 \
+-e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar \
+-v /data/postgresql/data:/var/lib/postgresql/data \
+--restart=always \
+postgres 
+</code></pre>
+<h2 id="22-安装sonarqube">2.2 安装SonarQube</h2>
 <h3 id="221-从docker内复制sonarqube插件不持久化可跳过">2.2.1 从docker内复制SonarQube插件(不持久化可跳过)</h3>
 <blockquote>
 <p>这步是最繁琐的，如果选择持久化却不进行这步操作会导致sonar无法启动</p>
@@ -353,63 +398,34 @@ ulimit -u <span style="color:#ae81ff">2048</span>
 <ol>
 <li>先临时启动一个sonarqube镜像，将镜像内的插件copy出去</li>
 </ol>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">6</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 运行这步后会进入SonarQube镜像内部</span>
+<pre><code class="language-bash"># 运行这步后会进入SonarQube镜像内部
 docker run -it --rm -v /data/sonarqube/data:/opt/sonarqube/data sonarqube:7.7-community bash
 cd /extensions
 cp -r ./* ../data
-<span style="color:#75715e"># 运行这步会退出SonarQube镜像</span>
+# 运行这步会退出SonarQube镜像
 exit
-</code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+</code></pre>
+<ol start="2">
 <li>将之前拷贝的插件，复制到<code>extensions</code>目录</li>
 </ol>
 <blockquote>
 <p>当前环境应该是宿主机</p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mv /data/sonarqube/data/* /data/sonarqube/extensions
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="222-启动sonarqube">2.2.2 启动SonarQube</h3>
+<pre><code class="language-bash">mv /data/sonarqube/data/* /data/sonarqube/extensions
+</code></pre>
+<h3 id="222-启动sonarqube">2.2.2 启动SonarQube</h3>
 <blockquote>
 <p>启动后要等一会才能启动，账号密码默认都是<code>admin</code></p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7">7</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -d <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-p 9000:9000 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-e SONARQUBE_JDBC_URL<span style="color:#f92672">=</span>jdbc:postgresql://<span style="color:#f92672">{</span>你的机器ip<span style="color:#f92672">}</span>:<span style="color:#f92672">{</span>postgresql映射的端口<span style="color:#f92672">}</span>/sonar <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-v /data/sonarqube/data:/opt/sonarqube/data <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-v /data/sonarqube/extensions:/opt/sonarqube/extensions <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>--restart<span style="color:#f92672">=</span>always <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>sonarqube:7.7-community
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="3-配置">3 配置</h1>
+<pre><code class="language-bash">docker run -d \
+-p 9000:9000 \
+-e SONARQUBE_JDBC_URL=jdbc:postgresql://{你的机器ip}:{postgresql映射的端口}/sonar \
+-v /data/sonarqube/data:/opt/sonarqube/data \
+-v /data/sonarqube/extensions:/opt/sonarqube/extensions \
+--restart=always \
+sonarqube:7.7-community
+</code></pre>
+<h1 id="3-配置">3 配置</h1>
 <h2 id="31-汉化">3.1 汉化</h2>
 <ol>
 <li>进入<code>SonarQube</code></li>
@@ -595,7 +611,7 @@ exit
             
             
             <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
-            环境配置系列(12)
+            环境配置系列(14)
             </a>
 
             
@@ -603,6 +619,13 @@ exit
             
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
             排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
             </a>
 
             
@@ -624,13 +647,6 @@ exit
             
             <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
             数学基础(7)
-            </a>
-
-            
-            
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
-            机器学习系列(7)
             </a>
 
             
@@ -876,6 +892,7 @@ exit
 <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
 
 
+
 <script>
 
 
@@ -940,10 +957,73 @@ gtag('config', 'UA-155998534-1');
 </body>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
     <script src="https://www.naah69.com/js/article.js"></script>
+    <script>
+
+
+    
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+        singleLine: true
+    });
+
+    $("style").each(function(){
+        style=$(this).text()
+        if(style.indexOf(".hljs-ln td{padding:0}")!=-1){
+            $(this).remove();
+        }
+    });
+
+
+    
+    var snippets = document.querySelectorAll('pre>code');
+    var htmlCopyButton = `<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i></button>`;
+
+    snippets.forEach(snippet => {
+        var pre = snippet.parentNode;
+        var pre_parent = pre.parentNode;
+
+        var wrapper = document.createElement('div');
+
+        pre_parent.replaceChild(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        wrapper.classList.add('code-highlight');
+        wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+        var class0 = (snippet.classList[0] || 'code')
+        var lang = (class0.replace("language-", "") || 'code').toUpperCase();
+        wrapper.setAttribute('data-lang', lang);
+    });
+
+    
+    var clipboard = new ClipboardJS('.codecopy-btn', {
+        target: trigger => {
+            return trigger.nextSibling;
+        },
+    });
+
+    clipboard.on('success', e => {
+        e.trigger.setAttribute('aria-label', 'Copied!');
+        e.clearSelection();
+    });
+
+    
+    
+    var btns = document.querySelectorAll('.codecopy-btn');
+
+    btns.forEach(btn => {
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    });
+
+</script>
 
 
 </html>

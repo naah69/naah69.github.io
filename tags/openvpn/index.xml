@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openvpn on </title>
+    <link>https://www.naah69.com/tags/openvpn/</link>
+    <description>Recent content in openvpn on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 26 Jul 2021 18:15:50 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/openvpn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>k8s安装openvpn（ldap）</title>
+      <link>https://www.naah69.com/post/2021-07-26-k8s-openvpn-ldap/</link>
+      <pubDate>Mon, 26 Jul 2021 18:15:50 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2021-07-26-k8s-openvpn-ldap/</guid>
+      <description>1 安装helm3.0 略过 2 下载charts git clone https://hub.fastgit.org/helm/charts.git 3 安装openvpn 安装openvpn需要持久卷，没有可以安装一个nfs的默认存储类 3.1 进入o</description>
+    </item>
+    
+  </channel>
+</rss>

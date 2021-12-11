@@ -26,6 +26,66 @@
 });'>
 
 </script>
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/styles/a11y-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/sql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+
+<style>
+  .hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:24px;
+    border-right: 1px solid #c5c5c5;
+  }
+
+  .hljs-ln-code {
+    padding-left: 1em;
+  }
+
+  .hljs-ln{border-collapse:collapse}
+   
+  .hljs-ln-n:before{content:attr(data-line-number);margin-right:1em;}
+  .highlight pre, pre, .highlight .hll{padding: 6px 0px}
+  .hljs{padding: 8px 0px}
+  em{color: red}
+  #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+  #index nav ul li {padding-left: 0em;}
+  #index nav ul li ul {padding-left: 1em;}
+  pre{
+    background: none;
+  }
+
+  @media screen and (max-width: 500px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+  @media screen and (max-width: 768px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+
+</style>
+
+
 
 
 
@@ -79,6 +139,7 @@
 
 
 </head>
+<body>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -124,6 +185,10 @@
                     
                     <li>
                         <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
                     </li>
                     
 
@@ -252,10 +317,17 @@
                     <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
                         <nav id="TableOfContents">
   <ul>
-    <li><a href="#31-tornadouvloopconfiguration">3.1 TornadoUvloopConfiguration</a></li>
-    <li><a href="#32-tornadouvloophttpserver">3.2 TornadoUVloopHttpServer</a></li>
-    <li><a href="#33-hellohandler">3.3 HelloHandler</a></li>
-    <li><a href="#34-main">3.4 Main</a></li>
+    <li><a href="#1-介绍">1 介绍</a></li>
+    <li><a href="#2-环境构建">2 环境构建</a></li>
+    <li><a href="#3-代码实现">3 代码实现</a>
+      <ul>
+        <li><a href="#31-tornadouvloopconfiguration">3.1 TornadoUvloopConfiguration</a></li>
+        <li><a href="#32-tornadouvloophttpserver">3.2 TornadoUVloopHttpServer</a></li>
+        <li><a href="#33-hellohandler">3.3 HelloHandler</a></li>
+        <li><a href="#34-main">3.4 Main</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-运行">4 运行</a></li>
   </ul>
 </nav>
                     </div>
@@ -283,216 +355,107 @@
 <p>我目前所用的环境是<code>Python3.6.8</code>
 在这里,我就不介绍关于<code>pip</code>和<code>conda</code>的相关知识啦!
 使用conda安装下面的依赖!</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tornado==6.0.2
+<pre><code class="language-properties">tornado==6.0.2
 uvloop==0.12.2
 simplejson==3.16.0
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="3-代码实现">3 代码实现</h1>
+</code></pre>
+<h1 id="3-代码实现">3 代码实现</h1>
 <p>本文代码已上传至<a href="https://github.com/naah69/tornado6-uploop">github</a></p>
 <h2 id="31-tornadouvloopconfiguration">3.1 TornadoUvloopConfiguration</h2>
 <p>这个类用来配置uvloop的</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> asyncio
-<span style="color:#f92672">import</span> logging
+<pre><code class="language-python">import asyncio
+import logging
 
-<span style="color:#f92672">import</span> uvloop
-<span style="color:#f92672">from</span> tornado.platform.asyncio <span style="color:#f92672">import</span> BaseAsyncIOLoop
+import uvloop
+from tornado.platform.asyncio import BaseAsyncIOLoop
 
-logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TornadoUvloopConfiguration</span>(BaseAsyncIOLoop):
+logger = logging.getLogger(__name__)
+class TornadoUvloopConfiguration(BaseAsyncIOLoop):
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">initialize</span>(self, <span style="color:#f92672">**</span>kwargs):
-        logger<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;uvloop will init &#34;</span>)
-        asyncio<span style="color:#f92672">.</span>set_event_loop_policy(uvloop<span style="color:#f92672">.</span>EventLoopPolicy())
-        loop <span style="color:#f92672">=</span> uvloop<span style="color:#f92672">.</span>new_event_loop()
-        <span style="color:#66d9ef">try</span>:
-            super(TornadoUvloopConfiguration, self)<span style="color:#f92672">.</span>initialize(
-                loop, close_loop<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, <span style="color:#f92672">**</span>kwargs)
-        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span>:
-            loop<span style="color:#f92672">.</span>close()
-            <span style="color:#66d9ef">raise</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="32-tornadouvloophttpserver">3.2 TornadoUVloopHttpServer</h2>
+    def initialize(self, **kwargs):
+        logger.info(&quot;uvloop will init &quot;)
+        asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+        loop = uvloop.new_event_loop()
+        try:
+            super(TornadoUvloopConfiguration, self).initialize(
+                loop, close_loop=True, **kwargs)
+        except Exception:
+            loop.close()
+            raise
+</code></pre>
+<h2 id="32-tornadouvloophttpserver">3.2 TornadoUVloopHttpServer</h2>
 <p>这个单例类是我们来实现Tornado HTTP Server.</p>
 <p>可以通过参数来设置端口和多进程启动</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21">21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22">22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23">23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24">24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25">25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26">26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27">27</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="28"><a style="outline: none; text-decoration:none; color:inherit" href="#28">28</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="29"><a style="outline: none; text-decoration:none; color:inherit" href="#29">29</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="30"><a style="outline: none; text-decoration:none; color:inherit" href="#30">30</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="31"><a style="outline: none; text-decoration:none; color:inherit" href="#31">31</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="32"><a style="outline: none; text-decoration:none; color:inherit" href="#32">32</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="33"><a style="outline: none; text-decoration:none; color:inherit" href="#33">33</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="34"><a style="outline: none; text-decoration:none; color:inherit" href="#34">34</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="35"><a style="outline: none; text-decoration:none; color:inherit" href="#35">35</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="36"><a style="outline: none; text-decoration:none; color:inherit" href="#36">36</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="37"><a style="outline: none; text-decoration:none; color:inherit" href="#37">37</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="38"><a style="outline: none; text-decoration:none; color:inherit" href="#38">38</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="39"><a style="outline: none; text-decoration:none; color:inherit" href="#39">39</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="40"><a style="outline: none; text-decoration:none; color:inherit" href="#40">40</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="41"><a style="outline: none; text-decoration:none; color:inherit" href="#41">41</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="42"><a style="outline: none; text-decoration:none; color:inherit" href="#42">42</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="43"><a style="outline: none; text-decoration:none; color:inherit" href="#43">43</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="44"><a style="outline: none; text-decoration:none; color:inherit" href="#44">44</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> logging
+<pre><code class="language-python">import logging
 
-<span style="color:#f92672">import</span> tornado.web
-<span style="color:#f92672">from</span> tornado.httpserver <span style="color:#f92672">import</span> HTTPServer
+import tornado.web
+from tornado.httpserver import HTTPServer
 
-<span style="color:#f92672">from</span> configuration.uvloop_configuration <span style="color:#f92672">import</span> TornadoUvloopConfiguration
+from configuration.uvloop_configuration import TornadoUvloopConfiguration
 
-logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TornadoUVloopHttpServer</span>(object):
-    _instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+class TornadoUVloopHttpServer(object):
+    _instance = None
 
-    __http_server <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+    __http_server = None
 
-    <span style="color:#a6e22e">@staticmethod</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_instance</span>(app: tornado<span style="color:#f92672">.</span>web<span style="color:#f92672">.</span>Application, port: int, process_num: int <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>):
-        <span style="color:#e6db74">&#34;&#34;&#34;
-</span><span style="color:#e6db74">        singleton class
-</span><span style="color:#e6db74">        :param app: tornado app
-</span><span style="color:#e6db74">        :param port: server port
-</span><span style="color:#e6db74">        :param process_num: multi-process num,default 1
-</span><span style="color:#e6db74">        :return:
-</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-        <span style="color:#66d9ef">return</span> TornadoUVloopHttpServer(app, port, process_num)
+    @staticmethod
+    def get_instance(app: tornado.web.Application, port: int, process_num: int = 1):
+        &quot;&quot;&quot;
+        singleton class
+        :param app: tornado app
+        :param port: server port
+        :param process_num: multi-process num,default 1
+        :return:
+        &quot;&quot;&quot;
+        return TornadoUVloopHttpServer(app, port, process_num)
 
-    <span style="color:#66d9ef">def</span> __new__(cls, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> cls<span style="color:#f92672">.</span>_instance:
-            cls<span style="color:#f92672">.</span>_instance <span style="color:#f92672">=</span> super(TornadoUVloopHttpServer, cls)<span style="color:#f92672">.</span>__new__(cls)
-            cls<span style="color:#f92672">.</span>_instance<span style="color:#f92672">.</span>__init(args[<span style="color:#ae81ff">0</span>], args[<span style="color:#ae81ff">1</span>], args[<span style="color:#ae81ff">2</span>])
-        <span style="color:#66d9ef">return</span> cls<span style="color:#f92672">.</span>_instance
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(TornadoUVloopHttpServer, cls).__new__(cls)
+            cls._instance.__init(args[0], args[1], args[2])
+        return cls._instance
 
-    <span style="color:#a6e22e">@classmethod</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init</span>(cls, app: tornado<span style="color:#f92672">.</span>web<span style="color:#f92672">.</span>Application, port: int, process_num: int):
-        cls<span style="color:#f92672">.</span>__http_server <span style="color:#f92672">=</span> HTTPServer(app)
-        cls<span style="color:#f92672">.</span>__http_server<span style="color:#f92672">.</span>bind(port)
-        cls<span style="color:#f92672">.</span>__process_num <span style="color:#f92672">=</span> process_num
-        logger<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;http server bind port:</span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> ,process_num:</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>, port, process_num)
+    @classmethod
+    def __init(cls, app: tornado.web.Application, port: int, process_num: int):
+        cls.__http_server = HTTPServer(app)
+        cls.__http_server.bind(port)
+        cls.__process_num = process_num
+        logger.info(&quot;http server bind port:%d ,process_num:%d&quot;, port, process_num)
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">start</span>(cls):
+    def start(cls):
 
-        tornado<span style="color:#f92672">.</span>ioloop<span style="color:#f92672">.</span>IOLoop<span style="color:#f92672">.</span>configure(TornadoUvloopConfiguration)
-        cls<span style="color:#f92672">.</span>__http_server<span style="color:#f92672">.</span>start(cls<span style="color:#f92672">.</span>__process_num)
-        tornado<span style="color:#f92672">.</span>ioloop<span style="color:#f92672">.</span>IOLoop<span style="color:#f92672">.</span>current()<span style="color:#f92672">.</span>start()
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="33-hellohandler">3.3 HelloHandler</h2>
+        tornado.ioloop.IOLoop.configure(TornadoUvloopConfiguration)
+        cls.__http_server.start(cls.__process_num)
+        tornado.ioloop.IOLoop.current().start()
+</code></pre>
+<h2 id="33-hellohandler">3.3 HelloHandler</h2>
 <p>这个handler是我们用来进行测试的</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7">7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8">8</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> tornado <span style="color:#f92672">import</span> gen
-<span style="color:#f92672">from</span> tornado.web <span style="color:#f92672">import</span> RequestHandler
+<pre><code class="language-python">from tornado import gen
+from tornado.web import RequestHandler
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloHandler</span>(RequestHandler):
-    <span style="color:#75715e"># 协程装饰器</span>
-    <span style="color:#a6e22e">@gen</span><span style="color:#f92672">.</span>coroutine
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get</span>(self):
-        self<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;Hello, world&#34;</span>)
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="34-main">3.4 Main</h2>
+class HelloHandler(RequestHandler):
+    # 协程装饰器
+    @gen.coroutine
+    def get(self):
+        self.write(&quot;Hello, world&quot;)
+</code></pre>
+<h2 id="34-main">3.4 Main</h2>
 <p>启动类,并且注册handler</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> tornado.web <span style="color:#f92672">import</span> Application
-<span style="color:#f92672">from</span> common.http_server <span style="color:#f92672">import</span> TornadoUVloopHttpServer
-<span style="color:#f92672">from</span> handler.hello_handler <span style="color:#f92672">import</span> HelloHandler
+<pre><code class="language-python">from tornado.web import Application
+from common.http_server import TornadoUVloopHttpServer
+from handler.hello_handler import HelloHandler
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span>(Application):
-    <span style="color:#66d9ef">def</span> __init__(self, <span style="color:#f92672">**</span>settings):
-        super(Main, self)<span style="color:#f92672">.</span>__init__([(<span style="color:#e6db74">&#34;/&#34;</span>, HelloHandler)], <span style="color:#f92672">**</span>settings)
+class Main(Application):
+    def __init__(self, **settings):
+        super(Main, self).__init__([(&quot;/&quot;, HelloHandler)], **settings)
 
-<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
-    TornadoUVloopHttpServer<span style="color:#f92672">.</span>get_instance(Main(), <span style="color:#ae81ff">6969</span>)<span style="color:#f92672">.</span>start()
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="4-运行">4 运行</h1>
+if __name__ == '__main__':
+    TornadoUVloopHttpServer.get_instance(Main(), 6969).start()
+</code></pre>
+<h1 id="4-运行">4 运行</h1>
 <p>运行<code>Main.py</code>后,我们打开浏览器访问<code>127.0.0.1:6969</code>,看到下面的图片,就说明成功啦!</p>
 <p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9ly1g4hvwjwrm2j207k02c0sl.jpg" alt=""></p>
 
@@ -654,7 +617,7 @@ logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.
             
             
             <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
-            环境配置系列(12)
+            环境配置系列(14)
             </a>
 
             
@@ -662,6 +625,13 @@ logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.
             
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
             排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
             </a>
 
             
@@ -683,13 +653,6 @@ logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.
             
             <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
             数学基础(7)
-            </a>
-
-            
-            
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
-            机器学习系列(7)
             </a>
 
             
@@ -935,6 +898,7 @@ logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.
 <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
 
 
+
 <script>
 
 
@@ -999,10 +963,73 @@ gtag('config', 'UA-155998534-1');
 </body>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
     <script src="https://www.naah69.com/js/article.js"></script>
+    <script>
+
+
+    
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+        singleLine: true
+    });
+
+    $("style").each(function(){
+        style=$(this).text()
+        if(style.indexOf(".hljs-ln td{padding:0}")!=-1){
+            $(this).remove();
+        }
+    });
+
+
+    
+    var snippets = document.querySelectorAll('pre>code');
+    var htmlCopyButton = `<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i></button>`;
+
+    snippets.forEach(snippet => {
+        var pre = snippet.parentNode;
+        var pre_parent = pre.parentNode;
+
+        var wrapper = document.createElement('div');
+
+        pre_parent.replaceChild(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        wrapper.classList.add('code-highlight');
+        wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+        var class0 = (snippet.classList[0] || 'code')
+        var lang = (class0.replace("language-", "") || 'code').toUpperCase();
+        wrapper.setAttribute('data-lang', lang);
+    });
+
+    
+    var clipboard = new ClipboardJS('.codecopy-btn', {
+        target: trigger => {
+            return trigger.nextSibling;
+        },
+    });
+
+    clipboard.on('success', e => {
+        e.trigger.setAttribute('aria-label', 'Copied!');
+        e.clearSelection();
+    });
+
+    
+    
+    var btns = document.querySelectorAll('.codecopy-btn');
+
+    btns.forEach(btn => {
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    });
+
+</script>
 
 
 </html>

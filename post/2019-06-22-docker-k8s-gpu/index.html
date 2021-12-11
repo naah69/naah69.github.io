@@ -26,6 +26,66 @@
 });'>
 
 </script>
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/styles/a11y-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/sql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+
+<style>
+  .hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:24px;
+    border-right: 1px solid #c5c5c5;
+  }
+
+  .hljs-ln-code {
+    padding-left: 1em;
+  }
+
+  .hljs-ln{border-collapse:collapse}
+   
+  .hljs-ln-n:before{content:attr(data-line-number);margin-right:1em;}
+  .highlight pre, pre, .highlight .hll{padding: 6px 0px}
+  .hljs{padding: 8px 0px}
+  em{color: red}
+  #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+  #index nav ul li {padding-left: 0em;}
+  #index nav ul li ul {padding-left: 1em;}
+  pre{
+    background: none;
+  }
+
+  @media screen and (max-width: 500px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+  @media screen and (max-width: 768px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+
+</style>
+
+
 
 
 
@@ -79,6 +139,7 @@
 
 
 </head>
+<body>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -124,6 +185,10 @@
                     
                     <li>
                         <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
                     </li>
                     
 
@@ -268,22 +333,30 @@
                     <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
                         <nav id="TableOfContents">
   <ul>
-    <li><a href="#31-配置安装源">3.1 配置安装源</a></li>
-    <li><a href="#32-安装nvidia-docker">3.2 安装nvidia-docker</a></li>
-    <li><a href="#33-配置nvidia-docker">3.3 配置nvidia-docker</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#41-安装rancher">4.1 安装Rancher</a></li>
-    <li><a href="#42-安装k8s">4.2 安装k8s</a>
+    <li><a href="#1-所需环境">1 所需环境</a></li>
+    <li><a href="#2-安装和配置docker">2 安装和配置docker</a></li>
+    <li><a href="#3-安装和配置nvidia-docker">3 安装和配置nvidia-docker</a>
       <ul>
-        <li><a href="#421-添加集群">4.2.1 添加集群</a></li>
-        <li><a href="#422-custome输入集群名称">4.2.2 CUSTOME，输入集群名称</a></li>
-        <li><a href="#423-添加节点">4.2.3 添加节点</a></li>
-        <li><a href="#424-安装kubectl">4.2.4 安装kubectl</a></li>
+        <li><a href="#31-配置安装源">3.1 配置安装源</a></li>
+        <li><a href="#32-安装nvidia-docker">3.2 安装nvidia-docker</a></li>
+        <li><a href="#33-配置nvidia-docker">3.3 配置nvidia-docker</a></li>
       </ul>
     </li>
-    <li><a href="#43-安装k8s-device-plugin">4.3 安装k8s-device-plugin</a></li>
+    <li><a href="#4-安装和配置k8s">4 安装和配置k8s</a>
+      <ul>
+        <li><a href="#41-安装rancher">4.1 安装Rancher</a></li>
+        <li><a href="#42-安装k8s">4.2 安装k8s</a>
+          <ul>
+            <li><a href="#421-添加集群">4.2.1 添加集群</a></li>
+            <li><a href="#422-custome输入集群名称">4.2.2 CUSTOME，输入集群名称</a></li>
+            <li><a href="#423-添加节点">4.2.3 添加节点</a></li>
+            <li><a href="#424-安装kubectl">4.2.4 安装kubectl</a></li>
+          </ul>
+        </li>
+        <li><a href="#43-安装k8s-device-plugin">4.3 安装k8s-device-plugin</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-打包gpu镜像">5 打包GPU镜像</a></li>
   </ul>
 </nav>
                     </div>
@@ -316,57 +389,28 @@
 <p>我们按照官方的文档来进行吧！<a href="https://github.com/NVIDIA/nvidia-docker">Nvidia-Docker GitHub</a></p>
 </blockquote>
 <h2 id="31-配置安装源">3.1 配置安装源</h2>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+<pre><code>distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | \
 sudo tee /etc/yum.repos.d/nvidia-docker.repo
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="32-安装nvidia-docker">3.2 安装nvidia-docker</h2>
+</code></pre>
+<h2 id="32-安装nvidia-docker">3.2 安装nvidia-docker</h2>
 <p>安装nvidia-docker会覆盖我们上面<code>2.5.2</code>中所配置的镜像加速，会在<code>3.3</code>中重新配置</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo yum install -y nvidia-docker2
+<pre><code>sudo yum install -y nvidia-docker2
 sudo pkill -SIGHUP dockerd
-</code></pre></td></tr></table>
-</div>
-</div><p>让我们来测试下是否可以使用gpu吧，如果出现了熟悉的nvidia-smi的界面，说明就成功啦！</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="33-配置nvidia-docker">3.3 配置nvidia-docker</h2>
+</code></pre>
+<p>让我们来测试下是否可以使用gpu吧，如果出现了熟悉的nvidia-smi的界面，说明就成功啦！</p>
+<pre><code>docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
+</code></pre>
+<h2 id="33-配置nvidia-docker">3.3 配置nvidia-docker</h2>
 <p>在我们安装nvidia-docker后，docker的默认执行引擎还是原生的，那么有没有更加简单便捷的方法来使用nvidia-docker呢，我们一起来看看吧</p>
 <blockquote>
 <p>默认情况下，我们需要每次都加<code>--runtime=nvidia</code> 参数来声明使用gpu</p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo systemctl stop docker
-sudo echo &#39;{&#34;registry-mirrors&#34;:[&#34;https://registry.docker-cn.com&#34;,&#34;https://docker.mirrors.ustc.edu.cn&#34;,&#34;https://xgb5chrw.mirror.aliyuncs.com&#34;],&#34;default-runtime&#34;:&#34;nvidia&#34;,&#34;runtimes&#34;:{&#34;nvidia&#34;:{&#34;path&#34;:&#34;nvidia-container-runtime&#34;,&#34;runtimeArgs&#34;:[]}},&#34;insecure-registries&#34;:[&#34;192.168.101.253:1234&#34;]}&#39; &gt; /etc/docker/daemon.json
+<pre><code>sudo systemctl stop docker
+sudo echo '{&quot;registry-mirrors&quot;:[&quot;https://registry.docker-cn.com&quot;,&quot;https://docker.mirrors.ustc.edu.cn&quot;,&quot;https://xgb5chrw.mirror.aliyuncs.com&quot;],&quot;default-runtime&quot;:&quot;nvidia&quot;,&quot;runtimes&quot;:{&quot;nvidia&quot;:{&quot;path&quot;:&quot;nvidia-container-runtime&quot;,&quot;runtimeArgs&quot;:[]}},&quot;insecure-registries&quot;:[&quot;192.168.101.253:1234&quot;]}' &gt; /etc/docker/daemon.json
 sudo systemctl start docker
-</code></pre></td></tr></table>
-</div>
-</div><p>上面这条命令又配置了镜像加速源，又配置了nvidia-docker作为执行引擎！</p>
+</code></pre>
+<p>上面这条命令又配置了镜像加速源，又配置了nvidia-docker作为执行引擎！</p>
 <h1 id="4-安装和配置k8s">4 安装和配置k8s</h1>
 <p>安装过k8s的小伙伴都知道因为国内万能的墙的原因，我们安装k8s是相当痛苦的
 <!-- raw HTML omitted -->
@@ -381,25 +425,14 @@ sudo systemctl start docker
 <p>rancher有<code>单点版本</code>和<code>HA高可用版本</code>,在这里我们主要使用k8s，所以对这个就洒洒水啦！（生产别用单点，小心被打死！）</p>
 </blockquote>
 <p>使用这条命令就可以启动安装Rancher了，docker真tm方便！</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">6</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">docker run -d --restart=unless-stopped \
+<pre><code>docker run -d --restart=unless-stopped \
 -p 80:80 -p 443:443 \
 -v /var/lib/rancher:/var/lib/rancher/ \
 -v /root/var/log/auditlog:/var/log/auditlog \
 -e AUDIT_LEVEL=3 \
 rancher/rancher:stable
-</code></pre></td></tr></table>
-</div>
-</div><p>在上方我们发现映射了80和443端口，这两个端口就是web控制台的端口！
+</code></pre>
+<p>在上方我们发现映射了80和443端口，这两个端口就是web控制台的端口！
 <!-- raw HTML omitted -->
 配置密码什么的，要是需要我告诉你，你就别往下看了！</p>
 <blockquote>
@@ -425,41 +458,21 @@ rancher/rancher:stable
 <blockquote>
 <p>三. CentOS关闭selinux</p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo sed -i &#39;s/SELINUX=enforcing/SELINUX=disabled/g&#39; /etc/selinux/&gt;config
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
+<pre><code>sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/&gt;config
+</code></pre>
+<blockquote>
 <p>四. 关闭防火墙</p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo systemctl stop firewalld
+<pre><code>sudo systemctl stop firewalld
 sudo chkconfig firewalld off
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
+</code></pre>
+<blockquote>
 <p>五. 配置主机时间、时区、系统语言</p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-sudo echo &#39;LANG=&#34;en_US.UTF-8&#34;&#39; &gt;&gt; /etc/profile;source /etc/profile
-</code></pre></td></tr></table>
-</div>
-</div><p>2.在已经安装配置了nvidia-docker的机器上，运行下方的docker命令</p>
+<pre><code>sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+sudo echo 'LANG=&quot;en_US.UTF-8&quot;' &gt;&gt; /etc/profile;source /etc/profile
+</code></pre>
+<p>2.在已经安装配置了nvidia-docker的机器上，运行下方的docker命令</p>
 <blockquote>
 <p>etcd：k8s注册中心</p>
 <p>controller：k8s控制器</p>
@@ -497,45 +510,25 @@ sudo echo &#39;LANG=&#34;en_US.UTF-8&#34;&#39; &gt;&gt; /etc/profile;source /etc
 <blockquote>
 <p>这里我们选择1.13.7版本下载</p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">wget https://www.cnrancher.com/download/kubernetes/linux-amd64-v1.13.7-kubectl
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
+<pre><code>wget https://www.cnrancher.com/download/kubernetes/linux-amd64-v1.13.7-kubectl
+</code></pre>
+<blockquote>
 <p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/ed1d2fb9ly1g4acb3eruyj20hm08wweg.jpg" alt=""></p>
 </blockquote>
 <p>4.安装kubectl</p>
 <blockquote>
 <p>改名，授权，移动</p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">mv linux-amd64-v1.13.7-kubectl kubectl
+<pre><code>mv linux-amd64-v1.13.7-kubectl kubectl
 sudo chmod 777 ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
+</code></pre>
+<blockquote>
 <p>然后测试下，看看是否安装成功</p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">kubectl version
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
+<pre><code>kubectl version
+</code></pre>
+<blockquote>
 <p>你以为这就安完了？no!我们还要配置<code>kubectl</code>连接我们的k8s集群，毕竟<code>kubectl</code>只是个客户端</p>
 </blockquote>
 <p>5.配置kubectl</p>
@@ -554,44 +547,24 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 <blockquote>
 <p>这时候用vim或者其他方式写入文件吧!</p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">mkdir ~/.kube
+<pre><code>mkdir ~/.kube
 vim ~/.kube/config
 #然后写入进去
-</code></pre></td></tr></table>
-</div>
-</div><p>6.运行试试</p>
+</code></pre>
+<p>6.运行试试</p>
 <blockquote>
 <p>运行下面的命令，如果出现了你部署k8s的机器，那就说明成功啦!</p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">kubectl get nodes
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="43-安装k8s-device-plugin">4.3 安装k8s-device-plugin</h2>
+<pre><code>kubectl get nodes
+</code></pre>
+<h2 id="43-安装k8s-device-plugin">4.3 安装k8s-device-plugin</h2>
 <blockquote>
 <p><strong>请确定你已经安装了<code>nvidia-docker</code>并且<code>docker</code>使用<code>nvidia</code>作为默认引擎</strong></p>
 </blockquote>
 <p>使用下面的命令就可以安装k8s-device-plugin了！ <a href="https://github.com/NVIDIA/k8s-device-plugin/tree/master">k8s-device-plugin GitHub</a></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/1.0.0-beta/nvidia-device-plugin.yml
-</code></pre></td></tr></table>
-</div>
-</div><p>到目前为止，我们已经搭建好了一个可以用gpu资源的k8s集群啦！</p>
+<pre><code>kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/1.0.0-beta/nvidia-device-plugin.yml
+</code></pre>
+<p>到目前为止，我们已经搭建好了一个可以用gpu资源的k8s集群啦！</p>
 <p><strong>下面我将介绍如何打包使用gpu的镜像</strong></p>
 <h1 id="5-打包gpu镜像">5 打包GPU镜像</h1>
 <p>dockerfile相关知识不在这里介绍了，自己去学！</p>
@@ -606,17 +579,10 @@ vim ~/.kube/config
 <p>base版本还100多M(还没安装语言呢)，让我很是怀念<code>alpine-glib</code>(alpine-glib才8M)</p>
 </blockquote>
 <p>比如下面这个，我就是使用了cuda10版本的centos7系统镜像</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">FROM nvidia/cuda:10.0-base-centos7
+<pre><code>FROM nvidia/cuda:10.0-base-centos7
 ...
-</code></pre></td></tr></table>
-</div>
-</div><p>好了！终于结束了！我可是踩了好几天的坑啊！</p>
+</code></pre>
+<p>好了！终于结束了！我可是踩了好几天的坑啊！</p>
 
                 
                 <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
@@ -776,7 +742,7 @@ vim ~/.kube/config
             
             
             <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
-            环境配置系列(12)
+            环境配置系列(14)
             </a>
 
             
@@ -784,6 +750,13 @@ vim ~/.kube/config
             
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
             排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
             </a>
 
             
@@ -805,13 +778,6 @@ vim ~/.kube/config
             
             <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
             数学基础(7)
-            </a>
-
-            
-            
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
-            机器学习系列(7)
             </a>
 
             
@@ -1057,6 +1023,7 @@ vim ~/.kube/config
 <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
 
 
+
 <script>
 
 
@@ -1121,10 +1088,73 @@ gtag('config', 'UA-155998534-1');
 </body>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
     <script src="https://www.naah69.com/js/article.js"></script>
+    <script>
+
+
+    
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+        singleLine: true
+    });
+
+    $("style").each(function(){
+        style=$(this).text()
+        if(style.indexOf(".hljs-ln td{padding:0}")!=-1){
+            $(this).remove();
+        }
+    });
+
+
+    
+    var snippets = document.querySelectorAll('pre>code');
+    var htmlCopyButton = `<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i></button>`;
+
+    snippets.forEach(snippet => {
+        var pre = snippet.parentNode;
+        var pre_parent = pre.parentNode;
+
+        var wrapper = document.createElement('div');
+
+        pre_parent.replaceChild(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        wrapper.classList.add('code-highlight');
+        wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+        var class0 = (snippet.classList[0] || 'code')
+        var lang = (class0.replace("language-", "") || 'code').toUpperCase();
+        wrapper.setAttribute('data-lang', lang);
+    });
+
+    
+    var clipboard = new ClipboardJS('.codecopy-btn', {
+        target: trigger => {
+            return trigger.nextSibling;
+        },
+    });
+
+    clipboard.on('success', e => {
+        e.trigger.setAttribute('aria-label', 'Copied!');
+        e.clearSelection();
+    });
+
+    
+    
+    var btns = document.querySelectorAll('.codecopy-btn');
+
+    btns.forEach(btn => {
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    });
+
+</script>
 
 
 </html>

@@ -22,7 +22,7 @@
       <pubDate>Mon, 01 Oct 2018 19:42:19 +0800</pubDate>
       
       <guid>https://www.naah69.com/post/2018-10-01-go-compress-packaging/</guid>
-      <description>1 压缩前后对比图 只有一句hello world！竟然打包后达到了2.1M 2 详细过程 2.1 参数打包 2.1.1 使用带有参数的go build 进行打包 1 go build -ldflags &amp;#34;-s -w&amp;#34; hello.go -ldflags &amp;lsquo;[pattern=]arg list&amp;rsquo;</description>
+      <description>1 压缩前后对比图 只有一句hello world！竟然打包后达到了2.1M 2 详细过程 2.1 参数打包 2.1.1 使用带有参数的go build 进行打包 go build -ldflags &amp;quot;-s -w&amp;quot; hello.go -ldflags &amp;lsquo;[pattern=]arg list&amp;rsquo; arguments</description>
     </item>
     
     <item>

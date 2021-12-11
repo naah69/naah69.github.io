@@ -6,7 +6,79 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 13 Feb 2020 15:06:33 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Dec 2021 19:49:02 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test</title>
+      <link>https://www.naah69.com/tags/test/</link>
+      <pubDate>Sat, 11 Dec 2021 19:49:02 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>k8s</title>
+      <link>https://www.naah69.com/tags/k8s/</link>
+      <pubDate>Mon, 26 Jul 2021 18:15:50 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/k8s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ldap</title>
+      <link>https://www.naah69.com/tags/ldap/</link>
+      <pubDate>Mon, 26 Jul 2021 18:15:50 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/ldap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openvpn</title>
+      <link>https://www.naah69.com/tags/openvpn/</link>
+      <pubDate>Mon, 26 Jul 2021 18:15:50 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/openvpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>环境配置系列</title>
+      <link>https://www.naah69.com/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97/</link>
+      <pubDate>Mon, 26 Jul 2021 18:15:50 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Alpine</title>
+      <link>https://www.naah69.com/tags/alpine/</link>
+      <pubDate>Wed, 09 Jun 2021 18:11:34 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/alpine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>opencv</title>
+      <link>https://www.naah69.com/tags/opencv/</link>
+      <pubDate>Wed, 09 Jun 2021 18:11:34 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/opencv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>机器学习系列</title>
+      <link>https://www.naah69.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</link>
+      <pubDate>Wed, 09 Jun 2021 18:11:34 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>数学基础</title>
       <link>https://www.naah69.com/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
@@ -134,15 +206,6 @@
     </item>
     
     <item>
-      <title>环境配置系列</title>
-      <link>https://www.naah69.com/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97/</link>
-      <pubDate>Sun, 22 Dec 2019 14:52:00 +0800</pubDate>
-      
-      <guid>https://www.naah69.com/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>SonarQube</title>
       <link>https://www.naah69.com/tags/sonarqube/</link>
       <pubDate>Sun, 08 Dec 2019 19:22:05 +0800</pubDate>
@@ -193,15 +256,6 @@
       <pubDate>Sun, 08 Dec 2019 17:29:04 +0800</pubDate>
       
       <guid>https://www.naah69.com/tags/nvidia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>机器学习系列</title>
-      <link>https://www.naah69.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</link>
-      <pubDate>Sun, 08 Dec 2019 17:29:04 +0800</pubDate>
-      
-      <guid>https://www.naah69.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</guid>
       <description></description>
     </item>
     
@@ -301,15 +355,6 @@
       <pubDate>Sun, 23 Jun 2019 13:42:08 +0800</pubDate>
       
       <guid>https://www.naah69.com/tags/%E8%B8%A9%E5%9D%91/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>k8s</title>
-      <link>https://www.naah69.com/tags/k8s/</link>
-      <pubDate>Sat, 22 Jun 2019 20:44:47 +0800</pubDate>
-      
-      <guid>https://www.naah69.com/tags/k8s/</guid>
       <description></description>
     </item>
     

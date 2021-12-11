@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>opencv on </title>
+    <link>https://www.naah69.com/tags/opencv/</link>
+    <description>Recent content in opencv on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 09 Jun 2021 18:11:34 +0800</lastBuildDate><atom:link href="https://www.naah69.com/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>alpine 编译opencv</title>
+      <link>https://www.naah69.com/post/2021-06-09-alpine-opencv/</link>
+      <pubDate>Wed, 09 Jun 2021 18:11:34 +0800</pubDate>
+      
+      <guid>https://www.naah69.com/post/2021-06-09-alpine-opencv/</guid>
+      <description>0 环境准备 docker镜像：openjdk:8-jdk-alpine 1 ANT(java需要，普通编译可跳过) 1.1 下载ant cd /app wget https://downloads.apache.org//ant/binaries/apache-ant-1.9.15-bin.zip unzip apache-ant-1.9.15-bin.zip 1.2 配置A</description>
+    </item>
+    
+  </channel>
+</rss>

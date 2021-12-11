@@ -26,6 +26,66 @@
 });'>
 
 </script>
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/styles/a11y-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/sql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+
+<style>
+  .hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:24px;
+    border-right: 1px solid #c5c5c5;
+  }
+
+  .hljs-ln-code {
+    padding-left: 1em;
+  }
+
+  .hljs-ln{border-collapse:collapse}
+   
+  .hljs-ln-n:before{content:attr(data-line-number);margin-right:1em;}
+  .highlight pre, pre, .highlight .hll{padding: 6px 0px}
+  .hljs{padding: 8px 0px}
+  em{color: red}
+  #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+  #index nav ul li {padding-left: 0em;}
+  #index nav ul li ul {padding-left: 1em;}
+  pre{
+    background: none;
+  }
+
+  @media screen and (max-width: 500px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+  @media screen and (max-width: 768px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+
+</style>
+
+
 
 
 
@@ -79,6 +139,7 @@
 
 
 </head>
+<body>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -124,6 +185,10 @@
                     
                     <li>
                         <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
                     </li>
                     
 
@@ -254,19 +319,58 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#1-数据">1 数据</a></li>
-        <li><a href="#2-特征">2 特征</a></li>
-        <li><a href="#3-维度">3 维度</a></li>
-        <li><a href="#4-目标变量">4 目标变量</a></li>
-        <li><a href="#5-训练">5 训练</a></li>
-        <li><a href="#6-数据集">6 数据集</a></li>
-        <li><a href="#7-归一化">7 归一化</a></li>
-        <li><a href="#8-监督学习">8 监督学习</a></li>
-        <li><a href="#9-无监督学习">9 无监督学习</a></li>
-        <li><a href="#10-在使用机器学习时的问题">10 在使用机器学习时的问题</a></li>
-        <li><a href="#11-机器学习开发的步骤">11 机器学习开发的步骤</a></li>
-        <li><a href="#12-推荐的语言和库">12 推荐的语言和库</a></li>
-        <li><a href="#13-numpy常用操作">13 numpy常用操作</a></li>
+        <li>
+          <ul>
+            <li><a href="#1-数据">1 数据</a></li>
+            <li><a href="#2-特征">2 特征</a>
+              <ul>
+                <li><a href="#21-离散型">2.1 离散型</a></li>
+                <li><a href="#22-连续型">2.2 连续型</a></li>
+              </ul>
+            </li>
+            <li><a href="#3-维度">3 维度</a></li>
+            <li><a href="#4-目标变量">4 目标变量</a></li>
+            <li><a href="#5-训练">5 训练</a></li>
+            <li><a href="#6-数据集">6 数据集</a>
+              <ul>
+                <li><a href="#61-训练数据集训练样本集">6.1 训练数据集（训练样本集）</a></li>
+                <li><a href="#62-测试数据集测试样本集">6.2 测试数据集（测试样本集）</a></li>
+              </ul>
+            </li>
+            <li><a href="#7-归一化">7 归一化</a></li>
+            <li><a href="#8-监督学习">8 监督学习</a>
+              <ul>
+                <li><a href="#81-分类">8.1 分类</a></li>
+                <li><a href="#82-回归">8.2 回归</a></li>
+                <li><a href="#83-常用的监督学习算法">8.3 常用的监督学习算法</a></li>
+              </ul>
+            </li>
+            <li><a href="#9-无监督学习">9 无监督学习</a>
+              <ul>
+                <li><a href="#91-聚类">9.1 聚类</a></li>
+                <li><a href="#92-密度估计">9.2 密度估计</a></li>
+                <li><a href="#93-常用的无监督学习算法">9.3 常用的无监督学习算法</a></li>
+              </ul>
+            </li>
+            <li><a href="#10-在使用机器学习时的问题">10 在使用机器学习时的问题</a>
+              <ul>
+                <li><a href="#101-如何选择合适的机器学习算法">10.1 如何选择合适的机器学习算法</a></li>
+                <li><a href="#102-了解数据">10.2 了解数据</a></li>
+              </ul>
+            </li>
+            <li><a href="#11-机器学习开发的步骤">11 机器学习开发的步骤</a></li>
+            <li><a href="#12-推荐的语言和库">12 推荐的语言和库</a></li>
+            <li><a href="#13-numpy常用操作">13 numpy常用操作</a>
+              <ul>
+                <li><a href="#131-构建随机数据">13.1 构建随机数据</a></li>
+                <li><a href="#132-数组转化矩阵">13.2 数组转化矩阵</a></li>
+                <li><a href="#133-矩阵求逆">13.3 矩阵求逆</a></li>
+                <li><a href="#134-矩阵相乘">13.4 矩阵相乘</a></li>
+                <li><a href="#135-创建矩阵">13.5 创建矩阵</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -294,29 +398,16 @@
 <li>脚蹼属于<code>布尔型特征</code>，又叫做<code>二值型特征</code></li>
 <li>种类被我们称为<code>目标变量</code></li>
 </ol>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7">7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8">8</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Bird</span><span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> Double weight<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> Double length<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> Boolean fins<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> ColorEnum color<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> TypeEnum type<span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>下面就是我们的<code>离散型</code>数据</p>
+<pre><code class="language-java">
+public class Bird{
+    private Double weight;
+    private Double length;
+    private Boolean fins;
+    private ColorEnum color;
+    private TypeEnum type;
+}
+</code></pre>
+<p>下面就是我们的<code>离散型</code>数据</p>
 <table>
 <thead>
 <tr>
@@ -374,27 +465,15 @@
 本质上就是<code>特征</code>的个数</p>
 <p>我们用上面的<code>Bird</code>进行说明，这个类包含4个特征，那么它的数据的<code>维度</code>就是4</p>
 <p>比如我们将数据离散后变成下面这个<code>矩阵</code>,那么矩阵中每条<code>向量</code>的<code>维度</code>就是4</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7">7</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[
+<pre><code>[
 [ 1000.1 , 125.0 , 0 , 0 ],
 [ 3000.7 , 200.0 , 0 , 1 ],
 [ 3300.0 , 220.3 , 0 , 2 ],
 [ 4100.0 , 136.0 , 1 , 3 ],
 [ 3.0    , 11.0  , 0 , 4 ],
 ]
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="4-目标变量">4 目标变量</h3>
+</code></pre>
+<h3 id="4-目标变量">4 目标变量</h3>
 <p><code>目标变量</code>就是机器学习算法预测的结果，简单的理解，就是<code>y=x+1</code>中的<code>y</code></p>
 <ol>
 <li>在<code>分类算法</code>中目标变量通常是<code>标称型数据</code></li>
@@ -406,19 +485,7 @@
 <p>为算法输入大量的已分类（又叫做标注数据）的数据，来产生一个<code>算法模型</code></p>
 <p>这里的数据叫做<code>训练集</code>，训练集是用于训练机器学习算法的数据样本集合</p>
 <p>下面我们举例说明:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6">6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7">7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8">8</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">假如我们对一个训练算法，输入数据，然后算法产出了f(x)=x/2
+<pre><code>假如我们对一个训练算法，输入数据，然后算法产出了f(x)=x/2
 那么这个f(x)其实就是我们的算法模型
 
 我们可以想象一下公式推导，我们通过一些数据和一个公式来推导出另外一个公式，这个过程其实就是算法训练
@@ -426,9 +493,8 @@
 D:数据    F(x):训练算法   G(x):模型算法
 
 F(D) =&gt; G(x)
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="6-数据集">6 数据集</h3>
+</code></pre>
+<h3 id="6-数据集">6 数据集</h3>
 <h4 id="61-训练数据集训练样本集">6.1 训练数据集（训练样本集）</h4>
 <p>顾名思义，<code>训练数据集</code>就是用来训练算法模型的数据集，也就是训练算法的输入数据</p>
 <h4 id="62-测试数据集测试样本集">6.2 测试数据集（测试样本集）</h4>
@@ -479,23 +545,13 @@ F(D) =&gt; G(x)
 </tbody>
 </table>
 <p>下面提供一个较为简单的归一化公式：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4">4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5">5</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">new_value=(old_value-min)/(max-min)
+<pre><code>new_value=(old_value-min)/(max-min)
 
 old_value：原来的值
 min：在数据集中该特征最小的值
 max：在数据集中该特征最大的值
-</code></pre></td></tr></table>
-</div>
-</div><p>转化后的数据：</p>
+</code></pre>
+<p>转化后的数据：</p>
 <table>
 <thead>
 <tr>
@@ -530,19 +586,11 @@ max：在数据集中该特征最大的值
 <p>机器学习的主要任务就是<code>分类</code></p>
 <p>下面我们举例说明:</p>
 <p>我们可以通过数据+算法训练出一个<code>分类器</code>（又叫做模型），然后通过分类器来对新的数据进行分类</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">香蕉  橙子  刀叉  芬达
+<pre><code>香蕉  橙子  刀叉  芬达
  |     |    |    |
 水果  水果  餐具  饮料
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="82-回归">8.2 回归</h4>
+</code></pre>
+<h4 id="82-回归">8.2 回归</h4>
 <p><code>回归</code>主要应用于预测一些数值型的数据，比如<code>数据拟合曲线</code>：通过给定数据点的最优拟合曲线</p>
 <h4 id="83-常用的监督学习算法">8.3 常用的监督学习算法</h4>
 <table>
@@ -579,19 +627,11 @@ max：在数据集中该特征最大的值
 <p>聚类：其实就是把没有分类的一组数据中相似的聚集成几个堆，这个堆也叫<code>簇</code></p>
 <p>专业的讲，就是将数据集合分成由类似的对象组成的多个类的过程</p>
 <p>这里的<code>苹果</code>,<code>橘子</code>,<code>筷子</code>,<code>勺子</code>,<code>可乐</code>,<code>雪碧</code>都是没有分类的数据，我们通过他们的一些特征计算出<code>水果</code>、<code>餐具</code>、<code>饮料</code>这三个类</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">苹果 橘子 勺子  筷子 可乐 雪碧
+<pre><code>苹果 橘子 勺子  筷子 可乐 雪碧
  \   /    \ /    \   /
   水果     餐具    饮料
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="92-密度估计">9.2 密度估计</h4>
+</code></pre>
+<h4 id="92-密度估计">9.2 密度估计</h4>
 <p>寻找描述数据统计值的过程</p>
 <h4 id="93-常用的无监督学习算法">9.3 常用的无监督学习算法</h4>
 <table>
@@ -650,68 +690,30 @@ max：在数据集中该特征最大的值
 <h3 id="13-numpy常用操作">13 numpy常用操作</h3>
 <h4 id="131-构建随机数据">13.1 构建随机数据</h4>
 <p>构建一个4*4的数组</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy
-numpy<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>ramd(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">4</span>)
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="132-数组转化矩阵">13.2 数组转化矩阵</h4>
+<pre><code class="language-python">import numpy
+numpy.random.ramd(4,4)
+</code></pre>
+<h4 id="132-数组转化矩阵">13.2 数组转化矩阵</h4>
 <p>将4*4的随机数组转化为矩阵</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy
-random_array<span style="color:#f92672">=</span>numpy<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>ramd(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">4</span>)
-random_matrix<span style="color:#f92672">=</span>numpy<span style="color:#f92672">.</span>mat(random_array)
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="133-矩阵求逆">13.3 矩阵求逆</h4>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy
-random_matrix<span style="color:#f92672">=</span>numpy<span style="color:#f92672">.</span>mat(numpy<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>ramd(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">4</span>))
-random_matrix<span style="color:#f92672">.</span>I
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="134-矩阵相乘">13.4 矩阵相乘</h4>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy
-random_matrix<span style="color:#f92672">=</span>numpy<span style="color:#f92672">.</span>mat(numpy<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>ramd(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">4</span>))
-result<span style="color:#f92672">=</span>random_matrix<span style="color:#f92672">*</span>random_matrix<span style="color:#f92672">.</span>I
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="135-创建矩阵">13.5 创建矩阵</h4>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy
-matrix<span style="color:#f92672">=</span>numpy<span style="color:#f92672">.</span>eye(<span style="color:#ae81ff">4</span>)
-</code></pre></td></tr></table>
-</div>
-</div>
+<pre><code class="language-python">import numpy
+random_array=numpy.random.ramd(4,4)
+random_matrix=numpy.mat(random_array)
+</code></pre>
+<h4 id="133-矩阵求逆">13.3 矩阵求逆</h4>
+<pre><code class="language-python">import numpy
+random_matrix=numpy.mat(numpy.random.ramd(4,4))
+random_matrix.I
+</code></pre>
+<h4 id="134-矩阵相乘">13.4 矩阵相乘</h4>
+<pre><code class="language-python">import numpy
+random_matrix=numpy.mat(numpy.random.ramd(4,4))
+result=random_matrix*random_matrix.I
+</code></pre>
+<h4 id="135-创建矩阵">13.5 创建矩阵</h4>
+<pre><code class="language-python">import numpy
+matrix=numpy.eye(4)
+</code></pre>
+
                 
                 <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
                 
@@ -870,7 +872,7 @@ matrix<span style="color:#f92672">=</span>numpy<span style="color:#f92672">.</sp
             
             
             <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
-            环境配置系列(12)
+            环境配置系列(14)
             </a>
 
             
@@ -878,6 +880,13 @@ matrix<span style="color:#f92672">=</span>numpy<span style="color:#f92672">.</sp
             
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
             排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
             </a>
 
             
@@ -899,13 +908,6 @@ matrix<span style="color:#f92672">=</span>numpy<span style="color:#f92672">.</sp
             
             <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
             数学基础(7)
-            </a>
-
-            
-            
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
-            机器学习系列(7)
             </a>
 
             
@@ -1151,6 +1153,7 @@ matrix<span style="color:#f92672">=</span>numpy<span style="color:#f92672">.</sp
 <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
 
 
+
 <script>
 
 
@@ -1215,10 +1218,73 @@ gtag('config', 'UA-155998534-1');
 </body>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
     <script src="https://www.naah69.com/js/article.js"></script>
+    <script>
+
+
+    
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+        singleLine: true
+    });
+
+    $("style").each(function(){
+        style=$(this).text()
+        if(style.indexOf(".hljs-ln td{padding:0}")!=-1){
+            $(this).remove();
+        }
+    });
+
+
+    
+    var snippets = document.querySelectorAll('pre>code');
+    var htmlCopyButton = `<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i></button>`;
+
+    snippets.forEach(snippet => {
+        var pre = snippet.parentNode;
+        var pre_parent = pre.parentNode;
+
+        var wrapper = document.createElement('div');
+
+        pre_parent.replaceChild(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        wrapper.classList.add('code-highlight');
+        wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+        var class0 = (snippet.classList[0] || 'code')
+        var lang = (class0.replace("language-", "") || 'code').toUpperCase();
+        wrapper.setAttribute('data-lang', lang);
+    });
+
+    
+    var clipboard = new ClipboardJS('.codecopy-btn', {
+        target: trigger => {
+            return trigger.nextSibling;
+        },
+    });
+
+    clipboard.on('success', e => {
+        e.trigger.setAttribute('aria-label', 'Copied!');
+        e.clearSelection();
+    });
+
+    
+    
+    var btns = document.querySelectorAll('.codecopy-btn');
+
+    btns.forEach(btn => {
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    });
+
+</script>
 
 
 </html>

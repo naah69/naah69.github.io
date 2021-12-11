@@ -26,6 +26,66 @@
 });'>
 
 </script>
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/styles/a11y-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/sql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.3.1/languages/yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+
+<style>
+  .hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:24px;
+    border-right: 1px solid #c5c5c5;
+  }
+
+  .hljs-ln-code {
+    padding-left: 1em;
+  }
+
+  .hljs-ln{border-collapse:collapse}
+   
+  .hljs-ln-n:before{content:attr(data-line-number);margin-right:1em;}
+  .highlight pre, pre, .highlight .hll{padding: 6px 0px}
+  .hljs{padding: 8px 0px}
+  em{color: red}
+  #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+  #index nav ul li {padding-left: 0em;}
+  #index nav ul li ul {padding-left: 1em;}
+  pre{
+    background: none;
+  }
+
+  @media screen and (max-width: 500px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+  @media screen and (max-width: 768px){
+    #index nav ul{margin-left: 0px;padding-left: 0em;list-style: none;margin-bottom:0em;}
+    #index nav ul li {padding-left: 0em;}
+    #index nav ul li ul {padding-left: 1em;}
+  }
+
+
+</style>
+
+
 
 
 
@@ -79,6 +139,7 @@
 
 
 </head>
+<body>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -124,6 +185,10 @@
                     
                     <li>
                         <a href="https://www.naah69.com/categories/python"  target="_blank" >python</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.naah69.com/categories/test"  target="_blank" >test</a>
                     </li>
                     
 
@@ -252,18 +317,28 @@
                     <div id="index" style="background-color: #f3f3f3;color: black;padding: 10px;overflow: auto;height: 25em;">
                         <nav id="TableOfContents">
   <ul>
-    <li><a href="#31-数据准备">3.1 数据准备</a></li>
-    <li><a href="#32-信息增益">3.2 信息增益</a></li>
-    <li><a href="#33-熵">3.3 熵</a></li>
-    <li><a href="#34-划分数据集">3.4 划分数据集</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#41-算法思想">4.1 算法思想</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#62-算法准备">6.2 算法准备</a></li>
+    <li><a href="#1-概述">1 概述</a></li>
+    <li><a href="#2-优缺点">2 优缺点</a></li>
+    <li><a href="#3-数据准备">3 数据准备</a>
+      <ul>
+        <li><a href="#31-数据准备">3.1 数据准备</a></li>
+        <li><a href="#32-信息增益">3.2 信息增益</a></li>
+        <li><a href="#33-熵">3.3 熵</a></li>
+        <li><a href="#34-划分数据集">3.4 划分数据集</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-原理">4 原理</a>
+      <ul>
+        <li><a href="#41-算法思想">4.1 算法思想</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-代码">5 代码</a></li>
+    <li><a href="#6-实战">6 实战</a></li>
+    <li><a href="#61-数据准备">6.1 数据准备</a>
+      <ul>
+        <li><a href="#62-算法准备">6.2 算法准备</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
                     </div>
@@ -302,231 +377,117 @@
 </ol>
 <p><img src="https://naah-blog.oss-cn-hangzhou.aliyuncs.com/img/gif.latex" alt="">l(x_i)%7D=-%5Csum_%7Bi=0%7D%5E%7Bn%7D%7Bp(x_i)log_2p(x_i)%7D)</p>
 <p>下面的代码就是用来求熵的:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21">21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22">22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23">23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24">24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25">25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26">26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27">27</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="28"><a style="outline: none; text-decoration:none; color:inherit" href="#28">28</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="29"><a style="outline: none; text-decoration:none; color:inherit" href="#29">29</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="30"><a style="outline: none; text-decoration:none; color:inherit" href="#30">30</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="31"><a style="outline: none; text-decoration:none; color:inherit" href="#31">31</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="32"><a style="outline: none; text-decoration:none; color:inherit" href="#32">32</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="33"><a style="outline: none; text-decoration:none; color:inherit" href="#33">33</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="34"><a style="outline: none; text-decoration:none; color:inherit" href="#34">34</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="35"><a style="outline: none; text-decoration:none; color:inherit" href="#35">35</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="36"><a style="outline: none; text-decoration:none; color:inherit" href="#36">36</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="37"><a style="outline: none; text-decoration:none; color:inherit" href="#37">37</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="38"><a style="outline: none; text-decoration:none; color:inherit" href="#38">38</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> math
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">trees</span>(object):
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cal_shannonnt_entropy</span>(self, data_set):
-        <span style="color:#e6db74">&#34;&#34;&#34;
-</span><span style="color:#e6db74">        通过最后一列计算香农熵（熵：信息的期望度）
-</span><span style="color:#e6db74">        公式：
-</span><span style="color:#e6db74">        X 标签出现的概率
-</span><span style="color:#e6db74">        n 标签分类的数量
-</span><span style="color:#e6db74">               ---
-</span><span style="color:#e6db74">        H = - \     n
-</span><span style="color:#e6db74">              /     i=1   P(Xi)*log  P(Xi)
-</span><span style="color:#e6db74">              ---                  2
-</span><span style="color:#e6db74">        :param data_set: 数据集
-</span><span style="color:#e6db74">        :return: 香农熵
-</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-        <span style="color:#75715e"># 数据行数</span>
-        data_set_len <span style="color:#f92672">=</span> len(data_set)
-        <span style="color:#75715e"># 数据中的 标签——数量</span>
-        labels_count <span style="color:#f92672">=</span> {}
-        <span style="color:#75715e"># 遍历数据</span>
-        <span style="color:#66d9ef">for</span> vec <span style="color:#f92672">in</span> data_set:
-            <span style="color:#75715e">#  获取标签</span>
-            current_label <span style="color:#f92672">=</span> vec[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
-            <span style="color:#75715e"># 初始化标签</span>
-            <span style="color:#66d9ef">if</span> current_label <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> labels_count<span style="color:#f92672">.</span>keys():
-                labels_count[current_label] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-            <span style="color:#75715e"># 标签计数</span>
-            labels_count[current_label] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+<pre><code class="language-python">import math
+class trees(object):
+    def cal_shannonnt_entropy(self, data_set):
+        &quot;&quot;&quot;
+        通过最后一列计算香农熵（熵：信息的期望度）
+        公式：
+        X 标签出现的概率
+        n 标签分类的数量
+               ---
+        H = - \     n
+              /     i=1   P(Xi)*log  P(Xi)
+              ---                  2
+        :param data_set: 数据集
+        :return: 香农熵
+        &quot;&quot;&quot;
+        # 数据行数
+        data_set_len = len(data_set)
+        # 数据中的 标签——数量
+        labels_count = {}
+        # 遍历数据
+        for vec in data_set:
+            #  获取标签
+            current_label = vec[-1]
+            # 初始化标签
+            if current_label not in labels_count.keys():
+                labels_count[current_label] = 0
+            # 标签计数
+            labels_count[current_label] += 1
 
-        <span style="color:#75715e">#  香农熵</span>
-        shannon_entropy <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
-        <span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> labels_count:
-            <span style="color:#75715e"># 计算标签出现的概率P(Xi)</span>
-            prob <span style="color:#f92672">=</span> float(labels_count[key]) <span style="color:#f92672">/</span> data_set_len
-            <span style="color:#75715e"># 计算累减P(Xi)*log2P(Xi)</span>
-            shannon_entropy <span style="color:#f92672">-=</span> prob <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>log(prob, <span style="color:#ae81ff">2</span>)
+        #  香农熵
+        shannon_entropy = 0.0
+        for key in labels_count:
+            # 计算标签出现的概率P(Xi)
+            prob = float(labels_count[key]) / data_set_len
+            # 计算累减P(Xi)*log2P(Xi)
+            shannon_entropy -= prob * math.log(prob, 2)
 
-        <span style="color:#66d9ef">return</span> shannon_entropy
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="34-划分数据集">3.4 划分数据集</h2>
+        return shannon_entropy
+</code></pre>
+<h2 id="34-划分数据集">3.4 划分数据集</h2>
 <p>分类算法除了要<code>测量信息熵</code>，还要<code>划分数据集</code>，<code>度量划分数据集的熵</code>来判断当前是否争取的划分数据集。我们将每个特征划分数据集的结果计算一次熵，然后判断按照哪个特征划分数据集是最好的。</p>
 <p>其实就是计算信息增益，算法就是<code>矩阵的基础熵-划分该特征后的熵</code>，这样对每个特征的信息增益求出后，取最大的那个，就是信息增益最好的那个</p>
 <p>下面的代码，就是如何划分数据集和如何选择信息增益最好的那个！</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21">21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22">22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23">23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24">24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25">25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26">26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27">27</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="28"><a style="outline: none; text-decoration:none; color:inherit" href="#28">28</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="29"><a style="outline: none; text-decoration:none; color:inherit" href="#29">29</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="30"><a style="outline: none; text-decoration:none; color:inherit" href="#30">30</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="31"><a style="outline: none; text-decoration:none; color:inherit" href="#31">31</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="32"><a style="outline: none; text-decoration:none; color:inherit" href="#32">32</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="33"><a style="outline: none; text-decoration:none; color:inherit" href="#33">33</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="34"><a style="outline: none; text-decoration:none; color:inherit" href="#34">34</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="35"><a style="outline: none; text-decoration:none; color:inherit" href="#35">35</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="36"><a style="outline: none; text-decoration:none; color:inherit" href="#36">36</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="37"><a style="outline: none; text-decoration:none; color:inherit" href="#37">37</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="38"><a style="outline: none; text-decoration:none; color:inherit" href="#38">38</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="39"><a style="outline: none; text-decoration:none; color:inherit" href="#39">39</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="40"><a style="outline: none; text-decoration:none; color:inherit" href="#40">40</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="41"><a style="outline: none; text-decoration:none; color:inherit" href="#41">41</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="42"><a style="outline: none; text-decoration:none; color:inherit" href="#42">42</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="43"><a style="outline: none; text-decoration:none; color:inherit" href="#43">43</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="44"><a style="outline: none; text-decoration:none; color:inherit" href="#44">44</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="45"><a style="outline: none; text-decoration:none; color:inherit" href="#45">45</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="46"><a style="outline: none; text-decoration:none; color:inherit" href="#46">46</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="47"><a style="outline: none; text-decoration:none; color:inherit" href="#47">47</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="48"><a style="outline: none; text-decoration:none; color:inherit" href="#48">48</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="49"><a style="outline: none; text-decoration:none; color:inherit" href="#49">49</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="50"><a style="outline: none; text-decoration:none; color:inherit" href="#50">50</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="51"><a style="outline: none; text-decoration:none; color:inherit" href="#51">51</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="52"><a style="outline: none; text-decoration:none; color:inherit" href="#52">52</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="53"><a style="outline: none; text-decoration:none; color:inherit" href="#53">53</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="54"><a style="outline: none; text-decoration:none; color:inherit" href="#54">54</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="55"><a style="outline: none; text-decoration:none; color:inherit" href="#55">55</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="56"><a style="outline: none; text-decoration:none; color:inherit" href="#56">56</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="57"><a style="outline: none; text-decoration:none; color:inherit" href="#57">57</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="58"><a style="outline: none; text-decoration:none; color:inherit" href="#58">58</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="59"><a style="outline: none; text-decoration:none; color:inherit" href="#59">59</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="60"><a style="outline: none; text-decoration:none; color:inherit" href="#60">60</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="61"><a style="outline: none; text-decoration:none; color:inherit" href="#61">61</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="62"><a style="outline: none; text-decoration:none; color:inherit" href="#62">62</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="63"><a style="outline: none; text-decoration:none; color:inherit" href="#63">63</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="64"><a style="outline: none; text-decoration:none; color:inherit" href="#64">64</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="65"><a style="outline: none; text-decoration:none; color:inherit" href="#65">65</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="66"><a style="outline: none; text-decoration:none; color:inherit" href="#66">66</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">trees</span>(trees_3_1_1):
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">split_dataset</span>(self, dataset, axis, value):
-        <span style="color:#e6db74">&#34;&#34;&#34;
-</span><span style="color:#e6db74">        筛选并重新划分数据集
-</span><span style="color:#e6db74">        axis位置等于value 并且 将这列去除
-</span><span style="color:#e6db74">        :param dataset: 数据集
-</span><span style="color:#e6db74">        :param axis: 位置
-</span><span style="color:#e6db74">        :param value: 值
-</span><span style="color:#e6db74">        :return:
-</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-        ret_dataset <span style="color:#f92672">=</span> []
-        <span style="color:#66d9ef">for</span> vec <span style="color:#f92672">in</span> dataset:
-            <span style="color:#75715e"># 如果某个位置等于某值</span>
-            <span style="color:#66d9ef">if</span> vec[axis] <span style="color:#f92672">==</span> value:
-                <span style="color:#75715e"># 将这列抽出不要，生成新的向量</span>
-                temp_vec <span style="color:#f92672">=</span> vec[:axis]
-                temp_vec<span style="color:#f92672">.</span>extend(vec[axis <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>:])
+<pre><code class="language-python">class trees(trees_3_1_1):
+    def split_dataset(self, dataset, axis, value):
+        &quot;&quot;&quot;
+        筛选并重新划分数据集
+        axis位置等于value 并且 将这列去除
+        :param dataset: 数据集
+        :param axis: 位置
+        :param value: 值
+        :return:
+        &quot;&quot;&quot;
+        ret_dataset = []
+        for vec in dataset:
+            # 如果某个位置等于某值
+            if vec[axis] == value:
+                # 将这列抽出不要，生成新的向量
+                temp_vec = vec[:axis]
+                temp_vec.extend(vec[axis + 1:])
 
-                <span style="color:#75715e"># 向量追加到矩阵</span>
-                ret_dataset<span style="color:#f92672">.</span>append(temp_vec)
-        <span style="color:#66d9ef">return</span> ret_dataset
+                # 向量追加到矩阵
+                ret_dataset.append(temp_vec)
+        return ret_dataset
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">choose_best_feature_to_split</span>(self, dataset):
-        <span style="color:#e6db74">&#34;&#34;&#34;
-</span><span style="color:#e6db74">        计算最佳的数据集划分方式（本质上就是找到熵最小的那个特征字段）
-</span><span style="color:#e6db74">        通过比较各特征的信息增益来计算(信息增益：基础熵-划分该字段后的熵)
-</span><span style="color:#e6db74">        :param dataset:
-</span><span style="color:#e6db74">        :return:
-</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+    def choose_best_feature_to_split(self, dataset):
+        &quot;&quot;&quot;
+        计算最佳的数据集划分方式（本质上就是找到熵最小的那个特征字段）
+        通过比较各特征的信息增益来计算(信息增益：基础熵-划分该字段后的熵)
+        :param dataset:
+        :return:
+        &quot;&quot;&quot;
 
-        <span style="color:#75715e"># 向量维度（矩阵列长）</span>
-        feature_count <span style="color:#f92672">=</span> len(dataset[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
-        <span style="color:#75715e"># 计算基础香农熵</span>
-        base_entropy <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>cal_shannonnt_entropy(dataset)
-        <span style="color:#75715e"># 最佳信息增益</span>
-        best_info_gain <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
-        <span style="color:#75715e"># 最佳特征位置</span>
-        best_feature_index <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+        # 向量维度（矩阵列长）
+        feature_count = len(dataset[0]) - 1
+        # 计算基础香农熵
+        base_entropy = self.cal_shannonnt_entropy(dataset)
+        # 最佳信息增益
+        best_info_gain = 0.0
+        # 最佳特征位置
+        best_feature_index = -1
 
-        <span style="color:#75715e"># 遍历每一列</span>
-        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(feature_count):
-            <span style="color:#75715e"># 将所有数据的某列值提取成一个向量</span>
-            feature_list <span style="color:#f92672">=</span> [example[i] <span style="color:#66d9ef">for</span> example <span style="color:#f92672">in</span> dataset]
-            <span style="color:#75715e"># set去重</span>
-            unique_vals <span style="color:#f92672">=</span> set(feature_list)
-            new_entropy <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+        # 遍历每一列
+        for i in range(feature_count):
+            # 将所有数据的某列值提取成一个向量
+            feature_list = [example[i] for example in dataset]
+            # set去重
+            unique_vals = set(feature_list)
+            new_entropy = 0.0
 
-            <span style="color:#75715e"># 遍历去重后的数据</span>
-            <span style="color:#75715e"># 计算每种划分方式的熵</span>
-            <span style="color:#66d9ef">for</span> value <span style="color:#f92672">in</span> unique_vals:
-                <span style="color:#75715e"># 筛选数据生成子数据集</span>
-                sub_data_set <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>split_dataset(dataset, i, value)
+            # 遍历去重后的数据
+            # 计算每种划分方式的熵
+            for value in unique_vals:
+                # 筛选数据生成子数据集
+                sub_data_set = self.split_dataset(dataset, i, value)
 
-                <span style="color:#75715e"># 计算子数据集的熵</span>
-                prob <span style="color:#f92672">=</span> len(sub_data_set) <span style="color:#f92672">/</span> float(len(dataset))
-                new_entropy <span style="color:#f92672">+=</span> prob <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>cal_shannonnt_entropy(sub_data_set)
+                # 计算子数据集的熵
+                prob = len(sub_data_set) / float(len(dataset))
+                new_entropy += prob * self.cal_shannonnt_entropy(sub_data_set)
 
-            <span style="color:#75715e"># 计算信息增益</span>
-            info_gain <span style="color:#f92672">=</span> base_entropy <span style="color:#f92672">-</span> new_entropy
-            <span style="color:#75715e"># 判断最大信息增益</span>
-            <span style="color:#66d9ef">if</span> info_gain <span style="color:#f92672">&gt;</span> best_info_gain:
-                <span style="color:#75715e"># 保存最大信息增益</span>
-                best_info_gain <span style="color:#f92672">=</span> info_gain
-                <span style="color:#75715e"># 保存最大信息增益特征的位置</span>
-                best_feature_index <span style="color:#f92672">=</span> i
-        <span style="color:#66d9ef">return</span> best_feature_index
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="4-原理">4 原理</h1>
+            # 计算信息增益
+            info_gain = base_entropy - new_entropy
+            # 判断最大信息增益
+            if info_gain &gt; best_info_gain:
+                # 保存最大信息增益
+                best_info_gain = info_gain
+                # 保存最大信息增益特征的位置
+                best_feature_index = i
+        return best_feature_index
+</code></pre>
+<h1 id="4-原理">4 原理</h1>
 <h2 id="41-算法思想">4.1 算法思想</h2>
 <ol>
 <li>准备上方所说的数据</li>
@@ -539,169 +500,86 @@
 <li>直到遍历完为止</li>
 </ol>
 <h1 id="5-代码">5 代码</h1>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21">21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22">22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23">23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24">24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25">25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26">26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27">27</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="28"><a style="outline: none; text-decoration:none; color:inherit" href="#28">28</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="29"><a style="outline: none; text-decoration:none; color:inherit" href="#29">29</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="30"><a style="outline: none; text-decoration:none; color:inherit" href="#30">30</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="31"><a style="outline: none; text-decoration:none; color:inherit" href="#31">31</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="32"><a style="outline: none; text-decoration:none; color:inherit" href="#32">32</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="33"><a style="outline: none; text-decoration:none; color:inherit" href="#33">33</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="34"><a style="outline: none; text-decoration:none; color:inherit" href="#34">34</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="35"><a style="outline: none; text-decoration:none; color:inherit" href="#35">35</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="36"><a style="outline: none; text-decoration:none; color:inherit" href="#36">36</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="37"><a style="outline: none; text-decoration:none; color:inherit" href="#37">37</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="38"><a style="outline: none; text-decoration:none; color:inherit" href="#38">38</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="39"><a style="outline: none; text-decoration:none; color:inherit" href="#39">39</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="40"><a style="outline: none; text-decoration:none; color:inherit" href="#40">40</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="41"><a style="outline: none; text-decoration:none; color:inherit" href="#41">41</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="42"><a style="outline: none; text-decoration:none; color:inherit" href="#42">42</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="43"><a style="outline: none; text-decoration:none; color:inherit" href="#43">43</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="44"><a style="outline: none; text-decoration:none; color:inherit" href="#44">44</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="45"><a style="outline: none; text-decoration:none; color:inherit" href="#45">45</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="46"><a style="outline: none; text-decoration:none; color:inherit" href="#46">46</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="47"><a style="outline: none; text-decoration:none; color:inherit" href="#47">47</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="48"><a style="outline: none; text-decoration:none; color:inherit" href="#48">48</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="49"><a style="outline: none; text-decoration:none; color:inherit" href="#49">49</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="50"><a style="outline: none; text-decoration:none; color:inherit" href="#50">50</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="51"><a style="outline: none; text-decoration:none; color:inherit" href="#51">51</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="52"><a style="outline: none; text-decoration:none; color:inherit" href="#52">52</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="53"><a style="outline: none; text-decoration:none; color:inherit" href="#53">53</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="54"><a style="outline: none; text-decoration:none; color:inherit" href="#54">54</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="55"><a style="outline: none; text-decoration:none; color:inherit" href="#55">55</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="56"><a style="outline: none; text-decoration:none; color:inherit" href="#56">56</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="57"><a style="outline: none; text-decoration:none; color:inherit" href="#57">57</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="58"><a style="outline: none; text-decoration:none; color:inherit" href="#58">58</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="59"><a style="outline: none; text-decoration:none; color:inherit" href="#59">59</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="60"><a style="outline: none; text-decoration:none; color:inherit" href="#60">60</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="61"><a style="outline: none; text-decoration:none; color:inherit" href="#61">61</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="62"><a style="outline: none; text-decoration:none; color:inherit" href="#62">62</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="63"><a style="outline: none; text-decoration:none; color:inherit" href="#63">63</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="64"><a style="outline: none; text-decoration:none; color:inherit" href="#64">64</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="65"><a style="outline: none; text-decoration:none; color:inherit" href="#65">65</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="66"><a style="outline: none; text-decoration:none; color:inherit" href="#66">66</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="67"><a style="outline: none; text-decoration:none; color:inherit" href="#67">67</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="68"><a style="outline: none; text-decoration:none; color:inherit" href="#68">68</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="69"><a style="outline: none; text-decoration:none; color:inherit" href="#69">69</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="70"><a style="outline: none; text-decoration:none; color:inherit" href="#70">70</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="71"><a style="outline: none; text-decoration:none; color:inherit" href="#71">71</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="72"><a style="outline: none; text-decoration:none; color:inherit" href="#72">72</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="73"><a style="outline: none; text-decoration:none; color:inherit" href="#73">73</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="74"><a style="outline: none; text-decoration:none; color:inherit" href="#74">74</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="75"><a style="outline: none; text-decoration:none; color:inherit" href="#75">75</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="76"><a style="outline: none; text-decoration:none; color:inherit" href="#76">76</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="77"><a style="outline: none; text-decoration:none; color:inherit" href="#77">77</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="78"><a style="outline: none; text-decoration:none; color:inherit" href="#78">78</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">trees</span>(object):
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_dataset</span>(self):
-        dataSet <span style="color:#f92672">=</span> [
-            [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;yes&#39;</span>],
-            [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;yes&#39;</span>],
-            [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;no&#39;</span>],
-            [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;no&#39;</span>],
-            [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;no&#39;</span>]
+<pre><code class="language-python">class trees(object):
+    def create_dataset(self):
+        dataSet = [
+            [1, 1, 'yes'],
+            [1, 1, 'yes'],
+            [1, 0, 'no'],
+            [0, 1, 'no'],
+            [0, 1, 'no']
         ]
-        labels <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;不浮出水面能生存&#39;</span>, <span style="color:#e6db74">&#39;有脚蹼&#39;</span>]
-        <span style="color:#66d9ef">return</span> dataSet, labels
+        labels = ['不浮出水面能生存', '有脚蹼']
+        return dataSet, labels
         
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">majority_cnt</span>(self, class_list):
-        <span style="color:#e6db74">&#34;&#34;&#34;
-</span><span style="color:#e6db74">        返回出现次数最多的标签
-</span><span style="color:#e6db74">        :param class_list:
-</span><span style="color:#e6db74">        :return:
-</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-        class_count <span style="color:#f92672">=</span> {}
-        <span style="color:#66d9ef">for</span> vote <span style="color:#f92672">in</span> class_list:
-            <span style="color:#66d9ef">if</span> vote <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> class_count<span style="color:#f92672">.</span>keys():
-                class_count[vote] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-            class_count[vote] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-        sorted_class_count <span style="color:#f92672">=</span> sorted(class_count<span style="color:#f92672">.</span>items(), operator<span style="color:#f92672">.</span>itemgetter(<span style="color:#ae81ff">1</span>), reverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-        <span style="color:#66d9ef">return</span> sorted_class_count[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]
+    def majority_cnt(self, class_list):
+        &quot;&quot;&quot;
+        返回出现次数最多的标签
+        :param class_list:
+        :return:
+        &quot;&quot;&quot;
+        class_count = {}
+        for vote in class_list:
+            if vote not in class_count.keys():
+                class_count[vote] = 0
+            class_count[vote] += 1
+        sorted_class_count = sorted(class_count.items(), operator.itemgetter(1), reverse=True)
+        return sorted_class_count[0][0]
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_tree</span>(self, dataset, labels):
-        <span style="color:#e6db74">&#34;&#34;&#34;
-</span><span style="color:#e6db74">        生成决策树
-</span><span style="color:#e6db74">        :param dataset: 数据集
-</span><span style="color:#e6db74">        :param labels: 便签
-</span><span style="color:#e6db74">        :return:
-</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-        <span style="color:#75715e"># 创建一个新的list,不对原有labels操作</span>
-        labels<span style="color:#f92672">=</span>list(labels)
-        <span style="color:#75715e"># 生成分类列表</span>
-        class_list <span style="color:#f92672">=</span> [example[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#66d9ef">for</span> example <span style="color:#f92672">in</span> dataset]
+    def create_tree(self, dataset, labels):
+        &quot;&quot;&quot;
+        生成决策树
+        :param dataset: 数据集
+        :param labels: 便签
+        :return:
+        &quot;&quot;&quot;
+        # 创建一个新的list,不对原有labels操作
+        labels=list(labels)
+        # 生成分类列表
+        class_list = [example[-1] for example in dataset]
 
-        <span style="color:#75715e"># 如果只有一个分类则返回</span>
-        <span style="color:#66d9ef">if</span> class_list<span style="color:#f92672">.</span>count(class_list[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">==</span> len(class_list):
-            <span style="color:#66d9ef">return</span> class_list[<span style="color:#ae81ff">0</span>]
+        # 如果只有一个分类则返回
+        if class_list.count(class_list[0]) == len(class_list):
+            return class_list[0]
 
-        <span style="color:#75715e"># 如果只有一列的话，返回出现次数最多的标签</span>
-        <span style="color:#66d9ef">if</span> len(dataset[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
-            <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>majority_cnt(class_list)
+        # 如果只有一列的话，返回出现次数最多的标签
+        if len(dataset[0]) == 1:
+            return self.majority_cnt(class_list)
 
-        <span style="color:#75715e"># 计算最佳的划分方式的特征字段位置</span>
-        best_feature_index <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>choose_best_feature_to_split(dataset)
+        # 计算最佳的划分方式的特征字段位置
+        best_feature_index = self.choose_best_feature_to_split(dataset)
 
-        <span style="color:#75715e"># 获取该字段所以代表的标签</span>
-        best_feature_label <span style="color:#f92672">=</span> labels[best_feature_index]
+        # 获取该字段所以代表的标签
+        best_feature_label = labels[best_feature_index]
 
-        <span style="color:#75715e"># 初始化树</span>
-        tree <span style="color:#f92672">=</span> {best_feature_label: {}}
+        # 初始化树
+        tree = {best_feature_label: {}}
 
-        <span style="color:#75715e"># 删除最佳划分方式字段的标签</span>
-        <span style="color:#66d9ef">del</span> (labels[best_feature_index])
+        # 删除最佳划分方式字段的标签
+        del (labels[best_feature_index])
 
-        <span style="color:#75715e"># 将最佳划分方式的一列抽出来</span>
-        feat_val <span style="color:#f92672">=</span> [example[best_feature_index] <span style="color:#66d9ef">for</span> example <span style="color:#f92672">in</span> dataset]
+        # 将最佳划分方式的一列抽出来
+        feat_val = [example[best_feature_index] for example in dataset]
 
-        <span style="color:#75715e"># set去重</span>
-        unique_val <span style="color:#f92672">=</span> set(feat_val)
-        <span style="color:#66d9ef">for</span> val <span style="color:#f92672">in</span> unique_val:
-            sub_labels <span style="color:#f92672">=</span> labels[:]
-            <span style="color:#75715e"># 通过最佳特征字段筛选并重新划分数据集</span>
-            sub_dataset <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>split_dataset(dataset, best_feature_index, val)
-            <span style="color:#75715e"># 递归遍历</span>
-            tree[best_feature_label][val] <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_tree(sub_dataset, sub_labels)
+        # set去重
+        unique_val = set(feat_val)
+        for val in unique_val:
+            sub_labels = labels[:]
+            # 通过最佳特征字段筛选并重新划分数据集
+            sub_dataset = self.split_dataset(dataset, best_feature_index, val)
+            # 递归遍历
+            tree[best_feature_label][val] = self.create_tree(sub_dataset, sub_labels)
 
-        <span style="color:#66d9ef">return</span> tree
+        return tree
 
-<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
-    tree <span style="color:#f92672">=</span> trees()
-    dataset, labels <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>create_dataset()
-    m_tree <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>create_tree(dataset, labels)
+if __name__ == '__main__':
+    tree = trees()
+    dataset, labels = tree.create_dataset()
+    m_tree = tree.create_tree(dataset, labels)
     print(m_tree)
 
-</code></pre></td></tr></table>
-</div>
-</div><p>上面的代码的结果是<code>{'不浮出水面能生存': {0: 'no', 1: {'有脚蹼': {0: 'no', 1: 'yes'}}}}</code>!
+</code></pre>
+<p>上面的代码的结果是<code>{'不浮出水面能生存': {0: 'no', 1: {'有脚蹼': {0: 'no', 1: 'yes'}}}}</code>!
 这就是我们通过算法构建出的决策树，通过杂乱的数据来清洗的构造出这个决策树，是不是很神奇呢？</p>
 <h1 id="6-实战">6 实战</h1>
 <p>经过上面的简单计算后，也进入我们的实战项目了！下面我们将构建一个预测隐形眼镜类型的简单小项目吧！</p>
@@ -716,117 +594,59 @@
 <li>输入训练数据，构建决策树</li>
 <li>查看决策树的结构</li>
 </ol>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">trees</span>(objecy):
-    <span style="color:#75715e"># 将上面的算法copy过来就行</span>
-    <span style="color:#66d9ef">pass</span>
-<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
-    <span style="color:#75715e"># 隐形眼镜数据集</span>
-    filename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;../data/lenses.txt&#34;</span>
-    trees <span style="color:#f92672">=</span> trees()
-    lenses <span style="color:#f92672">=</span> []
-    <span style="color:#66d9ef">with</span> open(filename, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> fr:
-        lenses <span style="color:#f92672">=</span> [line<span style="color:#f92672">.</span>strip()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#39;</span>) <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> fr<span style="color:#f92672">.</span>readlines()]
-    labels <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;年龄&#34;</span>, <span style="color:#e6db74">&#34;病因&#34;</span>, <span style="color:#e6db74">&#34;散光&#34;</span>, <span style="color:#e6db74">&#34;泪液率&#34;</span>]
-    tree <span style="color:#f92672">=</span> trees<span style="color:#f92672">.</span>create_tree(lenses, labels)
+<pre><code class="language-python">
+class trees(objecy):
+    # 将上面的算法copy过来就行
+    pass
+if __name__ == '__main__':
+    # 隐形眼镜数据集
+    filename = &quot;../data/lenses.txt&quot;
+    trees = trees()
+    lenses = []
+    with open(filename, 'r') as fr:
+        lenses = [line.strip().split('\t') for line in fr.readlines()]
+    labels = [&quot;年龄&quot;, &quot;病因&quot;, &quot;散光&quot;, &quot;泪液率&quot;]
+    tree = trees.create_tree(lenses, labels)
     print(tree)
 
-</code></pre></td></tr></table>
-</div>
-</div><p>最后我们得到下面的决策树，貌似匹配选项可能太多，有点复杂！ 其实这个问题就叫做<code>过渡匹配</code>。
+</code></pre>
+<p>最后我们得到下面的决策树，貌似匹配选项可能太多，有点复杂！ 其实这个问题就叫做<code>过渡匹配</code>。
 我们其实可以通过裁剪决策树，去掉一些不必要的叶子节点，如果子节点只能增加少许信息，则可以删除该节点。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21">21</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22">22</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="23"><a style="outline: none; text-decoration:none; color:inherit" href="#23">23</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="24"><a style="outline: none; text-decoration:none; color:inherit" href="#24">24</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="25"><a style="outline: none; text-decoration:none; color:inherit" href="#25">25</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="26"><a style="outline: none; text-decoration:none; color:inherit" href="#26">26</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="27"><a style="outline: none; text-decoration:none; color:inherit" href="#27">27</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="28"><a style="outline: none; text-decoration:none; color:inherit" href="#28">28</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="29"><a style="outline: none; text-decoration:none; color:inherit" href="#29">29</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="30"><a style="outline: none; text-decoration:none; color:inherit" href="#30">30</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="31"><a style="outline: none; text-decoration:none; color:inherit" href="#31">31</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="32"><a style="outline: none; text-decoration:none; color:inherit" href="#32">32</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="33"><a style="outline: none; text-decoration:none; color:inherit" href="#33">33</a>
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">{
-    &#34;泪液率&#34;: {
-        &#34;减少&#34;: &#34;不适合戴&#34;,
-        &#34;正常&#34;: {
-            &#34;散光&#34;: {
-                &#34;yes&#34;: {
-                    &#34;病因&#34;: {
-                        &#34;近视&#34;: &#34;硬的&#34;,
-                        &#34;远视&#34;: {
-                            &#34;年龄&#34;: {
-                                &#34;年轻&#34;: &#34;硬的&#34;,
-                                &#34;老人&#34;: &#34;不适合戴&#34;,
-                                &#34;中年&#34;: &#34;不适合戴&#34;
+<pre><code>{
+    &quot;泪液率&quot;: {
+        &quot;减少&quot;: &quot;不适合戴&quot;,
+        &quot;正常&quot;: {
+            &quot;散光&quot;: {
+                &quot;yes&quot;: {
+                    &quot;病因&quot;: {
+                        &quot;近视&quot;: &quot;硬的&quot;,
+                        &quot;远视&quot;: {
+                            &quot;年龄&quot;: {
+                                &quot;年轻&quot;: &quot;硬的&quot;,
+                                &quot;老人&quot;: &quot;不适合戴&quot;,
+                                &quot;中年&quot;: &quot;不适合戴&quot;
                             }
                         }
                     }
                 },
-                &#34;no&#34;: {
-                    &#34;年龄&#34;: {
-                        &#34;年轻&#34;: &#34;软的&#34;,
-                        &#34;老人&#34;: {
-                            &#34;病因&#34;: {
-                                &#34;近视&#34;: &#34;不适合戴&#34;,
-                                &#34;远视&#34;: &#34;软的&#34;
+                &quot;no&quot;: {
+                    &quot;年龄&quot;: {
+                        &quot;年轻&quot;: &quot;软的&quot;,
+                        &quot;老人&quot;: {
+                            &quot;病因&quot;: {
+                                &quot;近视&quot;: &quot;不适合戴&quot;,
+                                &quot;远视&quot;: &quot;软的&quot;
                             }
                         },
-                        &#34;中年&#34;: &#34;软的&#34;
+                        &quot;中年&quot;: &quot;软的&quot;
                     }
                 }
             }
         }
     }
 }
-</code></pre></td></tr></table>
-</div>
-</div>
+</code></pre>
+
                 
                 <div id="cyReward" role="cylabs" data-use="reward" style="text-align: center"></div>
                 
@@ -985,7 +805,7 @@
             
             
             <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%B3%BB%E5%88%97" title="环境配置系列"  target="_blank" >
-            环境配置系列(12)
+            环境配置系列(14)
             </a>
 
             
@@ -993,6 +813,13 @@
             
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" title="排序算法"  target="_blank" >
             排序算法(9)
+            </a>
+
+            
+            
+            
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
+            机器学习系列(8)
             </a>
 
             
@@ -1014,13 +841,6 @@
             
             <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80" title="数学基础"  target="_blank" >
             数学基础(7)
-            </a>
-
-            
-            
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97" title="机器学习系列"  target="_blank" >
-            机器学习系列(7)
             </a>
 
             
@@ -1266,6 +1086,7 @@
 <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
 
 
+
 <script>
 
 
@@ -1330,10 +1151,73 @@ gtag('config', 'UA-155998534-1');
 </body>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
     <script src="https://www.naah69.com/js/article.js"></script>
+    <script>
+
+
+    
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+        singleLine: true
+    });
+
+    $("style").each(function(){
+        style=$(this).text()
+        if(style.indexOf(".hljs-ln td{padding:0}")!=-1){
+            $(this).remove();
+        }
+    });
+
+
+    
+    var snippets = document.querySelectorAll('pre>code');
+    var htmlCopyButton = `<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i></button>`;
+
+    snippets.forEach(snippet => {
+        var pre = snippet.parentNode;
+        var pre_parent = pre.parentNode;
+
+        var wrapper = document.createElement('div');
+
+        pre_parent.replaceChild(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        wrapper.classList.add('code-highlight');
+        wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+        var class0 = (snippet.classList[0] || 'code')
+        var lang = (class0.replace("language-", "") || 'code').toUpperCase();
+        wrapper.setAttribute('data-lang', lang);
+    });
+
+    
+    var clipboard = new ClipboardJS('.codecopy-btn', {
+        target: trigger => {
+            return trigger.nextSibling;
+        },
+    });
+
+    clipboard.on('success', e => {
+        e.trigger.setAttribute('aria-label', 'Copied!');
+        e.clearSelection();
+    });
+
+    
+    
+    var btns = document.querySelectorAll('.codecopy-btn');
+
+    btns.forEach(btn => {
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    });
+
+</script>
 
 
 </html>
