@@ -6,16 +6,7 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 11 Dec 2021 19:49:02 +0800</lastBuildDate><atom:link href="https://www.naah69.com/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Aaa</title>
-      <link>https://www.naah69.com/post/aaa/</link>
-      <pubDate>Sat, 11 Dec 2021 19:49:02 +0800</pubDate>
-      
-      <guid>https://www.naah69.com/post/aaa/</guid>
-      <description>ls asd  </description>
-    </item>
-    
+    <lastBuildDate>Mon, 26 Jul 2021 18:15:50 +0800</lastBuildDate><atom:link href="https://www.naah69.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>k8s安装openvpn（ldap）</title>
       <link>https://www.naah69.com/post/2021-07-26-k8s-openvpn-ldap/</link>
