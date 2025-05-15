@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>房贷计算器</title>
+    <meta name="description" content="一个集房贷计算、利率变更、LPR利率变更、提前还款等多功能于一身的房贷计算器" />
+    <meta name="keywords" content="房贷计算器,房贷计算,利率变更,LPR变更,提前还款" />
+    
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1400px; margin: 20px auto }
+        .form-group { margin-bottom: 15px }
+        label { display: inline-block; width: 160px }
+        .events-container { margin-left: 20px }
+        .event-row { margin-bottom: 10px }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            border-spacing: 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: right;
+            white-space: nowrap;
+        }
+        th {
+            background-color: #f5f5f5;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+        .event-marker {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+        .tabs {
+            margin-top: 40px;
+            display: flex;
+            border-bottom: 2px solid #ddd;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        .tab.active {
+            border-bottom: 2px solid #007bff;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .event-detail {
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h2>房贷计算器</h2>
+    <p>
+        <b>房贷计算器是一个集房贷计算、利率变更、LPR利率变更、提前还款等多功能于一身的房贷计算器。</b>
+    </p>
+    
+    <!-- 基础输入表单 -->
+    <div class="form-group">
+        <label>贷款总额（元）：</label>
+        <input type="number" id="loanAmount" value="1000000" step="10000">
+    </div>
+
+    <div class="form-group">
+        <label>初始年利率（%）：</label>
+        <input type="number" id="initRate" value="4.9" step="0.1">
+    </div>
+
+    <div class="form-group">
+        <label>贷款年限（年）：</label>
+        <input type="number" id="loanYears" value="30" step="1">
+    </div>
+
+    <div class="form-group">
+        <label>贷款开始年月：</label>
+        <input type="month" id="loanStartDate" value="2022-01">
+    </div>
+
+    <div class="form-group">
+        <label>还款方式：</label>
+        <select id="repaymentType">
+            <option value="equal_payment">等额本息</option>
+            <option value="equal_principal" disabled>等额本金（开发中）</option>
+        </select>
+    </div>
+
+    <!-- 利率变更设置 -->
+    <div class="form-group">
+        <label>利率变更：</label>
+        <div class="events-container" id="rateChangesContainer">
+            <div class="event-row">
+                <input type="month" style="width: 130px">
+                <input type="number" placeholder="新利率%" style="width: 100px">
+            </div>
+        </div>
+        <button onclick="addRateChange()">添加利率变更</button>
+    </div>
+
+    <!-- 提前还款设置 -->
+    <div class="form-group">
+        <label>提前还款：</label>
+        <div class="events-container" id="prepaymentsContainer">
+            <div class="event-row">
+                <input type="month" style="width: 130px">
+                <input type="number" placeholder="还款金额" style="width: 100px">
+            </div>
+        </div>
+        <button onclick="addPrepayment()">添加提前还款</button>
+    </div>
+
+    <button onclick="calculate()" style="margin-top: 20px">计算</button>
+    <p>当前已有<b><span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span></b>人使用过</p>
+    <!-- 计算结果展示 -->
+    <div id="result" style="margin-top: 30px; white-space: pre-wrap"></div>
+
+    <!-- Tab导航 -->
+    <div class="tabs">
+        <div class="tab active" data-tab-id="details" onclick="switchTab('details')">还款明细</div>
+        <div class="tab" data-tab-id="eventDetails" onclick="switchTab('eventDetails')">事件明细</div>
+    </div>
+
+    <!-- 明细数据表格 -->
+    <div id="details" class="tab-content active"></div>
+    <div id="eventDetails" class="tab-content"></div>
+    <script async src="https://www.naah69.com/js/busuanzi.pure.mini.js"></script>
+    <script>
+        // 全局变量存储计算结果
+        let calculationResult = {
+            paymentDetails: [],
+            baseDate: null
+        };
+
+        // 计算剩余还款月数
+        function calculateRemainingMonths(P, annualRate, monthlyPayment) {
+            if (monthlyPayment <= 0) return Infinity;
+            let r = annualRate / 100 / 12;
+            if (P <= 0) return 0;
+            if (monthlyPayment <= P * r) return Infinity;
+
+            try {
+                let denominator = 1 - (P * r) / monthlyPayment;
+                if (denominator <= 0) return Infinity;
+                let n = -Math.log(denominator) / Math.log(1 + r);
+                return Math.ceil(n);
+            } catch {
+                return Infinity;
+            }
+        }
+
+        // 计算两个日期之间的月份数差异
+        function getMonthsDiff(baseDate, targetDate) {
+            let base = new Date(baseDate);
+            let target = new Date(targetDate);
+            return (target.getFullYear() - base.getFullYear()) * 12 +
+                   (target.getMonth() - base.getMonth());
+        }
+
+        // 格式化日期为YYYY-MM格式
+        function formatDate(date) {
+            return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}`;
+        }
+
+        // 获取当前日期
+        function getCurrentDate() {
+            let date = new Date();
+            return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}`;
+        }
+
+        // 主计算函数
+        function calculate() {
+            // 获取当前时间
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const currentMonthOfYear = now.getMonth();
+            const currentDateTime = `${currentYear}-${String(currentMonthOfYear+1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+            // 获取输入值
+            let loanAmount = parseFloat(document.getElementById('loanAmount').value);
+            let initAnnualRate = parseFloat(document.getElementById('initRate').value);
+            let loanYears = parseInt(document.getElementById('loanYears').value);
+            let loanStartDate = document.getElementById('loanStartDate').value;
+            let repaymentType = document.getElementById('repaymentType').value;
+
+            // 收集利率变更事件
+            let rateChanges = [];
+            document.querySelectorAll('#rateChangesContainer .event-row').forEach(row => {
+                let dateInput = row.children[0];
+                let rateInput = row.children[1];
+                if (dateInput.value && rateInput.value) {
+                    let monthDiff = getMonthsDiff(loanStartDate, dateInput.value);
+                    rateChanges.push({
+                        month: Math.max(0, monthDiff),
+                        rate: parseFloat(rateInput.value)
+                    });
+                }
+            });
+
+            // 收集提前还款事件
+            let prepayments = [];
+            document.querySelectorAll('#prepaymentsContainer .event-row').forEach(row => {
+                let dateInput = row.children[0];
+                let amountInput = row.children[1];
+                if (dateInput.value && amountInput.value) {
+                    let monthDiff = getMonthsDiff(loanStartDate, dateInput.value);
+                    prepayments.push({
+                        month: Math.max(0, monthDiff),
+                        amount: parseFloat(amountInput.value)
+                    });
+                }
+            });
+
+            // 初始化变量
+            let remainingPrincipal = loanAmount;
+            let currentMonth = 0;
+            let annualRate = initAnnualRate;
+            let monthlyRate = annualRate / 12 / 100;
+            let totalMonths = loanYears * 12;
+            let totalInterest = 0;
+            let monthlyPayment = 0;
+
+            // 用于记录每月明细
+            let paymentDetails = [];
+
+            // 记录当前时间点数据
+            let currentRemainingPrincipal = loanAmount;
+            let currentMonthlyPayment = monthlyPayment;
+            let currentAnnualRate = initAnnualRate;
+            let currentRemainingMonths = totalMonths;
+            let currentRemainingInterest = 0;
+            let currentRemainingTotal = 0;
+
+            // 获取贷款开始日期
+            let baseDate = new Date(loanStartDate);
+
+            // 计算当前月份（从贷款开始到当前时间的月份数）
+            let currentMonthsSinceStart = getMonthsDiff(loanStartDate, formatDate(new Date()));
+
+            // 计算初始月供
+            if (repaymentType === 'equal_payment') {
+                monthlyRate = initAnnualRate / 12 / 100;
+                monthlyPayment = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)
+                                / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+            }
+
+            // 合并事件并排序
+            let events = [...rateChanges.map(e => ({...e, type: 'rate_change'})),
+                         ...prepayments.map(e => ({...e, type: 'prepayment'}))];
+            events.sort((a, b) => a.month - b.month);
+
+            // 添加一个结束事件
+            events.push({ month: totalMonths + 1, type: 'end' });
+
+            // 当前事件索引
+            let eventIndex = 0;
+
+            // 处理事件循环
+            while (eventIndex < events.length) {
+                let currentEvent = events[eventIndex++];
+                let eventMonth = currentEvent.month;
+
+                // 处理事件前的逐月还款
+                while (currentMonth < eventMonth && remainingPrincipal > 1e-6) {
+                    let interestThisMonth = remainingPrincipal * monthlyRate;
+                    let principalThisMonth = monthlyPayment - interestThisMonth;
+                    if (principalThisMonth < 0) principalThisMonth = 0;
+
+                    remainingPrincipal -= principalThisMonth;
+                    totalInterest += interestThisMonth;
+                    currentMonth++;
+
+                    // 计算剩余期数
+                    let remainingMonths = Math.max(0, totalMonths - currentMonth);
+
+                    // 计算剩余利息
+                    let futureInterest = 0;
+                    if (remainingMonths > 0) {
+                        let futureMonthlyPayment = remainingPrincipal * monthlyRate * Math.pow(1 + monthlyRate, remainingMonths)
+                                                / (Math.pow(1 + monthlyRate, remainingMonths) - 1);
+                        futureInterest = futureMonthlyPayment * remainingMonths - remainingPrincipal;
+                    }
+
+                    // 如果到达当前时间点
+                    if (currentMonth === currentMonthsSinceStart) {
+                        currentRemainingPrincipal = remainingPrincipal;
+                        currentMonthlyPayment = monthlyPayment;
+                        currentAnnualRate = annualRate;
+                        currentRemainingMonths = remainingMonths;
+                        currentRemainingInterest = futureInterest;
+                        currentRemainingTotal = remainingPrincipal + futureInterest;
+                    }
+
+                    // 记录明细
+                    paymentDetails.push({
+                        month: currentMonth,
+                        date: formatDate(new Date(baseDate.getFullYear(), baseDate.getMonth() + currentMonth)),
+                        principal: principalThisMonth,
+                        interest: interestThisMonth,
+                        payment: principalThisMonth + interestThisMonth,
+                        remainingPrincipal: remainingPrincipal,
+                        remainingInterest: futureInterest,
+                        remainingTotal: remainingPrincipal + futureInterest,
+                        rate: annualRate
+                    });
+                }
+
+                if (remainingPrincipal <= 1e-6) continue;
+
+                // 处理事件
+                if (currentEvent.type === 'rate_change') {
+                    let oldRate = annualRate;
+                    let oldMonthlyRate = monthlyRate;
+                    let oldMonthlyPayment = monthlyPayment;
+                    let oldRemainingPrincipal = remainingPrincipal;
+                    let oldRemainingMonths = totalMonths - currentMonth;
+
+                    annualRate = currentEvent.rate;
+                    monthlyRate = annualRate / 12 / 100;
+                    let remainingMonths = Math.max(0, totalMonths - currentMonth);
+                    if (remainingMonths > 0) {
+                        monthlyPayment = remainingPrincipal * monthlyRate * Math.pow(1 + monthlyRate, remainingMonths)
+                                        / (Math.pow(1 + monthlyRate, remainingMonths) - 1);
+                    }
+
+                    // 计算变更前的月本金
+                    let oldPrincipal = oldMonthlyPayment - (oldRemainingPrincipal * oldMonthlyRate);
+                    if (oldPrincipal < 0) oldPrincipal = 0;
+
+                    // 标记为利率变更事件
+                    paymentDetails[currentMonth - 1].isRateChange = true;
+                    paymentDetails[currentMonth - 1].rate = annualRate;
+                }
+                else if (currentEvent.type === 'prepayment') {
+                    let oldPrincipal = remainingPrincipal;
+                    remainingPrincipal = Math.max(0, remainingPrincipal - currentEvent.amount);
+                    let remainingMonths = calculateRemainingMonths(remainingPrincipal, annualRate, monthlyPayment);
+                    if (remainingMonths !== Infinity) {
+                        totalMonths = currentMonth + remainingMonths;
+                    }
+
+                    // 标记为提前还款事件
+                    paymentDetails[currentMonth - 1].isPrepayment = true;
+                    paymentDetails[currentMonth - 1].amount = currentEvent.amount;
+                }
+                else if (currentEvent.type === 'end') {
+                    // 标记为结清事件
+                    paymentDetails[currentMonth - 1].isEndEvent = true;
+                }
+            }
+
+            // 计算结束日期
+            let endDate = new Date(baseDate);
+            endDate.setMonth(endDate.getMonth() + currentMonth);
+
+            // 计算当前时间点后的剩余利息
+            let currentRemainingMonthsFinal = calculateRemainingMonths(currentRemainingPrincipal, currentAnnualRate, currentMonthlyPayment);
+            let currentRemainingInterestFinal = calculateRemainingInterest(currentRemainingPrincipal, currentAnnualRate, currentMonthlyPayment, currentRemainingMonthsFinal);
+            let currentRemainingTotalFinal = currentRemainingPrincipal + currentRemainingInterestFinal;
+
+            // 显示汇总结果
+            document.getElementById('result').innerText = `
+房贷计算结果：
+
+当前计算时间：${currentDateTime}
+
+总利息：${totalInterest.toFixed(2)} 元
+总还款：${(loanAmount + totalInterest).toFixed(2)} 元
+
+当前月供：${currentMonthlyPayment.toFixed(2)} 元
+剩余还款月数：${Math.max(0, currentRemainingMonthsFinal)}
+剩余本金：${currentRemainingPrincipal.toFixed(2)} 元
+剩余利息：${currentRemainingInterestFinal.toFixed(2)} 元
+剩余总还款：${currentRemainingTotalFinal.toFixed(2)} 元
+
+预计结束时间：${endDate.getFullYear()}-${String(endDate.getMonth()+1).padStart(2, '0')}
+            `;
+
+            // 生成明细表格
+            generateDetailsTable(paymentDetails, baseDate);
+            generateEventSummaryFromDetails(paymentDetails, baseDate);
+
+            // 确保计算后显示还款明细
+            switchTab('details');
+        }
+
+        // 计算剩余利息
+        function calculateRemainingInterest(principal, rate, monthlyPayment, remainingMonths) {
+            if (remainingMonths <= 0 || monthlyPayment <= 0) return 0;
+            let r = rate / 100 / 12;
+            if (monthlyPayment <= principal * r) return Infinity;
+
+            try {
+                let totalPayment = monthlyPayment * remainingMonths;
+                return totalPayment - principal;
+            } catch {
+                return Infinity;
+            }
+        }
+
+        // 生成明细表格
+        function generateDetailsTable(details, baseDate) {
+            let container = document.getElementById('details');
+            container.innerHTML = '<h3>每月还款明细</h3>';
+
+            let table = document.createElement('table');
+            let thead = document.createElement('thead');
+            let tbody = document.createElement('tbody');
+
+            // 表头
+            thead.innerHTML = `
+                <tr>
+                    <th>月份</th>
+                    <th>日期</th>
+                    <th>月还款总额（元）</th>
+                    <th>月本金（元）</th>
+                    <th>月利息（元）</th>
+                    <th>本金占比</th>
+                    <th>利息占比</th>
+                    <th>剩余本金（元）</th>
+                    <th>剩余利息（元）</th>
+                    <th>剩余本息（元）</th>
+                    <th>年利率（%）</th>
+                </tr>
+            `;
+
+            // 表内容
+            details.forEach(record => {
+                
+                let tr = document.createElement('tr');
+                let principalPercent = record.principal / record.payment * 100;
+                let interestPercent = record.interest / record.payment * 100;
+
+                tr.innerHTML = `
+                    <td>${record.month}</td>
+                    <td>${record.date}</td>
+                    <td>${record.payment.toFixed(2)}</td>
+                    <td>${record.principal.toFixed(2)}</td>
+                    <td>${record.interest.toFixed(2)}</td>
+                    <td>${principalPercent.toFixed(2)}%</td>
+                    <td>${interestPercent.toFixed(2)}%</td>
+                    <td>${record.remainingPrincipal.toFixed(2)}</td>
+                    <td>${record.remainingInterest.toFixed(2)}</td>
+                    <td>${record.remainingTotal.toFixed(2)}</td>
+                    <td>${record.rate.toFixed(2)}</td>
+                `;
+                tbody.appendChild(tr);
+
+                if (record.isRateChange || record.isPrepayment) {
+                    let tr = document.createElement('tr');
+                    let td = document.createElement('td');
+                    td.colSpan = 11;
+                    td.className = "event-marker";
+
+                    if (record.isRateChange) {
+                        td.textContent = `第${record.month}个月（${record.date}）利率变更为${record.rate}%`;
+                    }
+                    else if (record.isPrepayment) {
+                        td.textContent = `第${record.month}个月（${record.date}）提前还款${record.amount.toFixed(2)}元`;
+                    }
+                    else {
+                        td.textContent = `贷款结清`;
+                    }
+
+                    tr.appendChild(td);
+                    tbody.appendChild(tr);
+                }
+            });
+
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            container.appendChild(table);
+        }
+
+        // 从还款明细中提取事件明细
+        function generateEventSummaryFromDetails(details, baseDate) {
+            let container = document.getElementById('eventDetails');
+            container.innerHTML = '<h3>事件明细</h3>';
+
+            let eventSummaries = [];
+
+            details.forEach((record, index) => {
+                if (record.isRateChange) {
+                    let beforeRecord = details[index] || record;
+                    let afterRecord =  details[index+1] || record;
+
+                    eventSummaries.push({
+                        type: '利率变更',
+                        before: {
+                            status: '变更前',
+                            month: beforeRecord.month,
+                            date: beforeRecord.date,
+                            payment: beforeRecord.payment.toFixed(2),
+                            principal: (beforeRecord.payment - beforeRecord.interest).toFixed(2),
+                            interest: beforeRecord.interest.toFixed(2),
+                            principalPercent: ((beforeRecord.payment - beforeRecord.interest) / beforeRecord.payment * 100).toFixed(2),
+                            interestPercent: (beforeRecord.interest / beforeRecord.payment * 100).toFixed(2),
+                            rate: beforeRecord.rate.toFixed(2),
+                            remainingPrincipal: beforeRecord.remainingPrincipal.toFixed(2),
+                            remainingInterest: beforeRecord.remainingInterest.toFixed(2),
+                            remainingMonths: Math.ceil((beforeRecord.remainingTotal - beforeRecord.remainingPrincipal) / beforeRecord.payment),
+                            remainingYears: Math.ceil(((beforeRecord.remainingTotal - beforeRecord.remainingPrincipal) / beforeRecord.payment) / 12),
+                        },
+                        after: {
+                            status: '变更后',
+                            month: afterRecord.month,
+                            date: afterRecord.date,
+                            payment: afterRecord.payment.toFixed(2),
+                            principal: (afterRecord.payment - afterRecord.interest).toFixed(2),
+                            interest: afterRecord.interest.toFixed(2),
+                            principalPercent: ((afterRecord.payment - afterRecord.interest) / afterRecord.payment * 100).toFixed(2),
+                            interestPercent: (afterRecord.interest / afterRecord.payment * 100).toFixed(2),
+                            rate: afterRecord.rate.toFixed(2),
+                            remainingPrincipal: afterRecord.remainingPrincipal.toFixed(2),
+                            remainingInterest: afterRecord.remainingInterest.toFixed(2),
+                            remainingMonths: Math.ceil((afterRecord.remainingTotal - afterRecord.remainingPrincipal) / afterRecord.payment),
+                            remainingYears: Math.ceil(((afterRecord.remainingTotal - afterRecord.remainingPrincipal) / afterRecord.payment) / 12),
+                        }
+                    });
+                }
+
+                if (record.isPrepayment) {
+                    let beforeRecord = details[index] || record;
+                    let afterRecord = details[index+1] || record;
+
+                    eventSummaries.push({
+                        type: '提前还款',
+                        before: {
+                            status: '变更前',
+                            month: beforeRecord.month,
+                            date: beforeRecord.date,
+                            payment: beforeRecord.payment.toFixed(2),
+                            principal: (beforeRecord.payment - beforeRecord.interest).toFixed(2),
+                            interest: beforeRecord.interest.toFixed(2),
+                            principalPercent: ((beforeRecord.payment - beforeRecord.interest) / beforeRecord.payment * 100).toFixed(2),
+                            interestPercent: (beforeRecord.interest / beforeRecord.payment * 100).toFixed(2),
+                            rate: beforeRecord.rate.toFixed(2),
+                            remainingPrincipal: beforeRecord.remainingPrincipal.toFixed(2),
+                            remainingInterest: beforeRecord.remainingInterest.toFixed(2),
+                            remainingMonths: Math.ceil((beforeRecord.remainingTotal - beforeRecord.remainingPrincipal) / beforeRecord.payment),
+                            remainingYears: Math.ceil(((beforeRecord.remainingTotal - beforeRecord.remainingPrincipal) / beforeRecord.payment) / 12),
+                        },
+                        after: {
+                            status: '变更后',
+                            month: afterRecord.month,
+                            date: afterRecord.date,
+                            payment: afterRecord.payment.toFixed(2),
+                            principal: (afterRecord.payment - afterRecord.interest).toFixed(2),
+                            interest: afterRecord.interest.toFixed(2),
+                            principalPercent: ((afterRecord.payment - afterRecord.interest) / afterRecord.payment * 100).toFixed(2),
+                            interestPercent: (afterRecord.interest / afterRecord.payment * 100).toFixed(2),
+                            rate: afterRecord.rate.toFixed(2),
+                            remainingPrincipal: afterRecord.remainingPrincipal.toFixed(2),
+                            remainingInterest: afterRecord.remainingInterest.toFixed(2),
+                            remainingMonths: Math.ceil((afterRecord.remainingTotal - afterRecord.remainingPrincipal) / afterRecord.payment),
+                            remainingYears: Math.ceil(((afterRecord.remainingTotal - afterRecord.remainingPrincipal) / afterRecord.payment) / 12),
+                        }
+                    });
+                }
+
+                if (record.isEndEvent) {
+                    eventSummaries.push({
+                        type: '贷款结清',
+                        month: record.month,
+                        date: record.date
+                    });
+                }
+            });
+
+            if (eventSummaries.length === 0) {
+                container.innerHTML += '<p>暂无事件明细</p>';
+                return;
+            }
+
+            let table = document.createElement('table');
+            let thead = document.createElement('thead');
+            let tbody = document.createElement('tbody');
+
+            // 新表头结构
+            thead.innerHTML = `
+                <tr>
+                    <th>事件类型</th>
+                    <th>发生月份</th>
+                    <th>发生日期</th>
+                    <th>状态</th>
+                    <th>月还款总额（元）</th>
+                    <th>月本金（元）</th>
+                    <th>月利息（元）</th>
+                    <th>年利率（%）</th>
+                    <th>剩余本金（元）</th>
+                    <th>本金占比</th>
+                    <th>利息占比</th>
+                    <th>剩余利息（元）</th>
+                    <th>剩余还款月数</th>
+                    <th>剩余还款年限</th>
+                </tr>
+            `;
+
+            // 表内容
+            eventSummaries.forEach(record => {
+                if (record.type === '贷款结清') {
+                    let tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${record.type}</td>
+                        <td>${record.month}</td>
+                        <td>${record.date}</td>
+                        <td colspan="11" class="event-marker">贷款已全部结清</td>
+                    `;
+                    tbody.appendChild(tr);
+                    return;
+                }
+
+                // 添加变更前数据
+                let beforeRow = document.createElement('tr');
+                beforeRow.innerHTML = `
+                    <td>${record.type}</td>
+                    <td>${record.before.month}</td>
+                    <td>${record.before.date}</td>
+                    <td>${record.before.status}</td>
+                    <td>${record.before.payment}</td>
+                    <td>${record.before.principal}</td>
+                    <td>${record.before.interest}</td>
+                    <td>${record.before.rate}</td>
+                    <td>${record.before.remainingPrincipal}</td>
+                    <td>${record.before.principalPercent}%</td>
+                    <td>${record.before.interestPercent}%</td>
+                    <td>${record.before.remainingInterest}</td>
+                    <td>${record.before.remainingMonths}</td>
+                    <td>${record.before.remainingYears}</td>
+                `;
+                tbody.appendChild(beforeRow);
+
+                // 添加变更后数据
+                let afterRow = document.createElement('tr');
+                afterRow.innerHTML = `
+                    <td></td>
+                    <td>${record.after.month}</td>
+                    <td>${record.after.date}</td>
+                    <td>${record.after.status}</td>
+                    <td>${record.after.payment}</td>
+                    <td>${record.after.principal}</td>
+                    <td>${record.after.interest}</td>
+                    <td>${record.after.rate}</td>
+                    <td>${record.after.remainingPrincipal}</td>
+                    <td>${record.after.principalPercent}%</td>
+                    <td>${record.after.interestPercent}%</td>
+                    <td>${record.after.remainingInterest}</td>
+                    <td>${record.after.remainingMonths}</td>
+                    <td>${record.after.remainingYears}</td>
+                `;
+                tbody.appendChild(afterRow);
+            });
+
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            container.appendChild(table);
+        }
+
+        // 切换Tab
+        function switchTab(tabId) {
+            // 移除所有Tab的active类
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+
+            // 隐藏所有Tab内容
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            // 获取当前Tab元素
+            const tabElement = document.querySelector(`.tab[data-tab-id="${tabId}"]`);
+            if (tabElement) {
+                tabElement.classList.add('active');
+            }
+
+            // 显示对应的内容
+            const contentElement = document.getElementById(tabId);
+            if (contentElement) {
+                contentElement.classList.add('active');
+            }
+        }
+
+        // 添加利率变更输入行
+        function addRateChange() {
+            const container = document.getElementById('rateChangesContainer');
+            const row = document.createElement('div');
+            row.className = 'event-row';
+            row.innerHTML = `
+                <input type="month" style="width: 130px">
+                <input type="number" placeholder="新利率%" style="width: 100px">
+            `;
+            container.appendChild(row);
+        }
+
+        // 添加提前还款输入行
+        function addPrepayment() {
+            const container = document.getElementById('prepaymentsContainer');
+            const row = document.createElement('div');
+            row.className = 'event-row';
+            row.innerHTML = `
+                <input type="month" style="width: 130px">
+                <input type="number" placeholder="还款金额" style="width: 100px">
+            `;
+            container.appendChild(row);
+        }
+
+        // 页面加载时默认显示还款明细
+        document.addEventListener('DOMContentLoaded', function() {
+            // 默认激活还款明细Tab
+            switchTab('details');
+        });
+    </script>
+</body>
+</html>
